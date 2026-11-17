@@ -1,4 +1,5 @@
 import BestSellingCourses from "./best-selling-courses"
+import PopularInstructors from "./popular-instructors"
 import PopularKeywords from "./popular-keywords"
 import PopularTools from "./popular-tools"
 
@@ -17,10 +18,13 @@ const CourseCateogoriesContent=({}:IProps)=> {
         <PopularTools />
 
         <PopularKeywords />
+        
       </div>
+      <PopularInstructors />
+      
     </main>
   )
 }
 
 export default CourseCateogoriesContent
-// px-4 py-10 md:px-6 lg:px-8
+// px-4 py-10 md:px-6 lg:px-8   mx-auto w-full max-w-285 px-4

@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import { CreditCard, Check } from "lucide-react";
+import { PaymentMethodType } from "../types/gift-course-type";
 import SavedPaymentCard from "./saved-payment-card";
 import NewPaymentCardForm from "./new-payment-card-form";
-import { PaymentMethodType } from "../types/gift-course-type";
 
 
 const PaymentMethod = () => {

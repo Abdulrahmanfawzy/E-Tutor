@@ -1,4 +1,5 @@
 import BestSellingCourses from "./best-selling-courses"
+import CourseCatalog from "./course-catalog"
 import PopularInstructors from "./popular-instructors"
 import PopularKeywords from "./popular-keywords"
 import PopularTools from "./popular-tools"
@@ -21,6 +22,15 @@ const CourseCateogoriesContent=({}:IProps)=> {
         
       </div>
       <PopularInstructors />
+
+      {/* Courses Section */}
+      <div className="mx-auto flex w-full max-w-285 flex-col gap-10 py-10">
+
+        <CourseCatalog />
+
+        
+
+      </div>
       
     </main>
   )

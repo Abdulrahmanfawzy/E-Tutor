@@ -1,5 +1,24 @@
 import courseImage from '@/assets/images/Course Images.svg'
-export const coursesData = [
+import { StaticImageData } from 'next/image';
+export const COURSE_CATEGORIES = [
+  "DESIGN",
+  "DEVELOPMENTS",
+  "BUSINESS",
+  "MARKETING",
+  "IT & SOFTWARE",
+] as const;
+
+export type CourseCategory = (typeof COURSE_CATEGORIES)[number];
+export interface Course {
+  id: number;
+  category: CourseCategory;
+  title: string;
+  price: number;
+  rating: number;
+  students: string;
+  image: string | StaticImageData;
+}
+export const coursesData:Course[] = [
   {
     id: 1,
     category: "DESIGN",

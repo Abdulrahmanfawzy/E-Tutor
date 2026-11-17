@@ -8,6 +8,7 @@ import { popularTools } from "./courses-data";
 
 export default function PopularTools() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [activeTool, setActiveTool] = useState("Laravel");
 
   const visibleTools = Array.from(
     { length: 6 },
@@ -56,24 +57,25 @@ export default function PopularTools() {
         {visibleTools.map((tool, index) => (
           <Card
             key={`${tool.name}-${index}`}
-            className={`flex cursor-pointer flex-col items-center justify-center gap-1 rounded-none border border-gray-100 px-2 py-4 shadow-none transition-all hover:-translate-y-1 hover:shadow-md ${
-              tool.name === "Laravel"
+            onClick={()=>setActiveTool(tool.name)}
+            className={`flex cursor-pointer flex-col items-center justify-center gap-1 rounded-none  px-2 py-4 shadow-none transition-all hover:-translate-y-1 hover:shadow-md ${
+              activeTool === tool.name 
                 ? "border-transparent shadow-md"
                 : ""
             }`}
           >
             <h3
-              className={` ${
-                tool.name === "Laravel"
-                  ? "text-red-500"
-                  : "text-gray-800"
+              className={`text-base leading-5.5 ${
+                activeTool === tool.name 
+                  ? "text-orange-400"
+                  : "text-gray-900"
               }
               `}
             >
               {tool.name}
             </h3>
 
-            <span className="text-[8px] text-gray-400">
+            <span className="text-xs text-gray-500 leading-4">
               {tool.courses}
             </span>
           </Card>

@@ -1,9 +1,11 @@
 
 import CourseCard from "./course-card";
-import { coursesData } from "./courses-data";
+import  { coursesData } from "./courses-data";
+
 
 
 export default function BestSellingCourses() {
+
   return (
     <section className="space-y-7">
       <h2 className="text-center text-4xl font-semibold text-gray-900">

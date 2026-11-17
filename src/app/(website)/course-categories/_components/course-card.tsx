@@ -3,19 +3,20 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Star } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
+import { cn } from "cn";
+import { Course, CourseCategory } from "./courses-data";
 
 interface CourseCardProps {
-  course: {
-    id: number;
-    category: string;
-    title: string;
-    price: number;
-    rating: number;
-    students: string;
-    image: string| StaticImageData;
-  };
+  course: Course;
 }
-
+    const CATEGORY_STYLES: Record<CourseCategory, string> = {
+  "DESIGN": "bg-orange-50 text-orange-600",
+  "DEVELOPMENTS": "bg-purple-50 text-purple-600",
+  "BUSINESS": "bg-green-50 text-green-600",
+  "MARKETING": "bg-purple-50 text-purple-600",
+  "IT & SOFTWARE": "bg-red-50 text-red-600",
+  
+}
 export default function CourseCard({ course }: CourseCardProps) {
   return (
     <Card className="group/card h-full gap-0 overflow-hidden rounded-none  bg-white p-0  duration-200 hover:shadow-md">
@@ -33,7 +34,7 @@ export default function CourseCard({ course }: CourseCardProps) {
         <div className="flex items-center justify-between gap-2">
           <Badge
             variant="outline"
-            className="min-w-0 max-w-[65%] shrink truncate  border-0 bg-[#EBEBFF] px-2 py-1 text-[10px] font-medium leading-3 text-[#342F98]"
+            className={cn("min-w-0 max-w-[65%] shrink truncate  border-0  px-2 py-1 text-[10px] font-medium leading-3 ", CATEGORY_STYLES[course.category])}
           >
             {course.category}
           </Badge>

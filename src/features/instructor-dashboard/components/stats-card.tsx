@@ -82,7 +82,7 @@ function StatCard({ label, value, icon: Icon, iconClassName }: Stat) {
         <Icon size={24} />
       </div>
       <div>
-        <p className="text-heading-7">{value}</p>
+        <p className="text-xl ">{value}</p>
         <p className="text-label-md text-muted-foreground">{label}</p>
       </div>
     </div>

@@ -25,7 +25,7 @@ const NAV_ITEMS = [
 export default function InstructorSidebar() {
   const pathname = usePathname();
   const  {locale}  = useParams();
-  console.log("InstructorSidebar pathname:", pathname);
+
   return (
     <aside className="sticky top-0 flex h-screen w-60 shrink-0 flex-col bg-gray-900 text-gray-300">
       {/* Logo */}

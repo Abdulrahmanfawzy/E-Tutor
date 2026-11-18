@@ -1,16 +1,18 @@
 
-export function TrustedCompaniesSection() {
-  const companies = [
-    "NETFLIX",
-    "▶ YouTube",
-    "Google",
-    "Lenovo",
-    "slack",
-    "verizon",
-    "Lexmark",
-    "Microsoft",
-  ];
+import Image from "next/image";
 
+const companies = [
+  { name: "Netflix", image: "/images/companies/netflix.png" },
+  { name: "YouTube", image: "/images/companies/youtube.png" },
+  { name: "Google", image: "/images/companies/google.png" },
+  { name: "Lenovo", image: "/images/companies/lenovo.png" },
+  { name: "Slack", image: "/images/companies/slack.png" },
+  { name: "Verizon", image: "/images/companies/verizon.png" },
+  { name: "Lexmark", image: "/images/companies/lexmark.png" },
+  { name: "Microsoft", image: "/images/companies/microsoft.png" },
+];
+
+export function TrustedCompaniesSection() {
   return (
     <section className="bg-white px-5 py-12">
       <div className="mx-auto grid max-w-5xl items-center gap-8 md:grid-cols-3">
@@ -28,10 +30,18 @@ export function TrustedCompaniesSection() {
         <div className="grid grid-cols-2 gap-3 md:col-span-2 md:grid-cols-4">
           {companies.map((company) => (
             <div
-              key={company}
-              className="flex h-16 items-center justify-center bg-white text-sm font-bold text-gray-600 shadow-sm"
+              key={company.name}
+              className="flex h-20 items-center justify-center bg-white p-3 shadow-sm"
             >
-              {company}
+              <div className="relative h-[60px] w-[60px]">
+                <Image
+                  src={company.image}
+                  alt={`${company.name} logo`}
+                  fill
+                  sizes="60px"
+                  className="object-contain"
+                />
+              </div>
             </div>
           ))}
         </div>

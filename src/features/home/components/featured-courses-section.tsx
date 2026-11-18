@@ -1,5 +1,12 @@
 
-import { Star } from "lucide-react";
+import Image from "next/image";
+import {
+  BarChart3,
+  Clock3,
+  Star,
+  Users,
+} from "lucide-react";
+
 import type { Course } from "../types/home.types";
 import { SectionTitle } from "./section-title";
 
@@ -11,51 +18,85 @@ export function FeaturedCoursesSection({
   courses,
 }: FeaturedCoursesSectionProps) {
   return (
-    <section className="relative z-10 mx-auto -mt-1 max-w-5xl bg-white px-5 py-10 shadow-sm">
-      <div className="mb-7 flex flex-wrap items-center justify-between gap-3">
-        <h2 className="text-2xl font-bold text-gray-900">
-          Our feature courses
-        </h2>
-
-        <p className="max-w-xs text-xs leading-5 text-gray-400">
-          Worldwide student and skill courses available.
-          Find your next course of interest.
-        </p>
-      </div>
+    <section className="mx-auto max-w-6xl bg-white px-5 py-10">
+      <SectionTitle title="Our feature courses" />
 
       <div className="grid gap-4 md:grid-cols-2">
         {courses.slice(0, 4).map((course) => (
           <article
             key={course.id}
-            className="flex min-w-0 gap-3 border border-gray-100 p-2 transition hover:shadow-md"
+            className="flex min-w-0 border border-gray-100 bg-white transition hover:shadow-md"
           >
-            <img
-              src={course.image}
-              alt={course.title}
-              className="h-28 w-28 shrink-0 object-cover"
-            />
+            {/* Course Image */}
+            <div className="relative min-h-[155px] w-[38%] shrink-0">
+              <Image
+                src={course.image}
+                alt={course.title}
+                fill
+                sizes="(max-width: 768px) 40vw, 20vw"
+                className="object-cover"
+              />
+            </div>
 
-            <div className="min-w-0 flex-1 py-1">
-              <span className="text-[9px] font-bold text-green-600">
-                {course.tag}
-              </span>
+            {/* Course Details */}
+            <div className="flex min-w-0 flex-1 flex-col p-3">
+              {/* Category, Rating and Price */}
+              <div className="flex items-center justify-between gap-2">
+                <span className="border border-green-100 bg-green-50 px-2 py-1 text-[9px] font-semibold text-green-600">
+                  {course.tag}
+                </span>
 
-              <h3 className="mt-1 line-clamp-2 text-xs font-semibold leading-5 text-gray-800">
+                <div className="flex shrink-0 items-center gap-2">
+                  <span className="text-sm font-semibold text-[#FF6636]">
+                    $14.00
+                  </span>
+                </div>
+              </div>
+
+              {/* Course Title */}
+              <h3 className="mt-2 line-clamp-2 text-xs font-semibold leading-5 text-gray-800">
                 {course.title}
               </h3>
 
-              <p className="mt-2 text-[10px] text-gray-400">
-                {course.instructor}
-              </p>
+              {/* Instructor */}
+              <div className="mt-2 flex items-center gap-2">
+                <div className="relative h-6 w-6 shrink-0 overflow-hidden rounded-full">
+                  <Image
+                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100"
+                    alt={course.instructor}
+                    fill
+                    sizes="24px"
+                    className="object-cover"
+                  />
+                </div>
 
-              <div className="mt-2 flex items-center justify-between text-xs">
-                <span className="flex items-center gap-1 text-amber-500">
-                  <Star className="h-3 w-3 fill-current" />
-                  {course.rating.toFixed(1)}
+                <span className="min-w-0 truncate text-[10px] text-gray-500">
+                  {course.instructor}
                 </span>
 
-                <span className="font-bold text-gray-800">
-                  ${course.price}.00
+                <span className="ml-auto flex shrink-0 items-center gap-1 text-[10px]">
+                  <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
+                  <span className="font-medium text-gray-700">
+                    {course.rating.toFixed(1)}
+                  </span>
+                </span>
+              </div>
+
+              {/* Course Stats */}
+              <div className="mt-auto flex flex-wrap items-center justify-between gap-2 border-t border-gray-100 pt-2 text-[9px] text-gray-500">
+                <span className="flex items-center gap-1">
+                  <Users className="h-3 w-3 text-[#564FFD]" />
+                  {course.students}
+                </span>
+
+                <span className="flex items-center gap-1">
+                  <BarChart3 className="h-3 w-3 text-red-500" />
+                  Beginner
+                </span>
+
+                <span className="flex items-center gap-1">
+                  <Clock3 className="h-3 w-3 text-green-500" />
+                  6 hour
                 </span>
               </div>
             </div>

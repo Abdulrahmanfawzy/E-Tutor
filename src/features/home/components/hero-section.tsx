@@ -22,9 +22,9 @@ export function HeroSection() {
           </button>
         </div>
 
-        <div className="relative h-70 overflow-hidden md:h-full">
-          <Image
-            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200"
+<div className="relative h-[280px] overflow-hidden md:h-full w-full md:w-[49.5vw] [clip-path:polygon(7%_0,100%_0,100%_100%,0_100%)]">
+      <Image
+            src="/images/hero-students.png"
             alt="Students learning together"
             fill
             priority

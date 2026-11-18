@@ -1,5 +1,4 @@
 import type { Category, Course, Instructor } from "../types/home.types";
-
 const images = {
   course1:
     "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600",
@@ -61,7 +60,7 @@ export const instructors: Instructor[] = [
     job: "Senior Developer",
     rating: 4.6,
     students: "854 students",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400",
+    image: "/images/student1.jpg",
   },
   {
     id: 2,
@@ -69,7 +68,7 @@ export const instructors: Instructor[] = [
     job: "Digital Product Designer",
     rating: 4.8,
     students: "45,144 students",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400",
+    image: "/images/student2.jpg",
   },
   {
     id: 3,
@@ -77,7 +76,7 @@ export const instructors: Instructor[] = [
     job: "UI/UX Designer",
     rating: 4.8,
     students: "435,571 students",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400",
+    image: "/images/student3.jpg",
   },
   {
     id: 4,
@@ -85,7 +84,7 @@ export const instructors: Instructor[] = [
     job: "Photo Instructor",
     rating: 4.7,
     students: "511,123 students",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400",
+    image: "/images/student4.jpg",
   },
   {
     id: 5,
@@ -93,7 +92,7 @@ export const instructors: Instructor[] = [
     job: "Cloud Engineer",
     rating: 4.2,
     students: "2,771 students",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400",
+    image: "/images/student5.jpg",
   },
 ];
 

@@ -1,4 +1,7 @@
 
+import Image from "next/image";
+import { Star } from "lucide-react";
+
 import { instructors } from "../data/home.mock";
 import { SectionTitle } from "./section-title";
 
@@ -13,11 +16,15 @@ export function InstructorsSection() {
             key={instructor.id}
             className="overflow-hidden border border-gray-100 text-center"
           >
-            <img
-              src={instructor.image}
-              alt={instructor.name}
-              className="h-40 w-full object-cover"
-            />
+            <div className="relative h-40 w-full">
+              <Image
+                src={instructor.image}
+                alt={instructor.name}
+                fill
+                sizes="(max-width: 768px) 50vw, 20vw"
+                className="object-cover"
+              />
+            </div>
 
             <div className="p-3">
               <h3 className="text-xs font-semibold text-gray-800">
@@ -29,9 +36,11 @@ export function InstructorsSection() {
               </p>
 
               <div className="mt-3 flex justify-between border-t border-gray-100 pt-2 text-[10px] text-gray-500">
-                <span className="text-amber-500">
-                  ★ {instructor.rating}
+                <span className="flex items-center gap-1 text-amber-500">
+                  <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
+                  {instructor.rating}
                 </span>
+
                 <span>{instructor.students}</span>
               </div>
             </div>

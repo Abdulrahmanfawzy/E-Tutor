@@ -3,7 +3,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowRight } from "lucide-react";
 import { Controller, useForm } from "react-hook-form";
-
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Field, FieldError, FieldLabel } from "@/components/ui/field";
@@ -13,9 +12,21 @@ import { Separator } from "@/components/ui/separator";
 import { RegisterField } from "@/features/auth/components/RegisterField";
 import { RegisterPasswordField } from "@/features/auth/components/RegisterPasswordField";
 import { SocialSignUpButtons } from "@/features/auth/components/SocialSignUpButtons";
-import { registerSchema, type RegisterFormValues } from "@/features/auth/types/register";
+import {
+  registerSchema,
+  type RegisterFormValues,
+} from "@/features/auth/schema/Vaildations";
 
 export function RegisterForm() {
+  const registerForm = {
+    firstName: "",
+    lastName: "",
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    termsAccepted: false,
+  };
   const {
     control,
     formState: { errors },
@@ -23,21 +34,13 @@ export function RegisterForm() {
   } = useForm<RegisterFormValues>({
     resolver: zodResolver(registerSchema),
     mode: "onBlur",
-    defaultValues: {
-      firstName: "",
-      lastName: "",
-      username: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-      termsAccepted: false,
-    },
+    defaultValues: registerForm,
   });
- 
+
   return (
     <form
       noValidate
-      onSubmit={handleSubmit(() => undefined)}
+      onSubmit={handleSubmit((valu) => console.log(valu))}
       className="w-full"
     >
       <div className="space-y-3">
@@ -48,7 +51,7 @@ export function RegisterForm() {
           >
             Full Name
           </FieldLabel>
-          <div className=" flex  gap-2">
+          <div className="flex justify-between gap-2">
             <Controller
               name="firstName"
               control={control}
@@ -64,6 +67,7 @@ export function RegisterForm() {
                 />
               )}
             />
+
             <Controller
               name="lastName"
               control={control}
@@ -85,13 +89,12 @@ export function RegisterForm() {
               <FieldError className="text-[10px] leading-tight">
                 {errors.firstName?.message}
               </FieldError>
-              <FieldError className="text-[10px] leading-tight">
+              <FieldError className="text-[10px] leading-tight ">
                 {errors.lastName?.message}
               </FieldError>
             </div>
           )}
         </Field>
-
         <Controller
           name="username"
           control={control}
@@ -107,12 +110,11 @@ export function RegisterForm() {
                 placeholder="Username..."
                 autoComplete="username"
                 aria-invalid={fieldState.invalid}
-                className="h-7 rounded-sm border-gray-100 px-2.5 text-[10px] shadow-none placeholder:text-gray-400 focus-visible:ring-2"
+                className="h-7 rounded-sm border-gray-100  py-5 w-80  text-[10px] shadow-none placeholder:text-gray-400 focus-visible:ring-2"
               />
             </RegisterField>
           )}
         />
-
         <Controller
           name="email"
           control={control}
@@ -129,7 +131,7 @@ export function RegisterForm() {
                 placeholder="Email address"
                 autoComplete="email"
                 aria-invalid={fieldState.invalid}
-                className="h-7 rounded-sm border-gray-100 px-2.5 text-[10px] shadow-none placeholder:text-gray-400 focus-visible:ring-2"
+                className="h-7 rounded-sm border-gray-100  py-5 text-[10px] shadow-none placeholder:text-gray-400 focus-visible:ring-2"
               />
             </RegisterField>
           )}
@@ -185,20 +187,25 @@ export function RegisterForm() {
                   className="cursor-pointer text-[9px] font-normal leading-tight text-gray-500"
                 >
                   I Agree with all of your{" "}
-                  <span className="text-purple-400">Terms &amp; Conditions</span>
+                  <span className="text-purple-400">
+                    Terms &amp; Conditions
+                  </span>
                 </Label>
               </div>
             )}
           />
           {errors.termsAccepted?.message ? (
-            <p role="alert" className="mt-1 text-[10px] leading-tight text-destructive">
+            <p
+              role="alert"
+              className="mt-1 text-[10px] leading-tight text-destructive"
+            >
               {errors.termsAccepted.message}
             </p>
           ) : null}
         </div>
         <Button
           type="submit"
-          className="h-7 shrink-0 gap-2 rounded-sm px-3 text-[10px] font-semibold"
+          className="h-7 shrink-0 gap-2 text-white py-5 rounded-sm px-3 text-[10px] font-semibold"
         >
           Create Account
           <ArrowRight aria-hidden="true" className="size-3" />
@@ -216,6 +223,4 @@ export function RegisterForm() {
   );
 }
 
-
-
-export default RegisterForm
+export default RegisterForm;

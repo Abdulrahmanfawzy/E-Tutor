@@ -1,0 +1,32 @@
+{
+  "instructorCourses": {
+    "title": "My Courses",
+    "searchPlaceholder": "Search in your courses...",
+    "filters": {
+      "sortBy": "Sort by:",
+      "category": "Category",
+      "rating": "Rating"
+    },
+    "sortOptions": {
+      "latest": "Latest",
+      "oldest": "Oldest"
+    },
+    "categoryOptions": {
+      "all": "All Categories",
+      "development": "Development",
+      "design": "Design",
+      "marketing": "Marketing",
+      "business": "Business"
+    },
+    "ratingOptions": {
+      "all": "All Ratings",
+      "threeAndHalfUp": "3.5 Star & Up",
+      "threeUp": "3.0 Star & Up"
+    },
+    "students": "Students",
+    "reviews": "Reviews",
+    "noCourses": "No courses found",
+    "previous": "Previous",
+    "next": "Next"
+  }
+}

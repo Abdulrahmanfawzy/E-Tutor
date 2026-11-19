@@ -1,0 +1,32 @@
+{
+  "instructorCourses": {
+    "title": "كورساتي",
+    "searchPlaceholder": "ابحث في كورساتك...",
+    "filters": {
+      "sortBy": "ترتيب حسب:",
+      "category": "التصنيف",
+      "rating": "التقييم"
+    },
+    "sortOptions": {
+      "latest": "الأحدث",
+      "oldest": "الأقدم"
+    },
+    "categoryOptions": {
+      "all": "كل التصنيفات",
+      "development": "البرمجة",
+      "design": "التصميم",
+      "marketing": "التسويق",
+      "business": "الأعمال"
+    },
+    "ratingOptions": {
+      "all": "كل التقييمات",
+      "threeAndHalfUp": "3.5 نجمة فأعلى",
+      "threeUp": "3.0 نجمة فأعلى"
+    },
+    "students": "طالب",
+    "reviews": "تقييمات",
+    "noCourses": "لا توجد كورسات",
+    "previous": "السابق",
+    "next": "التالي"
+  }
+}

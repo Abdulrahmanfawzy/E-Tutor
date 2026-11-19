@@ -40,7 +40,7 @@ const ACTIVITIES: Activity[] = [
 export default function RecentActivities() {
   return (
     <>
-       <section className="flex h-full flex-col gap-4 bg-white p-4 border">
+       <section className="flex h-full flex-col gap-4 bg-white p-4 border rounded-lg">
       {/* Header */}
       <div className="flex items-center justify-between border-b pb-2">
         <h3 className="text-label-lg font-semibold">Recent Activity</h3>

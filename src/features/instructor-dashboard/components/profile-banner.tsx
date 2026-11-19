@@ -16,7 +16,7 @@ export default function ProfileBanner() {
 
   return (
     <>
-     <section className="flex flex-col gap-6 bg-purple-800 p-6 text-white md:flex-row md:items-center md:justify-between">
+     <section className="flex flex-col gap-6 bg-purple-800 p-6 text-white md:flex-row md:items-center md:justify-between rounded-lg">
       {/* Profile info */}
       <div className="flex items-center gap-4">
         <Image

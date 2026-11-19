@@ -77,7 +77,7 @@ const STATS: Stat[] = [
 
 function StatCard({ label, value, icon: Icon, iconClassName }: Stat) {
   return (
-    <div className="flex items-center gap-4 bg-white p-5">
+    <div className="flex items-center gap-4 bg-white p-5 rounded-lg ">
       <div className={cn("flex h-12 w-12 items-center justify-center", iconClassName)}>
         <Icon size={24} />
       </div>

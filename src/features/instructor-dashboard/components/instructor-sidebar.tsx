@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils";
 const NAV_ITEMS = [
   { label: "Dashboard", href: "/instructor/dashboard", icon: LayoutDashboard },
   { label: "Create New Course", href: "/instructor/create-course", icon: SquarePlus },
-  { label: "My Courses", href: "/instructor/my-courses", icon: BookOpen },
+  { label: "My Courses", href: "/instructor/courses", icon: BookOpen },
   { label: "Earning", href: "/instructor/earning", icon: CreditCard },
   { label: "Message", href: "/instructor/messages", icon: MessageCircle, badge: 3 },
   { label: "Settings", href: "/instructor/settings", icon: Settings },

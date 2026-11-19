@@ -1,5 +1,6 @@
 
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import {
   BarChart3,
   Clock3,
@@ -17,9 +18,11 @@ interface FeaturedCoursesSectionProps {
 export function FeaturedCoursesSection({
   courses,
 }: FeaturedCoursesSectionProps) {
+  const t = useTranslations("home.featured");
+
   return (
     <section className="mx-auto max-w-6xl bg-white px-5 py-10">
-      <SectionTitle title="Our feature courses" />
+      <SectionTitle title={t("title")} />
 
       <div className="grid gap-4 md:grid-cols-2">
         {courses.slice(0, 4).map((course) => (
@@ -91,12 +94,12 @@ export function FeaturedCoursesSection({
 
                 <span className="flex items-center gap-1">
                   <BarChart3 className="h-3 w-3 text-red-500" />
-                  Beginner
+                  {t("beginner")}
                 </span>
 
                 <span className="flex items-center gap-1">
                   <Clock3 className="h-3 w-3 text-green-500" />
-                  6 hour
+                  {t("duration")}
                 </span>
               </div>
             </div>

@@ -3,6 +3,7 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import {
   BarChart3,
   Check,
@@ -19,6 +20,7 @@ import { CourseCard } from "./course-card";
 import { SectionTitle } from "./section-title";
 
 export function RecentlyAddedSection() {
+  const t = useTranslations("home.recentlyAdded");
   const containerRef = useRef<HTMLDivElement>(null);
 
   const [hoveredCourse, setHoveredCourse] = useState<Course | null>(null);
@@ -29,9 +31,9 @@ export function RecentlyAddedSection() {
   });
 
   const learningPoints = [
-    "Learn to use the course skills professionally.",
-    "Build practical projects from scratch.",
-    "Practice with real-world examples and exercises.",
+    t("learningPoint1"),
+    t("learningPoint2"),
+    t("learningPoint3"),
   ];
 
   const showPopup = (course: Course, element: HTMLElement) => {
@@ -66,7 +68,7 @@ export function RecentlyAddedSection() {
   return (
     <section className="bg-white px-5 py-12">
       <div className="mx-auto max-w-6xl">
-        <SectionTitle title="Recently added courses" />
+        <SectionTitle title={t("title")} />
 
         <div
           ref={containerRef}
@@ -126,7 +128,7 @@ export function RecentlyAddedSection() {
 
                     <div>
                       <p className="text-[10px] text-gray-400">
-                        Course by
+                        {t("courseBy")}
                       </p>
 
                       <p className="text-xs font-medium text-gray-800">
@@ -150,17 +152,17 @@ export function RecentlyAddedSection() {
                 <div className="mt-4 grid grid-cols-3 gap-2 border-y border-gray-100 py-3 text-[10px] text-gray-500">
                   <span className="flex items-center gap-1">
                     <Users className="h-3.5 w-3.5 text-[#564FFD]" />
-                    Students
+                    {t("students")}
                   </span>
 
                   <span className="flex items-center gap-1">
                     <BarChart3 className="h-3.5 w-3.5 text-red-500" />
-                    Beginner
+                    {t("beginner")}
                   </span>
 
                   <span className="flex items-center gap-1">
                     <Clock3 className="h-3.5 w-3.5 text-green-500" />
-                    6 hours
+                    {t("duration")}
                   </span>
                 </div>
 

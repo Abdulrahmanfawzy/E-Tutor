@@ -14,7 +14,7 @@ export default function DashboardCard({
 }: DashboardCardProps) {
   return (
     <section
-      className={cn("flex h-full flex-col bg-white", className)}
+      className={cn("flex h-full flex-col bg-white rounded-lg", className)}
     >
       {/* Header */}
       <div className="flex items-center justify-between border-b border-gray-100 px-4 py-3">

@@ -1,11 +1,15 @@
-import InstructorCourseCard from '@/features/instructor-courses/components/instructor-course-card'
-import React from 'react'
+import CoursesFilters from "@/features/instructor-courses/components/courses-filters";
+import CoursesGrid from "@/features/instructor-courses/components/courses-grid";
+import { COURSES } from "@/features/instructor-courses/data/mock-courses";
 
 export default function Page() {
   return (
-    <div>
-      Instructor Courses
-    <InstructorCourseCard/>
+    <>
+     <div className="flex flex-col gap-6">
+      <CoursesFilters />
+      <CoursesGrid courses={COURSES} />
     </div>
+ 
+    </>
   )
 }

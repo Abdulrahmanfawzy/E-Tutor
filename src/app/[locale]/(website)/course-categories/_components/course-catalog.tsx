@@ -8,6 +8,9 @@ import { coursesData, type CourseCategory } from "./courses-data";
 import CourseCatalogToolbar from "./course-catalog-toolbar";
 import { filterCourses, type CourseSortOption } from "./course-catalog.utils";
 import CustomPagination from "@/components/common/custom-pagination";
+import CourseSearchMeta from "@/components/common/course-search-meta";
+import CourseGrid from "@/components/common/course-grid";
+import CourseEmptyState from "@/components/common/course-empty-state";
 
 const SUGGESTIONS = [
     "user interface",
@@ -56,64 +59,16 @@ export default function CourseCatalog() {
                 onSortChange={setSort}
             />
 
-            <div className="flex flex-col gap-3 border-b border-gray-100 pb-4 md:flex-row md:items-center md:justify-between">
-                <div className="flex flex-wrap items-center gap-x-2 gap-y-2">
-                    <span className="text-xs text-gray-500">
-                        Suggestions:
-                    </span>
-
-                    {SUGGESTIONS.map((item) => (
-                        <Button
-                            key={item}
-                            type="button"
-                            variant="link"
-                            size="xs"
-                            onClick={() => setSearch(item)}
-                            className="h-auto rounded-none px-0 py-0 text-xs font-normal text-[#FF6636]"
-                        >
-                            {item}
-                        </Button>
-                    ))}
-                </div>
-
-                <p className="text-xs text-gray-500">
-                    <span className="font-semibold text-[#1D2026]">
-                        {filteredCourses.length}
-                    </span>{" "}
-                    results found
-                    {search.trim() && (
-                        <>
-                            {" "}for "{search}"
-                        </>
-                    )}
-                </p>
-            </div>
-
+            <CourseSearchMeta
+                suggestions={SUGGESTIONS}
+                resultCount={filteredCourses.length}
+                search={search}
+                onSuggestionClick={setSearch}
+            />
             {paginatedCourses.length > 0 ? (
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                    {filteredCourses.map((course) => (
-                        <CourseCard key={course.id} course={course} />
-                    ))}
-                </div>
+                <CourseGrid courses={paginatedCourses} columns={4} />
             ) : (
-                <div className="py-16 text-center">
-                    <p className="text-base font-semibold text-[#1D2026]">
-                        No courses found
-                    </p>
-                    <p className="mt-2 text-sm text-gray-400">
-                        Try changing your search or filters.
-                    </p>
-
-                    <Button
-                        type="button"
-                        variant="link"
-                        size="xs"
-                        onClick={clearAllFilters}
-                        className="mt-4 h-auto rounded-none px-0 py-0 text-sm font-medium text-[#FF6636]"
-                    >
-                        Clear all filters
-                    </Button>
-                </div>
+                <CourseEmptyState onClear={clearAllFilters} />
             )}
             <CustomPagination
                 currentPage={currentPage}

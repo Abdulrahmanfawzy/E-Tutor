@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, Search, SlidersHorizontal } from "lucide-react";
+import { SlidersHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "cn";
 import { COURSE_CATEGORIES, type CourseCategory } from "./courses-data";
@@ -9,6 +9,8 @@ import {
   COURSE_SORT_OPTIONS,
   type CourseSortOption,
 } from "./course-catalog.utils";
+import CourseSearchInput from "@/components/common/course-search-input";
+import CourseSortSelect from "@/components/common/course-sort-select";
 
 interface CourseCatalogToolbarProps {
   search: string;
@@ -54,63 +56,14 @@ export default function CourseCatalogToolbar({
               {category === "ALL" ? 0 : 1}
             </span>
           </Button>
-
-          <div className="flex flex-1 items-center gap-2 border border-gray-200 px-3">
-            <Search size={17} className="shrink-0 text-gray-400" />
-
-            <input
-              type="text"
-              value={search}
-              onChange={(event) => onSearchChange(event.currentTarget.value)}
-              placeholder="Search courses..."
-              aria-label="Search courses"
-              className="h-10 w-full bg-transparent text-sm outline-none placeholder:text-gray-400"
-            />
-
-            {search && (
-              <Button
-                type="button"
-                variant="ghost"
-                size="xs"
-                onClick={() => onSearchChange("")}
-                className={cn(
-                  "h-auto rounded-none px-0 py-0 text-xs font-normal text-gray-400 transition-colors",
-                  "hover:bg-transparent hover:text-gray-700"
-                )}
-              >
-                Clear
-              </Button>
-            )}
-          </div>
+          <CourseSearchInput value={search} onChange={onSearchChange} />
         </div>
 
-        <div className="flex items-center justify-end gap-3">
-          <label htmlFor="course-sort" className="text-xs text-gray-500">
-            Sort by:
-          </label>
-
-          <div className="relative">
-            <select
-              id="course-sort"
-              value={sort}
-              onChange={(event) =>
-                onSortChange(event.currentTarget.value as CourseSortOption)
-              }
-              className="h-10 min-w-32 appearance-none border border-gray-200 bg-white px-3 pr-9 text-sm outline-none"
-            >
-              {COURSE_SORT_OPTIONS.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-
-            <ChevronDown
-              size={14}
-              className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
-            />
-          </div>
-        </div>
+        <CourseSortSelect
+          value={sort}
+          options={COURSE_SORT_OPTIONS}
+          onChange={onSortChange}
+        />
       </div>
 
       {showFilters && (
@@ -135,7 +88,7 @@ export default function CourseCatalogToolbar({
                 {courseCategory === "IT & SOFTWARE"
                   ? "IT & Software"
                   : courseCategory.charAt(0) +
-                    courseCategory.slice(1).toLowerCase()}
+                  courseCategory.slice(1).toLowerCase()}
               </option>
             ))}
           </select>

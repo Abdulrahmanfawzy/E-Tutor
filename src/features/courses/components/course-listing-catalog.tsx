@@ -55,6 +55,9 @@ export default function CourseListingCatalog() {
                 onCategoryChange={setCategory}
                 sort={sort}
                 onSortChange={setSort}
+                showCategoryFilter={false}
+                isFilterOpen={isFilterOpen}
+                onFilterToggle={() => setIsFilterOpen((prev) => !prev)}
             />
             <CourseSearchMeta
                 suggestions={SUGGESTIONS}

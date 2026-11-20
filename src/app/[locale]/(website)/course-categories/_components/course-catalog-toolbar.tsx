@@ -14,11 +14,14 @@ import CourseSortSelect from "@/components/common/course-sort-select";
 
 interface CourseCatalogToolbarProps {
   search: string;
+  showCategoryFilter?: boolean;
   onSearchChange: (value: string) => void;
   category: CourseCategory | "ALL";
   onCategoryChange: (value: CourseCategory | "ALL") => void;
   sort: CourseSortOption;
   onSortChange: (value: CourseSortOption) => void;
+  isFilterOpen?: boolean;
+  onFilterToggle?: () => void;
 }
 
 const linkButtonClassName = cn(
@@ -33,8 +36,21 @@ export default function CourseCatalogToolbar({
   onCategoryChange,
   sort,
   onSortChange,
+  showCategoryFilter = true,
+  isFilterOpen,
+  onFilterToggle,
 }: CourseCatalogToolbarProps) {
-  const [showFilters, setShowFilters] = useState(false);
+  const [internalShowFilters, setInternalShowFilters] = useState(false);
+
+  const showFilters = isFilterOpen ?? internalShowFilters;
+
+  const handleFilterToggle = () => {
+    if (onFilterToggle) {
+      onFilterToggle();
+    } else {
+      setInternalShowFilters((prev) => !prev);
+    }
+  };
 
   return (
     <>
@@ -43,7 +59,7 @@ export default function CourseCatalogToolbar({
           <Button
             type="button"
             variant="outline"
-            onClick={() => setShowFilters((isVisible) => !isVisible)}
+            onClick={handleFilterToggle}
             aria-expanded={showFilters}
             className={cn(
               "h-10 gap-2 rounded-none border-gray-200 bg-white px-4 py-2.5 text-sm font-normal text-[#1D2026] transition-colors",
@@ -66,7 +82,7 @@ export default function CourseCatalogToolbar({
         />
       </div>
 
-      {showFilters && (
+      {showCategoryFilter && showFilters && (
         <div className="flex flex-wrap items-center gap-3 border border-gray-100 bg-gray-50 p-4">
           <label htmlFor="course-category" className="text-sm font-medium">
             Category:

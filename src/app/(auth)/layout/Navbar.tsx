@@ -2,7 +2,6 @@
 import Link from "next/link";
 import { GraduationCap } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 
 export default function Navbar() {
   return (
@@ -28,12 +27,12 @@ export default function Navbar() {
           <span className="hidden text-sm text-[#4E5566] sm:inline">
             Don&apos;t have account?
           </span>
-          <Button
-            
-            className="h-12 rounded-none bg-[#FFEEE8] px-6 text-sm font-semibold text-[#FF6636] shadow-none transition-colors hover:bg-[#FF6636] hover:text-white focus-visible:ring-[#FF6636]/40"
+          <Link
+            href="/register"
+            className="inline-flex h-12 items-center justify-center rounded-none bg-[#FFEEE8] px-6 text-sm font-semibold text-[#FF6636] shadow-none transition-colors hover:bg-[#FF6636] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6636]/40"
           >
-            <Link href="/register">Create Account</Link>
-          </Button>
+            Create Account
+          </Link>
         </div>
       </nav>
     </header>

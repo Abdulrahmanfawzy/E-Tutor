@@ -12,6 +12,8 @@
   "metadata": {
     "siteTitle": "إي-تيوتر | تعلّم مع الخبراء",
     "siteDescription": "اعثر على أفضل الدورات التدريبية عبر الإنترنت وتعلّم مع الخبراء في أي وقت ومن أي مكان.",
+    "authTitle": "إي-تيوتر | الحساب",
+    "authDescription": "سجّل الدخول أو أنشئ حساباً على إي-تيوتر.",
     "homeTitle": "إي-تيوتر | التعلم عبر الإنترنت",
     "contactTitle": "اتصل بنا | إي-تيوتر",
     "contactDescription": "تواصل مع فريق إي-تيوتر وسنرد عليك في أقرب وقت ممكن.",
@@ -21,6 +23,66 @@
     "courseCategoriesDescription": "تصفح آلاف الدورات التدريبية عبر الإنترنت في أفضل فئاتنا.",
     "giftCourseTitle": "أهدِ دورة تدريبية | إي-تيوتر",
     "giftCourseDescription": "أهدِ متعة التعلم لشخص مميز."
+  },
+  "auth": {
+    "nav": {
+      "mainNavigation": "التنقل الرئيسي",
+      "dontHaveAccount": "ليس لديك حساب؟",
+      "alreadyHaveAccount": "لديك حساب بالفعل؟",
+      "createAccount": "إنشاء حساب",
+      "signIn": "تسجيل الدخول"
+    },
+    "login": {
+      "title": "تسجيل الدخول",
+      "email": "البريد الإلكتروني",
+      "emailPlaceholder": "أدخل بريدك الإلكتروني",
+      "password": "كلمة المرور",
+      "passwordPlaceholder": "أدخل كلمة المرور",
+      "rememberMe": "تذكرني",
+      "submit": "تسجيل الدخول",
+      "socialDivider": "تسجيل الدخول باستخدام"
+    },
+    "register": {
+      "title": "إنشاء حسابك",
+      "fullName": "الاسم بالكامل",
+      "firstName": "الاسم الأول",
+      "firstNamePlaceholder": "الاسم الأول...",
+      "lastName": "اسم العائلة",
+      "lastNamePlaceholder": "اسم العائلة...",
+      "username": "اسم المستخدم",
+      "usernamePlaceholder": "أدخل اسم المستخدم...",
+      "email": "البريد الإلكتروني",
+      "emailPlaceholder": "أدخل بريدك الإلكتروني",
+      "password": "كلمة المرور",
+      "passwordPlaceholder": "أنشئ كلمة مرور",
+      "confirmPassword": "تأكيد كلمة المرور",
+      "confirmPasswordPlaceholder": "أعد إدخال كلمة المرور",
+      "agreeWith": "أوافق على",
+      "terms": "الشروط والأحكام",
+      "submit": "إنشاء حساب",
+      "socialDivider": "إنشاء حساب باستخدام"
+    },
+    "shared": {
+      "showPassword": "إظهار كلمة المرور",
+      "hidePassword": "إخفاء كلمة المرور"
+    },
+    "social": {
+      "signInGroup": "تسجيل الدخول باستخدام حساب اجتماعي",
+      "signUpGroup": "إنشاء حساب باستخدام حساب اجتماعي",
+      "signInWith": "تسجيل الدخول باستخدام {provider}",
+      "signUpWith": "إنشاء حساب باستخدام {provider}"
+    },
+    "validation": {
+      "firstNameRequired": "أدخل الاسم الأول",
+      "lastNameRequired": "أدخل اسم العائلة",
+      "usernameMin": "يجب ألا يقل اسم المستخدم عن 3 أحرف",
+      "usernamePattern": "استخدم الحروف الإنجليزية والأرقام والشرطة السفلية فقط",
+      "invalidEmail": "أدخل بريدًا إلكترونيًا صحيحًا",
+      "passwordMin": "يجب ألا تقل كلمة المرور عن 8 أحرف",
+      "confirmPasswordRequired": "أعد إدخال كلمة المرور",
+      "termsRequired": "يرجى الموافقة على الشروط والأحكام",
+      "passwordsMismatch": "كلمتا المرور غير متطابقتين"
+    }
   },
   "nav": {
     "home": "الرئيسية",

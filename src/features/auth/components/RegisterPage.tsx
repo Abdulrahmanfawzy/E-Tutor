@@ -1,8 +1,12 @@
+import { getTranslations } from "next-intl/server";
+
 import { RegisterForm } from "@/features/auth/components/RegisterForm";
 import { RegisterIllustration } from "@/features/auth/components/RegisterIllustration";
 import registerArtwork from "@/assets/Saly-1.png";
 
-export function RegisterPage() {
+export async function RegisterPage() {
+  const t = await getTranslations("auth.register");
+
   return (
     <main className="grid w-full min-h-svh grid-cols-1 bg-white lg:grid-cols-2">
       <RegisterIllustration ImageAuth={registerArtwork} />
@@ -15,7 +19,7 @@ export function RegisterPage() {
             id="register-title"
             className="mb-6 text-center text-[22px] font-semibold leading-tight tracking-[-0.02em] text-gray-900"
           >
-            Create your account
+            {t("title")}
           </h1>
           <RegisterForm />
         </div>

@@ -2,6 +2,8 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { useMemo } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -13,11 +15,29 @@ import { RegisterField } from "@/features/auth/components/RegisterField";
 import { RegisterPasswordField } from "@/features/auth/components/RegisterPasswordField";
 import { SocialSignUpButtons } from "@/features/auth/components/SocialSignUpButtons";
 import {
-  registerSchema,
+  createRegisterSchema,
   type RegisterFormValues,
 } from "@/features/auth/schema/Vaildations";
 
 export function RegisterForm() {
+  const t = useTranslations("auth.register");
+  const validation = useTranslations("auth.validation");
+  const registerSchema = useMemo(
+    () =>
+      createRegisterSchema({
+        firstNameRequired: validation("firstNameRequired"),
+        lastNameRequired: validation("lastNameRequired"),
+        usernameMin: validation("usernameMin"),
+        usernamePattern: validation("usernamePattern"),
+        invalidEmail: validation("invalidEmail"),
+        passwordMin: validation("passwordMin"),
+        confirmPasswordRequired: validation("confirmPasswordRequired"),
+        termsRequired: validation("termsRequired"),
+        passwordsMismatch: validation("passwordsMismatch"),
+      }),
+    [validation],
+  );
+
   const registerForm = {
     firstName: "",
     lastName: "",
@@ -49,7 +69,7 @@ export function RegisterForm() {
             htmlFor="firstName"
             className="text-[10px] font-normal leading-none text-gray-800"
           >
-            Full Name
+            {t("fullName")}
           </FieldLabel>
           <div className="flex justify-between gap-2">
             <Controller
@@ -59,9 +79,9 @@ export function RegisterForm() {
                 <Input
                   {...field}
                   id="firstName"
-                  placeholder="First name..."
+                  placeholder={t("firstNamePlaceholder")}
                   autoComplete="given-name"
-                  aria-label="First name"
+                  aria-label={t("firstName")}
                   aria-invalid={fieldState.invalid}
                   className="h-7 rounded-sm border-gray-100 py-5 w-80 text-[10px] shadow-none placeholder:text-gray-400 focus-visible:ring-2"
                 />
@@ -75,9 +95,9 @@ export function RegisterForm() {
                 <Input
                   {...field}
                   id="lastName"
-                  placeholder="Last name..."
+                  placeholder={t("lastNamePlaceholder")}
                   autoComplete="family-name"
-                  aria-label="Last name"
+                  aria-label={t("lastName")}
                   aria-invalid={fieldState.invalid}
                   className="h-7 rounded-sm border-gray-100 py-5 w-80  text-[10px] shadow-none placeholder:text-gray-400 focus-visible:ring-2"
                 />
@@ -101,13 +121,13 @@ export function RegisterForm() {
           render={({ field, fieldState }) => (
             <RegisterField
               htmlFor={field.name}
-              label="Username"
+              label={t("username")}
               error={fieldState.error?.message}
             >
               <Input
                 {...field}
                 id={field.name}
-                placeholder="Username..."
+                placeholder={t("usernamePlaceholder")}
                 autoComplete="username"
                 aria-invalid={fieldState.invalid}
                 className="h-7 rounded-sm border-gray-100  py-5 w-80  text-[10px] shadow-none placeholder:text-gray-400 focus-visible:ring-2"
@@ -121,14 +141,14 @@ export function RegisterForm() {
           render={({ field, fieldState }) => (
             <RegisterField
               htmlFor={field.name}
-              label="Email"
+              label={t("email")}
               error={fieldState.error?.message}
             >
               <Input
                 {...field}
                 id={field.name}
                 type="email"
-                placeholder="Email address"
+                placeholder={t("emailPlaceholder")}
                 autoComplete="email"
                 aria-invalid={fieldState.invalid}
                 className="h-7 rounded-sm border-gray-100  py-5 text-[10px] shadow-none placeholder:text-gray-400 focus-visible:ring-2"
@@ -144,8 +164,8 @@ export function RegisterForm() {
             render={({ field, fieldState }) => (
               <RegisterPasswordField
                 id={field.name}
-                label="Password"
-                placeholder="Create password"
+                label={t("password")}
+                placeholder={t("passwordPlaceholder")}
                 field={field}
                 error={fieldState.error?.message}
               />
@@ -157,8 +177,8 @@ export function RegisterForm() {
             render={({ field, fieldState }) => (
               <RegisterPasswordField
                 id={field.name}
-                label="Confirm Password"
-                placeholder="Confirm password"
+                label={t("confirmPassword")}
+                placeholder={t("confirmPasswordPlaceholder")}
                 field={field}
                 error={fieldState.error?.message}
               />
@@ -186,9 +206,9 @@ export function RegisterForm() {
                   htmlFor="termsAccepted"
                   className="cursor-pointer text-[9px] font-normal leading-tight text-gray-500"
                 >
-                  I Agree with all of your{" "}
+                  {t("agreeWith")}{" "}
                   <span className="text-purple-400">
-                    Terms &amp; Conditions
+                    {t("terms")}
                   </span>
                 </Label>
               </div>
@@ -207,18 +227,23 @@ export function RegisterForm() {
           type="submit"
           className="h-7 shrink-0 gap-2 text-white py-5 rounded-sm px-3 text-[10px] font-semibold"
         >
-          Create Account
-          <ArrowRight aria-hidden="true" className="size-3" />
+          {t("submit")}
+          <ArrowRight
+            aria-hidden="true"
+            className="size-3 rtl:rotate-180"
+          />
         </Button>
       </div>
 
       <div className="my-5 flex items-center gap-2">
         <Separator className="flex-1 bg-gray-100" />
-        <span className="shrink-0 text-[9px] text-gray-400">SIGN UP WITH</span>
+        <span className="shrink-0 text-[9px] text-gray-400">
+          {t("socialDivider")}
+        </span>
         <Separator className="flex-1 bg-gray-100" />
       </div>
 
-      <SocialSignUpButtons />
+      <SocialSignUpButtons action="signUp" />
     </form>
   );
 }

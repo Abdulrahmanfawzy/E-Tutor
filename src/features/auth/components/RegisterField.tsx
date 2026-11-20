@@ -1,13 +1,14 @@
 
 import { Field, FieldError, FieldLabel } from "@/components/ui/field";
 
+import type { RegisterFieldProps } from "../types/register";
 
 export function RegisterField({
   children,
   error,
   htmlFor,
   label,
-}: RegisterPasswordFieldProps) {
+}: RegisterFieldProps) {
   return (
     <Field data-invalid={Boolean(error)} className="min-w-0 gap-1">
       <FieldLabel

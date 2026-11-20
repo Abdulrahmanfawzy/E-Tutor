@@ -1,5 +1,5 @@
 import Image from "next/image"
-import courseImage from "../../assets/ff5e0cbc2d6f528a1285fdd6a03f985c1b8edde1.png"
+import courseImage from "@/assets/ff5e0cbc2d6f528a1285fdd6a03f985c1b8edde1.png"
 const GiftCourseCard = () => {
   return (
     <div className="p-6 border border-gray-100 bg-white flex flex-col gap-6">

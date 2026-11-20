@@ -1,25 +1,30 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 import CourseFilterSidebar from "./course-filter-sidebar";
 import CourseGrid from "@/components/common/course-grid";
 import CourseEmptyState from "@/components/common/course-empty-state";
-import type {
-    CourseListingFilters,
-} from "../types/course-listing.types";
+import type { CourseListingFilters } from "../types/course-listing.types";
 import { DEFAULT_COURSE_FILTERS } from "./course-listing.constants";
-import { filterListingCourses } from "../utils/course-listing.utils";
 import {
+    COURSE_CATEGORIES,
     coursesData,
     type CourseCategory,
 } from "@/app/[locale]/(website)/course-categories/_components/courses-data";
 import CourseSearchMeta from "@/components/common/course-search-meta";
 import {
+    COURSE_SORT_OPTIONS,
     filterCourses,
     type CourseSortOption,
 } from "@/app/[locale]/(website)/course-categories/_components/course-catalog.utils";
 import CourseCatalogToolbar from "@/app/[locale]/(website)/course-categories/_components/course-catalog-toolbar";
+import {
+    filterListingCourses,
+    parseCourseListingFilters,
+} from "../utils/course-listing.utils";
+
 const SUGGESTIONS = [
     "Frontend",
     "user experience",
@@ -29,13 +34,46 @@ const SUGGESTIONS = [
 ];
 
 export default function CourseListingCatalog() {
-    const [search, setSearch] = useState("");
-    const [category, setCategory] = useState<CourseCategory | "ALL">("ALL");
-    const [sort, setSort] = useState<CourseSortOption>("trending");
-    const [filters, setFilters] =
-        useState<CourseListingFilters>(DEFAULT_COURSE_FILTERS);
-
+    const searchParams = useSearchParams();
     const [isFilterOpen, setIsFilterOpen] = useState(true);
+
+    const search = searchParams.get("q") ?? "";
+    const categoryValue = searchParams.get("category");
+    const category: CourseCategory | "ALL" =
+        COURSE_CATEGORIES.find((item) => item === categoryValue) ?? "ALL";
+    const sortValue = searchParams.get("sort");
+    const sort: CourseSortOption =
+        COURSE_SORT_OPTIONS.find((option) => option.value === sortValue)
+            ?.value ?? "trending";
+    const filters = useMemo(
+        () => parseCourseListingFilters(searchParams),
+        [searchParams]
+    );
+
+    const updateSearchParams = (
+        updates: Record<string, string | readonly string[] | null>
+    ) => {
+        const nextSearchParams = new URLSearchParams(searchParams.toString());
+
+        for (const [key, value] of Object.entries(updates)) {
+            nextSearchParams.delete(key);
+
+            if (typeof value === "string" && value !== "") {
+                nextSearchParams.set(key, value);
+            } else if (value !== null) {
+                for (const item of value) {
+                    nextSearchParams.append(key, item);
+                }
+            }
+        }
+
+        const query = nextSearchParams.toString();
+        const nextUrl = query
+            ? `${window.location.pathname}?${query}${window.location.hash}`
+            : `${window.location.pathname}${window.location.hash}`;
+
+        window.history.replaceState(null, "", nextUrl);
+    };
 
     const filteredCourses = useMemo(() => {
         return filterListingCourses(
@@ -58,22 +96,62 @@ export default function CourseListingCatalog() {
             : 0) +
         (category === "ALL" ? 0 : 1);
 
+    const handleFiltersChange = (nextFilters: CourseListingFilters) => {
+        updateSearchParams({
+            filterCategory: nextFilters.categories,
+            subcategory: nextFilters.subcategories,
+            tool: nextFilters.tools,
+            rating: nextFilters.ratings.map(String),
+            level: nextFilters.levels,
+            minPrice:
+                nextFilters.minPrice === DEFAULT_COURSE_FILTERS.minPrice
+                    ? null
+                    : String(nextFilters.minPrice),
+            maxPrice:
+                nextFilters.maxPrice === DEFAULT_COURSE_FILTERS.maxPrice
+                    ? null
+                    : String(nextFilters.maxPrice),
+            priceType: nextFilters.priceTypes,
+            duration: nextFilters.durations,
+        });
+    };
+
     const clearAllFilters = () => {
-        setSearch("");
-        setCategory("ALL");
-        setSort("trending");
-        setFilters(DEFAULT_COURSE_FILTERS);
+        updateSearchParams({
+            q: null,
+            category: null,
+            sort: null,
+            filterCategory: null,
+            subcategory: null,
+            tool: null,
+            rating: null,
+            level: null,
+            minPrice: null,
+            maxPrice: null,
+            priceType: null,
+            duration: null,
+        });
     };
 
     return (
         <section className="flex flex-col gap-6">
             <CourseCatalogToolbar
                 search={search}
-                onSearchChange={setSearch}
+                onSearchChange={(value) =>
+                    updateSearchParams({ q: value || null })
+                }
                 category={category}
-                onCategoryChange={setCategory}
+                onCategoryChange={(value) =>
+                    updateSearchParams({
+                        category: value === "ALL" ? null : value,
+                    })
+                }
                 sort={sort}
-                onSortChange={setSort}
+                onSortChange={(value) =>
+                    updateSearchParams({
+                        sort: value === "trending" ? null : value,
+                    })
+                }
                 showCategoryFilter={false}
                 filterCount={activeFilterCount}
                 isFilterOpen={isFilterOpen}
@@ -83,14 +161,16 @@ export default function CourseListingCatalog() {
                 suggestions={SUGGESTIONS}
                 resultCount={filteredCourses.length}
                 search={search}
-                onSuggestionClick={setSearch}
+                onSuggestionClick={(value) =>
+                    updateSearchParams({ q: value })
+                }
             />
-            <div className="flex items-start gap-6">
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
                 {isFilterOpen && (
-                    <div className="hidden w-64 shrink-0 lg:block">
+                    <div className="w-full shrink-0 lg:w-64">
                         <CourseFilterSidebar
                             filters={filters}
-                            onFiltersChange={setFilters}
+                            onFiltersChange={handleFiltersChange}
                         />
                     </div>
                 )}

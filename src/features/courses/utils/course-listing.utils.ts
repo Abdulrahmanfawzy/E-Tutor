@@ -1,5 +1,18 @@
-import { CourseListingCourse, CourseListingFilters } from "@/features/courses/types/course-listing.types";
+import type {
+    CourseListingCourse,
+    CourseListingFilters,
+} from "@/features/courses/types/course-listing.types";
 
+const COURSE_CATEGORY_FILTER_IDS: Record<
+    CourseListingCourse["category"],
+    string
+> = {
+    DESIGN: "design",
+    DEVELOPMENTS: "development",
+    BUSINESS: "business",
+    MARKETING: "marketing",
+    "IT & SOFTWARE": "it-software",
+};
 
 export function filterListingCourses(
     courses: CourseListingCourse[],
@@ -8,10 +21,11 @@ export function filterListingCourses(
     return courses.filter((course) => {
         // Category
 
+        const categoryId =
+            course.categoryId ?? COURSE_CATEGORY_FILTER_IDS[course.category];
         const matchesCategory =
             filters.categories.length === 0 ||
-            (course.categoryId !== undefined &&
-                filters.categories.includes(course.categoryId));
+            filters.categories.includes(categoryId);
 
         // Subcategory
         const matchesSubcategory =

@@ -20,6 +20,7 @@ interface CourseCatalogToolbarProps {
   onCategoryChange: (value: CourseCategory | "ALL") => void;
   sort: CourseSortOption;
   onSortChange: (value: CourseSortOption) => void;
+  filterCount?: number;
   isFilterOpen?: boolean;
   onFilterToggle?: () => void;
 }
@@ -36,6 +37,7 @@ export default function CourseCatalogToolbar({
   onCategoryChange,
   sort,
   onSortChange,
+  filterCount,
   showCategoryFilter = true,
   isFilterOpen,
   onFilterToggle,
@@ -69,7 +71,7 @@ export default function CourseCatalogToolbar({
             <SlidersHorizontal size={16} />
             Filter
             <span className="rounded-sm bg-orange-50 px-1.5 text-xs text-[#FF6636]">
-              {category === "ALL" ? 0 : 1}
+              {filterCount ?? (category === "ALL" ? 0 : 1)}
             </span>
           </Button>
           <CourseSearchInput value={search} onChange={onSearchChange} />

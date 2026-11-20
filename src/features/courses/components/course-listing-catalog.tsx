@@ -4,16 +4,21 @@ import { useMemo, useState } from "react";
 
 import CourseFilterSidebar from "./course-filter-sidebar";
 import CourseGrid from "@/components/common/course-grid";
+import CourseEmptyState from "@/components/common/course-empty-state";
 import type {
-    CourseListingCourse,
     CourseListingFilters,
 } from "../types/course-listing.types";
 import { DEFAULT_COURSE_FILTERS } from "./course-listing.constants";
 import { filterListingCourses } from "../utils/course-listing.utils";
-import { CourseCategory, coursesData } from "@/app/[locale]/(website)/course-categories/_components/courses-data";
-import CourseSearchInput from "@/components/common/course-search-input";
+import {
+    coursesData,
+    type CourseCategory,
+} from "@/app/[locale]/(website)/course-categories/_components/courses-data";
 import CourseSearchMeta from "@/components/common/course-search-meta";
-import { CourseSortOption } from "@/app/[locale]/(website)/course-categories/_components/course-catalog.utils";
+import {
+    filterCourses,
+    type CourseSortOption,
+} from "@/app/[locale]/(website)/course-categories/_components/course-catalog.utils";
 import CourseCatalogToolbar from "@/app/[locale]/(website)/course-categories/_components/course-catalog-toolbar";
 const SUGGESTIONS = [
     "Frontend",
@@ -24,16 +29,9 @@ const SUGGESTIONS = [
 ];
 
 export default function CourseListingCatalog() {
-    const [search, setSearch] = useState("UI/UX Design");
+    const [search, setSearch] = useState("");
     const [category, setCategory] = useState<CourseCategory | "ALL">("ALL");
     const [sort, setSort] = useState<CourseSortOption>("trending");
-
-
-    const clearAllFilters = () => {
-        setSearch("");
-        setCategory("ALL");
-        setSort("trending");
-    };
     const [filters, setFilters] =
         useState<CourseListingFilters>(DEFAULT_COURSE_FILTERS);
 
@@ -41,10 +39,31 @@ export default function CourseListingCatalog() {
 
     const filteredCourses = useMemo(() => {
         return filterListingCourses(
-            coursesData as CourseListingCourse[],
+            filterCourses(coursesData, search, category, sort),
             filters
         );
-    }, [filters]);
+    }, [search, category, sort, filters]);
+
+    const activeFilterCount =
+        filters.categories.length +
+        filters.subcategories.length +
+        filters.tools.length +
+        filters.ratings.length +
+        filters.levels.length +
+        filters.priceTypes.length +
+        filters.durations.length +
+        (filters.minPrice !== DEFAULT_COURSE_FILTERS.minPrice ||
+        filters.maxPrice !== DEFAULT_COURSE_FILTERS.maxPrice
+            ? 1
+            : 0) +
+        (category === "ALL" ? 0 : 1);
+
+    const clearAllFilters = () => {
+        setSearch("");
+        setCategory("ALL");
+        setSort("trending");
+        setFilters(DEFAULT_COURSE_FILTERS);
+    };
 
     return (
         <section className="flex flex-col gap-6">
@@ -56,6 +75,7 @@ export default function CourseListingCatalog() {
                 sort={sort}
                 onSortChange={setSort}
                 showCategoryFilter={false}
+                filterCount={activeFilterCount}
                 isFilterOpen={isFilterOpen}
                 onFilterToggle={() => setIsFilterOpen((prev) => !prev)}
             />
@@ -76,10 +96,14 @@ export default function CourseListingCatalog() {
                 )}
 
                 <div className="min-w-0 flex-1">
-                    <CourseGrid
-                        courses={filteredCourses}
-                        columns={isFilterOpen ? 3 : 4}
-                    />
+                    {filteredCourses.length > 0 ? (
+                        <CourseGrid
+                            courses={filteredCourses}
+                            columns={isFilterOpen ? 3 : 4}
+                        />
+                    ) : (
+                        <CourseEmptyState onClear={clearAllFilters} />
+                    )}
                 </div>
             </div>
         </section>

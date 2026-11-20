@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Star } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
 import { cn } from "cn";
-import { Course, CourseCategory } from "./courses-data";
+import { Course, CourseCategory } from "../../app/[locale]/(website)/course-categories/_components/courses-data";
 
 interface CourseCardProps {
   course: Course;
@@ -19,7 +19,7 @@ interface CourseCardProps {
 }
 export default function CourseCard({ course }: CourseCardProps) {
   return (
-    <Card className="group/card h-full gap-0 overflow-hidden rounded-none  bg-white p-0  duration-200 hover:shadow-md">
+    <Card className="group/card h-full gap-0 overflow-hidden rounded-none rounded-sm  bg-white p-0  duration-200 hover:shadow-md">
       <div className="relative aspect-16/10 w-full overflow-hidden bg-gray-100">
         <Image
           src={course.image}

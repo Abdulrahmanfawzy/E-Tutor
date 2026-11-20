@@ -1,4 +1,6 @@
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
+
 import { categories } from "../data/home.mock";
 import { SectionTitle } from "./section-title";
 
@@ -70,10 +72,12 @@ const categoryStyles: Record<
 };
 
 export function CategoriesSection() {
+  const t = useTranslations("home.categories");
+
   return (
     <section className="bg-white px-5 py-14">
       <div className="mx-auto max-w-6xl">
-        <SectionTitle title="Browse top category" />
+        <SectionTitle title={t("title")} />
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {categories.map((category, index) => {
@@ -107,9 +111,9 @@ export function CategoriesSection() {
         </div>
 
         <p className="mt-7 text-center text-xs text-gray-500">
-          We have more category & subcategory.
-          <button className="ml-2 font-semibold text-[#FF6636]">
-            Browse All <ArrowRight className="ml-1 inline h-3 w-3" />
+          {t("more")}
+          <button className="ms-2 font-semibold text-[#FF6636]">
+            {t("browseAll")} <ArrowRight className="ms-1 inline h-3 w-3" />
           </button>
         </p>
       </div>

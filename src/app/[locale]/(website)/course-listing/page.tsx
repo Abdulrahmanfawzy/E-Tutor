@@ -1,15 +1,11 @@
-interface IProps {
+import CourseListingCatalog from "@/features/courses/components/course-listing-catalog"
 
 
-
-}
-
-const page=({}:IProps)=> {
+const page = () => {
   return (
-    <div>
-listing
-
-    </div>
+    <main className="mx-auto w-full max-w-285 px-4 py-10">
+      <CourseListingCatalog />
+    </main>
   )
 }
 

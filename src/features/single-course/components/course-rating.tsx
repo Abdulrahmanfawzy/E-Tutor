@@ -15,7 +15,7 @@ export function CourseRating({
   }).format(rating.reviewCount);
 
   return (
-    <div className="flex items-center gap-2 text-sm">
+    <div className="flex flex-wrap items-center gap-2 text-sm">
       <div
         className="flex items-center gap-0.5"
         aria-label={`${rating.value} out of 5 stars`}

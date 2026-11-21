@@ -16,7 +16,7 @@ export function CourseInstructors({
 }: CourseInstructorsProps) {
     return (
         <div className="flex items-center gap-3">
-            <div className="flex -space-x-3">
+            <div className="flex -space-x-3 rtl:space-x-reverse">
                 {instructors.map((instructor) => (
                     <Avatar
                         key={instructor.id}

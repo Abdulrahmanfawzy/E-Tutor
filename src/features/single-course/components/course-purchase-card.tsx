@@ -66,7 +66,7 @@ export function CoursePurchaseCard({
   };
 
   return (
-    <div className="w-full overflow-hidden border border-slate-100 bg-white shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] 
+    <div className="w-full rounded-sm overflow-hidden border border-slate-100 bg-white shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] 
 ">
 
       {/* ================= Price ================= */}
@@ -88,7 +88,7 @@ export function CoursePurchaseCard({
 
           {/* Discount */}
           {discount > 0 && (
-            <span className="bg-[#FFF0EB] px-2 py-1 text-[10px] font-medium text-[#FF6636]">
+            <span className="bg-[#FFF0EB] rounded-sm px-2 py-1 text-[10px] font-medium text-[#FF6636]">
               {discount}% OFF
             </span>
           )}
@@ -125,7 +125,7 @@ export function CoursePurchaseCard({
               </div>
 
               {/* Value */}
-              <span className="max-w-[55%] truncate text-right text-[10px] text-slate-500">
+              <span className="max-w-[55%] truncate text-end text-[10px] text-slate-500">
                 {info.value}
               </span>
             </div>
@@ -138,7 +138,7 @@ export function CoursePurchaseCard({
 
         {/* Add To Cart */}
         <Button
-          className="h-9 w-full rounded-none bg-[#FF6636] text-xs font-medium text-white hover:bg-[#e95729]"
+          className="h-9 w-full rounded-sm bg-[#FF6636] text-xs font-medium text-white hover:bg-[#e95729]"
         >
           Add To Cart
         </Button>
@@ -146,7 +146,7 @@ export function CoursePurchaseCard({
         {/* Buy Now */}
         <Button
           variant="outline"
-          className="h-9 w-full rounded-none border-0 bg-[#FFF0EB] text-xs font-medium text-[#FF6636] hover:bg-[#ffe4da]"
+          className="h-9 w-full rounded-sm border-0 bg-[#FFF0EB] text-xs font-medium text-[#FF6636] hover:bg-[#ffe4da]"
         >
           Buy Now
         </Button>
@@ -156,7 +156,7 @@ export function CoursePurchaseCard({
 
           <Button
             variant="outline"
-            className="h-8 rounded-none px-1 text-[10px] font-normal"
+            className="h-8 rounded-sm px-1 text-[10px] font-normal"
           >
             <Heart className="size-3" />
             Add To Wishlist
@@ -164,7 +164,7 @@ export function CoursePurchaseCard({
 
           <Button
             variant="outline"
-            className="h-8 rounded-none px-1 text-[10px] font-normal"
+            className="h-8 rounded-sm px-1 text-[10px] font-normal"
           >
             <Gift className="size-3" />
             Gift Course
@@ -210,16 +210,18 @@ export function CoursePurchaseCard({
           Share this course:
         </h3>
 
-        <div className="grid grid-cols-5 gap-1">
+        <div className="grid grid-cols-[minmax(4.5rem,1.5fr)_repeat(4,minmax(2rem,1fr))] gap-1">
 
           {/* Copy Link */}
           <Button
             variant="outline"
             onClick={handleCopyLink}
-            className="h-8 rounded-none bg-gray-50 border-none px-1 "
+            className="h-8 min-w-0 rounded-sm border-none bg-gray-50 px-1"
           >
             <Copy className="size-3.5" />
-            <span className="text-gray-700 font-medium text-[9px] leading-5 tracking-[-1%] -ml-2">Copy link</span>
+            <span className="text-[9px] font-medium leading-5 tracking-normal text-gray-700">
+              Copy link
+            </span>
           </Button>
 
           {/* Facebook */}
@@ -227,7 +229,7 @@ export function CoursePurchaseCard({
             variant="outline"
             
             aria-label="Share on Facebook"
-            className="h-8 rounded-none bg-gray-50 border-none px-1 "
+            className="h-8 rounded-sm bg-gray-50 border-none px-1 "
           >
             
             <Image src={faceIcon} alt="twitter" className="w-3.5 h-3.5 "  />
@@ -236,7 +238,7 @@ export function CoursePurchaseCard({
           {/* Twitter */}
           <Button
             variant="outline"
-             className="h-8 rounded-none bg-gray-50 border-none px-1 "
+             className="h-8 rounded-sm bg-gray-50 border-none px-1 "
             aria-label="Share on Twitter"
           >
            <Image src={twiterIcon} alt="twitter" className="w-3.5 h-3.5 "  />
@@ -245,7 +247,7 @@ export function CoursePurchaseCard({
           {/* Email */}
           <Button
             variant="outline"
-             className="h-8 rounded-none bg-gray-50 border-none px-1 "
+             className="h-8 rounded-sm bg-gray-50 border-none px-1 "
             aria-label="Share by email"
           >
             <Mail className="size-3.5" />
@@ -254,7 +256,7 @@ export function CoursePurchaseCard({
           {/* WhatsApp */}
           <Button
             variant="outline"
-             className="h-8 rounded-none bg-gray-50 border-none px-1 "
+             className="h-8 rounded-sm bg-gray-50 border-none px-1 "
             aria-label="Share on WhatsApp"
           >
              <Image src={whatsappIcon} alt="twitter" className="w-3.5 h-3.5 "  />

@@ -16,7 +16,7 @@ export function CoursePreview({
     const [isPlaying, setIsPlaying] = useState(false);
 
     return (
-        <div className="relative aspect-video w-full overflow-hidden bg-muted mt-5">
+        <div className="relative aspect-video w-full overflow-hidden rounded-sm bg-muted">
             {isPlaying && videoUrl ? (
                 <iframe
                     src={videoUrl}
@@ -48,7 +48,7 @@ export function CoursePreview({
                         className="absolute left-1/2 top-1/2 flex size-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-lg transition-transform hover:scale-110 disabled:cursor-default"
                     >
                         <Play
-                            className="ml-1 size-5 fill-orange-500 text-orange-500"
+                            className="ms-1 size-5 fill-orange-500 text-orange-500"
                         />
                     </button>
                 </>

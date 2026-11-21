@@ -1,6 +1,4 @@
-'use client'
-import Link from "next/link";
-
+import { Fragment } from "react";
 import {
     Breadcrumb,
     BreadcrumbItem,
@@ -9,9 +7,8 @@ import {
     BreadcrumbPage,
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { CourseBreadcrumbItem } from "../types/course";
-
-
+import { Link } from "@/i18n/navigation";
+import type { CourseBreadcrumbItem } from "../types/course";
 
 interface CourseBreadcrumbProps {
     items: CourseBreadcrumbItem[];
@@ -27,26 +24,28 @@ export function CourseBreadcrumb({
                     const isLast = index === items.length - 1;
 
                     return (
-                        <div
-                            key={`${item.label}-${index}`}
-                            className="flex items-center gap-2"
-                        >
+                        <Fragment key={`${item.label}-${index}`}>
                             <BreadcrumbItem>
                                 {isLast ? (
-                                    <BreadcrumbPage className="">
+                                    <BreadcrumbPage className="break-words">
                                         {item.label}
                                     </BreadcrumbPage>
                                 ) : (
-                                    <BreadcrumbLink >
-                                        <Link href={item.href ?? "#"}>
-                                            {item.label}
-                                        </Link>
+                                    <BreadcrumbLink
+                                        render={
+                                            <Link href={item.href ?? "#"} />
+                                        }
+                                        className="break-words"
+                                    >
+                                        {item.label}
                                     </BreadcrumbLink>
                                 )}
                             </BreadcrumbItem>
 
-                            {!isLast && <BreadcrumbSeparator />}
-                        </div>
+                            {!isLast && (
+                                <BreadcrumbSeparator className="rtl:rotate-180" />
+                            )}
+                        </Fragment>
                     );
                 })}
             </BreadcrumbList>

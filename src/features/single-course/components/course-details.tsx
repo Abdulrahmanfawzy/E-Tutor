@@ -10,46 +10,24 @@ interface CourseDetailsProps {
 export function CourseDetails({ course }: CourseDetailsProps) {
   return (
     <main className="min-h-screen bg-white">
-
-      {/* ================= Header / Gray Background ================= */}
       <section className="bg-[#F5F7FA]">
-        <div className="relative mx-auto max-w-285 px-5 xl:px-0">
-
-          {/* Course Header */}
-          <div className="py-16 lg:w-[calc(100%-444px)] lg:py-20">
+        <div className="mx-auto grid w-full max-w-285 grid-cols-1 gap-x-8 gap-y-6 px-4 py-8 sm:px-6 sm:py-10 lg:grid-cols-[minmax(0,1fr)_minmax(19rem,25rem)] lg:items-start lg:gap-y-8 lg:px-8 lg:py-14 xl:px-0">
+          <div className="min-w-0 lg:col-start-1 lg:row-start-1">
             <CourseHeader course={course} />
           </div>
 
-          {/* Purchase Card - Overlapping */}
-          <aside className="hidden lg:block absolute right-0 top-20 z-20 w-100 h-full">
-            <CoursePurchaseCard course={course} />
-          </aside>
-
-        </div>
-      </section>
-
-      {/* ================= White Background / Preview ================= */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-285 px-5 xl:px-0">
-
-          <div className="lg:w-[calc(100%-444px)]">
-
-            {/* Mobile Purchase Card */}
-            <div className="mb-6 lg:hidden">
-              <CoursePurchaseCard course={course} />
-            </div>
-
-            {/* Course Preview */}
+          <div className="min-w-0 lg:col-start-1 lg:row-start-2">
             <CoursePreview
               image={course.previewImage}
               videoUrl={course.previewVideo}
             />
-
           </div>
 
+          <aside className="min-w-0  lg:sticky lg:top-6 lg:col-start-2 lg:row-span-2 lg:row-start-1">
+            <CoursePurchaseCard course={course} />
+          </aside>
         </div>
       </section>
-
     </main>
   );
 }

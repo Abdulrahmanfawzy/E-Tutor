@@ -1,11 +1,6 @@
+import Link from "next/link";
 import { ArrowRight, MapPin, Clock, Briefcase } from "lucide-react";
-
-const positions = [
-  { title: "Product Designer (UI/UX Designer)", location: "Tokyo, Japan", type: "Full-Time", vacancy: "01 Vacancy", deadline: "30 June, 2021" },
-  { title: "Social Media Manager", location: "Moscow, Russia", type: "Full-Time", vacancy: "01 Vacancy", deadline: "30 June, 2021" },
-  { title: "Director of Accounting", location: "Mumbai, India", type: "Full-Time", vacancy: "03 Vacancy", deadline: "30 June, 2021" },
-  { title: "Principal Software Engineer", location: "Tokyo, Japan", type: "Full-Time", vacancy: "01 Vacancy", deadline: "30 June, 2021" },
-];
+import { positions } from "@/components/carear/positions";
 
 export default function OpenPositions() {
   return (
@@ -17,7 +12,11 @@ export default function OpenPositions() {
 
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {positions.map((p) => (
-            <article key={p.title} className="bg-white shadow-sm">
+            <Link
+              key={p.id}
+              href={`/career/${p.id}`}
+              className="group block bg-white shadow-sm transition-shadow hover:shadow-md"
+            >
               <div className="p-5">
                 <h3 className="text-sm font-semibold text-gray-900">{p.title}</h3>
                 <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-gray-600">
@@ -40,14 +39,11 @@ export default function OpenPositions() {
                 <p className="text-xs text-gray-600">
                   <span className="font-medium text-red-400">Deadline:</span> {p.deadline}
                 </p>
-                <button
-                  aria-label={`Apply for ${p.title}`}
-                  className="flex h-8 w-8 items-center justify-center bg-button-primary-soft text-button-primary-soft-foreground transition-colors hover:bg-button-primary hover:text-white"
-                >
+                <span className="flex h-8 w-8 items-center justify-center bg-button-primary-soft text-button-primary-soft-foreground transition-colors group-hover:bg-button-primary group-hover:text-white">
                   <ArrowRight size={16} />
-                </button>
+                </span>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>

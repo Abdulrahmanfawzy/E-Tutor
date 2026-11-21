@@ -20,7 +20,7 @@ export function CourseHeader({
             <CourseBreadcrumb items={course.breadcrumbs} />
 
             <div className="space-y-2">
-                <h1 className="max-w-3xl break-words text-2xl font-bold leading-tight tracking-tight sm:text-3xl lg:text-4xl">
+                <h1 className="max-w-3xl wrap-break-word text-2xl font-bold leading-tight tracking-tight sm:text-3xl lg:text-4xl">
                     {course.title}
                 </h1>
 

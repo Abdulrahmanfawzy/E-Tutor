@@ -12,6 +12,8 @@
   "metadata": {
     "siteTitle": "E-Tutor | Learn with experts",
     "siteDescription": "Find the best online courses and learn with experts anytime, anywhere.",
+    "authTitle": "E-Tutor | Account",
+    "authDescription": "Sign in or create an E-Tutor account.",
     "homeTitle": "E-Tutor | Online Learning",
     "contactTitle": "Contact Us | E-Tutor",
     "contactDescription": "Get in touch with the E-Tutor team and we'll get back to you soon.",
@@ -21,6 +23,66 @@
     "courseCategoriesDescription": "Browse thousands of online courses across our top categories.",
     "giftCourseTitle": "Gift a Course | E-Tutor",
     "giftCourseDescription": "Give the gift of learning to someone special."
+  },
+  "auth": {
+    "nav": {
+      "mainNavigation": "Main",
+      "dontHaveAccount": "Don't have an account?",
+      "alreadyHaveAccount": "Already have an account?",
+      "createAccount": "Create Account",
+      "signIn": "Sign In"
+    },
+    "login": {
+      "title": "Sign In",
+      "email": "Email",
+      "emailPlaceholder": "Email address",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "rememberMe": "Remember me",
+      "submit": "Sign In",
+      "socialDivider": "SIGN IN WITH"
+    },
+    "register": {
+      "title": "Create your account",
+      "fullName": "Full Name",
+      "firstName": "First name",
+      "firstNamePlaceholder": "First name...",
+      "lastName": "Last name",
+      "lastNamePlaceholder": "Last name...",
+      "username": "Username",
+      "usernamePlaceholder": "Username...",
+      "email": "Email",
+      "emailPlaceholder": "Email address",
+      "password": "Password",
+      "passwordPlaceholder": "Create password",
+      "confirmPassword": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm password",
+      "agreeWith": "I agree with all of your",
+      "terms": "Terms & Conditions",
+      "submit": "Create Account",
+      "socialDivider": "SIGN UP WITH"
+    },
+    "shared": {
+      "showPassword": "Show password",
+      "hidePassword": "Hide password"
+    },
+    "social": {
+      "signInGroup": "Sign in with a social account",
+      "signUpGroup": "Sign up with a social account",
+      "signInWith": "Sign in with {provider}",
+      "signUpWith": "Sign up with {provider}"
+    },
+    "validation": {
+      "firstNameRequired": "Enter your first name",
+      "lastNameRequired": "Enter your last name",
+      "usernameMin": "Username must be at least 3 characters",
+      "usernamePattern": "Use letters, numbers, and underscores only",
+      "invalidEmail": "Enter a valid email address",
+      "passwordMin": "Use at least 8 characters",
+      "confirmPasswordRequired": "Confirm your password",
+      "termsRequired": "Please accept the terms",
+      "passwordsMismatch": "Passwords do not match"
+    }
   },
   "nav": {
     "home": "Home",
@@ -228,13 +290,15 @@
       "earning": "Earning",
       "message": "Message",
       "settings": "Settings",
-      "logout": "Logout"
+      "logout": "Logout",
+      "signOut": "Sign-out"
     },
     "navbar": {
       "goodMorning": "Good Morning",
       "dashboard": "Dashboard",
       "searchPlaceholder": "Search ....",
-      "notifications": "Notifications"
+      "notifications": "Notifications",
+      "profile": "Profile"
     },
     "footer": {
       "copyright": "© 2021 - E-Tutor. Designed by {designer}. All rights reserved",
@@ -263,6 +327,274 @@
     "empty": {
       "title": "No conversation selected",
       "description": "Select a conversation to start chatting."
+    }
+  },
+  "createCourse": {
+    "steps": {
+      "ariaLabel": "Course creation steps",
+      "basicInformation": "Basic Information",
+      "advanceInformation": "Advance Information",
+      "curriculum": "Curriculum",
+      "publishCourse": "Publish Course",
+      "progress": "7/12",
+      "stepOf": "Step {current} of {total}"
+    },
+    "common": {
+      "save": "Save",
+      "saveAndPreview": "Save & Preview",
+      "saveAndNext": "Save & Next",
+      "cancel": "Cancel",
+      "previous": "Previous",
+      "next": "Next",
+      "optional": "(Optional)",
+      "select": "Select...",
+      "clear": "Clear",
+      "edit": "Edit",
+      "delete": "Delete",
+      "addNew": "Add new",
+      "noFileSelected": "No file selected",
+      "closeDialog": "Close dialog",
+      "editName": "Edit name",
+      "saveName": "Save name",
+      "cancelEditing": "Cancel editing",
+      "removeItem": "Remove item {index}",
+      "removeNamed": "Remove {name}",
+      "deleteNamed": "Delete {name}",
+      "editNamed": "Edit {name}"
+    },
+    "metadata": {
+      "advancedTitle": "Create Course | Eduguard",
+      "advancedDescription": "Add advanced information to your course."
+    },
+    "basic": {
+      "heading": "Basic Information",
+      "title": "Title",
+      "titlePlaceholder": "You course tittle",
+      "subtitle": "Subtitle",
+      "subtitlePlaceholder": "You course subtitle",
+      "category": "Course Category",
+      "subcategory": "Course Sub-category",
+      "topic": "Course Topic",
+      "topicPlaceholder": "What is primarily taught in your course?",
+      "language": "Course Language",
+      "subtitleLanguage": "Subtitle Language",
+      "level": "Course Level",
+      "duration": "Durations",
+      "durationPlaceholder": "Course durations",
+      "durationUnitAria": "Duration unit",
+      "status": {
+        "saved": "Your course information has been saved locally.",
+        "previewNotConnected": "Preview is not connected yet. Your form is ready for preview integration."
+      }
+    },
+    "options": {
+      "categories": {
+        "development": "Development",
+        "business": "Business",
+        "finance": "Finance & Accounting",
+        "it-software": "IT & Software",
+        "design": "Design",
+        "marketing": "Marketing",
+        "personal-development": "Personal Development"
+      },
+      "subcategories": {
+        "web-development": "Web Development",
+        "mobile-development": "Mobile Development",
+        "programming": "Programming Languages",
+        "data-science": "Data Science",
+        "ui-ux-design": "UI/UX Design",
+        "graphic-design": "Graphic Design"
+      },
+      "languages": {
+        "english": "English",
+        "arabic": "Arabic",
+        "french": "French",
+        "spanish": "Spanish",
+        "german": "German"
+      },
+      "levels": {
+        "beginner": "Beginner",
+        "intermediate": "Intermediate",
+        "advanced": "Advanced",
+        "all-levels": "All Levels"
+      },
+      "durationUnits": {
+        "day": "Day",
+        "week": "Week",
+        "month": "Month"
+      }
+    },
+    "advanced": {
+      "heading": "Advance Informations",
+      "thumbnailTitle": "Course Thumbnail",
+      "thumbnailDescription": "Upload your course Thumbnail here. Important guidelines: 1200×800 pixels or 12:8 Ratio. Supported format: .jpg, .jpeg, or .png",
+      "trailerTitle": "Course Trailer",
+      "trailerDescription": "Students who watch a well-made promo video are 5X more likely to enroll in your course. We've seen that statistic go up to 10X for exceptionally awesome videos.",
+      "changeFile": "Change file",
+      "uploadImage": "Upload Image",
+      "uploadVideo": "Upload Video",
+      "descriptionLabel": "Course Descriptions",
+      "descriptionPlaceholder": "Enter you course descriptions",
+      "descriptionFallback": "your text",
+      "toolbar": {
+        "bold": "Bold",
+        "italic": "Italic",
+        "underline": "Underline",
+        "strikethrough": "Strikethrough",
+        "insertLink": "Insert link",
+        "bulletedList": "Bulleted list",
+        "numberedList": "Numbered list"
+      },
+      "whatYouWillLearn": "What you will teach in this course",
+      "targetAudience": "Target Audience",
+      "courseRequirements": "Course requirements",
+      "whatYouWillLearnPlaceholder": "What you will teach in this course...",
+      "targetAudiencePlaceholder": "Who this course is for...",
+      "courseRequirementsPlaceholder": "What is your course requirements...",
+      "status": {
+        "save": "Your course information is ready in this UI preview. No data was sent to a server.",
+        "preview": "Course preview is represented by this UI-only action. Preview routing is not connected.",
+        "next": "The Advance Information form is valid. The Curriculum step is not part of this implementation.",
+        "previous": "The Basic Information step is outside the scope of this UI implementation."
+      }
+    },
+    "curriculum": {
+      "title": "Course Curriculum",
+      "addSections": "Add Sections",
+      "sectionLabel": "Sections {number}:",
+      "sectionHeading": "Section {number}: {title}",
+      "defaultSectionName": "Section name",
+      "defaultLectureName": "Lecture name",
+      "emptySection": "No lectures in this section yet. Use the plus icon to add one.",
+      "addLecture": "Add lecture",
+      "editSectionName": "Edit section name",
+      "deleteSection": "Delete section {index}",
+      "contents": "Contents",
+      "noLecturesAdded": "No lectures added.",
+      "feedback": {
+        "sectionAdded": "New section added.",
+        "sectionRemoved": "Section removed.",
+        "lectureAdded": "New lecture added.",
+        "lectureRemoved": "Lecture removed.",
+        "saved": "Curriculum saved locally for this demo."
+      },
+      "preview": {
+        "title": "Curriculum Preview",
+        "summary": "{sections, plural, one {# section} other {# sections}} · {lectures, plural, one {# lecture} other {# lectures}}",
+        "close": "Close Preview",
+        "captions": "Captions:",
+        "description": "Description:",
+        "lectureNotes": "Lecture Notes:"
+      }
+    },
+    "contentTypes": {
+      "video": "Video",
+      "attachFile": "Attach File",
+      "captions": "Captions",
+      "description": "Description",
+      "lectureNotes": "Lecture Notes"
+    },
+    "contentMenu": {
+      "ariaLabel": "Lecture content options"
+    },
+    "textDialog": {
+      "captionsTitle": "Lecture Captions",
+      "captionsPlaceholder": "Enter lecture captions...",
+      "captionsDescription": "Add captions for this lecture.",
+      "descriptionTitle": "Lecture Description",
+      "descriptionPlaceholder": "Enter lecture description...",
+      "descriptionDescription": "Add a description for this lecture.",
+      "notesTitle": "Lecture Notes",
+      "notesPlaceholder": "Enter lecture notes...",
+      "notesDescription": "Add notes and supporting information for this lecture.",
+      "attachFileOptional": "Attach a file (optional)",
+      "browseFile": "Browse file",
+      "replaceFile": "Replace file"
+    },
+    "uploadDialog": {
+      "videoTitle": "Lecture Video",
+      "attachFileTitle": "Attach File",
+      "uploadFiles": "Upload Files",
+      "uploadFile": "Upload File",
+      "noteLabel": "Note:",
+      "note": "All files should be at least 720p and less than 4.0 GB.",
+      "dragDrop": "Drag and drop a file or",
+      "browseFile": "browse file",
+      "replaceFile": "Replace file",
+      "chooseVideoFile": "Choose video file",
+      "chooseAttachment": "Choose attachment",
+      "uploadVideo": "Upload Video",
+      "attachFile": "Attach File",
+      "errors": {
+        "invalidVideo": "Please select a valid video file.",
+        "videoTooLarge": "Video file size must be less than 4 GB."
+      }
+    },
+    "videoDialog": {
+      "title": "Lecture Video",
+      "uploadFiles": "Upload Files",
+      "uploadFile": "Upload File",
+      "noteLabel": "Note:",
+      "note": "All files should be at least 720p and less than 4.0 GB.",
+      "uploadVideo": "Upload Video",
+      "errors": {
+        "invalidVideo": "Please select a valid video file.",
+        "videoTooLarge": "Video file must be less than 4.0 GB.",
+        "lowResolution": "Video resolution must be at least 720p."
+      }
+    },
+    "publish": {
+      "title": "Publish Course",
+      "messagesTitle": "Message",
+      "welcomeLabel": "Welcome Message",
+      "welcomePlaceholder": "Enter course starting message here...",
+      "congratulationsLabel": "Congratulations Message",
+      "congratulationsPlaceholder": "Enter your course completed message here...",
+      "instructorsTitle": "Add Instructor ({count})",
+      "searchPlaceholder": "Search by username",
+      "searchAriaLabel": "Search instructors by username",
+      "noInstructors": "No instructors found.",
+      "preview": {
+        "ariaLabel": "Course message preview",
+        "title": "Message preview",
+        "welcome": "Welcome Message",
+        "congratulations": "Congratulations Message",
+        "noWelcome": "No welcome message added.",
+        "noCongratulations": "No congratulations message added."
+      },
+      "feedback": {
+        "saved": "Course changes saved locally (demo).",
+        "previewGenerated": "Preview generated from the current form values.",
+        "submitted": "Course submitted for review (demo). {count} message characters saved."
+      },
+      "prevStep": "Prev Step",
+      "submitForReview": "Submit For Review"
+    },
+    "instructorRoles": {
+      "uiUxDesigner": "UI/UX Designer",
+      "frontendDeveloper": "Frontend Developer",
+      "productDesigner": "Product Designer"
+    },
+    "validation": {
+      "titleRequired": "Course title is required.",
+      "titleMax": "Course title cannot exceed 80 characters.",
+      "subtitleRequired": "Course subtitle is required.",
+      "subtitleMax": "Course subtitle cannot exceed 120 characters.",
+      "categoryRequired": "Please select a course category.",
+      "subcategoryRequired": "Please select a sub-category.",
+      "topicRequired": "Course topic is required.",
+      "languageRequired": "Please select a course language.",
+      "levelRequired": "Please select a course level.",
+      "durationRequired": "Please enter the course duration.",
+      "durationPositive": "Duration must be greater than zero.",
+      "durationUnitRequired": "Please select a duration unit.",
+      "invalidFile": "Please select a valid file.",
+      "maxCharacters": "Maximum {max} characters.",
+      "descriptionTooLong": "Description is too long.",
+      "welcomeMax": "Welcome message cannot exceed 500 characters.",
+      "congratulationsMax": "Congratulations message cannot exceed 500 characters.",
+      "nameRequired": "Please enter a name.",
+      "nameMax": "Names cannot exceed 80 characters."
     }
   },
   "courseDetails": {

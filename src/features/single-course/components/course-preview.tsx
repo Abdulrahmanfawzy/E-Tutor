@@ -16,7 +16,7 @@ export function CoursePreview({
     const [isPlaying, setIsPlaying] = useState(false);
 
     return (
-        <div className="relative aspect-video w-full overflow-hidden bg-muted">
+        <div className="relative aspect-video w-full overflow-hidden bg-muted mt-5">
             {isPlaying && videoUrl ? (
                 <iframe
                     src={videoUrl}

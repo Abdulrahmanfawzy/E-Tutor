@@ -33,7 +33,7 @@ export function CourseBreadcrumb({
                         >
                             <BreadcrumbItem>
                                 {isLast ? (
-                                    <BreadcrumbPage>
+                                    <BreadcrumbPage className="">
                                         {item.label}
                                     </BreadcrumbPage>
                                 ) : (

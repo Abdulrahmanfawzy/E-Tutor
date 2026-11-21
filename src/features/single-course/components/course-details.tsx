@@ -1,55 +1,55 @@
-
-
 import { Course } from "../types/course";
 import { CourseHeader } from "./course-header";
 import { CoursePreview } from "./course-preview";
+import { CoursePurchaseCard } from "./course-purchase-card";
 
 interface CourseDetailsProps {
-    course: Course;
+  course: Course;
 }
 
-export function CourseDetails({
-    course,
-}: CourseDetailsProps) {
-    return (
-        <main className="min-h-screen bg-background">
-            <div className="bg-slate-50">
-                <div className="mx-auto max-w-7xl px-4 py-8 md:px-8">
-                    <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-10">
-                        {/* Main Content */}
-                        <div className="min-w-0">
-                            <CourseHeader course={course} />
-                        </div>
+export function CourseDetails({ course }: CourseDetailsProps) {
+  return (
+    <main className="min-h-screen bg-white">
 
-                        {/* Purchase Card */}
-                        <aside className="hidden lg:block">
-                            <div className="sticky top-6">
-                                <div className="rounded-lg border bg-white p-5 shadow-sm">
-                                    <p className="text-lg font-semibold">
-                                        ${course.price.current.toFixed(2)}
-                                    </p>
+      {/* ================= Header / Gray Background ================= */}
+      <section className="bg-[#F5F7FA]">
+        <div className="relative mx-auto max-w-285 px-5 xl:px-0">
 
-                                    <p className="text-sm text-muted-foreground line-through">
-                                        ${course.price.original.toFixed(2)}
-                                    </p>
+          {/* Course Header */}
+          <div className="py-16 lg:w-[calc(100%-444px)] lg:py-20">
+            <CourseHeader course={course} />
+          </div>
 
-                                    <p className="mt-4 text-sm">
-                                        Purchase card will be implemented next.
-                                    </p>
-                                </div>
-                            </div>
-                        </aside>
+          {/* Purchase Card - Overlapping */}
+          <aside className="hidden lg:block absolute right-0 top-20 z-20 w-100 h-full">
+            <CoursePurchaseCard course={course} />
+          </aside>
 
-                        {/* Course Preview */}
-                        <div className="min-w-0 lg:col-start-1">
-                            <CoursePreview
-                                image={course.previewImage}
-                                videoUrl={course.previewVideo}
-                            />
-                        </div>
-                    </div>
-                </div>
+        </div>
+      </section>
+
+      {/* ================= White Background / Preview ================= */}
+      <section className="bg-white">
+        <div className="mx-auto max-w-285 px-5 xl:px-0">
+
+          <div className="lg:w-[calc(100%-444px)]">
+
+            {/* Mobile Purchase Card */}
+            <div className="mb-6 lg:hidden">
+              <CoursePurchaseCard course={course} />
             </div>
-        </main>
-    );
+
+            {/* Course Preview */}
+            <CoursePreview
+              image={course.previewImage}
+              videoUrl={course.previewVideo}
+            />
+
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+  );
 }

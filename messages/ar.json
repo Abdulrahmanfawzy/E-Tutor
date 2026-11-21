@@ -1,0 +1,600 @@
+{
+  "common": {
+    "appName": "إي-تيوتر",
+    "language": "اللغة",
+    "english": "الإنجليزية",
+    "arabic": "العربية",
+    "switchLanguage": "تغيير اللغة",
+    "home": "الرئيسية",
+    "loading": "جار التحميل...",
+    "homeLink": "الرئيسية"
+  },
+  "metadata": {
+    "siteTitle": "إي-تيوتر | تعلّم مع الخبراء",
+    "siteDescription": "اعثر على أفضل الدورات التدريبية عبر الإنترنت وتعلّم مع الخبراء في أي وقت ومن أي مكان.",
+    "authTitle": "إي-تيوتر | الحساب",
+    "authDescription": "سجّل الدخول أو أنشئ حساباً على إي-تيوتر.",
+    "homeTitle": "إي-تيوتر | التعلم عبر الإنترنت",
+    "contactTitle": "اتصل بنا | إي-تيوتر",
+    "contactDescription": "تواصل مع فريق إي-تيوتر وسنرد عليك في أقرب وقت ممكن.",
+    "instructorTitle": "كن مدرباً | إي-تيوتر",
+    "instructorDescription": "شارك معرفتك، وألهم المتعلمين، وأصبح مدرباً مع إي-تيوتر.",
+    "courseCategoriesTitle": "فئات الدورات | إي-تيوتر",
+    "courseCategoriesDescription": "تصفح آلاف الدورات التدريبية عبر الإنترنت في أفضل فئاتنا.",
+    "giftCourseTitle": "أهدِ دورة تدريبية | إي-تيوتر",
+    "giftCourseDescription": "أهدِ متعة التعلم لشخص مميز."
+  },
+  "auth": {
+    "nav": {
+      "mainNavigation": "التنقل الرئيسي",
+      "dontHaveAccount": "ليس لديك حساب؟",
+      "alreadyHaveAccount": "لديك حساب بالفعل؟",
+      "createAccount": "إنشاء حساب",
+      "signIn": "تسجيل الدخول"
+    },
+    "login": {
+      "title": "تسجيل الدخول",
+      "email": "البريد الإلكتروني",
+      "emailPlaceholder": "أدخل بريدك الإلكتروني",
+      "password": "كلمة المرور",
+      "passwordPlaceholder": "أدخل كلمة المرور",
+      "rememberMe": "تذكرني",
+      "submit": "تسجيل الدخول",
+      "socialDivider": "تسجيل الدخول باستخدام"
+    },
+    "register": {
+      "title": "إنشاء حسابك",
+      "fullName": "الاسم بالكامل",
+      "firstName": "الاسم الأول",
+      "firstNamePlaceholder": "الاسم الأول...",
+      "lastName": "اسم العائلة",
+      "lastNamePlaceholder": "اسم العائلة...",
+      "username": "اسم المستخدم",
+      "usernamePlaceholder": "أدخل اسم المستخدم...",
+      "email": "البريد الإلكتروني",
+      "emailPlaceholder": "أدخل بريدك الإلكتروني",
+      "password": "كلمة المرور",
+      "passwordPlaceholder": "أنشئ كلمة مرور",
+      "confirmPassword": "تأكيد كلمة المرور",
+      "confirmPasswordPlaceholder": "أعد إدخال كلمة المرور",
+      "agreeWith": "أوافق على",
+      "terms": "الشروط والأحكام",
+      "submit": "إنشاء حساب",
+      "socialDivider": "إنشاء حساب باستخدام"
+    },
+    "shared": {
+      "showPassword": "إظهار كلمة المرور",
+      "hidePassword": "إخفاء كلمة المرور"
+    },
+    "social": {
+      "signInGroup": "تسجيل الدخول باستخدام حساب اجتماعي",
+      "signUpGroup": "إنشاء حساب باستخدام حساب اجتماعي",
+      "signInWith": "تسجيل الدخول باستخدام {provider}",
+      "signUpWith": "إنشاء حساب باستخدام {provider}"
+    },
+    "validation": {
+      "firstNameRequired": "أدخل الاسم الأول",
+      "lastNameRequired": "أدخل اسم العائلة",
+      "usernameMin": "يجب ألا يقل اسم المستخدم عن 3 أحرف",
+      "usernamePattern": "استخدم الحروف الإنجليزية والأرقام والشرطة السفلية فقط",
+      "invalidEmail": "أدخل بريدًا إلكترونيًا صحيحًا",
+      "passwordMin": "يجب ألا تقل كلمة المرور عن 8 أحرف",
+      "confirmPasswordRequired": "أعد إدخال كلمة المرور",
+      "termsRequired": "يرجى الموافقة على الشروط والأحكام",
+      "passwordsMismatch": "كلمتا المرور غير متطابقتين"
+    }
+  },
+  "nav": {
+    "home": "الرئيسية",
+    "courses": "الدورات",
+    "courseCategories": "فئات الدورات",
+    "instructor": "كن مدرباً",
+    "contact": "اتصل بنا",
+    "dashboard": "لوحة التحكم",
+    "browseCourses": "تصفح الدورات",
+    "giftCourse": "أهدِ دورة"
+  },
+  "home": {
+    "hero": {
+      "titleLine1": "تعلّم مع خبراء",
+      "titleLine2": "في أي وقت ومن أي مكان",
+      "description": "مهمتنا هي مساعدة الناس على إيجاد أفضل دورة عبر الإنترنت والتعلم مع الخبراء في أي وقت ومن أي مكان.",
+      "createAccount": "أنشئ حساباً",
+      "imageAlt": "الطلاب يتعلمون معاً"
+    },
+    "categories": {
+      "title": "تصفح أفضل الفئات",
+      "more": "لدينا المزيد من الفئات والفئات الفرعية.",
+      "browseAll": "تصفح الكل"
+    },
+    "bestSelling": {
+      "title": "الدورات الأكثر مبيعاً"
+    },
+    "featured": {
+      "title": "دوراتنا المميزة",
+      "beginner": "مبتدئ",
+      "duration": "6 ساعات"
+    },
+    "recentlyAdded": {
+      "title": "الدورات المضافة حديثاً",
+      "courseBy": "الدورة بواسطة",
+      "students": "الطلاب",
+      "beginner": "مبتدئ",
+      "duration": "6 ساعات",
+      "off": "خصم",
+      "addToWishlist": "أضف إلى المفضلة",
+      "whatYouWillLearn": "ما ستتعلّمه",
+      "addToCart": "أضف إلى السلة",
+      "courseDetail": "تفاصيل الدورة",
+      "browseAll": "تصفح كل الدورات",
+      "learningPoint1": "تعلّم استخدام مهارات الدورة بشكل احترافي.",
+      "learningPoint2": "ابنِ مشاريع عملية من الصفر.",
+      "learningPoint3": "تدرب على أمثلة وتمارين من الواقع."
+    },
+    "instructorPromo": {
+      "title": "كن مدرباً",
+      "description": "يدرّس مدربون من حول العالم آلاف الطلاب على إي-تيوتر. نحن نوفر لك الأدوات والمهارات لتدريس ما تحبه.",
+      "startTeaching": "ابدأ التدريس",
+      "imageAlt": "كن مدرباً",
+      "stepsTitle": "خطوات التدريس والربح",
+      "step1": "تقدّم لتصبح مدرباً",
+      "step2": "ابنِ ملفك الشخصي وعدّله",
+      "step3": "أنشئ دورتك الجديدة",
+      "step4": "ابدأ التدريس والربح"
+    },
+    "instructors": {
+      "title": "أفضل مدرب في الشهر",
+      "waiting": "آلاف الطلاب ينتظرون مدرباً.",
+      "become": "كن مدرباً"
+    },
+    "trustedCompanies": {
+      "title": "6.3 ألف شركة تثق بنا",
+      "description": "تثق شركات ومتعلمون من حول العالم بمنصتنا."
+    },
+    "stats": {
+      "title": "ابدأ التعلم مع 67.1 ألف طالب من حول العالم.",
+      "join": "انضم إلى العائلة",
+      "browse": "تصفح كل الدورات",
+      "onlineCourses": "دورات عبر الإنترنت",
+      "certifiedInstructor": "مدرب معتمد",
+      "successRate": "معدل النجاح"
+    }
+  },
+  "contact": {
+    "badge": "تواصل معنا",
+    "title": "يسعدنا سماع رأيك",
+    "description": "لديك سؤال أو ملاحظة أو تريد فقط إلقاء التحية؟ املأ النموذج أدناه وسيرد فريقنا عليك في أقرب وقت ممكن.",
+    "form": {
+      "name": "الاسم الكامل",
+      "namePlaceholder": "اكتب اسمك الكامل",
+      "email": "البريد الإلكتروني",
+      "emailPlaceholder": "you@example.com",
+      "subject": "الموضوع",
+      "subjectPlaceholder": "ما موضوع رسالتك؟",
+      "message": "الرسالة",
+      "messagePlaceholder": "أخبرنا كيف يمكننا مساعدتك...",
+      "submit": "إرسال الرسالة",
+      "sending": "جار الإرسال...",
+      "success": "شكراً لك! تم إرسال رسالتك.",
+      "errorName": "يرجى إدخال اسمك.",
+      "errorEmail": "يرجى إدخال بريد إلكتروني صالح.",
+      "errorSubject": "يرجى إدخال الموضوع.",
+      "errorMessage": "يرجى إدخال رسالتك."
+    },
+    "info": {
+      "title": "معلومات التواصل",
+      "description": "تواصل معنا عبر أي من القنوات أدناه. نرد عادةً خلال يوم عمل واحد.",
+      "emailLabel": "البريد الإلكتروني",
+      "phoneLabel": "الهاتف",
+      "addressLabel": "العنوان",
+      "address": "شارع التعلم 123، القاهرة، مصر",
+      "hoursLabel": "ساعات العمل",
+      "hours": "الأحد – الخميس، 9:00 ص – 5:00 م"
+    },
+    "faq": {
+      "title": "الأسئلة الشائعة",
+      "question1": "كيف أسجّل في دورة؟",
+      "answer1": "أنشئ حساباً، وتصفح كتالوج الدورات، ثم اضغط تسجيل في أي دورة تعجبك.",
+      "question2": "هل يمكنني أن أصبح مدرباً؟",
+      "answer2": "بالتأكيد! زر صفحة كن مدرباً للتقديم وبدء مشاركة معرفتك.",
+      "question3": "هل تقدمون شهادات؟",
+      "answer3": "نعم، تحصل على شهادة إتمام بعد إنهاء أي دورة."
+    }
+  },
+  "instructor": {
+    "pageHeader": {
+      "title": "كن مدرباً",
+      "current": "كن مدرباً"
+    },
+    "hero": {
+      "title": "كن مدرباً",
+      "description": "حوّل معرفتك وخبرتك إلى تجارب تعليمية ذات معنى. درّس ما تحبه، وألهم المتعلمين، ونمُ مع إي-تيوتر.",
+      "cta": "كن مدرباً"
+    },
+    "steps": {
+      "title": "كيف تصبح مدرباً ناجحاً",
+      "description": "اتبع هذه الخطوات لتبدأ رحلتك وتصبح جزءاً من مجتمع المدربين لدينا."
+    },
+    "rules": {
+      "title": "أكثر من 20 ألف مدرب صنعوا قصة نجاحهم مع إي-تيوتر"
+    },
+    "info": {
+      "title": "قواعد ولوائح المدربين",
+      "description": "قواعد ولوائح المدربين التي يجب اتباعها...",
+      "bullet1": "الالتزام بالجودة في المحتوى...",
+      "bullet2": "احترام المتعلمين والزملاء...",
+      "imageAlt": "مدرب يدرّس عبر الإنترنت",
+      "getStarted": "ابدأ الآن"
+    }
+  },
+  "courseCategories": {
+    "title": "استكشف فئات الدورات",
+    "description": "اكتشف المهارات التي تحتاجها وتعلّم من خبراء الصناعة.",
+    "catalog": {
+      "title": "كل الدورات",
+      "searchPlaceholder": "ابحث في الدورات...",
+      "filter": "تصفية",
+      "sort": "ترتيب حسب",
+      "all": "الكل",
+      "beginner": "مبتدئ",
+      "intermediate": "متوسط",
+      "advanced": "متقدم"
+    },
+    "popularTools": {
+      "title": "الأدوات الشائعة"
+    },
+    "popularKeywords": {
+      "title": "الكلمات الرئيسية الشائعة"
+    },
+    "popularInstructors": {
+      "title": "المدربون المشهورون"
+    },
+    "bestSelling": {
+      "title": "الدورات الأكثر مبيعاً"
+    }
+  },
+  "giftCourse": {
+    "title": "دورة هدية",
+    "breadcrumbCourse": "دورة",
+    "containerTitle": "أهدِ دورة تدريبية",
+    "recipient": {
+      "title": "معلومات المستلم",
+      "name": "اسم المستلم",
+      "namePlaceholder": "أدخل اسم المستلم",
+      "email": "بريد المستلم الإلكتروني",
+      "emailPlaceholder": "أدخل بريد المستلم الإلكتروني",
+      "message": "رسالة شخصية",
+      "messagePlaceholder": "اكتب رسالة شخصية (اختياري)"
+    },
+    "payment": {
+      "title": "طريقة الدفع",
+      "savedCard": "بطاقة محفوظة",
+      "newCard": "استخدم بطاقة جديدة",
+      "expiry": "تاريخ الانتهاء",
+      "holder": "حامل البطاقة",
+      "addNewCard": "أضف بطاقة جديدة"
+    },
+    "card": {
+      "title": "دورة",
+      "courseBy": "الدورة بواسطة",
+      "price": "السعر",
+      "total": "الإجمالي",
+      "placeOrder": "تأكيد الطلب"
+    }
+  },
+  "dashboard": {
+    "sidebar": {
+      "dashboard": "لوحة التحكم",
+      "createCourse": "أنشئ دورة جديدة",
+      "myCourses": "دوراتي",
+      "earning": "الأرباح",
+      "message": "الرسائل",
+      "settings": "الإعدادات",
+      "logout": "تسجيل الخروج",
+      "signOut": "تسجيل الخروج"
+    },
+    "navbar": {
+      "goodMorning": "صباح الخير",
+      "dashboard": "لوحة التحكم",
+      "searchPlaceholder": "ابحث ....",
+      "notifications": "الإشعارات",
+      "profile": "الصورة الشخصية"
+    },
+    "footer": {
+      "copyright": "© 2021 - إي-تيوتر. صمم بواسطة {designer}. جميع الحقوق محفوظة",
+      "designer": "Templatecookie",
+      "faqs": "الأسئلة الشائعة",
+      "privacy": "سياسة الخصوصية",
+      "terms": "الشروط والأحكام"
+    }
+  },
+  "messages": {
+    "sidebar": {
+      "title": "الرسائل",
+      "searchPlaceholder": "ابحث في الرسائل...",
+      "newMessage": "رسالة جديدة"
+    },
+    "header": {
+      "back": "العودة إلى المحادثات",
+      "viewInfo": "عرض المعلومات",
+      "online": "متصل"
+    },
+    "composer": {
+      "placeholder": "اكتب رسالة...",
+      "attach": "إرفاق ملف",
+      "send": "إرسال الرسالة"
+    },
+    "empty": {
+      "title": "لا توجد محادثة محددة",
+      "description": "اختر محادثة لبدء الدردشة."
+    }
+  },
+  "createCourse": {
+    "steps": {
+      "ariaLabel": "خطوات إنشاء الدورة",
+      "basicInformation": "المعلومات الأساسية",
+      "advanceInformation": "المعلومات المتقدمة",
+      "curriculum": "المنهج",
+      "publishCourse": "نشر الدورة",
+      "progress": "7/12",
+      "stepOf": "الخطوة {current} من {total}"
+    },
+    "common": {
+      "save": "حفظ",
+      "saveAndPreview": "حفظ ومعاينة",
+      "saveAndNext": "حفظ والتالي",
+      "cancel": "إلغاء",
+      "previous": "السابق",
+      "next": "التالي",
+      "optional": "(اختياري)",
+      "select": "اختر...",
+      "clear": "مسح",
+      "edit": "تعديل",
+      "delete": "حذف",
+      "addNew": "إضافة جديد",
+      "noFileSelected": "لم يتم اختيار ملف",
+      "closeDialog": "إغلاق النافذة",
+      "editName": "تعديل الاسم",
+      "saveName": "حفظ الاسم",
+      "cancelEditing": "إلغاء التعديل",
+      "removeItem": "إزالة العنصر {index}",
+      "removeNamed": "إزالة {name}",
+      "deleteNamed": "حذف {name}",
+      "editNamed": "تعديل {name}"
+    },
+    "metadata": {
+      "advancedTitle": "إنشاء دورة | إيدوغارد",
+      "advancedDescription": "أضف معلومات متقدمة إلى دورتك."
+    },
+    "basic": {
+      "heading": "المعلومات الأساسية",
+      "title": "العنوان",
+      "titlePlaceholder": "عنوان دورتك",
+      "subtitle": "العنوان الفرعي",
+      "subtitlePlaceholder": "العنوان الفرعي لدورتك",
+      "category": "فئة الدورة",
+      "subcategory": "الفئة الفرعية للدورة",
+      "topic": "موضوع الدورة",
+      "topicPlaceholder": "ما الذي يُدرّس بشكل أساسي في دورتك؟",
+      "language": "لغة الدورة",
+      "subtitleLanguage": "لغة الترجمة النصية",
+      "level": "مستوى الدورة",
+      "duration": "المدة",
+      "durationPlaceholder": "مدة الدورة",
+      "durationUnitAria": "وحدة المدة",
+      "status": {
+        "saved": "تم حفظ معلومات دورتك محلياً.",
+        "previewNotConnected": "المعاينة غير متصلة بعد. نموذجك جاهز لدمج المعاينة."
+      }
+    },
+    "options": {
+      "categories": {
+        "development": "التطوير",
+        "business": "الأعمال",
+        "finance": "المالية والمحاسبة",
+        "it-software": "تقنية المعلومات والبرمجيات",
+        "design": "التصميم",
+        "marketing": "التسويق",
+        "personal-development": "التطوير الشخصي"
+      },
+      "subcategories": {
+        "web-development": "تطوير الويب",
+        "mobile-development": "تطوير التطبيقات الجوّالة",
+        "programming": "لغات البرمجة",
+        "data-science": "علم البيانات",
+        "ui-ux-design": "تصميم واجهات وتجربة المستخدم",
+        "graphic-design": "التصميم الجرافيكي"
+      },
+      "languages": {
+        "english": "الإنجليزية",
+        "arabic": "العربية",
+        "french": "الفرنسية",
+        "spanish": "الإسبانية",
+        "german": "الألمانية"
+      },
+      "levels": {
+        "beginner": "مبتدئ",
+        "intermediate": "متوسط",
+        "advanced": "متقدم",
+        "all-levels": "جميع المستويات"
+      },
+      "durationUnits": {
+        "day": "يوم",
+        "week": "أسبوع",
+        "month": "شهر"
+      }
+    },
+    "advanced": {
+      "heading": "المعلومات المتقدمة",
+      "thumbnailTitle": "صورة الدورة المصغرة",
+      "thumbnailDescription": "ارفع صورة الدورة المصغرة هنا. إرشادات مهمة: 1200×800 بكسل أو بنسبة 12:8. الصيغ المدعومة: .jpg أو .jpeg أو .png",
+      "trailerTitle": "الفيديو التعريفي للدورة",
+      "trailerDescription": "الطلاب الذين يشاهدون فيديو تعريفياً جيداً أكثر عرضة للالتحاق بدورتك بمقدار 5 أضعاف. وقد رأينا هذه النسبة ترتفع إلى 10 أضعاف للفيديوهات الاستثنائية.",
+      "changeFile": "تغيير الملف",
+      "uploadImage": "رفع صورة",
+      "uploadVideo": "رفع فيديو",
+      "descriptionLabel": "وصف الدورة",
+      "descriptionPlaceholder": "أدخل وصف دورتك",
+      "descriptionFallback": "نصك",
+      "toolbar": {
+        "bold": "عريض",
+        "italic": "مائل",
+        "underline": "تسطير",
+        "strikethrough": "يتوسطه خط",
+        "insertLink": "إدراج رابط",
+        "bulletedList": "قائمة نقطية",
+        "numberedList": "قائمة مرقمة"
+      },
+      "whatYouWillLearn": "ما ستعلّمه في هذه الدورة",
+      "targetAudience": "الجمهور المستهدف",
+      "courseRequirements": "متطلبات الدورة",
+      "whatYouWillLearnPlaceholder": "ما الذي ستعلّمه في هذه الدورة...",
+      "targetAudiencePlaceholder": "لمن هذه الدورة...",
+      "courseRequirementsPlaceholder": "ما متطلبات دورتك...",
+      "status": {
+        "save": "معلومات دورتك جاهزة في هذه المعاينة. لم تُرسل أي بيانات إلى الخادم.",
+        "preview": "يتم تمثيل معاينة الدورة بهذا الإجراء داخل الواجهة فقط. توجيه المعاينة غير متصل.",
+        "next": "نموذج المعلومات المتقدمة صالح. خطوة المنهج ليست جزءاً من هذا التنفيذ.",
+        "previous": "خطوة المعلومات الأساسية خارج نطاق تنفيذ الواجهة هذا."
+      }
+    },
+    "curriculum": {
+      "title": "منهج الدورة",
+      "addSections": "إضافة أقسام",
+      "sectionLabel": "الأقسام {number}:",
+      "sectionHeading": "القسم {number}: {title}",
+      "defaultSectionName": "اسم القسم",
+      "defaultLectureName": "اسم المحاضرة",
+      "emptySection": "لا توجد محاضرات في هذا القسم بعد. استخدم أيقونة الزائد لإضافة واحدة.",
+      "addLecture": "إضافة محاضرة",
+      "editSectionName": "تعديل اسم القسم",
+      "deleteSection": "حذف القسم {index}",
+      "contents": "المحتوى",
+      "noLecturesAdded": "لم تتم إضافة محاضرات.",
+      "feedback": {
+        "sectionAdded": "تمت إضافة قسم جديد.",
+        "sectionRemoved": "تم حذف القسم.",
+        "lectureAdded": "تمت إضافة محاضرة جديدة.",
+        "lectureRemoved": "تم حذف المحاضرة.",
+        "saved": "تم حفظ المنهج محلياً لهذا العرض التجريبي."
+      },
+      "preview": {
+        "title": "معاينة المنهج",
+        "summary": "{sections, plural, one {قسم واحد} two {قسمان} few {# أقسام} many {# قسماً} other {# قسم}} · {lectures, plural, one {محاضرة واحدة} two {محاضرتان} few {# محاضرات} many {# محاضرة} other {# محاضرة}}",
+        "close": "إغلاق المعاينة",
+        "captions": "الترجمة النصية:",
+        "description": "الوصف:",
+        "lectureNotes": "ملاحظات المحاضرة:"
+      }
+    },
+    "contentTypes": {
+      "video": "فيديو",
+      "attachFile": "إرفاق ملف",
+      "captions": "الترجمة النصية",
+      "description": "الوصف",
+      "lectureNotes": "ملاحظات المحاضرة"
+    },
+    "contentMenu": {
+      "ariaLabel": "خيارات محتوى المحاضرة"
+    },
+    "textDialog": {
+      "captionsTitle": "الترجمة النصية للمحاضرة",
+      "captionsPlaceholder": "أدخل الترجمة النصية للمحاضرة...",
+      "captionsDescription": "أضف ترجمة نصية لهذه المحاضرة.",
+      "descriptionTitle": "وصف المحاضرة",
+      "descriptionPlaceholder": "أدخل وصف المحاضرة...",
+      "descriptionDescription": "أضف وصفاً لهذه المحاضرة.",
+      "notesTitle": "ملاحظات المحاضرة",
+      "notesPlaceholder": "أدخل ملاحظات المحاضرة...",
+      "notesDescription": "أضف ملاحظات ومعلومات داعمة لهذه المحاضرة.",
+      "attachFileOptional": "إرفاق ملف (اختياري)",
+      "browseFile": "تصفح الملف",
+      "replaceFile": "استبدال الملف"
+    },
+    "uploadDialog": {
+      "videoTitle": "فيديو المحاضرة",
+      "attachFileTitle": "إرفاق ملف",
+      "uploadFiles": "رفع ملفات",
+      "uploadFile": "رفع ملف",
+      "noteLabel": "ملاحظة:",
+      "note": "يجب أن تكون جميع الملفات بدقة 720p على الأقل وأقل من 4.0 غيغابايت.",
+      "dragDrop": "اسحب وأفلت ملفاً أو",
+      "browseFile": "تصفح الملف",
+      "replaceFile": "استبدال الملف",
+      "chooseVideoFile": "اختر ملف فيديو",
+      "chooseAttachment": "اختر مرفقاً",
+      "uploadVideo": "رفع الفيديو",
+      "attachFile": "إرفاق ملف",
+      "errors": {
+        "invalidVideo": "يرجى اختيار ملف فيديو صالح.",
+        "videoTooLarge": "يجب أن يكون حجم ملف الفيديو أقل من 4 غيغابايت."
+      }
+    },
+    "videoDialog": {
+      "title": "فيديو المحاضرة",
+      "uploadFiles": "رفع ملفات",
+      "uploadFile": "رفع ملف",
+      "noteLabel": "ملاحظة:",
+      "note": "يجب أن تكون جميع الملفات بدقة 720p على الأقل وأقل من 4.0 غيغابايت.",
+      "uploadVideo": "رفع الفيديو",
+      "errors": {
+        "invalidVideo": "يرجى اختيار ملف فيديو صالح.",
+        "videoTooLarge": "يجب أن يكون ملف الفيديو أقل من 4.0 غيغابايت.",
+        "lowResolution": "يجب أن تكون دقة الفيديو 720p على الأقل."
+      }
+    },
+    "publish": {
+      "title": "نشر الدورة",
+      "messagesTitle": "الرسالة",
+      "welcomeLabel": "رسالة الترحيب",
+      "welcomePlaceholder": "أدخل رسالة بداية الدورة هنا...",
+      "congratulationsLabel": "رسالة التهنئة",
+      "congratulationsPlaceholder": "أدخل رسالة إتمام الدورة هنا...",
+      "instructorsTitle": "إضافة مدرب ({count})",
+      "searchPlaceholder": "ابحث باسم المستخدم",
+      "searchAriaLabel": "البحث عن المدربين باسم المستخدم",
+      "noInstructors": "لم يتم العثور على مدربين.",
+      "preview": {
+        "ariaLabel": "معاينة رسائل الدورة",
+        "title": "معاينة الرسالة",
+        "welcome": "رسالة الترحيب",
+        "congratulations": "رسالة التهنئة",
+        "noWelcome": "لم تتم إضافة رسالة ترحيب.",
+        "noCongratulations": "لم تتم إضافة رسالة تهنئة."
+      },
+      "feedback": {
+        "saved": "تم حفظ تغييرات الدورة محلياً (تجريبي).",
+        "previewGenerated": "تم إنشاء المعاينة من قيم النموذج الحالية.",
+        "submitted": "تم إرسال الدورة للمراجعة (تجريبي). تم حفظ {count} حرفاً من الرسائل."
+      },
+      "prevStep": "الخطوة السابقة",
+      "submitForReview": "إرسال للمراجعة"
+    },
+    "instructorRoles": {
+      "uiUxDesigner": "مصمم واجهات وتجربة المستخدم",
+      "frontendDeveloper": "مطور واجهات أمامية",
+      "productDesigner": "مصمم منتجات"
+    },
+    "validation": {
+      "titleRequired": "عنوان الدورة مطلوب.",
+      "titleMax": "لا يمكن أن يتجاوز عنوان الدورة 80 حرفاً.",
+      "subtitleRequired": "العنوان الفرعي للدورة مطلوب.",
+      "subtitleMax": "لا يمكن أن يتجاوز العنوان الفرعي للدورة 120 حرفاً.",
+      "categoryRequired": "يرجى اختيار فئة للدورة.",
+      "subcategoryRequired": "يرجى اختيار فئة فرعية.",
+      "topicRequired": "موضوع الدورة مطلوب.",
+      "languageRequired": "يرجى اختيار لغة الدورة.",
+      "levelRequired": "يرجى اختيار مستوى الدورة.",
+      "durationRequired": "يرجى إدخال مدة الدورة.",
+      "durationPositive": "يجب أن تكون المدة أكبر من صفر.",
+      "durationUnitRequired": "يرجى اختيار وحدة المدة.",
+      "invalidFile": "يرجى اختيار ملف صالح.",
+      "maxCharacters": "الحد الأقصى {max} حرفاً.",
+      "descriptionTooLong": "الوصف طويل جداً.",
+      "welcomeMax": "لا يمكن أن تتجاوز رسالة الترحيب 500 حرف.",
+      "congratulationsMax": "لا يمكن أن تتجاوز رسالة التهنئة 500 حرف.",
+      "nameRequired": "يرجى إدخال اسم.",
+      "nameMax": "لا يمكن أن تتجاوز الأسماء 80 حرفاً."
+    }
+  }
+}

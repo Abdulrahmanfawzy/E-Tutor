@@ -21,7 +21,7 @@ export default function SearchInput({
       <Input
         type="search"
         placeholder={placeholder}
-        className="h-10 bg-gray-50 pl-9"
+        className="h-10 bg-gray-50 pl-9 rounded-lg"
       />
     </div>
   );

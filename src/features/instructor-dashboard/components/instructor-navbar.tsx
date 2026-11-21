@@ -17,9 +17,9 @@ export default function InstructorNavbar() {
        <button
   type="button"
   aria-label="Notifications"
-  className="flex h-9 w-9 items-center justify-center bg-muted text-gray-700 hover:bg-gray-100"
+  className="flex h-9 w-9 items-center justify-center bg-muted text-gray-700 hover:bg-gray-100 rounded-lg"
 >
-  <BellIcon size={16} />
+  <BellIcon size={16}  />
 </button>
          <Image src={profile} alt="Profile" width={40} height={40} className="rounded-full" />
         

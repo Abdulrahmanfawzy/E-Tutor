@@ -2,30 +2,30 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Star } from "lucide-react";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { cn } from "cn";
-import { Course, CourseCategory } from "./courses-data";
+import { Course, CourseCategory } from "../../app/[locale]/(website)/course-categories/_components/courses-data";
 
 interface CourseCardProps {
   course: Course;
 }
-    const CATEGORY_STYLES: Record<CourseCategory, string> = {
+const CATEGORY_STYLES: Record<CourseCategory, string> = {
   "DESIGN": "bg-orange-50 text-orange-600",
   "DEVELOPMENTS": "bg-purple-50 text-purple-600",
   "BUSINESS": "bg-green-50 text-green-600",
   "MARKETING": "bg-purple-50 text-purple-600",
   "IT & SOFTWARE": "bg-red-50 text-red-600",
-  
+
 }
 export default function CourseCard({ course }: CourseCardProps) {
   return (
-    <Card className="group/card h-full gap-0 overflow-hidden rounded-none  bg-white p-0  duration-200 hover:shadow-md">
+    <Card className="group/card h-full gap-0 overflow-hidden rounded-none rounded-sm  bg-white p-0  duration-200 hover:shadow-md">
       <div className="relative aspect-16/10 w-full overflow-hidden bg-gray-100">
         <Image
           src={course.image}
           alt={course.title}
           fill
-        
+
           className="object-cover w-full transition-transform duration-300 group-hover/card:scale-105"
         />
       </div>

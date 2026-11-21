@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocale } from "next-intl";
 import { useState } from "react";
 
 export interface TabItem {
@@ -26,9 +27,10 @@ export function CourseTabs({
   );
 
   if (!tabs.length) return null;
-
+  const locale = useLocale();
+  const isRTL = locale === "ar";
   return (
-    <section className="w-full">
+    <section className="w-full" dir={isRTL ? "rtl" : "ltr"}>
       {/* Tabs Navigation */}
       <div
         role="tablist"
@@ -49,10 +51,9 @@ export function CourseTabs({
               className={`
                 relative shrink-0 px-5 py-4 text-sm font-medium
                 transition-colors duration-200
-                ${
-                  isActive
-                    ? "text-orange-500"
-                    : "text-slate-500 hover:text-slate-900"
+                ${isActive
+                  ? "text-orange-500"
+                  : "text-slate-500 hover:text-slate-900"
                 }
               `}
             >

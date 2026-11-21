@@ -264,5 +264,23 @@
       "title": "No conversation selected",
       "description": "Select a conversation to start chatting."
     }
+  },
+  "courseDetails": {
+    "tabs": {
+      "overview": "Overview",
+      "curriculum": "Curriculum",
+      "instructor": "Instructor",
+      "reviews": "Reviews"
+    },
+    "curriculum": {
+      "title": "Curriculum",
+      "sections": "Sections",
+      "lectures": "lectures",
+      "lecture": "lecture",
+      "lectureCount": "{count, plural, =1 {# lecture} other {# lectures}}",
+      "totalDuration": "Total duration",
+      "noCurriculum": "No curriculum available yet.",
+      "preview": "Preview"
+    }
   }
 }

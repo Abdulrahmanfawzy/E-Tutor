@@ -264,5 +264,23 @@
       "title": "لا توجد محادثة محددة",
       "description": "اختر محادثة لبدء الدردشة."
     }
+  },
+  "courseDetails": {
+    "tabs": {
+      "overview": "نظرة عامة",
+      "curriculum": "المنهج",
+      "instructor": "المحاضر",
+      "reviews": "التقييمات"
+    },
+    "curriculum": {
+      "title": "المنهج",
+      "sections": "أقسام",
+      "lectures": "محاضرات",
+      "lecture": "محاضرة",
+      "lectureCount": "{count, plural, =0 {لا توجد محاضرات} =1 {محاضرة واحدة} =2 {محاضرتان} few {# محاضرات} many {# محاضرة} other {# محاضرة}}",
+      "totalDuration": "المدة الإجمالية",
+      "noCurriculum": "المنهج غير متاح حاليًا.",
+      "preview": "معاينة"
+    }
   }
 }

@@ -1,4 +1,5 @@
 import { Course } from "../types/course";
+import { Curriculum } from "../types/curriculum";
 import { CourseHeader } from "./course-header";
 import { CoursePreview } from "./course-preview";
 import { CoursePurchaseCard } from "./course-purchase-card";
@@ -6,9 +7,10 @@ import { CourseTabsContent } from "./course-tabs/course-tabs-content";
 
 interface CourseDetailsProps {
     course: Course;
+    curriculum: Curriculum;
 }
 
-export function CourseDetails({ course }: CourseDetailsProps) {
+export function CourseDetails({ course, curriculum }: CourseDetailsProps) {
     return (
         <main className="min-h-screen bg-white">
             <section className="bg-[#F5F7FA]">
@@ -23,7 +25,7 @@ export function CourseDetails({ course }: CourseDetailsProps) {
                             videoUrl={course.previewVideo}
                         />
                         {/* Tabs Below Video */}
-                        <CourseTabsContent course={course} />
+                        <CourseTabsContent course={course} curriculum={curriculum} />
                     </div>
 
                     <aside className="min-w-0  lg:sticky lg:top-6 lg:col-start-2 lg:row-span-2 lg:row-start-1">

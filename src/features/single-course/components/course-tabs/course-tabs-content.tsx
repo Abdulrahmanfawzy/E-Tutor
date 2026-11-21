@@ -1,21 +1,27 @@
+import { useTranslations } from "next-intl";
 import { Course } from "../../types/course";
-import { CurriculumTabContent } from "./cirriculum-tab-content";
+import { Curriculum } from "../../types/curriculum";
+
 import { CourseTabs } from "./course-tabs";
 import { InstructorTabContent } from "./instructor-tab-content";
 import { OverviewTabContent } from "./overview-tab-content";
 import ReviewTabContent from "./review-tab-content";
+import { CurriculumTabContent } from "./tabs/curriculum/cirriculum-tab-content";
 
 interface CourseTabsContentProps {
   course: Course;
+  curriculum: Curriculum;
+
 }
 
 export function CourseTabsContent({
-  course,
+  course, curriculum
 }: CourseTabsContentProps) {
+  const t = useTranslations("courseDetails.tabs");
   const tabs = [
     {
       id: "overview",
-      label: "Overview",
+      label: t("overview"),
       content: (
         <OverviewTabContent course={course} />
       ),
@@ -23,15 +29,15 @@ export function CourseTabsContent({
 
     {
       id: "curriculum",
-      label: "Curriculum",
+      label: t("curriculum"),
       content: (
-        <CurriculumTabContent course={course} />
+        <CurriculumTabContent curriculum={curriculum} />
       ),
     },
 
     {
       id: "instructor",
-      label: "Instructor",
+      label: t("instructor"),
       content: (
         <InstructorTabContent course={course} />
       ),
@@ -39,7 +45,7 @@ export function CourseTabsContent({
 
     {
       id: "reviews",
-      label: "Reviews",
+      label: t("reviews"),
       content: (
         <ReviewTabContent course={course} />
       ),

@@ -1,9 +1,9 @@
-import CareerHero from "@/components/carear/carear-hero";
-import Companies from "@/components/carear/companies";
-import Gallery from "@/components/carear/gallery";
-import WhyJoinUs from "@/components/carear/join-us";
-import OpenPositions from "@/components/carear/open-positions";
-import PerksBenefits from "@/components/carear/perks-card";
+import CareerHero from "@/components/career/carear-hero";
+import Companies from "@/components/career/companies";
+import Gallery from "@/components/career/gallery";
+import WhyJoinUs from "@/components/career/join-us";
+import OpenPositions from "@/components/career/open-positions";
+import PerksBenefits from "@/components/career/perks-card";
 import Navbar from "@/components/layout/nav-bar";
 import { StatsSection } from "@/features/home/components/stats-section";
 

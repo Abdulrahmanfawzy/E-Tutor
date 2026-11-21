@@ -3,7 +3,7 @@ import { Curriculum } from "../types/curriculum";
 import { CourseHeader } from "./course-header";
 import { CoursePreview } from "./course-preview";
 import { CoursePurchaseCard } from "./course-purchase-card";
-import { CourseTabsContent } from "./course-tabs/course-tabs-content";
+import { CourseTabsContent } from "./course-tabs/tabs/course-tabs-content";
 
 interface CourseDetailsProps {
     course: Course;

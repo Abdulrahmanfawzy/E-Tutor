@@ -12,6 +12,8 @@
   "metadata": {
     "siteTitle": "E-Tutor | Learn with experts",
     "siteDescription": "Find the best online courses and learn with experts anytime, anywhere.",
+    "authTitle": "E-Tutor | Account",
+    "authDescription": "Sign in or create an E-Tutor account.",
     "homeTitle": "E-Tutor | Online Learning",
     "contactTitle": "Contact Us | E-Tutor",
     "contactDescription": "Get in touch with the E-Tutor team and we'll get back to you soon.",
@@ -21,6 +23,66 @@
     "courseCategoriesDescription": "Browse thousands of online courses across our top categories.",
     "giftCourseTitle": "Gift a Course | E-Tutor",
     "giftCourseDescription": "Give the gift of learning to someone special."
+  },
+  "auth": {
+    "nav": {
+      "mainNavigation": "Main",
+      "dontHaveAccount": "Don't have an account?",
+      "alreadyHaveAccount": "Already have an account?",
+      "createAccount": "Create Account",
+      "signIn": "Sign In"
+    },
+    "login": {
+      "title": "Sign In",
+      "email": "Email",
+      "emailPlaceholder": "Email address",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "rememberMe": "Remember me",
+      "submit": "Sign In",
+      "socialDivider": "SIGN IN WITH"
+    },
+    "register": {
+      "title": "Create your account",
+      "fullName": "Full Name",
+      "firstName": "First name",
+      "firstNamePlaceholder": "First name...",
+      "lastName": "Last name",
+      "lastNamePlaceholder": "Last name...",
+      "username": "Username",
+      "usernamePlaceholder": "Username...",
+      "email": "Email",
+      "emailPlaceholder": "Email address",
+      "password": "Password",
+      "passwordPlaceholder": "Create password",
+      "confirmPassword": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm password",
+      "agreeWith": "I agree with all of your",
+      "terms": "Terms & Conditions",
+      "submit": "Create Account",
+      "socialDivider": "SIGN UP WITH"
+    },
+    "shared": {
+      "showPassword": "Show password",
+      "hidePassword": "Hide password"
+    },
+    "social": {
+      "signInGroup": "Sign in with a social account",
+      "signUpGroup": "Sign up with a social account",
+      "signInWith": "Sign in with {provider}",
+      "signUpWith": "Sign up with {provider}"
+    },
+    "validation": {
+      "firstNameRequired": "Enter your first name",
+      "lastNameRequired": "Enter your last name",
+      "usernameMin": "Username must be at least 3 characters",
+      "usernamePattern": "Use letters, numbers, and underscores only",
+      "invalidEmail": "Enter a valid email address",
+      "passwordMin": "Use at least 8 characters",
+      "confirmPasswordRequired": "Confirm your password",
+      "termsRequired": "Please accept the terms",
+      "passwordsMismatch": "Passwords do not match"
+    }
   },
   "nav": {
     "home": "Home",

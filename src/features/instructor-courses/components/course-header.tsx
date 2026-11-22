@@ -21,7 +21,7 @@ type CourseHeaderData = {
 };
 
 export default function CourseHeader({ course }: { course: CourseHeaderData }) {
-  const t = useTranslations("courseDetails.header");
+  const t = useTranslations("instructorCourseDetails.header");
 
   return (
     <section className="flex flex-col gap-6 rounded-lg bg-white p-5 md:flex-row">

@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export default function CourseHeaderMenu() {
-  const t = useTranslations("courseDetails.header");
+  const t = useTranslations("instructorCourseDetails.header");
 
   return (
     <DropdownMenu>

@@ -4,6 +4,7 @@ import { Curriculum } from "../../../types/curriculum";
 import { CourseTabs } from "./course-tabs";
 import { CurriculumTabContent } from "./curriculum/cirriculum-tab-content";
 import { InstructorTabContent } from "./instructor/instructor-tab-content";
+
 import { OverviewTabContent } from "./overview/overview-tab-content";
 import { ReviewsTabContent } from "./review/review-tab-content";
 

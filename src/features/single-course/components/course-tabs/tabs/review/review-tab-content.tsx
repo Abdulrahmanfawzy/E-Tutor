@@ -13,6 +13,8 @@ import {
 import { CourseRatingSummary } from "./course-rating-summary";
 import { ReviewCard } from "./review-card";
 import { Button } from "@/components/ui/button";
+import { ReviewsListSkeleton } from "./review-card-skeleton";
+import { CourseRatingSummarySkeleton } from "./rating-summary-skeleton";
 
 export function ReviewsTabContent() {
   const [selectedRating, setSelectedRating] = useState("5");
@@ -43,13 +45,18 @@ export function ReviewsTabContent() {
   );
 
   const hasMoreReviews = visibleCount < filteredReviews.length;
+  const isLoading = false;
   return (
     <section
       className="w-full space-y-6"
       dir={isRTL ? "rtl" : "ltr"}
     >
       {/* Course Rating Summary */}
-      <CourseRatingSummary summary={courseRatingMock} />
+      {isLoading ? (
+        <CourseRatingSummarySkeleton />
+      ) : (
+        <CourseRatingSummary summary={courseRatingMock} />
+      )}
 
       {/* Students Feedback Header */}
       <div className="flex flex-wrap items-center justify-between gap-3">
@@ -89,8 +96,11 @@ export function ReviewsTabContent() {
       </div>
 
       {/* Reviews List */}
-      <div>
-        {visibleReviews.length > 0 ? (
+      <div className="">
+
+        {isLoading ? (
+          <ReviewsListSkeleton count={4} />
+        ) : visibleReviews.length > 0 ? (
           visibleReviews.map((review) => (
             <ReviewCard
               key={review.id}
@@ -102,7 +112,9 @@ export function ReviewsTabContent() {
             {t("noReviews")}
           </p>
         )}
+
       </div>
+
       {/* Show More Button */}
       {hasMoreReviews && (
         <div className="flex justify-start pt-2">

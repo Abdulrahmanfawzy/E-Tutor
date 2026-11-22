@@ -52,7 +52,7 @@ export function CourseTabs({
                 relative shrink-0 px-5 py-4 text-sm font-medium
                 transition-colors duration-200
                 ${isActive
-                  ? "text-orange-500"
+                  ? "text-orange-400"
                   : "text-slate-500 hover:text-slate-900"
                 }
               `}
@@ -61,7 +61,7 @@ export function CourseTabs({
 
               {/* Active Indicator */}
               {isActive && (
-                <span className="absolute inset-x-0 bottom-0 h-0.5 bg-orange-500" />
+                <span className="absolute inset-x-0 bottom-0 h-0.5 bg-orange-400" />
               )}
             </button>
           );

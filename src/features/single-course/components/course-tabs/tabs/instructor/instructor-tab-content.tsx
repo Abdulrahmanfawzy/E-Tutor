@@ -1,4 +1,4 @@
-import { Course } from "../../types/course";
+import { Course } from "@/features/single-course/types/course";
 
 
 interface InstructorTabProps {
@@ -23,7 +23,7 @@ export function InstructorTabContent({ course }: InstructorTabProps) {
                 {instructor.name}
               </h3>
 
-              
+
             </div>
           ))}
         </div>

@@ -11,6 +11,7 @@ export const COURSE_CATEGORIES = [
 export type CourseCategory = (typeof COURSE_CATEGORIES)[number];
 export interface Course {
   id: number;
+  slug: string;
   category: CourseCategory;
   title: string;
   price: number;
@@ -21,6 +22,7 @@ export interface Course {
 export const coursesData:Course[] = [
   {
     id: 1,
+    slug: "machine-learning-a-z-hands-on-python-r-in-data-science",
     category: "DESIGN",
     title: "Machine Learning A-Z: Hands-On Python & R in Data Science",
     price: 57,
@@ -31,6 +33,7 @@ export const coursesData:Course[] = [
   },
   {
     id: 2,
+    slug: "complete-2021-web-development-bootcamp",
     category: "DEVELOPMENTS",
     title: "The Complete 2021 Web Development Bootcamp",
     price: 57,
@@ -41,6 +44,7 @@ export const coursesData:Course[] = [
   },
   {
     id: 3,
+    slug: "learn-python-programming-masterclass",
     category: "BUSINESS",
     title: "Learn Python Programming Masterclass",
     price: 57,
@@ -51,6 +55,7 @@ export const coursesData:Course[] = [
   },
   {
     id: 4,
+    slug: "complete-digital-marketing-course-12-courses-in-1",
     category: "MARKETING",
     title: "The Complete Digital Marketing Course - 12 Courses in 1",
     price: 57,
@@ -61,6 +66,7 @@ export const coursesData:Course[] = [
   },
   {
     id: 5,
+    slug: "reed-level-i-ii-and-master-teacher-prep",
     category: "IT & SOFTWARE",
     title: "Reed Level I, II and Master/Teacher Prep",
     price: 57,

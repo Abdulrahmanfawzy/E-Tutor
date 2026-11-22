@@ -2,7 +2,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Loader } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
 import {
@@ -12,10 +12,14 @@ import {
 
 import { CourseRatingSummary } from "./course-rating-summary";
 import { ReviewCard } from "./review-card";
+import { Button } from "@/components/ui/button";
 
 export function ReviewsTabContent() {
   const [selectedRating, setSelectedRating] = useState("5");
 
+  const [visibleCount, setVisibleCount] = useState(4);
+
+  const REVIEWS_PER_LOAD = 2;
   const locale = useLocale();
   const t = useTranslations("courseDetails.reviews");
 
@@ -33,7 +37,12 @@ export function ReviewsTabContent() {
       (review) => review.rating === Number(selectedRating)
     );
   }, [reviews, selectedRating]);
+  const visibleReviews = filteredReviews.slice(
+    0,
+    visibleCount
+  );
 
+  const hasMoreReviews = visibleCount < filteredReviews.length;
   return (
     <section
       className="w-full space-y-6"
@@ -53,8 +62,10 @@ export function ReviewsTabContent() {
         <div className="relative w-36">
           <select
             value={selectedRating}
-            onChange={(event) =>
-              setSelectedRating(event.target.value)
+            onChange={(event) => {
+              setSelectedRating(event.target.value);
+              setVisibleCount(REVIEWS_PER_LOAD);
+            }
             }
             aria-label={t("filterLabel")}
             className="h-10 w-full cursor-pointer appearance-none border border-slate-200 bg-white px-3 text-xs text-slate-600 outline-none transition-colors focus:border-orange-500"
@@ -79,8 +90,8 @@ export function ReviewsTabContent() {
 
       {/* Reviews List */}
       <div>
-        {filteredReviews.length > 0 ? (
-          filteredReviews.map((review) => (
+        {visibleReviews.length > 0 ? (
+          visibleReviews.map((review) => (
             <ReviewCard
               key={review.id}
               review={review}
@@ -92,6 +103,21 @@ export function ReviewsTabContent() {
           </p>
         )}
       </div>
+      {/* Show More Button */}
+      {hasMoreReviews && (
+        <div className="flex justify-start pt-2">
+          <Button
+            variant={'primary-soft'}
+            onClick={() =>
+              setVisibleCount((prev) => prev + REVIEWS_PER_LOAD)
+            }
+            className="text-sm font-medium text-orange-400 transition-colors "
+          >
+            {t("showMore")}
+            <Loader className="animate-spinner " />
+          </Button>
+        </div>
+      )}
     </section>
   );
 }

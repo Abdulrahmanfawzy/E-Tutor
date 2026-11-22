@@ -636,7 +636,8 @@
       "studentsFeedback": "آراء الطلاب",
       "filterLabel": "فلترة التقييمات",
       "allRatings": "كل التقييمات",
-      "noReviews": "لا توجد تقييمات."
+      "noReviews": "لا توجد تقييمات.",
+      "showMore": "عرض المزيد"
     }
   }
 }

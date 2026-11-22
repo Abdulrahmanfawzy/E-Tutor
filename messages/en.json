@@ -636,7 +636,8 @@
       "studentsFeedback": "Students Feedback",
       "filterLabel": "Filter reviews by rating",
       "allRatings": "All Ratings",
-      "noReviews": "No reviews found."
+      "noReviews": "No reviews found.",
+      "showMore": "Show More"
     }
   }
 }

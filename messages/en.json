@@ -628,6 +628,15 @@
       "readMore": "READ MORE",
       "readLess": "READ LESS",
       "noInstructor": "Instructor information is not available yet."
+    },
+    "reviews": {
+      "courseRating": "Course Rating",
+      "ratingLabel": "Course Rating",
+      "starRating": "{count} Star Rating",
+      "studentsFeedback": "Students Feedback",
+      "filterLabel": "Filter reviews by rating",
+      "allRatings": "All Ratings",
+      "noReviews": "No reviews found."
     }
   }
 }

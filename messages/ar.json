@@ -628,6 +628,15 @@
       "readMore": "اقرأ المزيد",
       "readLess": "اقرأ أقل",
       "noInstructor": "معلومات المدرّب غير متاحة حتى الآن"
+    },
+    "reviews": {
+      "courseRating": "تقييم الكورس",
+      "ratingLabel": "تقييم الكورس",
+      "starRating": "{count} نجوم",
+      "studentsFeedback": "آراء الطلاب",
+      "filterLabel": "فلترة التقييمات",
+      "allRatings": "كل التقييمات",
+      "noReviews": "لا توجد تقييمات."
     }
   }
 }

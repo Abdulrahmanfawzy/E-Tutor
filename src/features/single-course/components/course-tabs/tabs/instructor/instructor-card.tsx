@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Star, Users, CirclePlay } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-
+import playCircle from '@/assets/images/PlayCircle.svg'
 import type { CourseInstructor } from "../../../../types/instructor";
 import Image from "next/image";
 
@@ -58,7 +58,7 @@ export function InstructorCard({
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs">
                     {/* Rating */}
                     <div className="flex items-center gap-1.5">
-                        <Star className="size-4 fill-orange-500 text-orange-500" />
+                        <Star className="size-4 fill-amber-400 text-amber-400" />
 
                         <span className="font-medium text-slate-900">
                             {instructor.rating}
@@ -84,8 +84,7 @@ export function InstructorCard({
 
                     {/* Courses */}
                     <div className="flex items-center gap-1.5">
-                        <CirclePlay className="size-4 fill-orange-500 text-orange-500" />
-
+                        <Image src={playCircle} alt="video icon" width={20} height={20} />
                         <span className="text-slate-900">
                             {String(instructor.coursesCount).padStart(2, "0")}
                         </span>

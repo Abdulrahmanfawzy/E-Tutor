@@ -4,8 +4,8 @@ import { Curriculum } from "../../../types/curriculum";
 import { CourseTabs } from "./course-tabs";
 import { CurriculumTabContent } from "./curriculum/cirriculum-tab-content";
 import { InstructorTabContent } from "./instructor/instructor-tab-content";
-import ReviewTabContent from "./review/review-tab-content";
 import { OverviewTabContent } from "./overview/overview-tab-content";
+import { ReviewsTabContent } from "./review/review-tab-content";
 
 interface CourseTabsContentProps {
   course: Course;
@@ -46,7 +46,7 @@ export function CourseTabsContent({
       id: "reviews",
       label: t("reviews"),
       content: (
-        <ReviewTabContent course={course} />
+        <ReviewsTabContent />
       ),
     },
   ];

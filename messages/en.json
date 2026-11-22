@@ -604,6 +604,12 @@
       "instructor": "Instructor",
       "reviews": "Reviews"
     },
+    "previewContent": {
+      "description": "Description",
+      "learningOutcomes": "What you will learn in this course",
+      "targetAudience": "Who this course is for:",
+      "requirements": "Course requirements"
+    },
     "curriculum": {
       "title": "Curriculum",
       "sections": "Sections",

@@ -2,10 +2,10 @@ import { useTranslations } from "next-intl";
 import { Course } from "../../../types/course";
 import { Curriculum } from "../../../types/curriculum";
 import { CourseTabs } from "./course-tabs";
-import { OverviewTabContent } from "./overview/overview-tab-content";
 import { CurriculumTabContent } from "./curriculum/cirriculum-tab-content";
 import { InstructorTabContent } from "./instructor/instructor-tab-content";
 import ReviewTabContent from "./review/review-tab-content";
+import { OverviewTabContent } from "./overview/overview-tab-content";
 
 interface CourseTabsContentProps {
   course: Course;
@@ -22,7 +22,7 @@ export function CourseTabsContent({
       id: "overview",
       label: t("overview"),
       content: (
-        <OverviewTabContent course={course} />
+        <OverviewTabContent />
       ),
     },
 

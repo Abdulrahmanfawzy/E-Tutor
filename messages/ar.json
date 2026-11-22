@@ -604,6 +604,12 @@
       "instructor": "المحاضر",
       "reviews": "التقييمات"
     },
+    "previewContent": {
+      "description": "الوصف",
+      "learningOutcomes": "هتتعلمي إيه في الكورس ده؟",
+      "targetAudience": "الكورس مناسب لمين؟",
+      "requirements": "متطلبات الكورس"
+    },
     "curriculum": {
       "title": "المنهج",
       "sections": "أقسام",

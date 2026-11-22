@@ -1,20 +1,15 @@
-import { Course } from "../../../../types/course";
+"use client";
+
+import { coursePreviewMock } from "@/features/single-course/data/course-preview-mock";
+import { useLocale } from "next-intl";
+import { CoursePreviewContent } from "./course-preview-content";
 
 
-interface OverviewTabProps {
-    course: Course;
-}
 
-export function OverviewTabContent({ course }: OverviewTabProps) {
-    return (
-        <section className="space-y-4">
-            <h2 className="text-lg font-semibold text-slate-900">
-                Course Description
-            </h2>
+export function OverviewTabContent() {
+    const locale = useLocale();
 
-            <p className="whitespace-pre-line text-sm leading-7 text-slate-600">
-                {course.description || course.subtitle}
-            </p>
-        </section>
-    );
+    const content = coursePreviewMock[locale === "ar" ? "ar" : "en"];
+
+    return <CoursePreviewContent content={content} />;
 }

@@ -37,7 +37,7 @@ const RecipientInformation = () => {
   return (
     <div className="flex flex-col gap-4">
       <span className="text-lg font-medium">
-        Recipient's Information
+        Recipient&apos;s Information
       </span>
 
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4.5">
@@ -47,7 +47,7 @@ const RecipientInformation = () => {
             htmlFor="recipient-name"
             className="text-sm font-normal"
           >
-            Recipient's Name
+            Recipient&apos;s Name
           </label>
 
           <input
@@ -70,7 +70,7 @@ const RecipientInformation = () => {
             htmlFor="recipient-email"
             className="text-sm font-medium"
           >
-            Recipient's Email
+            Recipient&apos;s Email
           </label>
 
           <input

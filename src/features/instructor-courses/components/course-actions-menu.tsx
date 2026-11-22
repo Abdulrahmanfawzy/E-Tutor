@@ -8,10 +8,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import Link from "next/link";
+import { useParams } from "next/navigation";
 
-export default function CourseActionsMenu() {
+export default function CourseActionsMenu({ id }: { id: number }) {
   const t = useTranslations("instructorCourses");
-
+  const { locale } = useParams<{ locale: string }>();
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
@@ -23,7 +25,9 @@ export default function CourseActionsMenu() {
 
       <DropdownMenuContent align="end" className="min-w-40">
         <DropdownMenuItem className="focus:bg-button-primary focus:text-white">
+          <Link href={`/${locale}/instructor/courses/${id}`}>
           {t("actions.viewDetails")}
+          </Link>
         </DropdownMenuItem>
         <DropdownMenuItem>{t("actions.editCourse")}</DropdownMenuItem>
         <DropdownMenuItem className="text-red-500 focus:text-red-500">

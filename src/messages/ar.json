@@ -2,15 +2,8 @@
   "instructorCourses": {
     "title": "كورساتي",
     "searchPlaceholder": "ابحث في كورساتك...",
-    "filters": {
-      "sortBy": "ترتيب حسب:",
-      "category": "التصنيف",
-      "rating": "التقييم"
-    },
-    "sortOptions": {
-      "latest": "الأحدث",
-      "oldest": "الأقدم"
-    },
+    "filters": { "sortBy": "ترتيب حسب:", "category": "التصنيف", "rating": "التقييم" },
+    "sortOptions": { "latest": "الأحدث", "oldest": "الأقدم" },
     "categoryOptions": {
       "all": "كل التصنيفات",
       "development": "البرمجة",
@@ -27,6 +20,24 @@
     "reviews": "تقييمات",
     "noCourses": "لا توجد كورسات",
     "previous": "السابق",
-    "next": "التالي"
+    "next": "التالي",
+    "actions": {
+      "options": "خيارات",
+      "viewDetails": "عرض التفاصيل",
+      "editCourse": "تعديل الكورس",
+      "deleteCourse": "حذف الكورس"
+    }
+  },
+  "courseDetails": {
+    "stats": {
+      "lectures": "المحاضرات",
+      "comments": "إجمالي التعليقات",
+      "students": "الطلاب المسجلون",
+      "level": "مستوى الكورس",
+      "language": "لغة الكورس",
+      "files": "الملفات المرفقة",
+      "hours": "الساعات",
+      "viewed": "مشاهدات الطلاب"
+    }
   }
 }

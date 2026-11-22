@@ -17,6 +17,7 @@ export type InstructorCourse = {
 };
 
 export default function InstructorCourseCard({
+  id,
   title,
   category,
   image,
@@ -24,7 +25,7 @@ export default function InstructorCourseCard({
   students,
   price,
   oldPrice,
-}: Omit<InstructorCourse, "id">) {
+}: InstructorCourse) {
   const t = useTranslations("instructorCourses");
 
   return (
@@ -65,7 +66,7 @@ export default function InstructorCourseCard({
             </span>
           )}
         </p>
-        <CourseActionsMenu />
+        <CourseActionsMenu id={id} />
       </div>
     </Card>
   );

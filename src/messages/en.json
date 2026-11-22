@@ -2,15 +2,8 @@
   "instructorCourses": {
     "title": "My Courses",
     "searchPlaceholder": "Search in your courses...",
-    "filters": {
-      "sortBy": "Sort by:",
-      "category": "Category",
-      "rating": "Rating"
-    },
-    "sortOptions": {
-      "latest": "Latest",
-      "oldest": "Oldest"
-    },
+    "filters": { "sortBy": "Sort by:", "category": "Category", "rating": "Rating" },
+    "sortOptions": { "latest": "Latest", "oldest": "Oldest" },
     "categoryOptions": {
       "all": "All Categories",
       "development": "Development",
@@ -27,6 +20,24 @@
     "reviews": "Reviews",
     "noCourses": "No courses found",
     "previous": "Previous",
-    "next": "Next"
+    "next": "Next",
+    "actions": {
+      "options": "Options",
+      "viewDetails": "View Details",
+      "editCourse": "Edit Course",
+      "deleteCourse": "Delete Course"
+    }
+  },
+  "courseDetails": {
+    "stats": {
+      "lectures": "Lectures",
+      "comments": "Total Comments",
+      "students": "Students enrolled",
+      "level": "Course level",
+      "language": "Course Language",
+      "files": "Attach File",
+      "hours": "Hours",
+      "viewed": "Students viewed"
+    }
   }
 }

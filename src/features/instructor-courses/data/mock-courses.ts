@@ -1,5 +1,7 @@
 import courseImage from "@/assets/images/Course Images.svg";
 import type { InstructorCourse } from "../components/instructor-course-card";
+import profile from "@/assets/Ellipse 300.svg";
+import courseThumbnail from "@/assets/images/Course Thumbnail.svg"
 
 export const COURSES: InstructorCourse[] = [
   { id: 1, title: "Premiere Pro CC for Beginners: Video Editing in Premiere", category: "Developments", image: courseImage, rating: 4.9, students: 982941, price: 24 },
@@ -22,3 +24,20 @@ export const COURSES: InstructorCourse[] = [
   { id: 18, title: "2021 Complete Python Bootcamp From Zero to Hero in Python", category: "Developments", image: courseImage, rating: 4.9, students: 120000, price: 18 },
   { id: 19, title: "Instagram Marketing 2021: Complete Guide To Instagram Growth", category: "Developments", image: courseImage, rating: 4.8, students: 654, price: 35 },
 ];
+
+
+export const COURSE = {
+  image: courseThumbnail,
+  uploadedAt: "Jan 21, 2020",
+  updatedAt: "Sep 11, 2021",
+  title: "2021 Complete Python BootCamp From Zero to Hero in Python",
+  subtitle: "3 in 1 Course: Learn to design websites with Figma, build with Webflow, and make a living freelancing.",
+  instructors: [
+    { name: "Kevin Gilbert", avatar: profile },
+    { name: "Kristin Watson", avatar: profile },
+  ],
+  rating: 4.8,
+  ratingCount: 451444,
+  price: 13.99,
+  revenue: 131800455.82,
+};

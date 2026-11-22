@@ -1,5 +1,5 @@
 
-import CourseCard from "./course-card";
+import CourseCard from "../../../../../components/common/course-card";
 import  { coursesData } from "./courses-data";
 
 

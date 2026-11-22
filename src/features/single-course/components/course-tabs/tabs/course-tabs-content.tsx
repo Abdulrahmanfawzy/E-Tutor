@@ -38,7 +38,7 @@ export function CourseTabsContent({
       id: "instructor",
       label: t("instructor"),
       content: (
-        <InstructorTabContent course={course} />
+        <InstructorTabContent />
       ),
     },
 

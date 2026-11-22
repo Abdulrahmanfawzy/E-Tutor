@@ -619,6 +619,15 @@
       "totalDuration": "المدة الإجمالية",
       "noCurriculum": "المنهج غير متاح حاليًا.",
       "preview": "معاينة"
+    },
+    "instructor": {
+      "title": "مدربي الكورس ({count})",
+      "courseRating": "تقييم الكورس",
+      "students": "طالب",
+      "courses": "كورس",
+      "readMore": "اقرأ المزيد",
+      "readLess": "اقرأ أقل",
+      "noInstructor": "معلومات المدرّب غير متاحة حتى الآن"
     }
   }
 }

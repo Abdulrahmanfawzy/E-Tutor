@@ -619,6 +619,15 @@
       "totalDuration": "Total duration",
       "noCurriculum": "No curriculum available yet.",
       "preview": "Preview"
+    },
+    "instructor": {
+      "title": "Course instructor ({count})",
+      "courseRating": "Course rating",
+      "students": "Students",
+      "courses": "Courses",
+      "readMore": "READ MORE",
+      "readLess": "READ LESS",
+      "noInstructor": "Instructor information is not available yet."
     }
   }
 }

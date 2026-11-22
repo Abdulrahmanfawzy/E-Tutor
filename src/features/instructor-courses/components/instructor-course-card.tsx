@@ -1,8 +1,9 @@
 import Image, { type StaticImageData } from "next/image";
-import { MoreHorizontal, Star, Users } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
+import CourseActionsMenu from "./course-actions-menu";
+import { Star, Users } from "lucide-react";
 
 export type InstructorCourse = {
   id: number;
@@ -64,13 +65,7 @@ export default function InstructorCourseCard({
             </span>
           )}
         </p>
-        <button
-          type="button"
-          aria-label="Options"
-          className="text-gray-500 hover:text-gray-900"
-        >
-          <MoreHorizontal size={18} />
-        </button>
+        <CourseActionsMenu />
       </div>
     </Card>
   );

@@ -14,4 +14,11 @@ export const COURSES: InstructorCourse[] = [
   { id: 10, title: "[NEW] Ultimate AWS Certified Cloud Practitioner - 2021", category: "Developments", image: courseImage, rating: 4.5, students: 428871, price: 24, oldPrice: 94.97 },
   { id: 11, title: "2021 Complete Python Bootcamp From Zero to Hero in Python", category: "Developments", image: courseImage, rating: 4.9, students: 120000, price: 18 },
   { id: 12, title: "Instagram Marketing 2021: Complete Guide To Instagram Growth", category: "Developments", image: courseImage, rating: 4.8, students: 654, price: 35 },
+  { id: 13, title: "SQL for NEWBS: Weekender Crash Course", category: "Developments", image: courseImage, rating: 4.7, students: 164817, price: 13 },
+  { id: 14, title: "SEO 2021: Complete SEO Training + SEO for WordPress Websites", category: "Developments", image: courseImage, rating: 4.9, students: 181811, price: 57, oldPrice: 94.97 },
+  { id: 15, title: "Angular - The Complete Guide (2021 Edition)", category: "Developments", image: courseImage, rating: 4.6, students: 236888, price: 22 },
+  { id: 16, title: "Graphic Design Masterclass - Learn GREAT Design", category: "Developments", image: courseImage, rating: 5.0, students: 1306236, price: 89 },
+  { id: 17, title: "[NEW] Ultimate AWS Certified Cloud Practitioner - 2021", category: "Developments", image: courseImage, rating: 4.5, students: 428871, price: 24, oldPrice: 94.97 },
+  { id: 18, title: "2021 Complete Python Bootcamp From Zero to Hero in Python", category: "Developments", image: courseImage, rating: 4.9, students: 120000, price: 18 },
+  { id: 19, title: "Instagram Marketing 2021: Complete Guide To Instagram Growth", category: "Developments", image: courseImage, rating: 4.8, students: 654, price: 35 },
 ];

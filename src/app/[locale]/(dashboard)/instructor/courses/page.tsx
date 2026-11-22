@@ -1,5 +1,6 @@
+
+import CoursesList from "@/features/instructor-courses/components/course-list";
 import CoursesFilters from "@/features/instructor-courses/components/courses-filters";
-import CoursesGrid from "@/features/instructor-courses/components/courses-grid";
 import { COURSES } from "@/features/instructor-courses/data/mock-courses";
 
 export default function Page() {
@@ -7,7 +8,8 @@ export default function Page() {
     <>
      <div className="flex flex-col gap-6">
       <CoursesFilters />
-      <CoursesGrid courses={COURSES} />
+     
+      <CoursesList courses={COURSES} />
     </div>
  
     </>

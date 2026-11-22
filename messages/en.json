@@ -598,6 +598,38 @@
     }
   },
   "courseDetails": {
+    "coursePurchaseCard": {
+      "courseInfo": {
+        "courseDuration": "Course Duration",
+        "courseLevel": "Course Level",
+        "studentsEnrolled": "Students Enrolled",
+        "language": "Language",
+        "subtitleLanguage": "Subtitle Language"
+      },
+      "courseIncludesItems": {
+        "lifetime": "Lifetime access",
+        "guarantee": "30-days money-back guarantee",
+        "resources": "Free exercises file & downloadable resources",
+        "certificate": "Shareable certificate of completion",
+        "devices": "Access on mobile, tablet and TV",
+        "subtitles": "English subtitles",
+        "online": "100% online course"
+      },
+      "daysLeft": "{days} days left at this price!",
+      "addToCart": "Add To Cart",
+      "buyNow": "Buy Now",
+      "addToWishlist": "Add To Wishlist",
+      "giftCourse": "Gift Course",
+      "guaranteeNote": "Note: All courses have a 30-day money-back guarantee.",
+      "courseIncludes": "This course includes:",
+      "shareCourse": "Share this course:",
+      "copyLink": "Copy link",
+      "facebook": "Share on Facebook",
+      "twitter": "Share on Twitter",
+      "email": "Share by email",
+      "whatsapp": "Share on WhatsApp",
+      "discount": "{percentage}% OFF"
+    },
     "tabs": {
       "overview": "Overview",
       "curriculum": "Curriculum",

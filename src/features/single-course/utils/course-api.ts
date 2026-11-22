@@ -92,6 +92,7 @@ export async function getCourseBySlug(
       },
       {
         label: "Students Enrolled",
+        translationKey: "studentsEnrolled",
         value: catalogCourse.students,
         icon: "users",
       },

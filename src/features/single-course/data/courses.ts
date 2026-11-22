@@ -63,26 +63,31 @@ export const courses: Course[] = [
     courseInfo: [
       {
         label: "Course Duration",
+        translationKey: "courseDuration",
         value: "6 Month",
         icon: "clock",
       },
       {
         label: "Course Level",
+        translationKey: "courseLevel",
         value: "Beginner and Intermediate",
         icon: "chart",
       },
       {
         label: "Students Enrolled",
+        translationKey: "studentsEnrolled",
         value: "69,419,618",
         icon: "users",
       },
       {
         label: "Language",
+        translationKey: "language",
         value: "Mandarin",
         icon: "globe",
       },
       {
         label: "Subtitle Language",
+        translationKey: "subtitleLanguage",
         value: "English",
         icon: "captions",
       },
@@ -92,36 +97,43 @@ export const courses: Course[] = [
       {
         id: "lifetime",
         title: "Lifetime access",
+        translationKey: "lifetime",
         icon: "clock",
       },
       {
         id: "guarantee",
         title: "30-days money-back guarantee",
+        translationKey: "guarantee",
         icon: "dollar",
       },
       {
         id: "resources",
         title: "Free exercises file & downloadable resources",
+        translationKey: "resources",
         icon: "file",
       },
       {
         id: "certificate",
         title: "Shareable certificate of completion",
+        translationKey: "certificate",
         icon: "award",
       },
       {
         id: "devices",
         title: "Access on mobile, tablet and TV",
+        translationKey: "devices",
         icon: "monitor",
       },
       {
         id: "subtitles",
         title: "English subtitles",
+        translationKey: "subtitles",
         icon: "captions",
       },
       {
         id: "online",
         title: "100% online course",
+        translationKey: "online",
         icon: "layers",
       },
     ],

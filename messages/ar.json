@@ -598,6 +598,38 @@
     }
   },
   "courseDetails": {
+    "coursePurchaseCard": {
+      "courseInfo": {
+        "courseDuration": "مدة الكورس",
+        "courseLevel": "مستوى الكورس",
+        "studentsEnrolled": "عدد الطلاب المسجلين",
+        "language": "اللغة",
+        "subtitleLanguage": "لغة الترجمة"
+      },
+      "courseIncludesItems": {
+        "lifetime": "إمكانية الوصول مدى الحياة",
+        "guarantee": "ضمان استرداد الأموال خلال 30 يومًا",
+        "resources": "ملفات تمارين وموارد مجانية قابلة للتنزيل",
+        "certificate": "شهادة إتمام قابلة للمشاركة",
+        "devices": "إمكانية الوصول عبر الهاتف والتابلت والتلفاز",
+        "subtitles": "ترجمة باللغة الإنجليزية",
+        "online": "كورس أونلاين بالكامل"
+      },
+      "daysLeft": "متبقي {days} أيام بهذا السعر!",
+      "addToCart": "أضف إلى السلة",
+      "buyNow": "اشترِ الآن",
+      "addToWishlist": "أضف إلى المفضلة",
+      "giftCourse": "إهداء الكورس",
+      "guaranteeNote": "ملاحظة: جميع الكورسات تشمل ضمان استرداد الأموال خلال 30 يومًا.",
+      "courseIncludes": "يتضمن هذا الكورس:",
+      "shareCourse": "شارك هذا الكورس:",
+      "copyLink": "نسخ الرابط",
+      "facebook": "مشاركة على فيسبوك",
+      "twitter": "مشاركة على تويتر",
+      "email": "مشاركة عبر البريد الإلكتروني",
+      "whatsapp": "مشاركة على واتساب",
+      "discount": "خصم {percentage}%"
+    },
     "tabs": {
       "overview": "نظرة عامة",
       "curriculum": "المنهج",

@@ -33,7 +33,7 @@ export function CourseDetails({ course, curriculum }: CourseDetailsProps) {
                     </div>
 
                     <aside className="mt-6 min-w-0 lg:absolute lg:top-14 lg:end-8 lg:mt-0 lg:z-20 lg:w-[25rem] xl:end-[calc((100%-71.25rem)/2)]">
-                        <CoursePurchaseCard course={course} />
+                        <CoursePurchaseCard course={course} slug={course.slug} />
                     </aside>
                 </div>
             </section>

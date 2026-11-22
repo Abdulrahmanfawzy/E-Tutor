@@ -19,12 +19,14 @@ export interface CourseRating {
 export interface CourseInfo {
   label: string;
   value: string;
+  translationKey?: string;
   icon: string;
 }
 
 export interface CourseFeature {
   id: string;
   title: string;
+  translationKey?: string;
   icon: string;
 }
 

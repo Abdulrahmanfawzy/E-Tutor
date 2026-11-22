@@ -20,16 +20,16 @@ import {
   Award,
   BookOpen,
   Copy,
- 
   Mail,
-  MessageCircle,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-
+import { useRouter } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 interface CoursePurchaseCardProps {
   course: Course;
+  slug: string;
 }
 
 const infoIcons = {
@@ -53,10 +53,11 @@ const includeIcons = [
 ];
 
 export function CoursePurchaseCard({
-  course,
+  course, slug
 }: CoursePurchaseCardProps) {
   const discount = course.discountPercentage;
-
+  const router = useRouter()
+  const t = useTranslations("courseDetails.coursePurchaseCard");
   const handleCopyLink = async () => {
     try {
       await navigator.clipboard.writeText(window.location.href);
@@ -89,7 +90,7 @@ export function CoursePurchaseCard({
           {/* Discount */}
           {discount > 0 && (
             <span className="bg-[#FFF0EB] rounded-sm px-2 py-1 text-[10px] font-medium text-[#FF6636]">
-              {discount}% OFF
+              {t("discount", { percentage: discount })}
             </span>
           )}
         </div>
@@ -99,7 +100,7 @@ export function CoursePurchaseCard({
           <p className="mt-2 flex items-center gap-1.5 text-[10px] text-[#FF6636]">
             <Clock className="size-3" />
 
-            {course.offerEndsInDays} days left at this price!
+            {t("daysLeft", { days: course.offerEndsInDays })}
           </p>
         )}
       </div>
@@ -120,7 +121,9 @@ export function CoursePurchaseCard({
                 <Icon className="size-3.5 shrink-0 text-slate-400" />
 
                 <span className="truncate">
-                  {info.label}
+                  {info.translationKey
+                    ? t(`courseInfo.${info.translationKey}`)
+                    : info.label}
                 </span>
               </div>
 
@@ -140,7 +143,7 @@ export function CoursePurchaseCard({
         <Button
           className="h-9 w-full rounded-sm bg-[#FF6636] text-xs font-medium text-white hover:bg-[#e95729]"
         >
-          Add To Cart
+          {t("addToCart")}
         </Button>
 
         {/* Buy Now */}
@@ -148,7 +151,7 @@ export function CoursePurchaseCard({
           variant="outline"
           className="h-9 w-full rounded-sm border-0 bg-[#FFF0EB] text-xs font-medium text-[#FF6636] hover:bg-[#ffe4da]"
         >
-          Buy Now
+          {t("buyNow")}
         </Button>
 
         {/* Wishlist & Gift */}
@@ -159,22 +162,23 @@ export function CoursePurchaseCard({
             className="h-8 rounded-sm px-1 text-[10px] font-normal"
           >
             <Heart className="size-3" />
-            Add To Wishlist
+            {t("addToWishlist")}
           </Button>
 
           <Button
             variant="outline"
-            className="h-8 rounded-sm px-1 text-[10px] font-normal"
+            onClick={() => router.push(`/course-listing/${slug}/gift-course`)}
+            className="h-8 rounded-sm px-1 text-[10px] font-normal cursor-pointer"
           >
             <Gift className="size-3" />
-            Gift Course
+            {t("giftCourse")}
           </Button>
 
         </div>
 
         {/* Guarantee Note */}
         <p className="text-[9px] leading-4 text-slate-400">
-          Note: all course have 30-days money-back guarantee
+          {t("guaranteeNote")}
         </p>
       </div>
 
@@ -182,7 +186,7 @@ export function CoursePurchaseCard({
       <div className="border-b border-slate-100 px-3 py-3">
 
         <h3 className="mb-3 text-xs font-medium text-slate-900">
-          This course includes:
+          {t("courseIncludes")}
         </h3>
 
         <ul className="space-y-2.5">
@@ -191,12 +195,16 @@ export function CoursePurchaseCard({
 
             return (
               <li
-                key={`${item}-${index}`}
+                key={item.id}
                 className="flex items-start gap-2 text-[10px] leading-4 text-slate-600"
               >
                 <Icon className="mt-0.5 size-3.5 shrink-0 text-[#FF6636]" />
 
-                <span>{item.title}</span>
+                <span>
+                  {item.translationKey
+                    ? t(`courseIncludesItems.${item.translationKey}`)
+                    : item.title}
+                </span>
               </li>
             );
           })}
@@ -207,7 +215,7 @@ export function CoursePurchaseCard({
       <div className="px-3 py-3">
 
         <h3 className="mb-3 text-xs font-medium text-slate-900">
-          Share this course:
+          {t("shareCourse")}
         </h3>
 
         <div className="grid grid-cols-[minmax(4.5rem,1.5fr)_repeat(4,minmax(2rem,1fr))] gap-1">
@@ -216,50 +224,50 @@ export function CoursePurchaseCard({
           <Button
             variant="outline"
             onClick={handleCopyLink}
-            className="h-8 min-w-0 rounded-sm border-none bg-gray-50 px-1"
+            className="h-8 min-w-0 rounded-sm border-none bg-gray-50 px-1 cursor-pointer"
           >
             <Copy className="size-3.5" />
             <span className="text-[9px] font-medium leading-5 tracking-normal text-gray-700">
-              Copy link
+              {t("copyLink")}
             </span>
           </Button>
 
           {/* Facebook */}
           <Button
             variant="outline"
-            
-            aria-label="Share on Facebook"
-            className="h-8 rounded-sm bg-gray-50 border-none px-1 "
+
+            aria-label={t("facebook")}
+            className="h-8 rounded-sm bg-gray-50 border-none px-1 cursor-pointer "
           >
-            
-            <Image src={faceIcon} alt="twitter" className="w-3.5 h-3.5 "  />
+
+            <Image src={faceIcon} alt="twitter" className="w-3.5 h-3.5 " />
           </Button>
 
           {/* Twitter */}
           <Button
             variant="outline"
-             className="h-8 rounded-sm bg-gray-50 border-none px-1 "
-            aria-label="Share on Twitter"
+            className="h-8 rounded-sm bg-gray-50 border-none px-1 cursor-pointer "
+            aria-label={t("twitter")}
           >
-           <Image src={twiterIcon} alt="twitter" className="w-3.5 h-3.5 "  />
+            <Image src={twiterIcon} alt="twitter" className="w-3.5 h-3.5 " />
           </Button>
 
           {/* Email */}
           <Button
             variant="outline"
-             className="h-8 rounded-sm bg-gray-50 border-none px-1 "
-            aria-label="Share by email"
+            className="h-8 rounded-sm bg-gray-50 border-none px-1 cursor-pointer "
+            aria-label={t("email")}
           >
-            <Mail className="size-3.5" />
+            <Mail className="size-3.5 " />
           </Button>
 
           {/* WhatsApp */}
           <Button
             variant="outline"
-             className="h-8 rounded-sm bg-gray-50 border-none px-1 "
-            aria-label="Share on WhatsApp"
+            className="h-8 rounded-sm bg-gray-50 border-none px-1 cursor-pointer"
+            aria-label={t("whatsapp")}
           >
-             <Image src={whatsappIcon} alt="twitter" className="w-3.5 h-3.5 "  />
+            <Image src={whatsappIcon} alt="twitter" className="w-3.5 h-3.5 " />
           </Button>
 
         </div>

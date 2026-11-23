@@ -1,10 +1,11 @@
+import SearchInput from "@/components/common/search-input";
 
 
 export default function Page() {
 
 
     return (
-        <div>
+        <div className="space-y-8  mt-7">
             courses
         </div>
     );

@@ -665,5 +665,58 @@
       "noReviews": "No reviews found.",
       "showMore": "Show More"
     }
+  },
+   "instructorCourses": {
+    "title": "My Courses",
+    "searchPlaceholder": "Search in your courses...",
+    "filters": { "sortBy": "Sort by:", "category": "Category", "rating": "Rating" },
+    "sortOptions": { "latest": "Latest", "oldest": "Oldest" },
+    "categoryOptions": {
+      "all": "All Categories",
+      "development": "Development",
+      "design": "Design",
+      "marketing": "Marketing",
+      "business": "Business"
+    },
+    "ratingOptions": {
+      "all": "All Ratings",
+      "threeAndHalfUp": "3.5 Star & Up",
+      "threeUp": "3.0 Star & Up"
+    },
+    "students": "Students",
+    "reviews": "Reviews",
+    "noCourses": "No courses found",
+    "previous": "Previous",
+    "next": "Next",
+    "actions": {
+      "options": "Options",
+      "viewDetails": "View Details",
+      "editCourse": "Edit Course",
+      "deleteCourse": "Delete Course"
+    }
+  },
+  "instructorCourseDetails": { "header": {
+    "uploaded": "Uploaded:",
+    "lastUpdated": "Last Updated:",
+    "createdBy": "Created by:",
+    "rating": "Rating",
+    "coursePrice": "Course prices",
+    "revenue": "USD dollar revenue",
+    "withdraw": "Withdraw Money",
+    "options": "Options",
+    "edit": "Edit",
+    "delete": "Delete"
+  },
+
+    "stats": {
+      "lectures": "Lectures",
+      "comments": "Total Comments",
+      "students": "Students enrolled",
+      "level": "Course level",
+      "language": "Course Language",
+      "files": "Attach File",
+      "hours": "Hours",
+      "viewed": "Students viewed"
+    }
   }
 }

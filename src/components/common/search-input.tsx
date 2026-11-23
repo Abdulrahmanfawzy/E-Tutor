@@ -15,13 +15,13 @@ export default function SearchInput({
     <div className={cn("relative w-full max-w-xs", className)}>
       <Search
         size={16}
-        className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
+        className="absolute start-3 top-1/2 -translate-y-1/2 text-gray-500"
       />
 
       <Input
         type="search"
         placeholder={placeholder}
-        className="h-10 bg-gray-50 pl-9 rounded-lg"
+        className="h-10 bg-gray-50 ps-9 rounded-lg"
       />
     </div>
   );

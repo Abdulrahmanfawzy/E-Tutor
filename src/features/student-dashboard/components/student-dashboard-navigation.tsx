@@ -46,7 +46,7 @@ const StudentDashboardNavigation = () => {
             aria-label="Student dashboard navigation"
             className="w-full "
         >
-            <div className="grid w-full grid-cols-7">
+            <div className="grid w-full grid-cols-4 sm:grid-cols-7">
                 {navigationItems.map((item) => {
                     const isActive =
                         normalizedPathname === item.href ||
@@ -59,9 +59,9 @@ const StudentDashboardNavigation = () => {
                             href={item.href}
                             aria-current={isActive ? "page" : undefined}
                             className={`
-                relative flex min-w-0 items-center justify-center
-                px-2 py-5 text-center text-xs font-medium
-                transition-colors duration-200 sm:px-6
+                relative flex min-h-12 items-center justify-center
+                px-1 py-3 text-center text-xs font-medium sm:px-2 lg:min-h-14 lg:px-4
+                transition-colors duration-200
                 ${isActive
                                     ? "text-gray-900"
                                     : "text-gray-500 hover:text-gray-900"

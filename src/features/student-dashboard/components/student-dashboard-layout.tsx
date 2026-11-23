@@ -9,7 +9,7 @@ export default function StudentDashboardLayout({
 }: StudentDashboardLayoutProps) {
     return (
         <main className="min-h-screen bg-white">
-            <section className="relative h-[320px] bg-orange-50 px-4 pt-8 sm:h-[280px] sm:px-6 lg:h-[260px] lg:px-8">
+            <section className="relative h-[360px] bg-orange-50 px-3 pt-8 sm:h-[340px] sm:px-6 lg:h-[280px] lg:px-8">
                 <div className="mx-auto max-w-285">
                     <StudentDashboardHeader
                         name="Kevin Gilbert"

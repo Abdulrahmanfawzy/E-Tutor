@@ -21,13 +21,13 @@ export default function StudentDashboardHeader({
     actionHref,
 }: StudentDashboardHeaderProps) {
     return (
-        <section className="absolute left-0 right-0 top-[140px] z-10 bg-white   border border-orange-100 w-full max-w-285 mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="absolute left-0 right-0 top-[102px] z-10 mx-auto w-full max-w-285 border border-orange-100 bg-white px-3 sm:top-[140px] sm:px-6 lg:px-8">
             {/* Student Info */}
             <div className="flex flex-col justify-between gap-5 px-5 py-6 sm:flex-row sm:items-center sm:px-6 sm:py-7 lg:px-8">
                 <div className="flex min-w-0 items-center gap-3 sm:gap-4">
                     <div className="relative size-14 shrink-0 overflow-hidden rounded-full bg-gray-100 sm:size-16">
                         <Image
-                            src={unknown || avatar}
+                            src={unknown}
                             alt={name}
                             fill
                             sizes="64px"
@@ -49,7 +49,7 @@ export default function StudentDashboardHeader({
                 {/* Become Instructor */}
                 <Link
                     href={actionHref}
-                    className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-sm bg-[#FFF0EB] px-5 py-3 text-xs font-medium text-[#FF6636] transition-colors hover:bg-[#FFE3D9] sm:text-sm"
+                    className="inline-flex min-h-11 w-full shrink-0 items-center justify-center gap-2 rounded-sm bg-[#FFF0EB] px-5 py-3 text-xs font-medium text-[#FF6636] transition-colors hover:bg-[#FFE3D9] sm:w-auto sm:text-sm"
                 >
                     {actionLabel}
                     <ArrowRight className="size-4 rtl:rotate-180" />

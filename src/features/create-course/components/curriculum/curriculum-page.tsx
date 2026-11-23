@@ -1,8 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/navigation";
 import { X } from "lucide-react";
 
 import CurriculumFooter from "./curriculum-footer";
@@ -17,6 +17,8 @@ import type {
   LectureContentType,
 } from "../../types/course-types";
 
+import { useCourseCreation } from "../../context/course-creation-context";
+
 function createId(prefix: string) {
   return `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
 }
@@ -25,15 +27,21 @@ export default function CurriculumPage() {
   const t = useTranslations("createCourse");
   const router = useRouter();
 
-  const params = useParams<{ locale: string }>();
+  const { curriculum, isDraftHydrated, setCurriculum } = useCourseCreation();
 
-  const [sections, setSections] = useState<CurriculumSectionType[]>(() =>
-    getInitialCurriculum(t),
-  );
+  const initialSections = useMemo(() => getInitialCurriculum(t), [t]);
+
+  const sections = curriculum ?? initialSections;
 
   const [feedback, setFeedback] = useState("");
-
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+
+  // Initialize curriculum only when no saved curriculum exists.
+  useEffect(() => {
+    if (isDraftHydrated && curriculum === null) {
+      setCurriculum(initialSections);
+    }
+  }, [isDraftHydrated, curriculum, initialSections, setCurriculum]);
 
   const totalLectures = useMemo(
     () =>
@@ -45,16 +53,16 @@ export default function CurriculumPage() {
     sectionId: string,
     updater: (section: CurriculumSectionType) => CurriculumSectionType,
   ) => {
-    setSections((current) =>
-      current.map((section) =>
+    setCurriculum((current) =>
+      (current ?? initialSections).map((section) =>
         section.id === sectionId ? updater(section) : section,
       ),
     );
   };
 
   const addSection = () => {
-    setSections((current) => [
-      ...current,
+    setCurriculum((current) => [
+      ...(current ?? initialSections),
       {
         id: createId("section"),
         title: t("curriculum.defaultSectionName"),
@@ -66,8 +74,10 @@ export default function CurriculumPage() {
   };
 
   const deleteSection = (sectionId: string) => {
-    setSections((current) =>
-      current.filter((section) => section.id !== sectionId),
+    setCurriculum((current) =>
+      (current ?? initialSections).filter(
+        (section) => section.id !== sectionId,
+      ),
     );
 
     setFeedback(t("curriculum.feedback.sectionRemoved"));
@@ -170,11 +180,12 @@ export default function CurriculumPage() {
   };
 
   const handlePrevious = () => {
-    router.push(`/${params.locale}/create-course/advance-information`);
+    router.push("/instructor/create-course/advanced");
   };
 
   const handleNext = () => {
-    router.push(`/${params.locale}/create-course/publish`);
+    // Curriculum is already stored in the shared provider.
+    router.push("/instructor/create-course/publish");
   };
 
   return (

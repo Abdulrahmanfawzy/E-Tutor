@@ -1,6 +1,6 @@
 
 import { Course } from "../types/course";
-import { CourseBreadcrumb } from "./course-breadcrumb";
+import { CourseBreadcrumb } from "../../../components/common/course-breadcrumb";
 import { CourseInstructors } from "./course-instructors";
 
 import { CourseRating } from "./course-rating";

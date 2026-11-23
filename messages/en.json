@@ -255,6 +255,8 @@
   },
   "giftCourse": {
     "title": "Gift Course",
+    "home": "Home",
+    "courses": "Courses",
     "breadcrumbCourse": "Course",
     "containerTitle": "Gift a Course",
     "recipient": {
@@ -265,14 +267,6 @@
       "emailPlaceholder": "Enter recipient's email",
       "message": "Personal message",
       "messagePlaceholder": "Write a personal message (optional)"
-    },
-    "payment": {
-      "title": "Payment Method",
-      "savedCard": "Saved card",
-      "newCard": "Use a new card",
-      "expiry": "Expiry",
-      "holder": "Card holder",
-      "addNewCard": "Add a new card"
     },
     "card": {
       "title": "Course",

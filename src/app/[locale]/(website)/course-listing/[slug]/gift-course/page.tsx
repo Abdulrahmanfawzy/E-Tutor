@@ -1,15 +1,35 @@
-import GiftCourseContainer from "@/features/gift-course/components/gift-course-container"
-import GiftCourseHeader from "@/features/gift-course/components/gift-course-header"
 
+import GiftCourseContainer from "@/features/gift-course/components/gift-course-container";
+import GiftCourseHeader from "@/features/gift-course/components/gift-course-header";
+import { getCourseBySlug } from "@/features/single-course/utils/course-api";
+import { notFound } from "next/navigation";
 
-
-const page = () => {
-  return (
-    <>
-      <GiftCourseHeader />
-      <GiftCourseContainer />
-    </>
-  )
+interface GiftCoursePageProps {
+  params: Promise<{
+    slug: string;
+    locale: string;
+  }>;
 }
 
-export default page
+export default async function GiftCoursePage({
+  params,
+}: GiftCoursePageProps) {
+  const { slug } = await params;
+
+  const course = await getCourseBySlug(slug);
+
+  if (!course) {
+    notFound();
+  }
+
+  return (
+    <>
+      <GiftCourseHeader
+        courseTitle={course.title}
+        slug={slug}
+      />
+
+      <GiftCourseContainer />
+    </>
+  );
+}

@@ -1,40 +1,44 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
+
+import { useRouter } from "@/i18n/navigation";
 
 import CourseMessagesForm from "./course-messages-form";
 import InstructorSelector from "./instructor-selector";
 import PublishCourseFooter from "./publish-course-footer";
 import PublishCourseHeader from "./publish-course-header";
+
 import {
   createPublishCourseSchema,
-  PublishCourseFormValues,
+  type PublishCourseFormValues,
 } from "../../schemas/course-schema";
-import { initialInstructorIds, instructors } from "../../data/course-options";
-import { Instructor } from "../../types/course-types";
 
+import { instructors } from "../../data/course-options";
 
+import type { Instructor } from "../../types/course-types";
 
+import { useCourseCreation } from "../../context/course-creation-context";
 
 export default function PublishCoursePage() {
   const t = useTranslations("createCourse");
   const router = useRouter();
 
-  const [selectedInstructorIds, setSelectedInstructorIds] =
-    useState<string[]>(initialInstructorIds);
+  const {
+    publishInformation,
+    selectedInstructorIds,
+    isDraftHydrated,
+    setPublishInformation,
+    setSelectedInstructorIds,
+  } = useCourseCreation();
 
   const [feedback, setFeedback] = useState("");
-
   const [preview, setPreview] = useState<PublishCourseFormValues | null>(null);
 
-  const publishCourseSchema = useMemo(
-    () => createPublishCourseSchema(t),
-    [t],
-  );
+  const publishCourseSchema = useMemo(() => createPublishCourseSchema(t), [t]);
 
   const selectedInstructors = useMemo(
     () =>
@@ -44,7 +48,7 @@ export default function PublishCoursePage() {
     [selectedInstructorIds],
   );
 
-  const { control, handleSubmit } = useForm<PublishCourseFormValues>({
+  const { control, handleSubmit, reset } = useForm<PublishCourseFormValues>({
     resolver: zodResolver(publishCourseSchema),
     defaultValues: {
       welcomeMessage: "",
@@ -52,17 +56,26 @@ export default function PublishCoursePage() {
     },
   });
 
-  const handleSave = handleSubmit(() => {
+  useEffect(() => {
+    if (isDraftHydrated) {
+      reset(publishInformation);
+    }
+  }, [isDraftHydrated, publishInformation, reset]);
+
+  const handleSave = handleSubmit((values) => {
+    setPublishInformation(values);
     setPreview(null);
     setFeedback(t("publish.feedback.saved"));
   });
 
   const handleSaveAndPreview = handleSubmit((values) => {
+    setPublishInformation(values);
     setPreview(values);
     setFeedback(t("publish.feedback.previewGenerated"));
   });
 
   const handleReview = (values: PublishCourseFormValues) => {
+    setPublishInformation(values);
     setPreview(null);
 
     setFeedback(
@@ -71,6 +84,8 @@ export default function PublishCoursePage() {
           values.welcomeMessage.length + values.congratulationsMessage.length,
       }),
     );
+
+    // UI-only: connect the actual publish/review API here later.
   };
 
   const addInstructor = (instructor: Instructor) => {
@@ -83,6 +98,10 @@ export default function PublishCoursePage() {
     setSelectedInstructorIds((current) =>
       current.filter((id) => id !== instructorId),
     );
+  };
+
+  const handlePrevious = () => {
+    router.push("/instructor/create-course/curriculum");
   };
 
   return (
@@ -151,7 +170,7 @@ export default function PublishCoursePage() {
           </p>
         )}
 
-        <PublishCourseFooter onPreviousStep={() => router.back()} />
+        <PublishCourseFooter onPreviousStep={handlePrevious} />
       </form>
     </main>
   );

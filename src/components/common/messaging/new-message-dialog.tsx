@@ -17,7 +17,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Conversation } from "@/types/messaging-types";
-import { NewMessageFormValues, newMessageSchema } from "@/features/instructor-message/schema/new-message.schema";
+import { NewMessageFormValues, newMessageSchema } from "@/schema/message-schema";
 
 interface NewMessageDialogProps {
   open: boolean;

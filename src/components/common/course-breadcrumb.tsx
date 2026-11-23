@@ -8,7 +8,7 @@ import {
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Link } from "@/i18n/navigation";
-import type { CourseBreadcrumbItem } from "../types/course";
+import type { CourseBreadcrumbItem } from "../../features/single-course/types/course";
 
 interface CourseBreadcrumbProps {
     items: CourseBreadcrumbItem[];

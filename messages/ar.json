@@ -255,6 +255,8 @@
   },
   "giftCourse": {
     "title": "دورة هدية",
+    "home": "الرئيسية",
+    "courses": "الدورات",
     "breadcrumbCourse": "دورة",
     "containerTitle": "أهدِ دورة تدريبية",
     "recipient": {

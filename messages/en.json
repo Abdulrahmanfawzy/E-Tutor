@@ -596,5 +596,80 @@
       "nameRequired": "Please enter a name.",
       "nameMax": "Names cannot exceed 80 characters."
     }
+  },
+  "courseDetails": {
+    "coursePurchaseCard": {
+      "courseInfo": {
+        "courseDuration": "Course Duration",
+        "courseLevel": "Course Level",
+        "studentsEnrolled": "Students Enrolled",
+        "language": "Language",
+        "subtitleLanguage": "Subtitle Language"
+      },
+      "courseIncludesItems": {
+        "lifetime": "Lifetime access",
+        "guarantee": "30-days money-back guarantee",
+        "resources": "Free exercises file & downloadable resources",
+        "certificate": "Shareable certificate of completion",
+        "devices": "Access on mobile, tablet and TV",
+        "subtitles": "English subtitles",
+        "online": "100% online course"
+      },
+      "daysLeft": "{days} days left at this price!",
+      "addToCart": "Add To Cart",
+      "buyNow": "Buy Now",
+      "addToWishlist": "Add To Wishlist",
+      "giftCourse": "Gift Course",
+      "guaranteeNote": "Note: All courses have a 30-day money-back guarantee.",
+      "courseIncludes": "This course includes:",
+      "shareCourse": "Share this course:",
+      "copyLink": "Copy link",
+      "facebook": "Share on Facebook",
+      "twitter": "Share on Twitter",
+      "email": "Share by email",
+      "whatsapp": "Share on WhatsApp",
+      "discount": "{percentage}% OFF"
+    },
+    "tabs": {
+      "overview": "Overview",
+      "curriculum": "Curriculum",
+      "instructor": "Instructor",
+      "reviews": "Reviews"
+    },
+    "previewContent": {
+      "description": "Description",
+      "learningOutcomes": "What you will learn in this course",
+      "targetAudience": "Who this course is for:",
+      "requirements": "Course requirements"
+    },
+    "curriculum": {
+      "title": "Curriculum",
+      "sections": "Sections",
+      "lectures": "lectures",
+      "lecture": "lecture",
+      "lectureCount": "{count, plural, =1 {# lecture} other {# lectures}}",
+      "totalDuration": "Total duration",
+      "noCurriculum": "No curriculum available yet.",
+      "preview": "Preview"
+    },
+    "instructor": {
+      "title": "Course instructor ({count})",
+      "courseRating": "Course rating",
+      "students": "Students",
+      "courses": "Courses",
+      "readMore": "READ MORE",
+      "readLess": "READ LESS",
+      "noInstructor": "Instructor information is not available yet."
+    },
+    "reviews": {
+      "courseRating": "Course Rating",
+      "ratingLabel": "Course Rating",
+      "starRating": "{count} Star Rating",
+      "studentsFeedback": "Students Feedback",
+      "filterLabel": "Filter reviews by rating",
+      "allRatings": "All Ratings",
+      "noReviews": "No reviews found.",
+      "showMore": "Show More"
+    }
   }
 }

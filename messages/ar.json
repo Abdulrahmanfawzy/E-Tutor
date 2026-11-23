@@ -596,5 +596,80 @@
       "nameRequired": "يرجى إدخال اسم.",
       "nameMax": "لا يمكن أن تتجاوز الأسماء 80 حرفاً."
     }
+  },
+  "courseDetails": {
+    "coursePurchaseCard": {
+      "courseInfo": {
+        "courseDuration": "مدة الكورس",
+        "courseLevel": "مستوى الكورس",
+        "studentsEnrolled": "عدد الطلاب المسجلين",
+        "language": "اللغة",
+        "subtitleLanguage": "لغة الترجمة"
+      },
+      "courseIncludesItems": {
+        "lifetime": "إمكانية الوصول مدى الحياة",
+        "guarantee": "ضمان استرداد الأموال خلال 30 يومًا",
+        "resources": "ملفات تمارين وموارد مجانية قابلة للتنزيل",
+        "certificate": "شهادة إتمام قابلة للمشاركة",
+        "devices": "إمكانية الوصول عبر الهاتف والتابلت والتلفاز",
+        "subtitles": "ترجمة باللغة الإنجليزية",
+        "online": "كورس أونلاين بالكامل"
+      },
+      "daysLeft": "متبقي {days} أيام بهذا السعر!",
+      "addToCart": "أضف إلى السلة",
+      "buyNow": "اشترِ الآن",
+      "addToWishlist": "أضف إلى المفضلة",
+      "giftCourse": "إهداء الكورس",
+      "guaranteeNote": "ملاحظة: جميع الكورسات تشمل ضمان استرداد الأموال خلال 30 يومًا.",
+      "courseIncludes": "يتضمن هذا الكورس:",
+      "shareCourse": "شارك هذا الكورس:",
+      "copyLink": "نسخ الرابط",
+      "facebook": "مشاركة على فيسبوك",
+      "twitter": "مشاركة على تويتر",
+      "email": "مشاركة عبر البريد الإلكتروني",
+      "whatsapp": "مشاركة على واتساب",
+      "discount": "خصم {percentage}%"
+    },
+    "tabs": {
+      "overview": "نظرة عامة",
+      "curriculum": "المنهج",
+      "instructor": "المحاضر",
+      "reviews": "التقييمات"
+    },
+    "previewContent": {
+      "description": "الوصف",
+      "learningOutcomes": "هتتعلمي إيه في الكورس ده؟",
+      "targetAudience": "الكورس مناسب لمين؟",
+      "requirements": "متطلبات الكورس"
+    },
+    "curriculum": {
+      "title": "المنهج",
+      "sections": "أقسام",
+      "lectures": "محاضرات",
+      "lecture": "محاضرة",
+      "lectureCount": "{count, plural, =0 {لا توجد محاضرات} =1 {محاضرة واحدة} =2 {محاضرتان} few {# محاضرات} many {# محاضرة} other {# محاضرة}}",
+      "totalDuration": "المدة الإجمالية",
+      "noCurriculum": "المنهج غير متاح حاليًا.",
+      "preview": "معاينة"
+    },
+    "instructor": {
+      "title": "مدربي الكورس ({count})",
+      "courseRating": "تقييم الكورس",
+      "students": "طالب",
+      "courses": "كورس",
+      "readMore": "اقرأ المزيد",
+      "readLess": "اقرأ أقل",
+      "noInstructor": "معلومات المدرّب غير متاحة حتى الآن"
+    },
+    "reviews": {
+      "courseRating": "تقييم الكورس",
+      "ratingLabel": "تقييم الكورس",
+      "starRating": "{count} نجوم",
+      "studentsFeedback": "آراء الطلاب",
+      "filterLabel": "فلترة التقييمات",
+      "allRatings": "كل التقييمات",
+      "noReviews": "لا توجد تقييمات.",
+      "showMore": "عرض المزيد"
+    }
   }
 }

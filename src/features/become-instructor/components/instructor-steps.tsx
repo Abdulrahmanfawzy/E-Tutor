@@ -6,7 +6,7 @@ export function InstructorSteps() {
       <div className={containerClass}>
         <div className="mx-auto max-w-162.5 text-center">
           <h2 className=" text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
-            How you'll become a successful instructor
+            How you&apos;ll become a successful instructor
           </h2>
 
           <p className="mt-5 leading-7 text-gray-600">

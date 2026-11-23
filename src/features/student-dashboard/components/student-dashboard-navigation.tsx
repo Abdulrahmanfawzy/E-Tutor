@@ -36,15 +36,22 @@ const navigationItems = [
 
 const StudentDashboardNavigation = () => {
     const pathname = usePathname();
+    const normalizedPathname =
+        pathname !== "/" && pathname.endsWith("/")
+            ? pathname.slice(0, -1)
+            : pathname;
 
     return (
         <nav
-            aria-label="Student dashboard navigation "
-            className="w-full border-t border-gray-100"
+            aria-label="Student dashboard navigation"
+            className="w-full "
         >
-            <div className="flex w-full overflow-x-auto scrollbar-hide">
+            <div className="grid w-full grid-cols-7">
                 {navigationItems.map((item) => {
-                    const isActive = pathname === item.href;
+                    const isActive =
+                        normalizedPathname === item.href ||
+                        (item.href !== "/dashboard" &&
+                            normalizedPathname.startsWith(`${item.href}/`));
 
                     return (
                         <Link
@@ -52,8 +59,8 @@ const StudentDashboardNavigation = () => {
                             href={item.href}
                             aria-current={isActive ? "page" : undefined}
                             className={`
-                relative flex shrink-0 items-center justify-center
-                px-4 py-5 text-xs font-medium
+                relative flex min-w-0 items-center justify-center
+                px-2 py-5 text-center text-xs font-medium
                 transition-colors duration-200 sm:px-6
                 ${isActive
                                     ? "text-gray-900"

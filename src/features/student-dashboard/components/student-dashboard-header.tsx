@@ -2,8 +2,8 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
-import unknown from "@/assets/images/default-avatar.webp";
 import StudentDashboardNavigation from "./student-dashboard-navigation";
+import unknown from "@/assets/images/default-avatar.webp";
 
 interface StudentDashboardHeaderProps {
     name: string;
@@ -21,13 +21,13 @@ export default function StudentDashboardHeader({
     actionHref,
 }: StudentDashboardHeaderProps) {
     return (
-        <section className="w-full bg-white absolute top-[100px] left-0 right-0 mx-auto w-full max-w-285 px-4 py-10">
+        <section className="absolute left-0 right-0 top-[140px] z-10 bg-white   border border-orange-100 w-full max-w-285 mx-auto px-4 sm:px-6 lg:px-8">
             {/* Student Info */}
             <div className="flex flex-col justify-between gap-5 px-5 py-6 sm:flex-row sm:items-center sm:px-6 sm:py-7 lg:px-8">
                 <div className="flex min-w-0 items-center gap-3 sm:gap-4">
                     <div className="relative size-14 shrink-0 overflow-hidden rounded-full bg-gray-100 sm:size-16">
                         <Image
-                            src={unknown}
+                            src={unknown || avatar}
                             alt={name}
                             fill
                             sizes="64px"
@@ -57,7 +57,7 @@ export default function StudentDashboardHeader({
             </div>
 
             {/* Navigation */}
-            <div className="border-t border-gray-100">
+            <div className="border-t border-orange-100">
                 <StudentDashboardNavigation />
             </div>
         </section>

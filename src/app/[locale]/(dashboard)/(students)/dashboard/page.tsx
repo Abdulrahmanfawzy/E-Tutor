@@ -1,9 +1,16 @@
-const StudentDashboardNavigation = () => {
+interface IProps {
+
+
+
+}
+
+const page = ({ }: IProps) => {
     return (
         <div>
-            student
-        </div>
-    );
-};
+            dashboard
 
-export default StudentDashboardNavigation;
+        </div>
+    )
+}
+
+export default page

@@ -29,7 +29,7 @@ export function CourseDetails({ course, curriculum }: CourseDetailsProps) {
                             videoUrl={course.previewVideo}
                         />
                         {/* Tabs Below Video */}
-                        <CourseTabsContent course={course} curriculum={curriculum} />
+                        <CourseTabsContent curriculum={curriculum} />
                     </div>
 
                     <aside className="mt-6 min-w-0 lg:absolute lg:top-14 lg:end-8 lg:mt-0 lg:z-20 lg:w-[25rem] xl:end-[calc((100%-71.25rem)/2)]">

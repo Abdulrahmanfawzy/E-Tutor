@@ -1,5 +1,3 @@
-import SearchInput from "@/components/common/search-input";
-
 
 export default function Page() {
 

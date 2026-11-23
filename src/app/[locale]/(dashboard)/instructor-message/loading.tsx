@@ -1,5 +1,5 @@
-import InstructorMessageSkeleton from "@/features/instructor-message/components/instructor-message-skeleton";
+import { MessagingSkeleton } from "@/components/skeletons/messaging-skeleton";
 
 export default function Loading() {
-  return <InstructorMessageSkeleton />;
+  return <MessagingSkeleton title="Chat" />;
 }

@@ -46,7 +46,7 @@ const StudentDashboardNavigation = () => {
             aria-label="Student dashboard navigation"
             className="w-full "
         >
-            <div className="grid w-full grid-cols-4 sm:grid-cols-7">
+            <div className="grid w-full grid-cols-2 sm:grid-cols-4 lg:grid-cols-7">
                 {navigationItems.map((item) => {
                     const isActive =
                         normalizedPathname === item.href ||

@@ -21,7 +21,7 @@ export default function StudentDashboardHeader({
     actionHref,
 }: StudentDashboardHeaderProps) {
     return (
-        <section className="absolute left-0 right-0 top-[102px] z-10 mx-auto w-full max-w-285 border border-orange-100 bg-white px-3 sm:top-[140px] sm:px-6 lg:px-8">
+        <section className="app-container absolute left-0 right-0 top-[102px] z-10  border border-orange-100 bg-white sm:top-[140px]">
             {/* Student Info */}
             <div className="flex flex-col justify-between gap-5 px-5 py-6 sm:flex-row sm:items-center sm:px-6 sm:py-7 lg:px-8">
                 <div className="flex min-w-0 items-center gap-3 sm:gap-4">

@@ -148,9 +148,7 @@
   --color-button-primary-soft-foreground: var(--button-primary-soft-foreground);
 
   --color-button-secondary-soft: var(--button-secondary-soft);
-  --color-button-secondary-soft-foreground: var(
-    --button-secondary-soft-foreground
-  );
+  --color-button-secondary-soft-foreground: var(--button-secondary-soft-foreground);
 
   /* Radius */
   --radius-sm: calc(var(--radius) * 0.6);
@@ -452,6 +450,7 @@
    6. BASE STYLES
 ========================================= */
 @layer components {
+
   .container {
     width: 100%;
     margin-inline: auto;
@@ -488,6 +487,11 @@
     }
   }
 }
+
+.app-container {
+  @apply mx-auto w-full max-w-285 px-4 sm:px-6 lg:px-8
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

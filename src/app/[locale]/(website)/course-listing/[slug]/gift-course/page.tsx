@@ -29,7 +29,7 @@ export default async function GiftCoursePage({
         slug={slug}
       />
 
-      <GiftCourseContainer />
+      <GiftCourseContainer course={course} />
     </>
   );
 }

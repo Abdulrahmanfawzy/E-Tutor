@@ -8,7 +8,7 @@ import { cn } from "cn";
 import type {
   Course,
   CourseCategory,
-} from "../../app/[locale]/(website)/course-categories/_components/courses-data";
+} from "../../features/course-categories/data/courses-data";
 
 interface CourseCardProps {
   course: Course;

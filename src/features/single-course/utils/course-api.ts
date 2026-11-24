@@ -1,4 +1,4 @@
-import { coursesData } from "@/app/[locale]/(website)/course-categories/_components/courses-data";
+import { coursesData } from "@/features/course-categories/data/courses-data";
 
 import { courses } from "../data/courses";
 import { courseDetailsMock } from "../data/course-details-mock";

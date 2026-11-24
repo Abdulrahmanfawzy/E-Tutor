@@ -4,7 +4,7 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
-import { popularTools } from "./courses-data";
+import { popularTools } from "../data/courses-data";
 
 export default function PopularTools() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -47,7 +47,7 @@ export default function PopularTools() {
             aria-label="Next tools"
             className="text-gray-400 transition-colors hover:text-gray-700"
           >
-            <ChevronRight  size={16} />
+            <ChevronRight size={16} />
           </button>
         </div>
       </div>
@@ -57,19 +57,17 @@ export default function PopularTools() {
         {visibleTools.map((tool, index) => (
           <Card
             key={`${tool.name}-${index}`}
-            onClick={()=>setActiveTool(tool.name)}
-            className={`flex cursor-pointer flex-col items-center justify-center gap-1 rounded-none  px-2 py-4 shadow-none transition-all hover:-translate-y-1 hover:shadow-md ${
-              activeTool === tool.name 
+            onClick={() => setActiveTool(tool.name)}
+            className={`flex cursor-pointer flex-col items-center justify-center gap-1 rounded-none  px-2 py-4 shadow-none transition-all hover:-translate-y-1 hover:shadow-md ${activeTool === tool.name
                 ? "border-transparent shadow-md"
                 : ""
-            }`}
+              }`}
           >
             <h3
-              className={`text-base leading-5.5 ${
-                activeTool === tool.name 
+              className={`text-base leading-5.5 ${activeTool === tool.name
                   ? "text-orange-400"
                   : "text-gray-900"
-              }
+                }
               `}
             >
               {tool.name}

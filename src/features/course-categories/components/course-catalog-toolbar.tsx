@@ -4,7 +4,7 @@ import { useState } from "react";
 import { SlidersHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "cn";
-import { COURSE_CATEGORIES, type CourseCategory } from "./courses-data";
+import { COURSE_CATEGORIES, type CourseCategory } from "../data/courses-data";
 import {
   COURSE_SORT_OPTIONS,
   type CourseSortOption,

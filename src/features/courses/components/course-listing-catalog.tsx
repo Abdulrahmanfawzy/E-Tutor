@@ -12,14 +12,14 @@ import {
     COURSE_CATEGORIES,
     coursesData,
     type CourseCategory,
-} from "@/app/[locale]/(website)/course-categories/_components/courses-data";
+} from "@/features/course-categories/data/courses-data";
 import CourseSearchMeta from "@/components/common/course-search-meta";
 import {
     COURSE_SORT_OPTIONS,
     filterCourses,
     type CourseSortOption,
-} from "@/app/[locale]/(website)/course-categories/_components/course-catalog.utils";
-import CourseCatalogToolbar from "@/app/[locale]/(website)/course-categories/_components/course-catalog-toolbar";
+} from "@/features/course-categories/components/course-catalog.utils";
+import CourseCatalogToolbar from "@/features/course-categories/components/course-catalog-toolbar";
 import {
     filterListingCourses,
     parseCourseListingFilters,
@@ -91,7 +91,7 @@ export default function CourseListingCatalog() {
         filters.priceTypes.length +
         filters.durations.length +
         (filters.minPrice !== DEFAULT_COURSE_FILTERS.minPrice ||
-        filters.maxPrice !== DEFAULT_COURSE_FILTERS.maxPrice
+            filters.maxPrice !== DEFAULT_COURSE_FILTERS.maxPrice
             ? 1
             : 0) +
         (category === "ALL" ? 0 : 1);

@@ -1,6 +1,6 @@
 'use client'
 import { Badge } from "@/components/ui/badge";
-import { popularKeywords } from "./courses-data";
+import { popularKeywords } from "../data/courses-data";
 import { useState } from "react";
 
 
@@ -15,13 +15,12 @@ export default function PopularKeywords() {
       {popularKeywords.map((keyword) => (
         <Badge
           key={keyword}
-          onClick={()=> setActiveTool(keyword)}
+          onClick={() => setActiveTool(keyword)}
           variant="secondary"
-          className={`h-5 cursor-pointer rounded-none px-2 py-3.5 text-[14px] font-medium transition-colors ${
-            keyword === activeTool
+          className={`h-5 cursor-pointer rounded-none px-2 py-3.5 text-[14px] font-medium transition-colors ${keyword === activeTool
               ? "bg-orange-400 text-white"
               : "bg-muted text-gray-900 "
-          }`}
+            }`}
         >
           {keyword}
         </Badge>

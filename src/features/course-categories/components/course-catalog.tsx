@@ -3,8 +3,8 @@
 
 import { useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
-import CourseCard from "../../../../../components/common/course-card";
-import { coursesData, type CourseCategory } from "./courses-data";
+import CourseCard from "../../../components/common/course-card";
+import { coursesData, type CourseCategory } from "../data/courses-data";
 import CourseCatalogToolbar from "./course-catalog-toolbar";
 import { filterCourses, type CourseSortOption } from "./course-catalog.utils";
 import CustomPagination from "@/components/common/custom-pagination";

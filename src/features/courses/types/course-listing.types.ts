@@ -1,4 +1,4 @@
-import { Course } from "@/app/[locale]/(website)/course-categories/_components/courses-data";
+import { Course } from "@/features/course-categories/data/courses-data";
 
 
 export const COURSE_LEVELS = [

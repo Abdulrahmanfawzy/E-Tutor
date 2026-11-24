@@ -1,7 +1,7 @@
-import CourseCateogoriesContent from "./_components/course-categories-content"
+import CourseCateogoriesContent from "../../../../features/course-categories/components/course-categories-content"
 
 
-const CourseCateogoriesPage=()=> {
-  return <CourseCateogoriesContent/>
+const CourseCateogoriesPage = () => {
+  return <CourseCateogoriesContent />
 }
 export default CourseCateogoriesPage

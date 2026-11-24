@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { ArrowLeft, Ellipsis } from "lucide-react";
 
-import type { Conversation } from "../data/mock-data";
-
 import { ChatAvatar } from "./chat-avatar";
+
+import type { Conversation } from "@/types/messaging-types";
 
 interface ConversationHeaderProps {
   conversation: Conversation;
@@ -19,7 +19,7 @@ export function ConversationHeader({
   const [showInfo, setShowInfo] = useState(false);
 
   return (
-    <header className="relative flex h-[104px] shrink-0 items-center justify-between border-b border-gray-100 px-5 md:px-12">
+    <header className="relative flex h-26 shrink-0 items-center justify-between border-b border-gray-100 px-5 md:px-12">
       <div className="flex min-w-0 items-center gap-3">
         <button
           type="button"
@@ -30,7 +30,13 @@ export function ConversationHeader({
           <ArrowLeft className="size-5" />
         </button>
 
-        <ChatAvatar conversation={conversation} size="lg" />
+        <ChatAvatar
+          name={conversation.name}
+          avatar={conversation.avatar}
+          initials={conversation.initials}
+          online={conversation.online}
+          size="lg"
+        />
 
         <div className="min-w-0">
           <h2 className="truncate text-lg font-medium text-gray-900">

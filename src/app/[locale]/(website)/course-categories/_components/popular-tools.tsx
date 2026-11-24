@@ -47,7 +47,7 @@ export default function PopularTools() {
             aria-label="Next tools"
             className="text-gray-400 transition-colors hover:text-gray-700"
           >
-            <ChevronRight size={16} />
+            <ChevronRight  size={16} />
           </button>
         </div>
       </div>

@@ -255,6 +255,8 @@
   },
   "giftCourse": {
     "title": "Gift Course",
+    "home": "Home",
+    "courses": "Courses",
     "breadcrumbCourse": "Course",
     "containerTitle": "Gift a Course",
     "recipient": {
@@ -266,14 +268,6 @@
       "message": "Personal message",
       "messagePlaceholder": "Write a personal message (optional)"
     },
-    "payment": {
-      "title": "Payment Method",
-      "savedCard": "Saved card",
-      "newCard": "Use a new card",
-      "expiry": "Expiry",
-      "holder": "Card holder",
-      "addNewCard": "Add a new card"
-    },
     "card": {
       "title": "Course",
       "courseBy": "Course By",
@@ -283,6 +277,7 @@
     }
   },
   "dashboard": {
+    "periods": { "today": "Today", "week": "This week", "month": "This month" },
     "sidebar": {
       "dashboard": "Dashboard",
       "createCourse": "Create New Course",
@@ -306,7 +301,14 @@
       "faqs": "FAQs",
       "privacy": "Privacy Policy",
       "terms": "Terms & Condition"
-    }
+    },
+    "cards": {
+  "recentActivity": "Recent Activity",
+  "revenue": "Revenue",
+  "profileView": "Profile View",
+  "courseRating": "Overall Course Rating",
+  "courseOverview": "Course Overview"
+}
   },
   "messages": {
     "sidebar": {
@@ -361,6 +363,7 @@
       "removeNamed": "Remove {name}",
       "deleteNamed": "Delete {name}",
       "editNamed": "Edit {name}"
+      
     },
     "metadata": {
       "advancedTitle": "Create Course | Eduguard",
@@ -671,5 +674,166 @@
       "noReviews": "No reviews found.",
       "showMore": "Show More"
     }
-  }
+  },
+  "instructorCourses": {
+    "title": "My Courses",
+    "searchPlaceholder": "Search in your courses...",
+    "filters": {
+      "sortBy": "Sort by:",
+      "category": "Category",
+      "rating": "Rating"
+    },
+    "sortOptions": {
+      "latest": "Latest",
+      "oldest": "Oldest"
+    },
+    "categoryOptions": {
+      "all": "All Categories",
+      "development": "Development",
+      "design": "Design",
+      "marketing": "Marketing",
+      "business": "Business"
+    },
+    "ratingOptions": {
+      "all": "All Ratings",
+      "threeAndHalfUp": "3.5 Star & Up",
+      "threeUp": "3.0 Star & Up"
+    },
+    "students": "Students",
+    "reviews": "Reviews",
+    "noCourses": "No courses found",
+    "previous": "Previous",
+    "next": "Next",
+    "actions": {
+      "options": "Options",
+      "viewDetails": "View Details",
+      "editCourse": "Edit Course",
+      "deleteCourse": "Delete Course"
+    }
+  },
+  "instructorCourseDetails": {
+    "header": {
+      "uploaded": "Uploaded:",
+      "lastUpdated": "Last Updated:",
+      "createdBy": "Created by:",
+      "rating": "Rating",
+      "coursePrice": "Course prices",
+      "revenue": "USD dollar revenue",
+      "withdraw": "Withdraw Money",
+      "options": "Options",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "stats": {
+      "lectures": "Lectures",
+      "comments": "Total Comments",
+      "students": "Students enrolled",
+      "level": "Course level",
+      "language": "Course Language",
+      "files": "Attach File",
+      "hours": "Hours",
+      "viewed": "Students viewed"
+    }
+  },
+  "ShoppingCart": {
+    "home": "Home",
+    "pageTitle": "Shopping Cart",
+    "breadcrumbHome": "Home",
+    "breadcrumbCart": "Shopping Cart",
+    "cartTitle": "Shopping Cart",
+    "course": "Course",
+    "prices": "Prices",
+    "action": "Action",
+    "courseBy": "Course by:",
+    "review": "Review",
+    "moveToWishlist": "Move To Wishlist",
+    "removeCourse": "Remove course",
+    "emptyCart": "Your cart is empty",
+    "subtotal": "Subtotal",
+    "couponDiscount": "Coupon Discount",
+    "taxes": "Taxes",
+    "total": "Total:",
+    "proceedToCheckout": "Proceed To Checkout",
+    "applyCoupon": "Apply coupon code",
+    "couponPlaceholder": "Coupon code",
+    "apply": "Apply",
+    "navbar": {
+      "browse": "Browse",
+      "searchPlaceholder": "What do you want to learn...",
+      "notifications": "Notifications",
+      "wishlist": "Wishlist",
+      "cart": "Shopping Cart",
+      "createAccount": "Create Account",
+      "signIn": "Sign In"
+    }
+  },
+  "instructorEarning": {
+  "stats": {
+    "totalRevenue": "Total Revenue",
+    "currentBalance": "Current Balance",
+    "totalWithdrawals": "Total Withdrawals",
+    "todayRevenue": "Today Revenue"
+  },
+  "statistic": {
+    "title": "Statistic",
+    "revenue": "Revenue"
+  },
+  "cards": {
+    "title": "Cards",
+    "expires": "Expires",
+    "cardName": "Card name",
+    "addNewCard": "Add new card",
+    "previous": "Previous card",
+    "next": "Next card",
+    "options": "Card options",
+    "copy": "Copy card number"
+  },
+  "withdraw": {
+    "title": "Withdraw your money",
+    "paymentMethod": "Payment method:",
+    "paypalNote": "You will be redirected to the PayPal site after reviewing your order.",
+    "currentBalance": "Current Balance",
+    "withdrawMoney": "Withdraw Money"
+  },
+  "history": {
+    "title": "Withdraw History",
+    "date": "Date",
+    "method": "Method",
+    "amount": "Amount",
+    "status": "Status",
+    "cancelWithdraw": "Cancel Withdraw",
+    "options": "Options",
+    "statuses": {
+      "pending": "Pending",
+      "completed": "Completed",
+      "canceled": "Canceled"
+    }
+  },
+  "addCard": {
+  "title": "New Payment Card",
+  "name": "Name",
+  "namePlaceholder": "Name on card",
+  "cardNumber": "Card Number",
+  "cardNumberPlaceholder": "Label",
+  "expiry": "MM / YY",
+  "cvc": "CVC",
+  "cvcPlaceholder": "Security Code",
+  "cancel": "Cancel",
+  "submit": "Add Card"
+}
+},
+"studentCourses": {
+  "title": "Courses ({count})",
+  "filters": {
+    "search": "Search",
+    "searchPlaceholder": "Search in your courses...",
+    "sortBy": "Sort by",
+    "status": "Status",
+    "teacher": "Teacher"
+  },
+  "sort": { "latest": "Latest", "oldest": "Oldest", "progress": "Progress" },
+  "status": { "all": "All Courses", "inProgress": "In progress", "completed": "Completed" },
+  "teacher": { "all": "All Teachers" },
+  "card": { "watchLecture": "Watch Lecture", "completed": "Completed" }
+}
 }

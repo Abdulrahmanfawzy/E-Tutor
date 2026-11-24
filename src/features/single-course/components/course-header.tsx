@@ -16,7 +16,7 @@ export function CourseHeader({
     course,
 }: CourseHeaderProps) {
     return (
-        <section className="space-y-4">
+        <section className="space-y-4 ">
             <CourseBreadcrumb items={course.breadcrumbs} />
 
             <div className="space-y-2">

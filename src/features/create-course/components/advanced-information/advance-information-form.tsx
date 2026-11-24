@@ -1,16 +1,18 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useFieldArray, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
+
 import { Button } from "@/components/ui/button";
+import { useRouter } from "@/i18n/navigation";
+
 import { MediaUploadField } from "./media-upload-field";
 import { CourseDescriptionField } from "./course-description-field";
 import { RepeatableTextSection } from "./repeatable-text-section";
 
 import { createCourseAdvanceInformationSchema } from "../../schemas/course-schema";
-
 import { advanceInformationInitialValues } from "../../data/course-options";
 
 import type {
@@ -18,8 +20,15 @@ import type {
   SubmitAction,
 } from "../../types/course-types";
 
+import { useCourseCreation } from "../../context/course-creation-context";
+
 export function AdvanceInformationForm() {
   const t = useTranslations("createCourse");
+  const router = useRouter();
+
+  const { advanceInformation, isDraftHydrated, setAdvanceInformation } =
+    useCourseCreation();
+
   const formRef = useRef<HTMLFormElement>(null);
   const submitAction = useRef<SubmitAction>("save");
 
@@ -36,6 +45,7 @@ export function AdvanceInformationForm() {
     watch,
     getValues,
     setValue,
+    reset,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<CourseAdvanceInformationFormValues>({
@@ -44,19 +54,22 @@ export function AdvanceInformationForm() {
     mode: "onBlur",
   });
 
-  // What you will learn
+  useEffect(() => {
+    if (isDraftHydrated) {
+      reset(advanceInformation);
+    }
+  }, [isDraftHydrated, advanceInformation, reset]);
+
   const learnArray = useFieldArray({
     control,
     name: "whatYouWillLearn",
   });
 
-  // Target audience
   const audienceArray = useFieldArray({
     control,
     name: "targetAudience",
   });
 
-  // Course requirements
   const requirementsArray = useFieldArray({
     control,
     name: "courseRequirements",
@@ -69,7 +82,9 @@ export function AdvanceInformationForm() {
   };
 
   const onSubmit = (values: CourseAdvanceInformationFormValues) => {
-    void values;
+    setAdvanceInformation(values);
+
+    const action = submitAction.current;
 
     const messages: Record<SubmitAction, string> = {
       save: t("advanced.status.save"),
@@ -77,20 +92,26 @@ export function AdvanceInformationForm() {
       next: t("advanced.status.next"),
     };
 
-    setStatus(messages[submitAction.current]);
+    if (action === "next") {
+      router.push("/instructor/create-course/curriculum");
+      return;
+    }
+
+    setStatus(messages[action]);
+  };
+
+  const handlePrevious = () => {
+    router.push("/instructor/create-course");
   };
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Course creation progress */}
-
       <form
         ref={formRef}
         onSubmit={handleSubmit(onSubmit)}
         noValidate
         className="mx-auto w-full"
       >
-        {/* Page heading */}
         <header className="flex flex-col gap-4 border-b border-gray-100 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-7">
           <h1 className="text-base font-semibold text-gray-900">
             {t("advanced.heading")}
@@ -102,6 +123,7 @@ export function AdvanceInformationForm() {
               size="sm"
               variant="primary-soft"
               onClick={() => runSubmit("save")}
+              disabled={!isDraftHydrated || isSubmitting}
             >
               {t("common.save")}
             </Button>
@@ -112,13 +134,13 @@ export function AdvanceInformationForm() {
               variant="ghost"
               className="text-orange-400 hover:bg-orange-50 hover:text-orange-500"
               onClick={() => runSubmit("preview")}
+              disabled={!isDraftHydrated || isSubmitting}
             >
               {t("common.saveAndPreview")}
             </Button>
           </div>
         </header>
 
-        {/* Thumbnail and trailer */}
         <section className="grid gap-7 border-b border-gray-100 px-5 py-6 sm:px-7 lg:grid-cols-2 lg:gap-8">
           <MediaUploadField
             control={control}
@@ -139,7 +161,6 @@ export function AdvanceInformationForm() {
           />
         </section>
 
-        {/* Course description */}
         <CourseDescriptionField
           control={control}
           getValues={getValues}
@@ -147,7 +168,6 @@ export function AdvanceInformationForm() {
           error={errors.courseDescription?.message}
         />
 
-        {/* What you will learn */}
         <RepeatableTextSection
           title={t("advanced.whatYouWillLearn")}
           name="whatYouWillLearn"
@@ -158,7 +178,6 @@ export function AdvanceInformationForm() {
           onRemove={learnArray.remove}
         />
 
-        {/* Target audience */}
         <RepeatableTextSection
           title={t("advanced.targetAudience")}
           name="targetAudience"
@@ -169,7 +188,6 @@ export function AdvanceInformationForm() {
           onRemove={audienceArray.remove}
         />
 
-        {/* Course requirements */}
         <RepeatableTextSection
           title={t("advanced.courseRequirements")}
           name="courseRequirements"
@@ -180,14 +198,13 @@ export function AdvanceInformationForm() {
           onRemove={requirementsArray.remove}
         />
 
-        {/* Form actions */}
         <footer className="flex flex-col-reverse gap-3 px-5 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-7">
           <Button
             type="button"
             variant="outline"
             size="default"
             className="w-full rounded-none border-gray-100 text-gray-600 sm:w-auto"
-            onClick={() => setStatus(t("advanced.status.previous"))}
+            onClick={handlePrevious}
           >
             {t("common.previous")}
           </Button>
@@ -196,7 +213,7 @@ export function AdvanceInformationForm() {
             type="button"
             size="default"
             className="w-full rounded-none sm:w-auto"
-            disabled={isSubmitting}
+            disabled={!isDraftHydrated || isSubmitting}
             onClick={() => runSubmit("next")}
           >
             {t("common.saveAndNext")}

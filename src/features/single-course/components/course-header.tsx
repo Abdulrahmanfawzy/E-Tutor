@@ -1,6 +1,6 @@
 
 import { Course } from "../types/course";
-import { CourseBreadcrumb } from "./course-breadcrumb";
+import { CourseBreadcrumb } from "../../../components/common/course-breadcrumb";
 import { CourseInstructors } from "./course-instructors";
 
 import { CourseRating } from "./course-rating";
@@ -16,7 +16,7 @@ export function CourseHeader({
     course,
 }: CourseHeaderProps) {
     return (
-        <section className="space-y-4">
+        <section className="space-y-4 ">
             <CourseBreadcrumb items={course.breadcrumbs} />
 
             <div className="space-y-2">

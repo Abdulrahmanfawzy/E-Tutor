@@ -1,21 +1,20 @@
 import { useTranslations } from "next-intl";
-import { Course } from "../../../types/course";
 import { Curriculum } from "../../../types/curriculum";
-import { CourseTabs } from "./course-tabs";
 import { CurriculumTabContent } from "./curriculum/cirriculum-tab-content";
 import { InstructorTabContent } from "./instructor/instructor-tab-content";
 
 import { OverviewTabContent } from "./overview/overview-tab-content";
 import { ReviewsTabContent } from "./review/review-tab-content";
+import { Tabs } from "@/components/common/tabs";
 
 interface CourseTabsContentProps {
-  course: Course;
+
   curriculum: Curriculum;
 
 }
 
 export function CourseTabsContent({
-  course, curriculum
+  curriculum
 }: CourseTabsContentProps) {
   const t = useTranslations("courseDetails.tabs");
   const tabs = [
@@ -53,6 +52,6 @@ export function CourseTabsContent({
   ];
 
   return (
-    <CourseTabs tabs={tabs} defaultTab="overview" />
+    <Tabs tabs={tabs} defaultTab="overview" />
   );
 }

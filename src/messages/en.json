@@ -39,5 +39,17 @@
       "hours": "Hours",
       "viewed": "Students viewed"
     }
+  },
+  "courseCategories": {
+    "bestSellingTitle": "Best selling courses in {category}",
+    "popularTools": "Popular tools",
+    "popularKeywords": "Popular keywords:",
+    "popularInstructorsTitle": "Popular instructors in {category}",
+    "courseCount": "{count} courses",
+    "students": "students",
+    "previousTools": "Previous tools",
+    "nextTools": "Next tools",
+    "viewCourseDetails": "View course details for {title}",
+    "loadError": "Unable to load category data. Please try again."
   }
 }

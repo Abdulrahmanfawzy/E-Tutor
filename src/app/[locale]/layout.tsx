@@ -9,6 +9,7 @@ import { QueryProvider } from "@/components/providers/query-providers";
 import { routing } from "@/i18n/routing";
 
 import "../globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -76,6 +77,7 @@ export default async function LocaleLayout({
           <QueryProvider>
             <LanguageSwitcher />
             {children}
+            <Toaster richColors position="top-right" />
           </QueryProvider>
         </NextIntlClientProvider>
       </body>

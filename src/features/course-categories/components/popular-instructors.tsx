@@ -1,57 +1,28 @@
 
 import Image from "next/image";
 import { Star } from "lucide-react";
-import instructorImage from '@/assets/images/instructor.svg'
+import { useLocale, useTranslations } from "next-intl";
+import instructorImage from "@/assets/images/instructor.svg";
+import type { PopularInstructor as PopularInstructorData } from "../types/course-category.types";
 
-const instructors = [
-  {
-    id: 1,
-    name: "Devon Lane",
-    role: "Web Developer",
-    rating: 5.0,
-    students: "265.7K",
-    image: instructorImage,
-  },
-  {
-    id: 2,
-    name: "Darrell Steward",
-    role: "React Native Developer",
-    rating: 5.0,
-    students: "265.7K",
-    image: instructorImage,
-  },
-  {
-    id: 3,
-    name: "Jane Cooper",
-    role: "Mobile Developer",
-    rating: 5.0,
-    students: "205.7K",
-    image: instructorImage,
-  },
-  {
-    id: 4,
-    name: "Albert Flores",
-    role: "Javascript Developer",
-    rating: 5.0,
-    students: "285.7K",
-    image: instructorImage,
-  },
-  {
-    id: 5,
-    name: "Kathryn Murphy",
-    role: "Lead Developer",
-    rating: 5.0,
-    students: "285.7K",
-    image: instructorImage,
-  },
-];
+interface PopularInstructorsProps {
+  categoryName: string;
+  instructors: PopularInstructorData[];
+}
 
-export default function PopularInstructors() {
+export default function PopularInstructors({
+  categoryName,
+  instructors,
+}: PopularInstructorsProps) {
+  const t = useTranslations("courseCategories");
+  const locale = useLocale();
+  const numberFormat = new Intl.NumberFormat(locale);
+
   return (
     <section className="bg-[#F5F7FA] py-8 sm:py-10">
       <div className="mx-auto w-full max-w-285 ">
         <h2 className="mb-6 text-center text-xl font-semibold text-[#1D2026]">
-          Popular instructor in Web Development
+          {t("popularInstructors.title", { category: categoryName })}
         </h2>
 
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
@@ -62,11 +33,12 @@ export default function PopularInstructors() {
             >
               <div className="relative aspect-4/3 w-full h-61 shrink-0 ">
                 <Image
-                  src={instructor.image}
+                  src={instructor.avatar_url || instructorImage}
                   alt={instructor.name}
                   fill
                   className="object-cover"
                   sizes="(max-width: 640px) 50vw, 20vw"
+                  unoptimized={Boolean(instructor.avatar_url)}
                 />
               </div>
 
@@ -76,7 +48,7 @@ export default function PopularInstructors() {
                 </h3>
 
                 <p className="text-sm text-gray-500">
-                  {instructor.role}
+                  {instructor.headline}
                 </p>
               </div>
 
@@ -92,7 +64,10 @@ export default function PopularInstructors() {
                 </div>
 
                 <span className="text-[14px] text-gray-700 font-medium">
-                  {instructor.students} <span className="text-gray-500 font-normal ">students</span>  
+                  {numberFormat.format(instructor.students_count)}{" "}
+                  <span className="text-gray-500 font-normal">
+                    {t("students")}
+                  </span>
                 </span>
               </div>
             </div>

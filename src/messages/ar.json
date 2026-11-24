@@ -38,5 +38,17 @@
       "hours": "الساعات",
       "viewed": "مشاهدات الطلاب"
     }
+  },
+  "courseCategories": {
+    "bestSellingTitle": "أكثر الدورات مبيعًا في {category}",
+    "popularTools": "الأدوات الشائعة",
+    "popularKeywords": "الكلمات المفتاحية الشائعة:",
+    "popularInstructorsTitle": "أشهر المدرّسين في {category}",
+    "courseCount": "{count} دورة",
+    "students": "طالب",
+    "previousTools": "الأدوات السابقة",
+    "nextTools": "الأدوات التالية",
+    "viewCourseDetails": "عرض تفاصيل الدورة: {title}",
+    "loadError": "تعذّر تحميل بيانات التصنيف. حاول مرة أخرى."
   }
 }

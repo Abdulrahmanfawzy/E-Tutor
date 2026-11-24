@@ -8,11 +8,11 @@ import {
   MessageScrollerViewport,
 } from "@/components/ui/message-scroller";
 
-import type { ChatMessage, Conversation } from "../data/mock-data";
-
 import { MessageBubble } from "./message-bubble";
 
-interface MessageScrollerProps {
+import type { ChatMessage, Conversation } from "@/types/messaging-types";
+
+interface ConversationMessagesProps {
   messages: ChatMessage[];
   conversation: Conversation;
 }
@@ -20,7 +20,7 @@ interface MessageScrollerProps {
 export function ConversationMessages({
   messages,
   conversation,
-}: MessageScrollerProps) {
+}: ConversationMessagesProps) {
   return (
     <MessageScrollerProvider autoScroll defaultScrollPosition="end">
       <MessageScroller className="min-h-0 flex-1">
@@ -29,7 +29,6 @@ export function ConversationMessages({
           className="min-h-0"
         >
           <MessageScrollerContent className="flex flex-col gap-7 px-5 py-7 md:px-12 md:py-10">
-            {/* Date separator */}
             <MessageScrollerItem messageId="today-separator">
               <div className="flex justify-center">
                 <span className="rounded-md bg-orange-50 px-4 py-2 text-sm text-gray-700">
@@ -38,14 +37,12 @@ export function ConversationMessages({
               </div>
             </MessageScrollerItem>
 
-            {/* Messages */}
             {messages.map((message) => (
               <MessageScrollerItem key={message.id} messageId={message.id}>
                 <MessageBubble message={message} conversation={conversation} />
               </MessageScrollerItem>
             ))}
 
-            {/* Empty state */}
             {messages.length === 0 && (
               <MessageScrollerItem messageId="empty-state">
                 <div className="flex min-h-50 items-center justify-center">

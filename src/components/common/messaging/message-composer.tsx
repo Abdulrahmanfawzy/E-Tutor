@@ -7,10 +7,7 @@ import { Paperclip, Send } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
-import {
-  messageSchema,
-  type MessageFormValues,
-} from "../schema/message.schema";
+import { messageSchema, type MessageFormValues } from "@/schema/message-schema";
 
 interface MessageComposerProps {
   onSend: (values: MessageFormValues, attachment: string) => void;
@@ -18,7 +15,6 @@ interface MessageComposerProps {
 
 export function MessageComposer({ onSend }: MessageComposerProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
-
   const [attachment, setAttachment] = useState("");
 
   const { control, handleSubmit, reset } = useForm<MessageFormValues>({
@@ -45,8 +41,7 @@ export function MessageComposer({ onSend }: MessageComposerProps) {
         onSubmit={handleSubmit(submitMessage)}
         className="flex items-center gap-3"
       >
-              <div className="flex h-12 min-w-0 flex-1 items-center border border-gray-100 px-4 
-        focus-within:border-orange-400">
+        <div className="flex h-12 min-w-0 flex-1 items-center border border-gray-100 px-4 focus-within:border-orange-400">
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}

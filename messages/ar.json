@@ -285,6 +285,7 @@
     }
   },
   "dashboard": {
+     "periods": { "today": "اليوم", "week": "هذا الأسبوع", "month": "هذا الشهر" },
     "sidebar": {
       "dashboard": "لوحة التحكم",
       "createCourse": "أنشئ دورة جديدة",
@@ -308,7 +309,14 @@
       "faqs": "الأسئلة الشائعة",
       "privacy": "سياسة الخصوصية",
       "terms": "الشروط والأحكام"
-    }
+    },
+    "cards": {
+  "recentActivity": "آخر النشاطات",
+  "revenue": "الإيرادات",
+  "profileView": "مشاهدات الملف الشخصي",
+  "courseRating": "التقييم العام للكورس",
+  "courseOverview": "نظرة عامة على الكورس"
+}
   },
   "messages": {
     "sidebar": {
@@ -363,6 +371,7 @@
       "removeNamed": "إزالة {name}",
       "deleteNamed": "حذف {name}",
       "editNamed": "تعديل {name}"
+     
     },
     "metadata": {
       "advancedTitle": "إنشاء دورة | إيدوغارد",
@@ -765,4 +774,61 @@
       "signIn": "تسجيل الدخول"
     }
   }
+  ,
+  "instructorEarning": {
+  "stats": {
+    "totalRevenue": "إجمالي الإيرادات",
+    "currentBalance": "الرصيد الحالي",
+    "totalWithdrawals": "إجمالي السحوبات",
+    "todayRevenue": "إيرادات اليوم"
+  },
+  "statistic": {
+    "title": "الإحصائيات",
+    "revenue": "الإيرادات"
+  },
+  "cards": {
+    "title": "البطاقات",
+    "expires": "تنتهي في",
+    "cardName": "اسم البطاقة",
+    "addNewCard": "إضافة بطاقة جديدة",
+    "previous": "البطاقة السابقة",
+    "next": "البطاقة التالية",
+    "options": "خيارات البطاقة",
+"copy": "نسخ رقم البطاقة"
+  },
+  "withdraw": {
+    "title": "اسحب أموالك",
+    "paymentMethod": "طريقة الدفع:",
+    "paypalNote": "ستتم إعادة توجيهك إلى موقع PayPal بعد مراجعة طلبك.",
+    "currentBalance": "الرصيد الحالي",
+    "withdrawMoney": "سحب الأموال"
+  },
+  "history": {
+    "title": "سجل السحب",
+    "date": "التاريخ",
+    "method": "الطريقة",
+    "amount": "المبلغ",
+    "status": "الحالة",
+    "cancelWithdraw": "إلغاء السحب",
+    "options": "خيارات",
+    "statuses": {
+      "pending": "قيد الانتظار",
+      "completed": "مكتمل",
+      "canceled": "ملغي"
+    }
+  },
+
+  "addCard": {
+  "title": "بطاقة دفع جديدة",
+  "name": "الاسم",
+  "namePlaceholder": "الاسم على البطاقة",
+  "cardNumber": "رقم البطاقة",
+  "cardNumberPlaceholder": "رقم البطاقة",
+  "expiry": "الشهر / السنة",
+  "cvc": "CVC",
+  "cvcPlaceholder": "رمز الأمان",
+  "cancel": "إلغاء",
+  "submit": "إضافة البطاقة"
+}
+
 }

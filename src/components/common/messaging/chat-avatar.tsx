@@ -1,32 +1,37 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-import type { Conversation } from "../data/mock-data";
-
 interface ChatAvatarProps {
-  conversation: Conversation;
+  name: string;
+  avatar?: string;
+  initials: string;
+  online?: boolean;
   size?: "sm" | "md" | "lg";
 }
 
-export function ChatAvatar({ conversation, size = "md" }: ChatAvatarProps) {
-  const sizes = {
-    sm: "size-7",
-    md: "size-12",
-    lg: "size-16",
-  };
+const sizes = {
+  sm: "size-7",
+  md: "size-12",
+  lg: "size-16",
+};
 
+export function ChatAvatar({
+  name,
+  avatar,
+  initials,
+  online = false,
+  size = "md",
+}: ChatAvatarProps) {
   return (
     <div className={`relative shrink-0 ${sizes[size]}`}>
       <Avatar className="size-full">
-        {conversation.avatar && (
-          <AvatarImage src={conversation.avatar} alt={conversation.name} />
-        )}
+        {avatar && <AvatarImage src={avatar} alt={name} />}
 
         <AvatarFallback className="bg-orange-100 text-sm font-semibold text-orange-600">
-          {conversation.initials}
+          {initials}
         </AvatarFallback>
       </Avatar>
 
-      {conversation.online && (
+      {online && (
         <span className="absolute -right-0.5 -bottom-0.5 size-3 rounded-full border-2 border-white bg-green-400" />
       )}
     </div>

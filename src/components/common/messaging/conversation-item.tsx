@@ -1,6 +1,6 @@
 import { ChatAvatar } from "./chat-avatar";
 
-import type { Conversation } from "../data/mock-data";
+import type { Conversation } from "@/types/messaging-types";
 
 interface ConversationItemProps {
   conversation: Conversation;
@@ -17,11 +17,17 @@ export function ConversationItem({
     <button
       type="button"
       onClick={onClick}
+      aria-current={selected ? "true" : undefined}
       className={`flex w-full items-center gap-4 px-6 py-3 text-left transition-colors hover:bg-gray-50 ${
         selected ? "bg-orange-100 hover:bg-orange-100" : ""
       }`}
     >
-      <ChatAvatar conversation={conversation} />
+      <ChatAvatar
+        name={conversation.name}
+        avatar={conversation.avatar}
+        initials={conversation.initials}
+        online={conversation.online}
+      />
 
       <div className="min-w-0 flex-1">
         <div className="mb-1 flex items-center justify-between gap-2">

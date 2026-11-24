@@ -62,7 +62,7 @@ export default function RevenueChart() {
           type="monotone"
           stroke="var(--color-revenue)"
           fill="var(--color-revenue)"
-          fillOpacity={0.1}
+          fillOpacity={0.05}
         />
       </AreaChart>
     </ChartContainer>

@@ -27,7 +27,7 @@ export default function CourseCard({ course }: CourseCardProps) {
       aria-label={t("viewCourseDetails", { title: course.title })}
       className="block h-full rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FF6636]"
     >
-      <Card className="group/card h-full gap-0 overflow-hidden rounded-none rounded-sm bg-white p-0 duration-200 hover:shadow-md">
+      <Card className="group/card h-full gap-0 overflow-hidden  rounded-sm bg-white p-0 duration-200 hover:shadow-md">
         <div className="relative aspect-16/10 w-full overflow-hidden bg-gray-100">
           <Image
             src={course.image}
@@ -35,10 +35,7 @@ export default function CourseCard({ course }: CourseCardProps) {
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
             className="w-full object-cover transition-transform duration-300 group-hover/card:scale-105"
-            unoptimized={
-              typeof course.image === "string" &&
-              /^https?:\/\//.test(course.image)
-            }
+
           />
         </div>
 

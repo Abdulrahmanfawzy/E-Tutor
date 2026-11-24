@@ -37,7 +37,7 @@ export default function PopularTools({ tools }: PopularToolsProps) {
         </h2>
 
         {tools.length > 6 && (
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 ">
             <button
               onClick={handlePrevious}
               aria-label={t("previousTools")}
@@ -62,7 +62,7 @@ export default function PopularTools({ tools }: PopularToolsProps) {
           <Card
             key={tool.id}
             onClick={() => setActiveTool(tool.name)}
-            className={`flex cursor-pointer flex-col items-center justify-center gap-1 rounded-none  px-2 py-4 shadow-none transition-all hover:-translate-y-1 hover:shadow-md ${activeTool === tool.name
+            className={`flex cursor-pointer flex-col items-center justify-center gap-1 rounded-sm  px-2 py-4 shadow-none transition-all hover:-translate-y-1 hover:shadow-md ${activeTool === tool.name
               ? "border-transparent shadow-md"
               : ""
               }`}

@@ -6,6 +6,7 @@ import PopularKeywords from "./popular-keywords";
 import PopularTools from "./popular-tools";
 import { useCategoryLanding } from "../hooks/use-category-landing";
 import CourseCategoriesSkeleton from "./course-categories-skeleton";
+import CourseListingCatalog from "@/features/courses/components/course-listing-catalog";
 
 interface IProps {
   categorySlug: string;
@@ -46,6 +47,14 @@ const CourseCateogoriesContent = ({ categorySlug }: IProps) => {
         categoryName={category.name}
         instructors={popular_instructors}
       />
+      {/* Courses Section */}
+      <div className="mx-auto flex w-full max-w-285 flex-col gap-10 py-10">
+
+        <CourseListingCatalog />
+
+
+
+      </div>
     </main>
   );
 };

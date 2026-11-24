@@ -29,7 +29,7 @@ export default function PopularInstructors({
           {instructors.map((instructor) => (
             <div
               key={instructor.id}
-              className="overflow-hidden bg-white transition-shadow hover:shadow-md"
+              className="overflow-hidden bg-white rounded-sm transition-shadow hover:shadow-md"
             >
               <div className="relative aspect-4/3 w-full h-61 shrink-0 ">
                 <Image

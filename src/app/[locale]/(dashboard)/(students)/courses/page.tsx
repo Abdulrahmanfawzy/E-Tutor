@@ -1,7 +1,6 @@
 import StudentCoursesList from "@/features/student-dashboard/student-courses/components/student-courses-list";
 import { STUDENT_COURSES } from "@/features/student-dashboard/student-courses/data/mock-student-courses";
 
-
 export default function Page() {
 
 

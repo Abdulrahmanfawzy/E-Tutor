@@ -24,7 +24,7 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="fixed top-4 end-4 z-50 flex items-center gap-2 rounded-md border border-gray-200 bg-white px-3 py-2 shadow-md">
+    <div className="flex items-center gap-2 transition" >
       <Globe className="h-4 w-4 text-[#FF6636]" aria-hidden="true" />
       <label htmlFor="locale-switcher" className="sr-only">
         {t("switchLanguage")}
@@ -34,7 +34,7 @@ export default function LanguageSwitcher() {
         value={locale}
         onChange={handleChange}
         aria-label={t("switchLanguage")}
-        className="cursor-pointer bg-transparent text-xs font-medium text-gray-700 outline-none"
+        className="cursor-pointer bg-transparent text-xs font-medium text-gray-400 outline-none hover:text-white"
       >
         {routing.locales.map((availableLocale) => (
           <option key={availableLocale} value={availableLocale}>

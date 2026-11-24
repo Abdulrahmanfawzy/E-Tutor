@@ -746,6 +746,38 @@
       "viewed": "Students viewed"
     }
   },
+  "ShoppingCart": {
+    "home": "Home",
+    "pageTitle": "Shopping Cart",
+    "breadcrumbHome": "Home",
+    "breadcrumbCart": "Shopping Cart",
+    "cartTitle": "Shopping Cart",
+    "course": "Course",
+    "prices": "Prices",
+    "action": "Action",
+    "courseBy": "Course by:",
+    "review": "Review",
+    "moveToWishlist": "Move To Wishlist",
+    "removeCourse": "Remove course",
+    "emptyCart": "Your cart is empty",
+    "subtotal": "Subtotal",
+    "couponDiscount": "Coupon Discount",
+    "taxes": "Taxes",
+    "total": "Total:",
+    "proceedToCheckout": "Proceed To Checkout",
+    "applyCoupon": "Apply coupon code",
+    "couponPlaceholder": "Coupon code",
+    "apply": "Apply",
+    "navbar": {
+      "browse": "Browse",
+      "searchPlaceholder": "What do you want to learn...",
+      "notifications": "Notifications",
+      "wishlist": "Wishlist",
+      "cart": "Shopping Cart",
+      "createAccount": "Create Account",
+      "signIn": "Sign In"
+    }
+  },
   "instructorEarning": {
     "stats": {
       "totalRevenue": "Total Revenue",
@@ -799,6 +831,45 @@
       "cvcPlaceholder": "Security Code",
       "cancel": "Cancel",
       "submit": "Add Card"
+    }
+  },
+  "addCard": {
+    "title": "New Payment Card",
+    "name": "Name",
+    "namePlaceholder": "Name on card",
+    "cardNumber": "Card Number",
+    "cardNumberPlaceholder": "Label",
+    "expiry": "MM / YY",
+    "cvc": "CVC",
+    "cvcPlaceholder": "Security Code",
+    "cancel": "Cancel",
+    "submit": "Add Card"
+  },
+  "studentCourses": {
+    "title": "Courses ({count})",
+    "filters": {
+      "search": "Search",
+      "searchPlaceholder": "Search in your courses...",
+      "sortBy": "Sort by",
+      "status": "Status",
+      "teacher": "Teacher"
+    },
+    "sort": {
+      "latest": "Latest",
+      "oldest": "Oldest",
+      "progress": "Progress"
+    },
+    "status": {
+      "all": "All Courses",
+      "inProgress": "In progress",
+      "completed": "Completed"
+    },
+    "teacher": {
+      "all": "All Teachers"
+    },
+    "card": {
+      "watchLecture": "Watch Lecture",
+      "completed": "Completed"
     }
   }
 }

@@ -3,8 +3,9 @@ import { Geist, Geist_Mono, Inter } from "next/font/google";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
-
-import LanguageSwitcher from "@/components/common/language-switcher";
+import TopHeader from "@/components/layout/top-header";
+import Navbar from "@/components/layout/nav-bar";
+import Footer from "@/components/layout/footer";
 import { QueryProvider } from "@/components/providers/query-providers";
 import { routing } from "@/i18n/routing";
 
@@ -75,9 +76,10 @@ export default async function LocaleLayout({
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider>
           <QueryProvider>
-            <LanguageSwitcher />
-            {children}
-            <Toaster richColors position="top-right" />
+            <TopHeader />
+            <Navbar />
+            <div className="flex-1">{children}</div>
+            <Footer />
           </QueryProvider>
         </NextIntlClientProvider>
       </body>

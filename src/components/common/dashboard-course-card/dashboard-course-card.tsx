@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { Card } from "@/components/ui/card";
+import { useTranslations } from "next-intl";
 
 export interface DashboardCourse {
     id: string;
@@ -8,6 +9,7 @@ export interface DashboardCourse {
     instructor: string;
     image: string;
     progress: number;
+    currentLecture?: string;
 }
 
 interface DashboardCourseCardProps {
@@ -17,6 +19,8 @@ interface DashboardCourseCardProps {
 export default function DashboardCourseCard({
     course,
 }: DashboardCourseCardProps) {
+     const t = useTranslations("studentCourses.card");
+     const isCompleted = course.progress >= 100;
     return (
         <Link
             href={`/courses/${course.id}`}
@@ -43,11 +47,13 @@ export default function DashboardCourseCard({
                     <h3 className="mb-3 line-clamp-2 min-h-8 text-xs font-medium leading-4 text-gray-900">
                         {course.title}
                     </h3>
-
+                                 {course.currentLecture && (
+            <p className="mb-3 line-clamp-1 text-xs text-gray-700">{course.currentLecture}</p>
+          )}
                     {/* Action + Progress */}
                     <div className="mt-auto flex items-center justify-between gap-2">
                         <span className="inline-flex flex-1 min-h-8 items-center justify-center bg-[#FFF0EB] px-3 text-[11px] font-medium text-[#FF6636] transition-colors group-hover:bg-[#FFE1D6]">
-                            Watch Lecture
+                           {t("watchLecture")}
                         </span>
 
                         {course.progress > 0 && (

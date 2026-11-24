@@ -830,5 +830,20 @@
   "cancel": "إلغاء",
   "submit": "إضافة البطاقة"
 }
+},
+"studentCourses": {
+  "title": "الكورسات ({count})",
+  "filters": {
+    "search": "بحث",
+    "searchPlaceholder": "ابحث في كورساتك...",
+    "sortBy": "ترتيب حسب",
+    "status": "الحالة",
+    "teacher": "المدرّس"
+  },
+  "sort": { "latest": "الأحدث", "oldest": "الأقدم", "progress": "التقدّم" },
+  "status": { "all": "كل الكورسات", "inProgress": "قيد التقدّم", "completed": "مكتمل" },
+  "teacher": { "all": "كل المدرّسين" },
+  "card": { "watchLecture": "شاهد المحاضرة", "completed": "مكتمل" }
+}
 
 }

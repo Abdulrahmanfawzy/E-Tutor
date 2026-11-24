@@ -23,7 +23,7 @@ export default function CustomPagination({
 }: CustomPaginationProps) {
   if (totalPages <= 1) return null;
 
-  const handlePageChange = (page: number) => {
+ const handlePageChange = (page: number) => {
     if (page < 1 || page > totalPages) return;
     onPageChange(page);
   };

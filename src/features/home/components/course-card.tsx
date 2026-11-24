@@ -8,6 +8,11 @@ interface CourseCardProps {
 }
 
 export function CourseCard({ course }: CourseCardProps) {
+if (!course) {
+    console.error("CourseCard received undefined course");
+    return null;
+  }
+
   return (
     <article className="group overflow-hidden border border-gray-100 bg-white transition hover:-translate-y-1 hover:shadow-lg">
       <div className="relative h-44 overflow-hidden">

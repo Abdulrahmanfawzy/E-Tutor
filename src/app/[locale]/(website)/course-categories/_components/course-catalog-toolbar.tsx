@@ -10,7 +10,8 @@ import {
   type CourseSortOption,
 } from "./course-catalog.utils";
 import CourseSearchInput from "@/components/common/course-search-input";
-import CourseSortSelect from "@/components/common/course-sort-select";
+import CourseSortSelect from "@/components/common/reusable-select";
+import ReusableSelect from "@/components/common/reusable-select";
 
 interface CourseCatalogToolbarProps {
   search: string;
@@ -64,7 +65,7 @@ export default function CourseCatalogToolbar({
             onClick={handleFilterToggle}
             aria-expanded={showFilters}
             className={cn(
-              "h-10 gap-2 rounded-none border-gray-200 bg-white px-4 py-2.5 text-sm font-normal text-[#1D2026] transition-colors",
+              "h-10 gap-2 rounded-sm border-gray-200 bg-white px-4 py-2.5 text-sm font-normal text-[#1D2026] transition-colors",
               "hover:border-[#FF6636] hover:bg-white hover:text-[#1D2026]"
             )}
           >
@@ -77,15 +78,18 @@ export default function CourseCatalogToolbar({
           <CourseSearchInput value={search} onChange={onSearchChange} />
         </div>
 
-        <CourseSortSelect
+        <ReusableSelect
           value={sort}
           options={COURSE_SORT_OPTIONS}
-          onChange={onSortChange}
+          onValueChange={onSortChange}
+          placeholder="Filter by status"
+          label="sort by"
+          triggerClassName="w-40 h-10!"
         />
       </div>
 
       {showCategoryFilter && showFilters && (
-        <div className="flex flex-wrap items-center gap-3 border border-gray-100 bg-gray-50 p-4">
+        <div className="flex flex-wrap items-center gap-3 border border-gray-100 rounded-sm bg-gray-50 p-4">
           <label htmlFor="course-category" className="text-sm font-medium">
             Category:
           </label>

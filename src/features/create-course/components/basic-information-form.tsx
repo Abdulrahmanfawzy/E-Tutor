@@ -1,13 +1,12 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-
 import {
   Select,
   SelectContent,
@@ -15,6 +14,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useRouter } from "@/i18n/navigation";
 
 import CourseFormField from "./course-form-field";
 
@@ -32,6 +32,8 @@ import {
   type CourseFormValues,
 } from "../schemas/course-schema";
 
+import { useCourseCreation } from "../context/course-creation-context";
+
 const inputClassName =
   "h-12 w-full rounded-none border-gray-100 bg-white px-4 text-sm shadow-none placeholder:text-gray-500 focus-visible:border-orange-400 focus-visible:ring-0";
 
@@ -40,6 +42,11 @@ const selectTriggerClassName =
 
 export default function BasicInformationForm() {
   const t = useTranslations("createCourse");
+  const router = useRouter();
+
+  const { basicInformation, isDraftHydrated, setBasicInformation, clearDraft } =
+    useCourseCreation();
+
   const [status, setStatus] = useState("");
 
   const courseSchema = useMemo(() => createCourseSchema(t), [t]);
@@ -50,46 +57,54 @@ export default function BasicInformationForm() {
     watch,
     reset,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<CourseFormValues>({
     resolver: zodResolver(courseSchema),
     defaultValues: defaultCourseValues,
     mode: "onTouched",
   });
 
+  useEffect(() => {
+    if (isDraftHydrated) {
+      reset(basicInformation);
+    }
+  }, [isDraftHydrated, basicInformation, reset]);
+
   const title = watch("title");
   const subtitle = watch("subtitle");
 
-  const onSubmit = (values: CourseFormValues) => {
-    // UI-only: no API request is made.
-    console.log("Course basic information:", values);
-
+  const onSave = (values: CourseFormValues) => {
+    setBasicInformation(values);
     setStatus(t("basic.status.saved"));
   };
 
   const handleSave = () => {
     setStatus("");
-    void handleSubmit(onSubmit)();
+    void handleSubmit(onSave)();
   };
 
   const handleSaveAndPreview = () => {
-    setStatus(t("basic.status.previewNotConnected"));
-    void handleSubmit(onSubmit)();
+    setStatus("");
+    void handleSubmit((values) => {
+      setBasicInformation(values);
+      setStatus(t("basic.status.previewNotConnected"));
+    })();
   };
 
   const handleCancel = () => {
+    clearDraft();
     reset(defaultCourseValues);
     setStatus("");
   };
 
-  const handleSaveAndNext = () => {
+  const handleSaveAndNext = handleSubmit((values) => {
+    setBasicInformation(values);
     setStatus("");
-    void handleSubmit(onSubmit)();
-  };
+    router.push("/instructor/create-course/advanced");
+  });
 
   return (
     <section className="bg-white">
-      {/* Page header */}
       <div className="flex flex-col gap-4 border-b border-gray-100 px-6 py-6 sm:flex-row sm:items-center sm:justify-between lg:px-10">
         <h1 className="text-2xl font-semibold tracking-tight text-gray-900">
           {t("basic.heading")}
@@ -102,6 +117,7 @@ export default function BasicInformationForm() {
             size="lg"
             className="rounded-none px-6"
             onClick={handleSave}
+            disabled={!isDraftHydrated || isSubmitting}
           >
             {t("common.save")}
           </Button>
@@ -112,23 +128,19 @@ export default function BasicInformationForm() {
             size="lg"
             className="rounded-none text-orange-400 hover:bg-orange-50 hover:text-orange-500"
             onClick={handleSaveAndPreview}
+            disabled={!isDraftHydrated || isSubmitting}
           >
             {t("common.saveAndPreview")}
           </Button>
         </div>
       </div>
 
-      {/* Form */}
       <form
         id="basic-information-form"
-        onSubmit={(event) => {
-          event.preventDefault();
-          handleSaveAndNext();
-        }}
+        onSubmit={handleSaveAndNext}
         noValidate
         className="flex flex-col gap-6 px-6 py-8 lg:px-10 lg:py-9"
       >
-        {/* Course title */}
         <CourseFormField
           label={t("basic.title")}
           htmlFor="course-title"
@@ -150,7 +162,6 @@ export default function BasicInformationForm() {
           </div>
         </CourseFormField>
 
-        {/* Course subtitle */}
         <CourseFormField
           label={t("basic.subtitle")}
           htmlFor="course-subtitle"
@@ -172,7 +183,6 @@ export default function BasicInformationForm() {
           </div>
         </CourseFormField>
 
-        {/* Category and subcategory */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <CourseFormField
             label={t("basic.category")}
@@ -235,7 +245,6 @@ export default function BasicInformationForm() {
           </CourseFormField>
         </div>
 
-        {/* Course topic */}
         <CourseFormField
           label={t("basic.topic")}
           htmlFor="course-topic"
@@ -250,7 +259,6 @@ export default function BasicInformationForm() {
           />
         </CourseFormField>
 
-        {/* Language, subtitle language, level, duration */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
           <CourseFormField
             label={t("basic.language")}
@@ -384,14 +392,12 @@ export default function BasicInformationForm() {
           </CourseFormField>
         </div>
 
-        {/* Feedback */}
         {status && (
           <p role="status" className="text-sm text-green-600">
             {status}
           </p>
         )}
 
-        {/* Footer actions */}
         <div className="flex flex-col-reverse gap-4 pt-2 sm:flex-row sm:items-center sm:justify-between">
           <Button
             type="button"
@@ -407,6 +413,7 @@ export default function BasicInformationForm() {
             type="submit"
             size="lg"
             className="h-14 w-full rounded-none px-8 sm:w-auto"
+            disabled={!isDraftHydrated || isSubmitting}
           >
             {t("common.saveAndNext")}
           </Button>

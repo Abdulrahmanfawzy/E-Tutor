@@ -14,7 +14,7 @@ export default function CourseSearchInput({
     placeholder = "Search courses...",
 }: CourseSearchInputProps) {
     return (
-        <div className="flex flex-1 items-center gap-2 border border-gray-200 px-3">
+        <div className="flex flex-1 items-center gap-2 rounded-sm border border-gray-200 px-3">
             <Search size={17} className="shrink-0 text-gray-400" />
 
             <input

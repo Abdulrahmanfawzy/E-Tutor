@@ -32,7 +32,7 @@ export default function CourseFilterSidebar({
     };
 
     return (
-        <aside className="w-full border border-gray-100 bg-white px-5">
+        <aside className="w-full border border-gray-100 rounded-sm bg-white px-5">
             <CourseFilterSection title="Category">
                 <div className="space-y-3">
                     {COURSE_CATEGORIES_FILTER.map((category) => {

@@ -76,10 +76,9 @@ export default async function LocaleLayout({
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider>
           <QueryProvider>
-            <TopHeader />
-            <Navbar />
-            <div className="flex-1">{children}</div>
-            <Footer />
+
+            {children}
+            <Toaster richColors position="top-right" />
           </QueryProvider>
         </NextIntlClientProvider>
       </body>

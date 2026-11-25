@@ -753,38 +753,6 @@
       "viewed": "مشاهدات الطلاب"
     }
   },
-  "ShoppingCart": {
-    "home": "الرئيسية",
-    "pageTitle": "سلة التسوق",
-    "breadcrumbHome": "الرئيسية",
-    "breadcrumbCart": "سلة التسوق",
-    "cartTitle": "سلة التسوق",
-    "course": "الكورس",
-    "prices": "السعر",
-    "action": "الإجراء",
-    "courseBy": "المحاضر:",
-    "review": "تقييم",
-    "moveToWishlist": "إضافة إلى المفضلة",
-    "removeCourse": "حذف الكورس",
-    "emptyCart": "سلة التسوق فارغة",
-    "subtotal": "المجموع الفرعي",
-    "couponDiscount": "خصم الكوبون",
-    "taxes": "الضرائب",
-    "total": "الإجمالي:",
-    "proceedToCheckout": "إتمام عملية الدفع",
-    "applyCoupon": "استخدم كود الخصم",
-    "couponPlaceholder": "كود الخصم",
-    "apply": "تطبيق",
-    "navbar": {
-      "browse": "تصفح",
-      "searchPlaceholder": "عن ماذا تبحث؟",
-      "notifications": "الإشعارات",
-      "wishlist": "المفضلة",
-      "cart": "سلة التسوق",
-      "createAccount": "إنشاء حساب",
-      "signIn": "تسجيل الدخول"
-    }
-  },
   "instructorEarning": {
     "stats": {
       "totalRevenue": "إجمالي الإيرادات",
@@ -838,45 +806,6 @@
       "cvcPlaceholder": "رمز الأمان",
       "cancel": "إلغاء",
       "submit": "إضافة البطاقة"
-    }
-  },
-  "addCard": {
-    "title": "بطاقة دفع جديدة",
-    "name": "الاسم",
-    "namePlaceholder": "الاسم على البطاقة",
-    "cardNumber": "رقم البطاقة",
-    "cardNumberPlaceholder": "رقم البطاقة",
-    "expiry": "الشهر / السنة",
-    "cvc": "CVC",
-    "cvcPlaceholder": "رمز الأمان",
-    "cancel": "إلغاء",
-    "submit": "إضافة البطاقة"
-  },
-  "studentCourses": {
-    "title": "الكورسات ({count})",
-    "filters": {
-      "search": "بحث",
-      "searchPlaceholder": "ابحث في كورساتك...",
-      "sortBy": "ترتيب حسب",
-      "status": "الحالة",
-      "teacher": "المدرّس"
-    },
-    "sort": {
-      "latest": "الأحدث",
-      "oldest": "الأقدم",
-      "progress": "التقدّم"
-    },
-    "status": {
-      "all": "كل الكورسات",
-      "inProgress": "قيد التقدّم",
-      "completed": "مكتمل"
-    },
-    "teacher": {
-      "all": "كل المدرّسين"
-    },
-    "card": {
-      "watchLecture": "شاهد المحاضرة",
-      "completed": "مكتمل"
     }
   }
 }

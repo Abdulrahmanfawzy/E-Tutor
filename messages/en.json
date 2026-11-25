@@ -832,44 +832,5 @@
       "cancel": "Cancel",
       "submit": "Add Card"
     }
-  },
-  "addCard": {
-    "title": "New Payment Card",
-    "name": "Name",
-    "namePlaceholder": "Name on card",
-    "cardNumber": "Card Number",
-    "cardNumberPlaceholder": "Label",
-    "expiry": "MM / YY",
-    "cvc": "CVC",
-    "cvcPlaceholder": "Security Code",
-    "cancel": "Cancel",
-    "submit": "Add Card"
-  },
-  "studentCourses": {
-    "title": "Courses ({count})",
-    "filters": {
-      "search": "Search",
-      "searchPlaceholder": "Search in your courses...",
-      "sortBy": "Sort by",
-      "status": "Status",
-      "teacher": "Teacher"
-    },
-    "sort": {
-      "latest": "Latest",
-      "oldest": "Oldest",
-      "progress": "Progress"
-    },
-    "status": {
-      "all": "All Courses",
-      "inProgress": "In progress",
-      "completed": "Completed"
-    },
-    "teacher": {
-      "all": "All Teachers"
-    },
-    "card": {
-      "watchLecture": "Watch Lecture",
-      "completed": "Completed"
-    }
   }
 }

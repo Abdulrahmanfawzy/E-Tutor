@@ -69,13 +69,8 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-<<<<<<< HEAD
   },
 );
-=======
-  }
-)
->>>>>>> origin
 
 function Button({
   className,
@@ -89,14 +84,7 @@ function Button({
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
     />
-<<<<<<< HEAD
   );
 }
 
 export { Button, buttonVariants };
-=======
-  )
-}
-
-export { Button, buttonVariants }
->>>>>>> origin

@@ -7,7 +7,7 @@ import LanguageSwitcher from "@/components/common/language-switcher";
 
 const navigationLinks = [
   { label: "Home", href: "/" },
-  { label: "Courses", href: "/courses" },
+  { label: "Courses", href: "/course-list" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact-us" },
   { label: "Become an Instructor", href: "/instructor" },
@@ -32,11 +32,10 @@ export default function TopHeader() {
               <Link
                 key={item.label}
                 href={item.href}
-                className={`relative flex h-11 shrink-0 items-center text-xs transition-colors sm:h-12 sm:text-sm md:h-14 ${
-                  isActive
+                className={`relative flex h-11 shrink-0 items-center text-xs transition-colors sm:h-12 sm:text-sm md:h-14 ${isActive
                     ? "text-white"
                     : "text-[#A1A5B3] hover:text-white"
-                }`}
+                  }`}
               >
                 {item.label}
 

@@ -18,7 +18,7 @@ const categories = [
 const quickLinks = [
     { label: "About", href: "/about" },
     { label: "Become Instructor", href: "/become-instructor" },
-    { label: "Contact", href: "/contact" },
+    { label: "Contact", href: "/contact-us" },
     { label: "Career", href: "/career" },
 ];
 

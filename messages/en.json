@@ -675,11 +675,18 @@
       "showMore": "Show More"
     }
   },
-   "instructorCourses": {
+  "instructorCourses": {
     "title": "My Courses",
     "searchPlaceholder": "Search in your courses...",
-    "filters": { "sortBy": "Sort by:", "category": "Category", "rating": "Rating" },
-    "sortOptions": { "latest": "Latest", "oldest": "Oldest" },
+    "filters": {
+      "sortBy": "Sort by:",
+      "category": "Category",
+      "rating": "Rating"
+    },
+    "sortOptions": {
+      "latest": "Latest",
+      "oldest": "Oldest"
+    },
     "categoryOptions": {
       "all": "All Categories",
       "development": "Development",
@@ -704,19 +711,19 @@
       "deleteCourse": "Delete Course"
     }
   },
-  "instructorCourseDetails": { "header": {
-    "uploaded": "Uploaded:",
-    "lastUpdated": "Last Updated:",
-    "createdBy": "Created by:",
-    "rating": "Rating",
-    "coursePrice": "Course prices",
-    "revenue": "USD dollar revenue",
-    "withdraw": "Withdraw Money",
-    "options": "Options",
-    "edit": "Edit",
-    "delete": "Delete"
-  },
-
+  "instructorCourseDetails": {
+    "header": {
+      "uploaded": "Uploaded:",
+      "lastUpdated": "Last Updated:",
+      "createdBy": "Created by:",
+      "rating": "Rating",
+      "coursePrice": "Course prices",
+      "revenue": "USD dollar revenue",
+      "withdraw": "Withdraw Money",
+      "options": "Options",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
     "stats": {
       "lectures": "Lectures",
       "comments": "Total Comments",
@@ -726,6 +733,38 @@
       "files": "Attach File",
       "hours": "Hours",
       "viewed": "Students viewed"
+    }
+  },
+  "ShoppingCart": {
+    "home": "Home",
+    "pageTitle": "Shopping Cart",
+    "breadcrumbHome": "Home",
+    "breadcrumbCart": "Shopping Cart",
+    "cartTitle": "Shopping Cart",
+    "course": "Course",
+    "prices": "Prices",
+    "action": "Action",
+    "courseBy": "Course by:",
+    "review": "Review",
+    "moveToWishlist": "Move To Wishlist",
+    "removeCourse": "Remove course",
+    "emptyCart": "Your cart is empty",
+    "subtotal": "Subtotal",
+    "couponDiscount": "Coupon Discount",
+    "taxes": "Taxes",
+    "total": "Total:",
+    "proceedToCheckout": "Proceed To Checkout",
+    "applyCoupon": "Apply coupon code",
+    "couponPlaceholder": "Coupon code",
+    "apply": "Apply",
+    "navbar": {
+      "browse": "Browse",
+      "searchPlaceholder": "What do you want to learn...",
+      "notifications": "Notifications",
+      "wishlist": "Wishlist",
+      "cart": "Shopping Cart",
+      "createAccount": "Create Account",
+      "signIn": "Sign In"
     }
   },
   "instructorEarning": {
@@ -782,5 +821,19 @@
   "cancel": "Cancel",
   "submit": "Add Card"
 }
+},
+"studentCourses": {
+  "title": "Courses ({count})",
+  "filters": {
+    "search": "Search",
+    "searchPlaceholder": "Search in your courses...",
+    "sortBy": "Sort by",
+    "status": "Status",
+    "teacher": "Teacher"
+  },
+  "sort": { "latest": "Latest", "oldest": "Oldest", "progress": "Progress" },
+  "status": { "all": "All Courses", "inProgress": "In progress", "completed": "Completed" },
+  "teacher": { "all": "All Teachers" },
+  "card": { "watchLecture": "Watch Lecture", "completed": "Completed" }
 }
 }

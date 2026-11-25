@@ -22,7 +22,9 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "images.unsplash.com",
+        // hostname: "images.unsplash.com",
+        hostname: "lms.huma-volve.com",
+        pathname: "/storage/**",
       },
     ],
   },

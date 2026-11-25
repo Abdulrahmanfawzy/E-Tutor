@@ -21,9 +21,9 @@ export function FeaturedCoursesSection({
   const t = useTranslations("home.featured");
 
   return (
-    <section className="mx-auto max-w-6xl bg-white px-5 py-10">
-      <SectionTitle title={t("title")} />
-
+<section className="bg-white py-10">        
+<div className="mx-auto w-full max-w-6xl px-6">
+  <SectionTitle title={t("title")} />
       <div className="grid gap-4 md:grid-cols-2">
         {courses.slice(0, 4).map((course) => (
           <article
@@ -105,6 +105,7 @@ export function FeaturedCoursesSection({
             </div>
           </article>
         ))}
+      </div>
       </div>
     </section>
   );

@@ -40,8 +40,7 @@ const socialLinks = [
 export default function Footer() {
     return (
         <footer className="bg-[#1D2026] text-white">
-            <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-10 px-6 py-14 sm:grid-cols-2 lg:grid-cols-[2.2fr_1fr_1fr_1fr_1fr] lg:gap-12 lg:px-8">
-                {/* Brand */}
+<div className="website-container grid grid-cols-1 gap-10 py-14 sm:grid-cols-2 lg:grid-cols-[2.2fr_1fr_1fr_1fr_1fr] lg:gap-12">                {/* Brand */}
                 <div>
                     <Link href="/" className="mb-6 flex items-center gap-2">
                         <GraduationCap

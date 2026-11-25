@@ -505,3 +505,8 @@
     @apply font-sans;
   }
 }
+@layer components {
+  .website-container {
+  @apply mx-auto w-full max-w-[1460px] px-2 sm:px-4 lg:px-6;
+  }
+}

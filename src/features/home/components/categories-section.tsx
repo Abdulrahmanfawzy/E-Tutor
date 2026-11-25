@@ -75,8 +75,8 @@ export function CategoriesSection() {
   const t = useTranslations("home.categories");
 
   return (
-    <section className="bg-white px-5 py-14">
-      <div className="mx-auto max-w-6xl">
+    <section className="bg-white py-14">
+  <div className="mx-auto w-full max-w-6xl px-6">
         <SectionTitle title={t("title")} />
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">

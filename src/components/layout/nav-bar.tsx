@@ -13,23 +13,24 @@ import {
   X,
 } from "lucide-react";
 import Image from "next/image";
-
+import GraduationCap from "@/assets/images(1)/GraduationCap.svg";
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header className="relative border-b border-gray-100 bg-white">
-<div className="container flex h-14 items-center gap-2 px-3 sm:h-16 sm:gap-3 sm:px-5 md:h-20 md:gap-6 md:px-10">     <Link
+<div className="website-container flex h-14 items-center gap-2 sm:h-16 sm:gap-3 md:h-20 md:gap-6">
+    <Link
           href="/"
          className="flex shrink-0 items-center gap-1.5 text-heading-7 text-gray-900 sm:gap-2"
         >
           <Image
-            src="/images/GraduationCap.svg"
+            src={GraduationCap}
             alt="E-tutor logo"
             width={32}
             height={32}
           />
-          E-tutor
+        
         </Link>
 
         {/* Browse dropdown */}

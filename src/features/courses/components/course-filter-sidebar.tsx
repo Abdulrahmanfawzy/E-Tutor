@@ -116,6 +116,46 @@ export default function CourseFilterSidebar({
 
             <CourseFilterSection title="Price">
                 <div className="space-y-3">
+                    <div className="grid grid-cols-2 gap-3">
+                        <label className="space-y-1 text-xs text-gray-500">
+                            Minimum price
+                            <input
+                                type="number"
+                                min={0}
+                                step="any"
+                                value={filters.minPrice}
+                                onChange={(event) => {
+                                    const minPrice = Number(event.currentTarget.value);
+                                    if (
+                                        Number.isFinite(minPrice) &&
+                                        minPrice <= filters.maxPrice
+                                    ) {
+                                        onFiltersChange({ ...filters, minPrice });
+                                    }
+                                }}
+                                className="h-9 w-full rounded-sm border border-gray-200 px-2 text-sm text-gray-900 outline-none focus-visible:border-[#F76C3C]"
+                            />
+                        </label>
+                        <label className="space-y-1 text-xs text-gray-500">
+                            Maximum price
+                            <input
+                                type="number"
+                                min={filters.minPrice}
+                                step="any"
+                                value={filters.maxPrice}
+                                onChange={(event) => {
+                                    const maxPrice = Number(event.currentTarget.value);
+                                    if (
+                                        Number.isFinite(maxPrice) &&
+                                        maxPrice >= filters.minPrice
+                                    ) {
+                                        onFiltersChange({ ...filters, maxPrice });
+                                    }
+                                }}
+                                className="h-9 w-full rounded-sm border border-gray-200 px-2 text-sm text-gray-900 outline-none focus-visible:border-[#F76C3C]"
+                            />
+                        </label>
+                    </div>
                     <CourseFilterCheckbox
                         label="Paid"
                         checked={filters.priceTypes.includes("paid")}

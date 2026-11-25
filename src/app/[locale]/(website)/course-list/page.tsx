@@ -1,15 +1,13 @@
 import { Suspense } from "react";
-import CourseListingCatalog from "@/features/courses/components/course-listing-catalog";
+import CourseListingCatalog, {
+  CourseListingSkeleton,
+} from "@/features/courses/components/course-listing-catalog";
 
 export default function CourseListingPage() {
   return (
     <main className="app-container">
       <Suspense
-        fallback={
-          <p role="status" className="py-10 text-sm text-gray-500">
-            Loading courses...
-          </p>
-        }
+        fallback={<CourseListingSkeleton />}
       >
         <CourseListingCatalog />
       </Suspense>

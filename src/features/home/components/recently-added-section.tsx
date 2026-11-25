@@ -66,8 +66,8 @@ export function RecentlyAddedSection() {
   };
 
   return (
-    <section className="bg-white px-5 py-12">
-      <div className="mx-auto max-w-6xl">
+    <section className="bg-white py-12">
+  <div className="mx-auto w-full max-w-6xl px-6">
         <SectionTitle title={t("title")} />
 
         <div

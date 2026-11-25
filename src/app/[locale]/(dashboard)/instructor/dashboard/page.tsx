@@ -1,3 +1,4 @@
+import { getInstructorDashboard } from "@/features/instructor-dashboard/api/dashboard-api";
 import CourseOverviewChart from "@/features/instructor-dashboard/components/course-overview-chart";
 import CourseRating from "@/features/instructor-dashboard/components/course-rating";
 import ProfileBanner from "@/features/instructor-dashboard/components/profile-banner";
@@ -10,12 +11,14 @@ import StatsCards from "@/features/instructor-dashboard/components/stats-card";
 
 
 
-export default function Page() {
+export default async function Page() {
+  const response = await getInstructorDashboard();
+
   return (
   <>
   <div className="flex flex-col gap-6">
-    <StatsCards/>
-    <ProfileBanner/>
+    <StatsCards tiles={response.data.tiles}/>
+    <ProfileBanner profileCompletion={response.data.profile_completion} />
      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         <RecentActivities />
         <RevenueChart />

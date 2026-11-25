@@ -3,21 +3,24 @@ import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import profile from "@/assets/Ellipse 300.svg";
 import { Progress } from "@/components/ui/progress";
+import { ProfileCompletion } from "../types/dashboard";
 
 const INSTRUCTOR = {
   name: "Vako Shvili",
   email: "vako.shvili@gmail.com",
-  currentStep: 1,
-  totalSteps: 4,
+  
 };
-export default function ProfileBanner() {
-     const { name, email, currentStep, totalSteps } = INSTRUCTOR;
-  const percentage = Math.round((currentStep / totalSteps) * 100);
-
+type ProfileBannerProps = {
+  profileCompletion: ProfileCompletion;
+};
+export default function ProfileBanner({profileCompletion}: ProfileBannerProps) {
+     const { name, email } = INSTRUCTOR;
+  
+    const {filled,percent,total}=  profileCompletion;
   return (
     <>
      <section className="flex flex-col gap-6 bg-purple-800 p-6 text-white md:flex-row md:items-center md:justify-between rounded-lg">
-      {/* Profile info */}
+      
       <div className="flex items-center gap-4">
         <Image
           src={profile}
@@ -32,14 +35,14 @@ export default function ProfileBanner() {
         </div>
       </div>
 
-     
+     <p className="text-sm text-gray-400" >{filled}/{total} Steps</p>
 <Progress
-  value={percentage}
+  value={percent}
   className="flex-1"
   trackClassName="h-2 bg-gray-700"
   indicatorClassName="bg-green-400"
 />
-
+<p className="text-sm" >{percent}% completed</p>
 
       {/* Actions */}
       <div className="flex items-center gap-3">

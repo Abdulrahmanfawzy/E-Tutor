@@ -12,20 +12,15 @@ import CustomPagination from "@/components/common/custom-pagination";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import useGetCourses from "../hooks/use-get-courses";
+import useCourseSearchSuggestions from "../hooks/use-course-search-suggestions";
 import { COURSE_SORT_OPTIONS } from "../constants/course-sort-options";
 import type { CourseListingFilters } from "../types/course-listing.types";
 import type { CourseApiItem, GetCoursesParams } from "../types/courses.types";
 import { DEFAULT_COURSE_FILTERS } from "./course-listing.constants";
 import CourseFilterSidebar from "./course-filter-sidebar";
 import { parseCourseListingFilters } from "../utils/course-listing.utils";
-
-const SUGGESTIONS = [
-    "Frontend",
-    "user experience",
-    "web design",
-    "backend",
-    "app",
-];
+import ReusableSelect from "@/components/common/reusable-select";
+import { useTranslations } from "next-intl";
 
 const API_LEVELS = {
     Beginner: "beginner",
@@ -42,6 +37,7 @@ const API_DURATIONS = {
 } as const;
 
 const PAGE_SIZE = 20;
+const SUGGESTIONS_DEBOUNCE_MS = 1_050;
 
 function getCourseParams(searchParamsString: string): GetCoursesParams {
     const searchParams = new URLSearchParams(searchParamsString);
@@ -145,7 +141,7 @@ export function CourseListingSkeleton() {
                 <Skeleton className="h-5 w-36" />
             </div>
             <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
-                <Skeleton className="hidden h-[620px] w-64 shrink-0 rounded-sm lg:block" />
+                <Skeleton className="hidden h-155 w-64 shrink-0 rounded-sm lg:block" />
                 <CourseResultsSkeleton columns={3} />
             </div>
         </section>
@@ -153,6 +149,7 @@ export function CourseListingSkeleton() {
 }
 
 export default function CourseListingCatalog() {
+    const t = useTranslations("courseListing");
     const searchParams = useSearchParams();
     const searchParamsString = searchParams.toString();
     const pathname = usePathname();
@@ -160,6 +157,7 @@ export default function CourseListingCatalog() {
     const [isFilterOpen, setIsFilterOpen] = useState(true);
     const search = new URLSearchParams(searchParamsString).get("q") ?? "";
     const [searchInput, setSearchInput] = useState(search);
+    const [suggestionsSearch, setSuggestionsSearch] = useState(search.trim());
     const filters = useMemo(
         () => parseCourseListingFilters(new URLSearchParams(searchParamsString)),
         [searchParamsString],
@@ -168,8 +166,33 @@ export default function CourseListingCatalog() {
         () => getCourseParams(searchParamsString),
         [searchParamsString],
     );
-    const { data, isPending, isError } = useGetCourses(params);
+    const {
+        data,
+        isPending,
+        isError,
+        refetch: refetchCourses,
+    } = useGetCourses(params);
+    const suggestionsQuery = useCourseSearchSuggestions(suggestionsSearch);
     const courses = data?.success ? data.data.items.map(mapCourse) : [];
+    const suggestions = useMemo(() => {
+        const suggestionsData = suggestionsQuery.data?.data;
+
+        if (
+            !suggestionsData ||
+            suggestionsSearch !== searchInput.trim()
+        ) {
+            return [];
+        }
+
+        return Array.from(
+            new Set([
+                ...suggestionsData.keywords,
+                ...suggestionsData.courses.map((course) => course.title),
+                ...suggestionsData.categories.map((category) => category.name),
+                ...suggestionsData.instructors.map((instructor) => instructor.name),
+            ]),
+        );
+    }, [searchInput, suggestionsQuery.data, suggestionsSearch]);
     const totalResults = data?.success ? data.data.meta.total : 0;
     const currentPage = data?.success ? data.data.meta.current_page : 1;
     const totalPages = data?.success ? data.data.meta.last_page : 1;
@@ -207,6 +230,22 @@ export default function CourseListingCatalog() {
     useEffect(() => {
         setSearchInput(search);
     }, [search]);
+
+    useEffect(() => {
+        const query = searchInput.trim().slice(0, 100);
+
+        if (query.length < 2) {
+            setSuggestionsSearch(query);
+            return;
+        }
+
+        const timeout = window.setTimeout(
+            () => setSuggestionsSearch(query),
+            SUGGESTIONS_DEBOUNCE_MS,
+        );
+
+        return () => window.clearTimeout(timeout);
+    }, [searchInput]);
 
     useEffect(() => {
         if (searchInput === search) {
@@ -280,48 +319,54 @@ export default function CourseListingCatalog() {
     return (
         <section className="flex flex-col gap-6">
             <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => setIsFilterOpen((previous) => !previous)}
+                    aria-expanded={isFilterOpen}
+                    className="h-10 rounded-sm border-gray-100"
+                >
+                    <SlidersHorizontal aria-hidden="true" />
+                    {t("filtersButton")}
+                    {activeFilterCount > 0 && (
+                        <span className="ml-1 rounded-full bg-orange-50 px-2 py-0.5 text-xs text-[#FF6636]">
+                            {activeFilterCount}
+                        </span>
+                    )}
+                </Button>
                 <CourseSearchInput
                     value={searchInput}
                     onChange={(value) => setSearchInput(value.slice(0, 100))}
                 />
                 <div className="flex items-center justify-between gap-3">
                     <label className="flex items-center gap-2 text-sm text-gray-600">
-                        <span className="shrink-0">Sort by</span>
-                        <select
+                        <span className="shrink-0">{t("sortBy")}</span>
+                        <ReusableSelect
+                            options={COURSE_SORT_OPTIONS.map((option) => ({
+                                ...option,
+                                label: t(`sortOptions.${option.value}`),
+                            }))}
                             value={params.sort}
-                            onChange={(event) =>
-                                handleSortChange(event.currentTarget.value)
-                            }
-                            className="h-10 min-w-40 rounded-sm border border-gray-200 bg-white px-3 text-sm text-[#1D2026] outline-none focus-visible:border-[#F76C3C]"
-                        >
-                            {COURSE_SORT_OPTIONS.map((option) => (
-                                <option key={option.value} value={option.value}>
-                                    {option.label}
-                                </option>
-                            ))}
-                        </select>
+                            onValueChange={handleSortChange}
+                            wrapperClassName="h-14!"
+                        />
                     </label>
-                    <Button
-                        type="button"
-                        variant="outline"
-                        onClick={() => setIsFilterOpen((previous) => !previous)}
-                        aria-expanded={isFilterOpen}
-                        className="h-10 rounded-sm border-gray-200"
-                    >
-                        <SlidersHorizontal aria-hidden="true" />
-                        Filters
-                        {activeFilterCount > 0 && (
-                            <span className="ml-1 rounded-full bg-orange-50 px-2 py-0.5 text-xs text-[#FF6636]">
-                                {activeFilterCount}
-                            </span>
-                        )}
-                    </Button>
                 </div>
             </div>
             <CourseSearchMeta
-                suggestions={SUGGESTIONS}
+                suggestions={suggestions}
                 resultCount={totalResults}
-                search={search}
+                search={searchInput}
+                suggestionsLoading={
+                    searchInput.trim().length >= 2 &&
+                    (suggestionsSearch !== searchInput.trim() ||
+                        suggestionsQuery.isPending)
+                }
+                suggestionsError={
+                    suggestionsSearch === searchInput.trim() &&
+                    suggestionsQuery.isError
+                }
+                onRetrySuggestions={() => void suggestionsQuery.refetch()}
                 onSuggestionClick={(value) => {
                     setSearchInput(value);
                     updateSearchParams({ q: value, page: "1" });
@@ -343,12 +388,22 @@ export default function CourseListingCatalog() {
                             columns={isFilterOpen ? 3 : 4}
                         />
                     ) : isError || !data?.success ? (
-                        <p
-                            role="alert"
-                            className="py-16 text-center text-sm text-gray-500"
-                        >
-                            Unable to load courses. Please try again.
-                        </p>
+                        <div className="py-16 text-center">
+                            <p
+                                role="alert"
+                                className="text-sm text-gray-500"
+                            >
+                                {t("loadError")}
+                            </p>
+                            <Button
+                                type="button"
+                                variant="link"
+                                onClick={() => void refetchCourses()}
+                                className="mt-2 text-[#FF6636]"
+                            >
+                                {t("retry")}
+                            </Button>
+                        </div>
                     ) : courses.length > 0 ? (
                         <>
                             <CourseGrid
@@ -364,10 +419,16 @@ export default function CourseListingCatalog() {
                             />
                         </>
                     ) : (
-                        <CourseEmptyState onClear={clearAllFilters} />
+                        <CourseEmptyState
+                            onClear={clearAllFilters}
+                            title={t("emptyTitle")}
+                            description={t("emptyDescription")}
+                            clearLabel={t("clearFilters")}
+                        />
                     )}
                 </div>
             </div>
         </section>
     );
 }
+

@@ -5,7 +5,7 @@ import CourseListingCatalog, {
 
 export default function CourseListingPage() {
   return (
-    <main className="app-container">
+    <main className="app-container my-4">
       <Suspense
         fallback={<CourseListingSkeleton />}
       >

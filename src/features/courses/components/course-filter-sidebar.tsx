@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import CourseFilterSection from "./course-filter-section";
 import CourseFilterCheckbox from "./course-filter-checkbox";
 import type { CourseListingFilters } from "../types/course-listing.types";
@@ -14,6 +15,8 @@ export default function CourseFilterSidebar({
     filters,
     onFiltersChange,
 }: CourseFilterSidebarProps) {
+    const t = useTranslations("courseListing");
+
     const toggleArrayValue = <T,>(
         key: keyof CourseListingFilters,
         value: T,
@@ -33,7 +36,7 @@ export default function CourseFilterSidebar({
 
     return (
         <aside className="w-full border border-gray-100 rounded-sm bg-white px-5">
-            <CourseFilterSection title="Category">
+            <CourseFilterSection title={t("filters.category")}>
                 <div className="space-y-3">
                     {COURSE_CATEGORIES_FILTER.map((category) => {
                         const isExpanded = filters.categories.includes(category.value);
@@ -41,7 +44,7 @@ export default function CourseFilterSidebar({
                         return (
                             <div key={category.value}>
                                 <CourseFilterCheckbox
-                                    label={category.label}
+                                    label={t(`filters.categories.${category.value}`)}
                                     checked={isExpanded}
                                     onChange={(checked) =>
                                         toggleArrayValue("categories", category.value, checked)
@@ -53,7 +56,7 @@ export default function CourseFilterSidebar({
                                         {category.subcategories.map((subcategory) => (
                                             <CourseFilterCheckbox
                                                 key={subcategory.value}
-                                                label={subcategory.label}
+                                                label={t(`filters.subcategories.${subcategory.value}`)}
                                                 checked={filters.subcategories.includes(
                                                     subcategory.value
                                                 )}
@@ -74,11 +77,11 @@ export default function CourseFilterSidebar({
                 </div>
             </CourseFilterSection>
 
-            <CourseFilterSection title="Tools">
+            <CourseFilterSection title={t("filters.tools")}>
                 {COURSE_TOOLS.map((tool) => (
                     <CourseFilterCheckbox
                         key={tool.value}
-                        label={tool.label}
+                        label={t(`filters.toolOptions.${tool.value}`)}
                         checked={filters.tools.includes(tool.value)}
                         onChange={(checked) =>
                             toggleArrayValue("tools", tool.value, checked)
@@ -87,11 +90,11 @@ export default function CourseFilterSidebar({
                 ))}
             </CourseFilterSection>
 
-            <CourseFilterSection title="Rating">
+            <CourseFilterSection title={t("filters.rating")}>
                 {COURSE_RATINGS.map((rating) => (
                     <CourseFilterCheckbox
                         key={rating.value}
-                        label={rating.label}
+                        label={t(`filters.ratingOptions.${rating.value}`)}
                         count={undefined}
                         checked={filters.ratings.includes(rating.value)}
                         onChange={(checked) =>
@@ -101,11 +104,11 @@ export default function CourseFilterSidebar({
                 ))}
             </CourseFilterSection>
 
-            <CourseFilterSection title="Course Level">
+            <CourseFilterSection title={t("filters.courseLevel")}>
                 {COURSE_LEVEL_OPTIONS.map((level) => (
                     <CourseFilterCheckbox
                         key={level}
-                        label={level}
+                        label={t(`filters.levels.${level}`)}
                         checked={filters.levels.includes(level)}
                         onChange={(checked) =>
                             toggleArrayValue("levels", level, checked)
@@ -114,11 +117,11 @@ export default function CourseFilterSidebar({
                 ))}
             </CourseFilterSection>
 
-            <CourseFilterSection title="Price">
+            <CourseFilterSection title={t("filters.price")}>
                 <div className="space-y-3">
                     <div className="grid grid-cols-2 gap-3">
                         <label className="space-y-1 text-xs text-gray-500">
-                            Minimum price
+                            {t("filters.minimumPrice")}
                             <input
                                 type="number"
                                 min={0}
@@ -137,7 +140,7 @@ export default function CourseFilterSidebar({
                             />
                         </label>
                         <label className="space-y-1 text-xs text-gray-500">
-                            Maximum price
+                            {t("filters.maximumPrice")}
                             <input
                                 type="number"
                                 min={filters.minPrice}
@@ -157,7 +160,7 @@ export default function CourseFilterSidebar({
                         </label>
                     </div>
                     <CourseFilterCheckbox
-                        label="Paid"
+                        label={t("filters.paid")}
                         checked={filters.priceTypes.includes("paid")}
                         onChange={(checked) =>
                             toggleArrayValue("priceTypes", "paid", checked)
@@ -165,7 +168,7 @@ export default function CourseFilterSidebar({
                     />
 
                     <CourseFilterCheckbox
-                        label="Free"
+                        label={t("filters.free")}
                         checked={filters.priceTypes.includes("free")}
                         onChange={(checked) =>
                             toggleArrayValue("priceTypes", "free", checked)
@@ -174,11 +177,11 @@ export default function CourseFilterSidebar({
                 </div>
             </CourseFilterSection>
 
-            <CourseFilterSection title="Duration">
+            <CourseFilterSection title={t("filters.duration")}>
                 {COURSE_DURATION_OPTIONS.map((duration) => (
                     <CourseFilterCheckbox
                         key={duration}
-                        label={duration}
+                        label={t(`filters.durations.${duration}`)}
                         checked={filters.durations.includes(duration)}
                         onChange={(checked) =>
                             toggleArrayValue("durations", duration, checked)

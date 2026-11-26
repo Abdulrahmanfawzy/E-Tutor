@@ -26,7 +26,7 @@ interface CourseCardProps {
 
 
 export default function CourseCard({ course }: CourseCardProps) {
-  const t = useTranslations("courseCategories");
+  const t = useTranslations("courseListing");
 
   return (
     <Link

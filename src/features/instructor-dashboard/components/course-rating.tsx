@@ -1,18 +1,15 @@
+
+"use client";
+
 import { Star } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
 import DashboardCard from "./dashboard-card";
 import RatingSparkline from "./rating-sparkline";
-
-const OVERALL_RATING = 4.6;
-
-const RATINGS = [
-  { stars: 5, percentage: 56, label: "56%" },
-  { stars: 4, percentage: 37, label: "37%" },
-  { stars: 3, percentage: 8, label: "8%" },
-  { stars: 2, percentage: 1, label: "1%" },
-  { stars: 1, percentage: 0.5, label: "<1%" },
-];
+import PeriodSelect from "./period-select";
+import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
+import { getOverallCourseRating } from "../api/overall-course-rating-api";
 
 function Stars({ count, size = 14 }: { count: number; size?: number }) {
   return (
@@ -33,38 +30,69 @@ function Stars({ count, size = 14 }: { count: number; size?: number }) {
 }
 
 export default function CourseRating() {
+  const [period, setPeriod] = useState("year");
+
+  const { data, error, isLoading } = useQuery({
+    queryKey: ["overall-course-rating", period],
+    queryFn: () => getOverallCourseRating(period),
+  });
+
+  const rating = data?.data;
+
+  if (isLoading) return <p>Loading rating...</p>;
+  if (error) return <p>Failed to load rating.</p>;
+
   return (
-    <DashboardCard title="Overall Course Rating">
+    <DashboardCard
+      title="Overall Course Rating"
+      action={
+        <PeriodSelect
+          defaultValue="year"
+          onChange={setPeriod}
+        />
+      }
+    >
       <div className="flex flex-col gap-6">
-        {/* Top: score + sparkline */}
         <div className="flex items-center gap-6">
           <div className="flex h-32 w-40 shrink-0 flex-col items-center justify-center gap-2 bg-orange-50">
-            <p className="text-heading-5">{OVERALL_RATING}</p>
-            <Stars count={Math.round(OVERALL_RATING)} />
-            <p className="text-label-sm font-semibold">Overall Rating</p>
+            <p className="text-heading-5">
+              {rating?.average?.toFixed(1) ?? "0.0"}
+            </p>
+
+            <Stars count={Math.round(rating?.average ?? 0)} />
+
+            <p className="text-label-sm font-semibold">
+              Overall Rating
+            </p>
+
+            <p className="text-label-xs text-gray-500">
+              {rating?.count ?? 0} Reviews
+            </p>
           </div>
 
           <div className="flex-1">
-            <RatingSparkline />
+            <RatingSparkline data={rating?.trend ?? []} />
           </div>
         </div>
 
-        {/* Rows */}
         <ul className="flex flex-col gap-3">
-          {RATINGS.map(({ stars, percentage, label }) => (
+          {rating?.distribution.map(({ stars, percent }) => (
             <li key={stars} className="flex items-center gap-3">
               <Stars count={stars} size={12} />
+
               <span className="w-12 whitespace-nowrap text-label-sm text-gray-700">
                 {stars} Star
               </span>
+
               <Progress
-                value={percentage}
-                className=" flex-1 "
-                 trackClassName="h-1.5 bg-gray-100"
-                 indicatorClassName="bg-orange-400"
+                value={percent}
+                className="flex-1"
+                trackClassName="h-1.5 bg-gray-100"
+                indicatorClassName="bg-orange-400"
               />
+
               <span className="w-10 text-right text-label-sm text-gray-700">
-                {label}
+                {percent}%
               </span>
             </li>
           ))}

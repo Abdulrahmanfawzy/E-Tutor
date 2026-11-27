@@ -1,27 +1,34 @@
-"use client";
 
-import { useState } from "react";
 import CustomPagination from "@/components/common/custom-pagination";
 import CoursesGrid from "./courses-grid";
-import type { InstructorCourse } from "./instructor-course-card";
+import type { InstructorCourse as ApiCourse } from "../types/instructor-courses";
 
-const PAGE_SIZE = 12;
 
-export default function CoursesList({ courses }: { courses: InstructorCourse[] }) {
-  const [page, setPage] = useState(1);
 
-  const totalPages = Math.ceil(courses.length / PAGE_SIZE);
-  const start = (page - 1) * PAGE_SIZE;
-  const visibleCourses = courses.slice(start, start + PAGE_SIZE);
+interface CoursesListProps {
+  courses: ApiCourse[];
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
+}
 
+export default function CoursesList({
+  courses,
+  currentPage,
+  totalPages,
+  onPageChange,
+}: CoursesListProps) {
   return (
     <>
-      <CoursesGrid courses={visibleCourses} />
-      <CustomPagination
-        currentPage={page}
-        totalPages={totalPages}
-        onPageChange={setPage}
-      />
+      <CoursesGrid courses={courses} />
+
+      {totalPages > 1 && (
+        <CustomPagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={onPageChange}
+        />
+      )}
     </>
   );
 }

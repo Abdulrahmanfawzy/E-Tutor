@@ -40,6 +40,10 @@
       "passwordPlaceholder": "أدخل كلمة المرور",
       "rememberMe": "تذكرني",
       "submit": "تسجيل الدخول",
+      "submitting": "جارٍ تسجيل الدخول...",
+      "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+      "loginError": "تعذّر تسجيل الدخول الآن. حاول مرة أخرى.",
+      "loginSuccess": "تم تسجيل الدخول بنجاح.",
       "socialDivider": "تسجيل الدخول باستخدام"
     },
     "register": {
@@ -60,6 +64,9 @@
       "agreeWith": "أوافق على",
       "terms": "الشروط والأحكام",
       "submit": "إنشاء حساب",
+      "registering": "جارٍ إنشاء الحساب...",
+      "registerSuccess": "تم إنشاء الحساب. سجّل الدخول للمتابعة.",
+      "registerError": "تعذّر إنشاء الحساب الآن. حاول مرة أخرى.",
       "socialDivider": "إنشاء حساب باستخدام"
     },
     "shared": {
@@ -83,6 +90,10 @@
       "termsRequired": "يرجى الموافقة على الشروط والأحكام",
       "passwordsMismatch": "كلمتا المرور غير متطابقتين"
     }
+  },
+  "adminDashboard": {
+    "title": "لوحة تحكم الإدارة",
+    "description": "تم تسجيل الدخول باستخدام حساب إداري."
   },
   "nav": {
     "home": "الرئيسية",
@@ -684,6 +695,7 @@
     }
   },
   "instructorCourses": {
+    "free": "مجاني",
     "title": "كورساتي",
     "searchPlaceholder": "ابحث في كورساتك...",
     "filters": {
@@ -845,5 +857,102 @@
   "teacher": { "all": "كل المدرّسين" },
   "card": { "watchLecture": "شاهد المحاضرة", "completed": "مكتمل" }
 }
+
+},
+ "courseListing": {
+    "searchPlaceholder": "ابحث عن الدورات...",
+    "searchLabel": "البحث عن الدورات",
+    "clearSearch": "مسح",
+    "sortBy": "ترتيب حسب:",
+    "sortOptions": {
+      "trending": "الأكثر رواجًا",
+      "popular": "الأكثر شعبية",
+      "rating": "الأعلى تقييمًا",
+      "newest": "الأحدث",
+      "price_asc": "السعر: من الأقل للأعلى",
+      "price_desc": "السعر: من الأعلى للأقل"
+    },
+    "filtersButton": "الفلاتر",
+    "filtersLoading": "جارٍ تحميل فلاتر الدورات...",
+    "facetLoadError": "تعذّر تحميل فلاتر الدورات.",
+    "filters": {
+      "category": "التصنيف",
+      "categories": {
+        "development": "التطوير",
+        "business": "الأعمال",
+        "finance-accounting": "المالية والمحاسبة",
+        "it-software": "تقنية المعلومات والبرمجيات",
+        "office-productivity": "إنتاجية المكتب",
+        "personal-development": "التطوير الشخصي",
+        "design": "التصميم",
+        "marketing": "التسويق",
+        "lifestyle": "نمط الحياة",
+        "photography-video": "التصوير والفيديو",
+        "music": "الموسيقى",
+        "health-fitness": "الصحة واللياقة"
+      },
+      "subcategories": {
+        "web-development": "تطوير الويب",
+        "data-science": "علم البيانات",
+        "mobile-development": "تطوير تطبيقات الهاتف",
+        "software-testing": "اختبار البرمجيات",
+        "software-engineering": "هندسة البرمجيات",
+        "software-development-tools": "أدوات تطوير البرمجيات",
+        "no-code-development": "التطوير دون كتابة أكواد"
+      },
+      "tools": "الأدوات",
+      "toolOptions": {
+        "html-5": "HTML 5",
+        "css-3": "CSS 3",
+        "react": "React",
+        "webflow": "Webflow",
+        "node-js": "Node.js",
+        "laravel": "Laravel",
+        "sass": "Sass",
+        "wordpress": "WordPress"
+      },
+      "rating": "التقييم",
+      "ratingOptions": {
+        "5": "5 نجوم",
+        "4": "4 نجوم فأكثر",
+        "3": "3 نجوم فأكثر",
+        "2": "نجمتان فأكثر",
+        "1": "نجمة فأكثر"
+      },
+      "courseLevel": "مستوى الدورة",
+      "levels": {
+        "All": "جميع المستويات",
+        "Beginner": "مبتدئ",
+        "Intermediate": "متوسط",
+        "Expert": "متقدم"
+      },
+      "price": "السعر",
+      "minimumPrice": "أقل سعر",
+      "maximumPrice": "أعلى سعر",
+      "paid": "مدفوعة",
+      "free": "مجانية",
+      "duration": "المدة",
+      "durations": {
+        "6-12 Months": "6-12 شهرًا",
+        "3-6 Months": "3-6 أشهر",
+        "1-3 Months": "1-3 أشهر",
+        "1-4 Weeks": "1-4 أسابيع",
+        "1-7 Days": "1-7 أيام"
+      }
+    },
+    "suggestionsTitle": "اقتراحات:",
+    "suggestionsError": "تعذّر تحميل الاقتراحات.",
+    "suggestionRetry": "إعادة المحاولة",
+    "noSuggestions": "لا توجد اقتراحات.",
+    "resultsFound": "نتيجة",
+    "forSearch": "لـ \"{search}\"",
+    "loadError": "تعذّر تحميل الدورات. تحقق من اتصالك وحاول مرة أخرى.",
+    "retry": "إعادة المحاولة",
+    "emptyTitle": "لم يتم العثور على دورات",
+    "emptyDescription": "جرّب تغيير البحث أو الفلاتر.",
+    "clearFilters": "مسح جميع الفلاتر",
+    "students": "طالب",
+    "viewCourseDetails": "عرض تفاصيل الدورة {title}"
+  }
 
 }

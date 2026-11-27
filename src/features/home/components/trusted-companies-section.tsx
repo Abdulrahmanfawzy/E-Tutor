@@ -14,8 +14,8 @@ const companies = [
 
 export function TrustedCompaniesSection() {
   return (
-    <section className="bg-white px-5 py-12">
-      <div className="mx-auto grid max-w-5xl items-center gap-8 md:grid-cols-3">
+   <section className="bg-white py-12">
+  <div className="mx-auto grid w-full max-w-6xl items-center gap-8 px-6 md:grid-cols-3">
         <div>
           <h2 className="text-2xl font-bold text-gray-900">
             6.3k trusted companies

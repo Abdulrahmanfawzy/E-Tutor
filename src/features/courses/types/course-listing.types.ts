@@ -1,28 +1,25 @@
-import { Course } from "@/app/[locale]/(website)/course-categories/_components/courses-data";
-
-
-export const COURSE_LEVELS = [
-    "Beginner",
-    "Intermediate",
-    "Expert",
-] as const;
-
-export type CourseLevel = (typeof COURSE_LEVELS)[number];
-
-export const COURSE_DURATIONS = [
-    "6-12 Months",
-    "3-6 Months",
-    "1-3 Months",
-    "1-4 Weeks",
-    "1-7 Days",
-] as const;
+export type CourseLevel =
+    | "All"
+    | "Beginner"
+    | "Intermediate"
+    | "Expert";
 
 export type CourseDuration =
-    (typeof COURSE_DURATIONS)[number];
+    | "6-12 Months"
+    | "3-6 Months"
+    | "1-3 Months"
+    | "1-4 Weeks"
+    | "1-7 Days";
 
 export type CoursePriceType = "paid" | "free";
 
-export interface CourseListingCourse extends Course {
+export interface CourseListingCourse {
+    id: number;
+    slug: string;
+    title: string;
+    price: number;
+    rating: number;
+    category: string;
     categoryId?: string;
     subcategoryId?: string;
     subcategory?: string;

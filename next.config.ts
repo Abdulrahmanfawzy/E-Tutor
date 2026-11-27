@@ -22,8 +22,8 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-      hostname: "lms.huma-volve.com",
-       
+        hostname: "lms.huma-volve.com",
+        pathname: "/storage/**",
       },
     ],
   },

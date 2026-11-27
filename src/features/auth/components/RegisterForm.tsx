@@ -14,6 +14,7 @@ import { Separator } from "@/components/ui/separator";
 import { RegisterField } from "@/features/auth/components/RegisterField";
 import { RegisterPasswordField } from "@/features/auth/components/RegisterPasswordField";
 import { SocialSignUpButtons } from "@/features/auth/components/SocialSignUpButtons";
+import { useRegister } from "@/features/auth/hooks/use-register";
 import {
   createRegisterSchema,
   type RegisterFormValues,
@@ -22,6 +23,7 @@ import {
 export function RegisterForm() {
   const t = useTranslations("auth.register");
   const validation = useTranslations("auth.validation");
+  const { register, isPending } = useRegister();
   const registerSchema = useMemo(
     () =>
       createRegisterSchema({
@@ -60,7 +62,7 @@ export function RegisterForm() {
   return (
     <form
       noValidate
-      onSubmit={handleSubmit((valu) => console.log(valu))}
+      onSubmit={handleSubmit(register)}
       className="w-full"
     >
       <div className="space-y-3">
@@ -225,9 +227,10 @@ export function RegisterForm() {
         </div>
         <Button
           type="submit"
+          disabled={isPending}
           className="h-7 shrink-0 gap-2 text-white py-5 rounded-sm px-3 text-[10px] font-semibold"
         >
-          {t("submit")}
+          {isPending ? t("registering") : t("submit")}
           <ArrowRight
             aria-hidden="true"
             className="size-3 rtl:rotate-180"

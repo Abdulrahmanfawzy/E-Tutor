@@ -40,6 +40,10 @@
       "passwordPlaceholder": "Enter your password",
       "rememberMe": "Remember me",
       "submit": "Sign In",
+      "submitting": "Signing in...",
+      "invalidCredentials": "The email or password is incorrect.",
+      "loginError": "Unable to sign in right now. Please try again.",
+      "loginSuccess": "You are now signed in.",
       "socialDivider": "SIGN IN WITH"
     },
     "register": {
@@ -60,6 +64,9 @@
       "agreeWith": "I agree with all of your",
       "terms": "Terms & Conditions",
       "submit": "Create Account",
+      "registering": "Creating account...",
+      "registerSuccess": "Your account was created. Sign in to continue.",
+      "registerError": "Unable to create your account right now. Please try again.",
       "socialDivider": "SIGN UP WITH"
     },
     "shared": {
@@ -83,6 +90,10 @@
       "termsRequired": "Please accept the terms",
       "passwordsMismatch": "Passwords do not match"
     }
+  },
+  "adminDashboard": {
+    "title": "Admin dashboard",
+    "description": "You are signed in with an administrator account."
   },
   "nav": {
     "home": "Home",
@@ -676,6 +687,7 @@
     }
   },
   "instructorCourses": {
+    "free": "Free",
     "title": "My Courses",
     "searchPlaceholder": "Search in your courses...",
     "filters": {
@@ -835,5 +847,100 @@
   "status": { "all": "All Courses", "inProgress": "In progress", "completed": "Completed" },
   "teacher": { "all": "All Teachers" },
   "card": { "watchLecture": "Watch Lecture", "completed": "Completed" }
-}
+},
+  "courseListing": {
+    "searchPlaceholder": "Search courses...",
+    "searchLabel": "Search courses",
+    "clearSearch": "Clear",
+    "sortBy": "Sort by:",
+    "sortOptions": {
+      "trending": "Trending",
+      "popular": "Most Popular",
+      "rating": "Highest Rated",
+      "newest": "Newest",
+      "price_asc": "Price: Low to High",
+      "price_desc": "Price: High to Low"
+    },
+    "filtersButton": "Filters",
+    "filtersLoading": "Loading course filters...",
+    "facetLoadError": "Course filters couldn't be loaded.",
+    "filters": {
+      "category": "Category",
+      "categories": {
+        "development": "Development",
+        "business": "Business",
+        "finance-accounting": "Finance & Accounting",
+        "it-software": "IT & Software",
+        "office-productivity": "Office Productivity",
+        "personal-development": "Personal Development",
+        "design": "Design",
+        "marketing": "Marketing",
+        "lifestyle": "Lifestyle",
+        "photography-video": "Photography & Video",
+        "music": "Music",
+        "health-fitness": "Health & Fitness"
+      },
+      "subcategories": {
+        "web-development": "Web Development",
+        "data-science": "Data Science",
+        "mobile-development": "Mobile Development",
+        "software-testing": "Software Testing",
+        "software-engineering": "Software Engineering",
+        "software-development-tools": "Software Development Tools",
+        "no-code-development": "No-Code Development"
+      },
+      "tools": "Tools",
+      "toolOptions": {
+        "html-5": "HTML 5",
+        "css-3": "CSS 3",
+        "react": "React",
+        "webflow": "Webflow",
+        "node-js": "Node.js",
+        "laravel": "Laravel",
+        "sass": "Sass",
+        "wordpress": "WordPress"
+      },
+      "rating": "Rating",
+      "ratingOptions": {
+        "5": "5 Star",
+        "4": "4 Star & up",
+        "3": "3 Star & up",
+        "2": "2 Star & up",
+        "1": "1 Star & up"
+      },
+      "courseLevel": "Course Level",
+      "levels": {
+        "All": "All levels",
+        "Beginner": "Beginner",
+        "Intermediate": "Intermediate",
+        "Expert": "Expert"
+      },
+      "price": "Price",
+      "minimumPrice": "Minimum price",
+      "maximumPrice": "Maximum price",
+      "paid": "Paid",
+      "free": "Free",
+      "duration": "Duration",
+      "durations": {
+        "6-12 Months": "6-12 Months",
+        "3-6 Months": "3-6 Months",
+        "1-3 Months": "1-3 Months",
+        "1-4 Weeks": "1-4 Weeks",
+        "1-7 Days": "1-7 Days"
+      }
+    },
+    "suggestionsTitle": "Suggestions:",
+    "suggestionsError": "Suggestions couldn't be loaded.",
+    "suggestionRetry": "Try again",
+    "noSuggestions": "No suggestions found.",
+    "resultsFound": "results found",
+    "forSearch": "for \"{search}\"",
+    "loadError": "Courses couldn't be loaded. Check your connection and try again.",
+    "retry": "Retry",
+    "emptyTitle": "No courses found",
+    "emptyDescription": "Try changing your search or filters.",
+    "clearFilters": "Clear all filters",
+    "students": "Students",
+    "viewCourseDetails": "View course details for {title}"
+  }
 }

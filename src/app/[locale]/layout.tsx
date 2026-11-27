@@ -5,6 +5,7 @@ import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 import { QueryProvider } from "@/components/providers/query-providers";
+import { Toaster } from "@/components/ui/sonner";
 import { routing } from "@/i18n/routing";
 
 import "../globals.css";
@@ -75,7 +76,10 @@ export default async function LocaleLayout({
     >
       <body className="flex min-h-full flex-col">
         <NextIntlClientProvider>
-          <QueryProvider>{children}</QueryProvider>
+          <QueryProvider>
+            <LanguageSwitcher />
+            {children}
+          </QueryProvider>
         </NextIntlClientProvider>
       </body>
     </html>

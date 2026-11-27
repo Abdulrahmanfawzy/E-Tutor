@@ -4,7 +4,7 @@
 
 import Image from "next/image";
 
-import type { Purchase } from "@/app/[locale]/(website)/student/purchase-history/data";
+import type { Purchase } from "@/app/[locale]/(website)/student/purchase-history/types"; 
 
 type Props = {
   purchase: Purchase;

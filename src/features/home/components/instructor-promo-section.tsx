@@ -11,8 +11,8 @@ export function InstructorPromoSection() {
   ];
 
   return (
-    <section className="bg-[#F5F7FA] px-5 py-12">
-      <div className="mx-auto grid max-w-5xl gap-4 md:grid-cols-2">
+   <section className="bg-[#F5F7FA] py-12">
+  <div className="mx-auto grid w-full max-w-6xl gap-4 px-6 md:grid-cols-2">
 
         {/* Become an Instructor */}
         <div className="relative flex min-h-[190px] overflow-hidden bg-[#FF6636]">

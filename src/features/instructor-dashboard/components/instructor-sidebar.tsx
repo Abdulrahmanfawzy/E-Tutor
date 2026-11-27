@@ -13,19 +13,20 @@ import {
   LogOut,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 const NAV_ITEMS = [
-  { label: "Dashboard", href: "/instructor/dashboard", icon: LayoutDashboard },
-  { label: "Create New Course", href: "/instructor/create-course", icon: SquarePlus },
-  { label: "My Courses", href: "/instructor/my-courses", icon: BookOpen },
-  { label: "Earning", href: "/instructor/earning", icon: CreditCard },
-  { label: "Message", href: "/instructor/messages", icon: MessageCircle, badge: 3 },
-  { label: "Settings", href: "/instructor/settings", icon: Settings },
+  { labelKey: "dashboard", href: "/instructor/dashboard", icon: LayoutDashboard },
+  { labelKey: "createCourse", href: "/instructor/create-course", icon: SquarePlus },
+  { labelKey: "myCourses", href: "/instructor/courses", icon: BookOpen },
+  { labelKey: "earning", href: "/instructor/earning", icon: CreditCard },
+  { labelKey: "message", href: "/instructor/messages", icon: MessageCircle, badge: 3 },
+  { labelKey: "settings", href: "/instructor/settings", icon: Settings },
 ];
 
 export default function InstructorSidebar() {
   const pathname = usePathname();
   const  {locale}  = useParams();
-
+  const t= useTranslations("dashboard.sidebar")
   return (
     <aside className="sticky top-0 flex h-screen w-60 shrink-0 flex-col bg-gray-900 text-gray-300">
       {/* Logo */}
@@ -36,7 +37,7 @@ export default function InstructorSidebar() {
 
       {/* Navigation */}
       <nav className="flex flex-1 flex-col">
-        {NAV_ITEMS.map(({ label, href, icon: Icon, badge }) => {
+        {NAV_ITEMS.map(({ labelKey, href, icon: Icon, badge }) => {
             const fullHref = `/${locale}${href}`; // Construct the full href with locale
           const isActive = pathname === fullHref || pathname.startsWith(`${fullHref}/`);
 
@@ -52,7 +53,7 @@ export default function InstructorSidebar() {
               )}
             >
               <Icon size={18} />
-              <span className="flex-1">{label}</span>
+              <span className="flex-1">{t(labelKey)}</span>
 
               {badge ? (
                 <span className="flex h-5 w-5 items-center justify-center rounded-full bg-button-primary text-label-xs text-white">
@@ -70,7 +71,7 @@ export default function InstructorSidebar() {
         className="flex items-center gap-3 px-6 py-5 text-sm font-medium transition-colors hover:bg-gray-800 hover:text-white"
       >
         <LogOut size={18} />
-        Sign-out
+      {t("signOut")}
       </button>
     </aside>
   );

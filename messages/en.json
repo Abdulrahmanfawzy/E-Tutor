@@ -266,6 +266,8 @@
   },
   "giftCourse": {
     "title": "Gift Course",
+    "home": "Home",
+    "courses": "Courses",
     "breadcrumbCourse": "Course",
     "containerTitle": "Gift a Course",
     "recipient": {
@@ -277,14 +279,6 @@
       "message": "Personal message",
       "messagePlaceholder": "Write a personal message (optional)"
     },
-    "payment": {
-      "title": "Payment Method",
-      "savedCard": "Saved card",
-      "newCard": "Use a new card",
-      "expiry": "Expiry",
-      "holder": "Card holder",
-      "addNewCard": "Add a new card"
-    },
     "card": {
       "title": "Course",
       "courseBy": "Course By",
@@ -294,6 +288,7 @@
     }
   },
   "dashboard": {
+    "periods": { "today": "Today", "week": "This week", "month": "This month" },
     "sidebar": {
       "dashboard": "Dashboard",
       "createCourse": "Create New Course",
@@ -301,13 +296,15 @@
       "earning": "Earning",
       "message": "Message",
       "settings": "Settings",
-      "logout": "Logout"
+      "logout": "Logout",
+      "signOut": "Sign-out"
     },
     "navbar": {
       "goodMorning": "Good Morning",
       "dashboard": "Dashboard",
       "searchPlaceholder": "Search ....",
-      "notifications": "Notifications"
+      "notifications": "Notifications",
+      "profile": "Profile"
     },
     "footer": {
       "copyright": "© 2021 - E-Tutor. Designed by {designer}. All rights reserved",
@@ -315,7 +312,14 @@
       "faqs": "FAQs",
       "privacy": "Privacy Policy",
       "terms": "Terms & Condition"
-    }
+    },
+    "cards": {
+  "recentActivity": "Recent Activity",
+  "revenue": "Revenue",
+  "profileView": "Profile View",
+  "courseRating": "Overall Course Rating",
+  "courseOverview": "Course Overview"
+}
   },
   "messages": {
     "sidebar": {
@@ -337,10 +341,498 @@
       "title": "No conversation selected",
       "description": "Select a conversation to start chatting."
     }
-  }
+  },
+  "createCourse": {
+    "steps": {
+      "ariaLabel": "Course creation steps",
+      "basicInformation": "Basic Information",
+      "advanceInformation": "Advance Information",
+      "curriculum": "Curriculum",
+      "publishCourse": "Publish Course",
+      "progress": "7/12",
+      "stepOf": "Step {current} of {total}"
+    },
+    "common": {
+      "save": "Save",
+      "saveAndPreview": "Save & Preview",
+      "saveAndNext": "Save & Next",
+      "cancel": "Cancel",
+      "previous": "Previous",
+      "next": "Next",
+      "optional": "(Optional)",
+      "select": "Select...",
+      "clear": "Clear",
+      "edit": "Edit",
+      "delete": "Delete",
+      "addNew": "Add new",
+      "noFileSelected": "No file selected",
+      "closeDialog": "Close dialog",
+      "editName": "Edit name",
+      "saveName": "Save name",
+      "cancelEditing": "Cancel editing",
+      "removeItem": "Remove item {index}",
+      "removeNamed": "Remove {name}",
+      "deleteNamed": "Delete {name}",
+      "editNamed": "Edit {name}"
+      
+    },
+    "metadata": {
+      "advancedTitle": "Create Course | Eduguard",
+      "advancedDescription": "Add advanced information to your course."
+    },
+    "basic": {
+      "heading": "Basic Information",
+      "title": "Title",
+      "titlePlaceholder": "You course tittle",
+      "subtitle": "Subtitle",
+      "subtitlePlaceholder": "You course subtitle",
+      "category": "Course Category",
+      "subcategory": "Course Sub-category",
+      "topic": "Course Topic",
+      "topicPlaceholder": "What is primarily taught in your course?",
+      "language": "Course Language",
+      "subtitleLanguage": "Subtitle Language",
+      "level": "Course Level",
+      "duration": "Durations",
+      "durationPlaceholder": "Course durations",
+      "durationUnitAria": "Duration unit",
+      "status": {
+        "saved": "Your course information has been saved locally.",
+        "previewNotConnected": "Preview is not connected yet. Your form is ready for preview integration."
+      }
+    },
+    "options": {
+      "categories": {
+        "development": "Development",
+        "business": "Business",
+        "finance": "Finance & Accounting",
+        "it-software": "IT & Software",
+        "design": "Design",
+        "marketing": "Marketing",
+        "personal-development": "Personal Development"
+      },
+      "subcategories": {
+        "web-development": "Web Development",
+        "mobile-development": "Mobile Development",
+        "programming": "Programming Languages",
+        "data-science": "Data Science",
+        "ui-ux-design": "UI/UX Design",
+        "graphic-design": "Graphic Design"
+      },
+      "languages": {
+        "english": "English",
+        "arabic": "Arabic",
+        "french": "French",
+        "spanish": "Spanish",
+        "german": "German"
+      },
+      "levels": {
+        "beginner": "Beginner",
+        "intermediate": "Intermediate",
+        "advanced": "Advanced",
+        "all-levels": "All Levels"
+      },
+      "durationUnits": {
+        "day": "Day",
+        "week": "Week",
+        "month": "Month"
+      }
+    },
+    "advanced": {
+      "heading": "Advance Informations",
+      "thumbnailTitle": "Course Thumbnail",
+      "thumbnailDescription": "Upload your course Thumbnail here. Important guidelines: 1200×800 pixels or 12:8 Ratio. Supported format: .jpg, .jpeg, or .png",
+      "trailerTitle": "Course Trailer",
+      "trailerDescription": "Students who watch a well-made promo video are 5X more likely to enroll in your course. We've seen that statistic go up to 10X for exceptionally awesome videos.",
+      "changeFile": "Change file",
+      "uploadImage": "Upload Image",
+      "uploadVideo": "Upload Video",
+      "descriptionLabel": "Course Descriptions",
+      "descriptionPlaceholder": "Enter you course descriptions",
+      "descriptionFallback": "your text",
+      "toolbar": {
+        "bold": "Bold",
+        "italic": "Italic",
+        "underline": "Underline",
+        "strikethrough": "Strikethrough",
+        "insertLink": "Insert link",
+        "bulletedList": "Bulleted list",
+        "numberedList": "Numbered list"
+      },
+      "whatYouWillLearn": "What you will teach in this course",
+      "targetAudience": "Target Audience",
+      "courseRequirements": "Course requirements",
+      "whatYouWillLearnPlaceholder": "What you will teach in this course...",
+      "targetAudiencePlaceholder": "Who this course is for...",
+      "courseRequirementsPlaceholder": "What is your course requirements...",
+      "status": {
+        "save": "Your course information is ready in this UI preview. No data was sent to a server.",
+        "preview": "Course preview is represented by this UI-only action. Preview routing is not connected.",
+        "next": "The Advance Information form is valid. The Curriculum step is not part of this implementation.",
+        "previous": "The Basic Information step is outside the scope of this UI implementation."
+      }
+    },
+    "curriculum": {
+      "title": "Course Curriculum",
+      "addSections": "Add Sections",
+      "sectionLabel": "Sections {number}:",
+      "sectionHeading": "Section {number}: {title}",
+      "defaultSectionName": "Section name",
+      "defaultLectureName": "Lecture name",
+      "emptySection": "No lectures in this section yet. Use the plus icon to add one.",
+      "addLecture": "Add lecture",
+      "editSectionName": "Edit section name",
+      "deleteSection": "Delete section {index}",
+      "contents": "Contents",
+      "noLecturesAdded": "No lectures added.",
+      "feedback": {
+        "sectionAdded": "New section added.",
+        "sectionRemoved": "Section removed.",
+        "lectureAdded": "New lecture added.",
+        "lectureRemoved": "Lecture removed.",
+        "saved": "Curriculum saved locally for this demo."
+      },
+      "preview": {
+        "title": "Curriculum Preview",
+        "summary": "{sections, plural, one {# section} other {# sections}} · {lectures, plural, one {# lecture} other {# lectures}}",
+        "close": "Close Preview",
+        "captions": "Captions:",
+        "description": "Description:",
+        "lectureNotes": "Lecture Notes:"
+      }
+    },
+    "contentTypes": {
+      "video": "Video",
+      "attachFile": "Attach File",
+      "captions": "Captions",
+      "description": "Description",
+      "lectureNotes": "Lecture Notes"
+    },
+    "contentMenu": {
+      "ariaLabel": "Lecture content options"
+    },
+    "textDialog": {
+      "captionsTitle": "Lecture Captions",
+      "captionsPlaceholder": "Enter lecture captions...",
+      "captionsDescription": "Add captions for this lecture.",
+      "descriptionTitle": "Lecture Description",
+      "descriptionPlaceholder": "Enter lecture description...",
+      "descriptionDescription": "Add a description for this lecture.",
+      "notesTitle": "Lecture Notes",
+      "notesPlaceholder": "Enter lecture notes...",
+      "notesDescription": "Add notes and supporting information for this lecture.",
+      "attachFileOptional": "Attach a file (optional)",
+      "browseFile": "Browse file",
+      "replaceFile": "Replace file"
+    },
+    "uploadDialog": {
+      "videoTitle": "Lecture Video",
+      "attachFileTitle": "Attach File",
+      "uploadFiles": "Upload Files",
+      "uploadFile": "Upload File",
+      "noteLabel": "Note:",
+      "note": "All files should be at least 720p and less than 4.0 GB.",
+      "dragDrop": "Drag and drop a file or",
+      "browseFile": "browse file",
+      "replaceFile": "Replace file",
+      "chooseVideoFile": "Choose video file",
+      "chooseAttachment": "Choose attachment",
+      "uploadVideo": "Upload Video",
+      "attachFile": "Attach File",
+      "errors": {
+        "invalidVideo": "Please select a valid video file.",
+        "videoTooLarge": "Video file size must be less than 4 GB."
+      }
+    },
+    "videoDialog": {
+      "title": "Lecture Video",
+      "uploadFiles": "Upload Files",
+      "uploadFile": "Upload File",
+      "noteLabel": "Note:",
+      "note": "All files should be at least 720p and less than 4.0 GB.",
+      "uploadVideo": "Upload Video",
+      "errors": {
+        "invalidVideo": "Please select a valid video file.",
+        "videoTooLarge": "Video file must be less than 4.0 GB.",
+        "lowResolution": "Video resolution must be at least 720p."
+      }
+    },
+    "publish": {
+      "title": "Publish Course",
+      "messagesTitle": "Message",
+      "welcomeLabel": "Welcome Message",
+      "welcomePlaceholder": "Enter course starting message here...",
+      "congratulationsLabel": "Congratulations Message",
+      "congratulationsPlaceholder": "Enter your course completed message here...",
+      "instructorsTitle": "Add Instructor ({count})",
+      "searchPlaceholder": "Search by username",
+      "searchAriaLabel": "Search instructors by username",
+      "noInstructors": "No instructors found.",
+      "preview": {
+        "ariaLabel": "Course message preview",
+        "title": "Message preview",
+        "welcome": "Welcome Message",
+        "congratulations": "Congratulations Message",
+        "noWelcome": "No welcome message added.",
+        "noCongratulations": "No congratulations message added."
+      },
+      "feedback": {
+        "saved": "Course changes saved locally (demo).",
+        "previewGenerated": "Preview generated from the current form values.",
+        "submitted": "Course submitted for review (demo). {count} message characters saved."
+      },
+      "prevStep": "Prev Step",
+      "submitForReview": "Submit For Review"
+    },
+    "instructorRoles": {
+      "uiUxDesigner": "UI/UX Designer",
+      "frontendDeveloper": "Frontend Developer",
+      "productDesigner": "Product Designer"
+    },
+    "validation": {
+      "titleRequired": "Course title is required.",
+      "titleMax": "Course title cannot exceed 80 characters.",
+      "subtitleRequired": "Course subtitle is required.",
+      "subtitleMax": "Course subtitle cannot exceed 120 characters.",
+      "categoryRequired": "Please select a course category.",
+      "subcategoryRequired": "Please select a sub-category.",
+      "topicRequired": "Course topic is required.",
+      "languageRequired": "Please select a course language.",
+      "levelRequired": "Please select a course level.",
+      "durationRequired": "Please enter the course duration.",
+      "durationPositive": "Duration must be greater than zero.",
+      "durationUnitRequired": "Please select a duration unit.",
+      "invalidFile": "Please select a valid file.",
+      "maxCharacters": "Maximum {max} characters.",
+      "descriptionTooLong": "Description is too long.",
+      "welcomeMax": "Welcome message cannot exceed 500 characters.",
+      "congratulationsMax": "Congratulations message cannot exceed 500 characters.",
+      "nameRequired": "Please enter a name.",
+      "nameMax": "Names cannot exceed 80 characters."
+    }
+  },
+  "courseDetails": {
+    "coursePurchaseCard": {
+      "courseInfo": {
+        "courseDuration": "Course Duration",
+        "courseLevel": "Course Level",
+        "studentsEnrolled": "Students Enrolled",
+        "language": "Language",
+        "subtitleLanguage": "Subtitle Language"
+      },
+      "courseIncludesItems": {
+        "lifetime": "Lifetime access",
+        "guarantee": "30-days money-back guarantee",
+        "resources": "Free exercises file & downloadable resources",
+        "certificate": "Shareable certificate of completion",
+        "devices": "Access on mobile, tablet and TV",
+        "subtitles": "English subtitles",
+        "online": "100% online course"
+      },
+      "daysLeft": "{days} days left at this price!",
+      "addToCart": "Add To Cart",
+      "buyNow": "Buy Now",
+      "addToWishlist": "Add To Wishlist",
+      "giftCourse": "Gift Course",
+      "guaranteeNote": "Note: All courses have a 30-day money-back guarantee.",
+      "courseIncludes": "This course includes:",
+      "shareCourse": "Share this course:",
+      "copyLink": "Copy link",
+      "facebook": "Share on Facebook",
+      "twitter": "Share on Twitter",
+      "email": "Share by email",
+      "whatsapp": "Share on WhatsApp",
+      "discount": "{percentage}% OFF"
+    },
+    "tabs": {
+      "overview": "Overview",
+      "curriculum": "Curriculum",
+      "instructor": "Instructor",
+      "reviews": "Reviews"
+    },
+    "previewContent": {
+      "description": "Description",
+      "learningOutcomes": "What you will learn in this course",
+      "targetAudience": "Who this course is for:",
+      "requirements": "Course requirements"
+    },
+    "curriculum": {
+      "title": "Curriculum",
+      "sections": "Sections",
+      "lectures": "lectures",
+      "lecture": "lecture",
+      "lectureCount": "{count, plural, =1 {# lecture} other {# lectures}}",
+      "totalDuration": "Total duration",
+      "noCurriculum": "No curriculum available yet.",
+      "preview": "Preview"
+    },
+    "instructor": {
+      "title": "Course instructor ({count})",
+      "courseRating": "Course rating",
+      "students": "Students",
+      "courses": "Courses",
+      "readMore": "READ MORE",
+      "readLess": "READ LESS",
+      "noInstructor": "Instructor information is not available yet."
+    },
+    "reviews": {
+      "courseRating": "Course Rating",
+      "ratingLabel": "Course Rating",
+      "starRating": "{count} Star Rating",
+      "studentsFeedback": "Students Feedback",
+      "filterLabel": "Filter reviews by rating",
+      "allRatings": "All Ratings",
+      "noReviews": "No reviews found.",
+      "showMore": "Show More"
+    }
+  },
+  "instructorCourses": {
+    "free": "Free",
+    "title": "My Courses",
+    "searchPlaceholder": "Search in your courses...",
+    "filters": {
+      "sortBy": "Sort by:",
+      "category": "Category",
+      "rating": "Rating"
+    },
+    "sortOptions": {
+      "latest": "Latest",
+      "oldest": "Oldest"
+    },
+    "categoryOptions": {
+      "all": "All Categories",
+      "development": "Development",
+      "design": "Design",
+      "marketing": "Marketing",
+      "business": "Business"
+    },
+    "ratingOptions": {
+      "all": "All Ratings",
+      "threeAndHalfUp": "3.5 Star & Up",
+      "threeUp": "3.0 Star & Up"
+    },
+    "students": "Students",
+    "reviews": "Reviews",
+    "noCourses": "No courses found",
+    "previous": "Previous",
+    "next": "Next",
+    "actions": {
+      "options": "Options",
+      "viewDetails": "View Details",
+      "editCourse": "Edit Course",
+      "deleteCourse": "Delete Course"
+    }
+  },
+  "instructorCourseDetails": {
+    "header": {
+      "uploaded": "Uploaded:",
+      "lastUpdated": "Last Updated:",
+      "createdBy": "Created by:",
+      "rating": "Rating",
+      "coursePrice": "Course prices",
+      "revenue": "USD dollar revenue",
+      "withdraw": "Withdraw Money",
+      "options": "Options",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "stats": {
+      "lectures": "Lectures",
+      "comments": "Total Comments",
+      "students": "Students enrolled",
+      "level": "Course level",
+      "language": "Course Language",
+      "files": "Attach File",
+      "hours": "Hours",
+      "viewed": "Students viewed"
+    }
+  },
+  "ShoppingCart": {
+    "home": "Home",
+    "pageTitle": "Shopping Cart",
+    "breadcrumbHome": "Home",
+    "breadcrumbCart": "Shopping Cart",
+    "cartTitle": "Shopping Cart",
+    "course": "Course",
+    "prices": "Prices",
+    "action": "Action",
+    "courseBy": "Course by:",
+    "review": "Review",
+    "moveToWishlist": "Move To Wishlist",
+    "removeCourse": "Remove course",
+    "emptyCart": "Your cart is empty",
+    "subtotal": "Subtotal",
+    "couponDiscount": "Coupon Discount",
+    "taxes": "Taxes",
+    "total": "Total:",
+    "proceedToCheckout": "Proceed To Checkout",
+    "applyCoupon": "Apply coupon code",
+    "couponPlaceholder": "Coupon code",
+    "apply": "Apply",
+    "navbar": {
+      "browse": "Browse",
+      "searchPlaceholder": "What do you want to learn...",
+      "notifications": "Notifications",
+      "wishlist": "Wishlist",
+      "cart": "Shopping Cart",
+      "createAccount": "Create Account",
+      "signIn": "Sign In"
+    }
+  },
+  "instructorEarning": {
+  "stats": {
+    "totalRevenue": "Total Revenue",
+    "currentBalance": "Current Balance",
+    "totalWithdrawals": "Total Withdrawals",
+    "todayRevenue": "Today Revenue"
+  },
+  "statistic": {
+    "title": "Statistic",
+    "revenue": "Revenue"
+  },
+  "cards": {
+    "title": "Cards",
+    "expires": "Expires",
+    "cardName": "Card name",
+    "addNewCard": "Add new card",
+    "previous": "Previous card",
+    "next": "Next card",
+    "options": "Card options",
+    "copy": "Copy card number"
+  },
+  "withdraw": {
+    "title": "Withdraw your money",
+    "paymentMethod": "Payment method:",
+    "paypalNote": "You will be redirected to the PayPal site after reviewing your order.",
+    "currentBalance": "Current Balance",
+    "withdrawMoney": "Withdraw Money"
+  },
+  "history": {
+    "title": "Withdraw History",
+    "date": "Date",
+    "method": "Method",
+    "amount": "Amount",
+    "status": "Status",
+    "cancelWithdraw": "Cancel Withdraw",
+    "options": "Options",
+    "statuses": {
+      "pending": "Pending",
+      "completed": "Completed",
+      "canceled": "Canceled"
+    }
+  },
+  "addCard": {
+  "title": "New Payment Card",
+  "name": "Name",
+  "namePlaceholder": "Name on card",
+  "cardNumber": "Card Number",
+  "cardNumberPlaceholder": "Label",
+  "expiry": "MM / YY",
+  "cvc": "CVC",
+  "cvcPlaceholder": "Security Code",
+  "cancel": "Cancel",
+  "submit": "Add Card"
 }
-<<<<<<< Updated upstream
-=======
 },
 "studentCourses": {
   "title": "Courses ({count})",
@@ -355,6 +847,100 @@
   "status": { "all": "All Courses", "inProgress": "In progress", "completed": "Completed" },
   "teacher": { "all": "All Teachers" },
   "card": { "watchLecture": "Watch Lecture", "completed": "Completed" }
+},
+  "courseListing": {
+    "searchPlaceholder": "Search courses...",
+    "searchLabel": "Search courses",
+    "clearSearch": "Clear",
+    "sortBy": "Sort by:",
+    "sortOptions": {
+      "trending": "Trending",
+      "popular": "Most Popular",
+      "rating": "Highest Rated",
+      "newest": "Newest",
+      "price_asc": "Price: Low to High",
+      "price_desc": "Price: High to Low"
+    },
+    "filtersButton": "Filters",
+    "filtersLoading": "Loading course filters...",
+    "facetLoadError": "Course filters couldn't be loaded.",
+    "filters": {
+      "category": "Category",
+      "categories": {
+        "development": "Development",
+        "business": "Business",
+        "finance-accounting": "Finance & Accounting",
+        "it-software": "IT & Software",
+        "office-productivity": "Office Productivity",
+        "personal-development": "Personal Development",
+        "design": "Design",
+        "marketing": "Marketing",
+        "lifestyle": "Lifestyle",
+        "photography-video": "Photography & Video",
+        "music": "Music",
+        "health-fitness": "Health & Fitness"
+      },
+      "subcategories": {
+        "web-development": "Web Development",
+        "data-science": "Data Science",
+        "mobile-development": "Mobile Development",
+        "software-testing": "Software Testing",
+        "software-engineering": "Software Engineering",
+        "software-development-tools": "Software Development Tools",
+        "no-code-development": "No-Code Development"
+      },
+      "tools": "Tools",
+      "toolOptions": {
+        "html-5": "HTML 5",
+        "css-3": "CSS 3",
+        "react": "React",
+        "webflow": "Webflow",
+        "node-js": "Node.js",
+        "laravel": "Laravel",
+        "sass": "Sass",
+        "wordpress": "WordPress"
+      },
+      "rating": "Rating",
+      "ratingOptions": {
+        "5": "5 Star",
+        "4": "4 Star & up",
+        "3": "3 Star & up",
+        "2": "2 Star & up",
+        "1": "1 Star & up"
+      },
+      "courseLevel": "Course Level",
+      "levels": {
+        "All": "All levels",
+        "Beginner": "Beginner",
+        "Intermediate": "Intermediate",
+        "Expert": "Expert"
+      },
+      "price": "Price",
+      "minimumPrice": "Minimum price",
+      "maximumPrice": "Maximum price",
+      "paid": "Paid",
+      "free": "Free",
+      "duration": "Duration",
+      "durations": {
+        "6-12 Months": "6-12 Months",
+        "3-6 Months": "3-6 Months",
+        "1-3 Months": "1-3 Months",
+        "1-4 Weeks": "1-4 Weeks",
+        "1-7 Days": "1-7 Days"
+      }
+    },
+    "suggestionsTitle": "Suggestions:",
+    "suggestionsError": "Suggestions couldn't be loaded.",
+    "suggestionRetry": "Try again",
+    "noSuggestions": "No suggestions found.",
+    "resultsFound": "results found",
+    "forSearch": "for \"{search}\"",
+    "loadError": "Courses couldn't be loaded. Check your connection and try again.",
+    "retry": "Retry",
+    "emptyTitle": "No courses found",
+    "emptyDescription": "Try changing your search or filters.",
+    "clearFilters": "Clear all filters",
+    "students": "Students",
+    "viewCourseDetails": "View course details for {title}"
+  }
 }
-}
->>>>>>> Stashed changes

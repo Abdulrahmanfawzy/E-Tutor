@@ -15,8 +15,8 @@ export function CoursesGridSection({
   background = "bg-[#F5F7FA]",
 }: CoursesGridSectionProps) {
   return (
-    <section className={`${background} px-5 py-14`}>
-      <div className="mx-auto max-w-5xl">
+   <section className={`${background} py-14`}>
+  <div className="mx-auto w-full max-w-6xl px-6">
         <SectionTitle title={title} />
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">

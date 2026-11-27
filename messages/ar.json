@@ -266,6 +266,8 @@
   },
   "giftCourse": {
     "title": "دورة هدية",
+    "home": "الرئيسية",
+    "courses": "الدورات",
     "breadcrumbCourse": "دورة",
     "containerTitle": "أهدِ دورة تدريبية",
     "recipient": {
@@ -294,6 +296,7 @@
     }
   },
   "dashboard": {
+     "periods": { "today": "اليوم", "week": "هذا الأسبوع", "month": "هذا الشهر" },
     "sidebar": {
       "dashboard": "لوحة التحكم",
       "createCourse": "أنشئ دورة جديدة",
@@ -301,13 +304,15 @@
       "earning": "الأرباح",
       "message": "الرسائل",
       "settings": "الإعدادات",
-      "logout": "تسجيل الخروج"
+      "logout": "تسجيل الخروج",
+      "signOut": "تسجيل الخروج"
     },
     "navbar": {
       "goodMorning": "صباح الخير",
       "dashboard": "لوحة التحكم",
       "searchPlaceholder": "ابحث ....",
-      "notifications": "الإشعارات"
+      "notifications": "الإشعارات",
+      "profile": "الصورة الشخصية"
     },
     "footer": {
       "copyright": "© 2021 - إي-تيوتر. صمم بواسطة {designer}. جميع الحقوق محفوظة",
@@ -315,7 +320,14 @@
       "faqs": "الأسئلة الشائعة",
       "privacy": "سياسة الخصوصية",
       "terms": "الشروط والأحكام"
-    }
+    },
+    "cards": {
+  "recentActivity": "آخر النشاطات",
+  "revenue": "الإيرادات",
+  "profileView": "مشاهدات الملف الشخصي",
+  "courseRating": "التقييم العام للكورس",
+  "courseOverview": "نظرة عامة على الكورس"
+}
   },
   "messages": {
     "sidebar": {
@@ -337,10 +349,499 @@
       "title": "لا توجد محادثة محددة",
       "description": "اختر محادثة لبدء الدردشة."
     }
+  },
+  "createCourse": {
+    "steps": {
+      "ariaLabel": "خطوات إنشاء الدورة",
+      "basicInformation": "المعلومات الأساسية",
+      "advanceInformation": "المعلومات المتقدمة",
+      "curriculum": "المنهج",
+      "publishCourse": "نشر الدورة",
+      "progress": "7/12",
+      "stepOf": "الخطوة {current} من {total}"
+    },
+    "common": {
+      "save": "حفظ",
+      "saveAndPreview": "حفظ ومعاينة",
+      "saveAndNext": "حفظ والتالي",
+      "cancel": "إلغاء",
+      "previous": "السابق",
+      "next": "التالي",
+      "optional": "(اختياري)",
+      "select": "اختر...",
+      "clear": "مسح",
+      "edit": "تعديل",
+      "delete": "حذف",
+      "addNew": "إضافة جديد",
+      "noFileSelected": "لم يتم اختيار ملف",
+      "closeDialog": "إغلاق النافذة",
+      "editName": "تعديل الاسم",
+      "saveName": "حفظ الاسم",
+      "cancelEditing": "إلغاء التعديل",
+      "removeItem": "إزالة العنصر {index}",
+      "removeNamed": "إزالة {name}",
+      "deleteNamed": "حذف {name}",
+      "editNamed": "تعديل {name}"
+     
+    },
+    "metadata": {
+      "advancedTitle": "إنشاء دورة | إيدوغارد",
+      "advancedDescription": "أضف معلومات متقدمة إلى دورتك."
+    },
+    "basic": {
+      "heading": "المعلومات الأساسية",
+      "title": "العنوان",
+      "titlePlaceholder": "عنوان دورتك",
+      "subtitle": "العنوان الفرعي",
+      "subtitlePlaceholder": "العنوان الفرعي لدورتك",
+      "category": "فئة الدورة",
+      "subcategory": "الفئة الفرعية للدورة",
+      "topic": "موضوع الدورة",
+      "topicPlaceholder": "ما الذي يُدرّس بشكل أساسي في دورتك؟",
+      "language": "لغة الدورة",
+      "subtitleLanguage": "لغة الترجمة النصية",
+      "level": "مستوى الدورة",
+      "duration": "المدة",
+      "durationPlaceholder": "مدة الدورة",
+      "durationUnitAria": "وحدة المدة",
+      "status": {
+        "saved": "تم حفظ معلومات دورتك محلياً.",
+        "previewNotConnected": "المعاينة غير متصلة بعد. نموذجك جاهز لدمج المعاينة."
+      }
+    },
+    "options": {
+      "categories": {
+        "development": "التطوير",
+        "business": "الأعمال",
+        "finance": "المالية والمحاسبة",
+        "it-software": "تقنية المعلومات والبرمجيات",
+        "design": "التصميم",
+        "marketing": "التسويق",
+        "personal-development": "التطوير الشخصي"
+      },
+      "subcategories": {
+        "web-development": "تطوير الويب",
+        "mobile-development": "تطوير التطبيقات الجوّالة",
+        "programming": "لغات البرمجة",
+        "data-science": "علم البيانات",
+        "ui-ux-design": "تصميم واجهات وتجربة المستخدم",
+        "graphic-design": "التصميم الجرافيكي"
+      },
+      "languages": {
+        "english": "الإنجليزية",
+        "arabic": "العربية",
+        "french": "الفرنسية",
+        "spanish": "الإسبانية",
+        "german": "الألمانية"
+      },
+      "levels": {
+        "beginner": "مبتدئ",
+        "intermediate": "متوسط",
+        "advanced": "متقدم",
+        "all-levels": "جميع المستويات"
+      },
+      "durationUnits": {
+        "day": "يوم",
+        "week": "أسبوع",
+        "month": "شهر"
+      }
+    },
+    "advanced": {
+      "heading": "المعلومات المتقدمة",
+      "thumbnailTitle": "صورة الدورة المصغرة",
+      "thumbnailDescription": "ارفع صورة الدورة المصغرة هنا. إرشادات مهمة: 1200×800 بكسل أو بنسبة 12:8. الصيغ المدعومة: .jpg أو .jpeg أو .png",
+      "trailerTitle": "الفيديو التعريفي للدورة",
+      "trailerDescription": "الطلاب الذين يشاهدون فيديو تعريفياً جيداً أكثر عرضة للالتحاق بدورتك بمقدار 5 أضعاف. وقد رأينا هذه النسبة ترتفع إلى 10 أضعاف للفيديوهات الاستثنائية.",
+      "changeFile": "تغيير الملف",
+      "uploadImage": "رفع صورة",
+      "uploadVideo": "رفع فيديو",
+      "descriptionLabel": "وصف الدورة",
+      "descriptionPlaceholder": "أدخل وصف دورتك",
+      "descriptionFallback": "نصك",
+      "toolbar": {
+        "bold": "عريض",
+        "italic": "مائل",
+        "underline": "تسطير",
+        "strikethrough": "يتوسطه خط",
+        "insertLink": "إدراج رابط",
+        "bulletedList": "قائمة نقطية",
+        "numberedList": "قائمة مرقمة"
+      },
+      "whatYouWillLearn": "ما ستعلّمه في هذه الدورة",
+      "targetAudience": "الجمهور المستهدف",
+      "courseRequirements": "متطلبات الدورة",
+      "whatYouWillLearnPlaceholder": "ما الذي ستعلّمه في هذه الدورة...",
+      "targetAudiencePlaceholder": "لمن هذه الدورة...",
+      "courseRequirementsPlaceholder": "ما متطلبات دورتك...",
+      "status": {
+        "save": "معلومات دورتك جاهزة في هذه المعاينة. لم تُرسل أي بيانات إلى الخادم.",
+        "preview": "يتم تمثيل معاينة الدورة بهذا الإجراء داخل الواجهة فقط. توجيه المعاينة غير متصل.",
+        "next": "نموذج المعلومات المتقدمة صالح. خطوة المنهج ليست جزءاً من هذا التنفيذ.",
+        "previous": "خطوة المعلومات الأساسية خارج نطاق تنفيذ الواجهة هذا."
+      }
+    },
+    "curriculum": {
+      "title": "منهج الدورة",
+      "addSections": "إضافة أقسام",
+      "sectionLabel": "الأقسام {number}:",
+      "sectionHeading": "القسم {number}: {title}",
+      "defaultSectionName": "اسم القسم",
+      "defaultLectureName": "اسم المحاضرة",
+      "emptySection": "لا توجد محاضرات في هذا القسم بعد. استخدم أيقونة الزائد لإضافة واحدة.",
+      "addLecture": "إضافة محاضرة",
+      "editSectionName": "تعديل اسم القسم",
+      "deleteSection": "حذف القسم {index}",
+      "contents": "المحتوى",
+      "noLecturesAdded": "لم تتم إضافة محاضرات.",
+      "feedback": {
+        "sectionAdded": "تمت إضافة قسم جديد.",
+        "sectionRemoved": "تم حذف القسم.",
+        "lectureAdded": "تمت إضافة محاضرة جديدة.",
+        "lectureRemoved": "تم حذف المحاضرة.",
+        "saved": "تم حفظ المنهج محلياً لهذا العرض التجريبي."
+      },
+      "preview": {
+        "title": "معاينة المنهج",
+        "summary": "{sections, plural, one {قسم واحد} two {قسمان} few {# أقسام} many {# قسماً} other {# قسم}} · {lectures, plural, one {محاضرة واحدة} two {محاضرتان} few {# محاضرات} many {# محاضرة} other {# محاضرة}}",
+        "close": "إغلاق المعاينة",
+        "captions": "الترجمة النصية:",
+        "description": "الوصف:",
+        "lectureNotes": "ملاحظات المحاضرة:"
+      }
+    },
+    "contentTypes": {
+      "video": "فيديو",
+      "attachFile": "إرفاق ملف",
+      "captions": "الترجمة النصية",
+      "description": "الوصف",
+      "lectureNotes": "ملاحظات المحاضرة"
+    },
+    "contentMenu": {
+      "ariaLabel": "خيارات محتوى المحاضرة"
+    },
+    "textDialog": {
+      "captionsTitle": "الترجمة النصية للمحاضرة",
+      "captionsPlaceholder": "أدخل الترجمة النصية للمحاضرة...",
+      "captionsDescription": "أضف ترجمة نصية لهذه المحاضرة.",
+      "descriptionTitle": "وصف المحاضرة",
+      "descriptionPlaceholder": "أدخل وصف المحاضرة...",
+      "descriptionDescription": "أضف وصفاً لهذه المحاضرة.",
+      "notesTitle": "ملاحظات المحاضرة",
+      "notesPlaceholder": "أدخل ملاحظات المحاضرة...",
+      "notesDescription": "أضف ملاحظات ومعلومات داعمة لهذه المحاضرة.",
+      "attachFileOptional": "إرفاق ملف (اختياري)",
+      "browseFile": "تصفح الملف",
+      "replaceFile": "استبدال الملف"
+    },
+    "uploadDialog": {
+      "videoTitle": "فيديو المحاضرة",
+      "attachFileTitle": "إرفاق ملف",
+      "uploadFiles": "رفع ملفات",
+      "uploadFile": "رفع ملف",
+      "noteLabel": "ملاحظة:",
+      "note": "يجب أن تكون جميع الملفات بدقة 720p على الأقل وأقل من 4.0 غيغابايت.",
+      "dragDrop": "اسحب وأفلت ملفاً أو",
+      "browseFile": "تصفح الملف",
+      "replaceFile": "استبدال الملف",
+      "chooseVideoFile": "اختر ملف فيديو",
+      "chooseAttachment": "اختر مرفقاً",
+      "uploadVideo": "رفع الفيديو",
+      "attachFile": "إرفاق ملف",
+      "errors": {
+        "invalidVideo": "يرجى اختيار ملف فيديو صالح.",
+        "videoTooLarge": "يجب أن يكون حجم ملف الفيديو أقل من 4 غيغابايت."
+      }
+    },
+    "videoDialog": {
+      "title": "فيديو المحاضرة",
+      "uploadFiles": "رفع ملفات",
+      "uploadFile": "رفع ملف",
+      "noteLabel": "ملاحظة:",
+      "note": "يجب أن تكون جميع الملفات بدقة 720p على الأقل وأقل من 4.0 غيغابايت.",
+      "uploadVideo": "رفع الفيديو",
+      "errors": {
+        "invalidVideo": "يرجى اختيار ملف فيديو صالح.",
+        "videoTooLarge": "يجب أن يكون ملف الفيديو أقل من 4.0 غيغابايت.",
+        "lowResolution": "يجب أن تكون دقة الفيديو 720p على الأقل."
+      }
+    },
+    "publish": {
+      "title": "نشر الدورة",
+      "messagesTitle": "الرسالة",
+      "welcomeLabel": "رسالة الترحيب",
+      "welcomePlaceholder": "أدخل رسالة بداية الدورة هنا...",
+      "congratulationsLabel": "رسالة التهنئة",
+      "congratulationsPlaceholder": "أدخل رسالة إتمام الدورة هنا...",
+      "instructorsTitle": "إضافة مدرب ({count})",
+      "searchPlaceholder": "ابحث باسم المستخدم",
+      "searchAriaLabel": "البحث عن المدربين باسم المستخدم",
+      "noInstructors": "لم يتم العثور على مدربين.",
+      "preview": {
+        "ariaLabel": "معاينة رسائل الدورة",
+        "title": "معاينة الرسالة",
+        "welcome": "رسالة الترحيب",
+        "congratulations": "رسالة التهنئة",
+        "noWelcome": "لم تتم إضافة رسالة ترحيب.",
+        "noCongratulations": "لم تتم إضافة رسالة تهنئة."
+      },
+      "feedback": {
+        "saved": "تم حفظ تغييرات الدورة محلياً (تجريبي).",
+        "previewGenerated": "تم إنشاء المعاينة من قيم النموذج الحالية.",
+        "submitted": "تم إرسال الدورة للمراجعة (تجريبي). تم حفظ {count} حرفاً من الرسائل."
+      },
+      "prevStep": "الخطوة السابقة",
+      "submitForReview": "إرسال للمراجعة"
+    },
+    "instructorRoles": {
+      "uiUxDesigner": "مصمم واجهات وتجربة المستخدم",
+      "frontendDeveloper": "مطور واجهات أمامية",
+      "productDesigner": "مصمم منتجات"
+    },
+    "validation": {
+      "titleRequired": "عنوان الدورة مطلوب.",
+      "titleMax": "لا يمكن أن يتجاوز عنوان الدورة 80 حرفاً.",
+      "subtitleRequired": "العنوان الفرعي للدورة مطلوب.",
+      "subtitleMax": "لا يمكن أن يتجاوز العنوان الفرعي للدورة 120 حرفاً.",
+      "categoryRequired": "يرجى اختيار فئة للدورة.",
+      "subcategoryRequired": "يرجى اختيار فئة فرعية.",
+      "topicRequired": "موضوع الدورة مطلوب.",
+      "languageRequired": "يرجى اختيار لغة الدورة.",
+      "levelRequired": "يرجى اختيار مستوى الدورة.",
+      "durationRequired": "يرجى إدخال مدة الدورة.",
+      "durationPositive": "يجب أن تكون المدة أكبر من صفر.",
+      "durationUnitRequired": "يرجى اختيار وحدة المدة.",
+      "invalidFile": "يرجى اختيار ملف صالح.",
+      "maxCharacters": "الحد الأقصى {max} حرفاً.",
+      "descriptionTooLong": "الوصف طويل جداً.",
+      "welcomeMax": "لا يمكن أن تتجاوز رسالة الترحيب 500 حرف.",
+      "congratulationsMax": "لا يمكن أن تتجاوز رسالة التهنئة 500 حرف.",
+      "nameRequired": "يرجى إدخال اسم.",
+      "nameMax": "لا يمكن أن تتجاوز الأسماء 80 حرفاً."
+    }
+  },
+  "courseDetails": {
+    "coursePurchaseCard": {
+      "courseInfo": {
+        "courseDuration": "مدة الكورس",
+        "courseLevel": "مستوى الكورس",
+        "studentsEnrolled": "عدد الطلاب المسجلين",
+        "language": "اللغة",
+        "subtitleLanguage": "لغة الترجمة"
+      },
+      "courseIncludesItems": {
+        "lifetime": "إمكانية الوصول مدى الحياة",
+        "guarantee": "ضمان استرداد الأموال خلال 30 يومًا",
+        "resources": "ملفات تمارين وموارد مجانية قابلة للتنزيل",
+        "certificate": "شهادة إتمام قابلة للمشاركة",
+        "devices": "إمكانية الوصول عبر الهاتف والتابلت والتلفاز",
+        "subtitles": "ترجمة باللغة الإنجليزية",
+        "online": "كورس أونلاين بالكامل"
+      },
+      "daysLeft": "متبقي {days} أيام بهذا السعر!",
+      "addToCart": "أضف إلى السلة",
+      "buyNow": "اشترِ الآن",
+      "addToWishlist": "أضف إلى المفضلة",
+      "giftCourse": "إهداء الكورس",
+      "guaranteeNote": "ملاحظة: جميع الكورسات تشمل ضمان استرداد الأموال خلال 30 يومًا.",
+      "courseIncludes": "يتضمن هذا الكورس:",
+      "shareCourse": "شارك هذا الكورس:",
+      "copyLink": "نسخ الرابط",
+      "facebook": "مشاركة على فيسبوك",
+      "twitter": "مشاركة على تويتر",
+      "email": "مشاركة عبر البريد الإلكتروني",
+      "whatsapp": "مشاركة على واتساب",
+      "discount": "خصم {percentage}%"
+    },
+    "tabs": {
+      "overview": "نظرة عامة",
+      "curriculum": "المنهج",
+      "instructor": "المحاضر",
+      "reviews": "التقييمات"
+    },
+    "previewContent": {
+      "description": "الوصف",
+      "learningOutcomes": "هتتعلمي إيه في الكورس ده؟",
+      "targetAudience": "الكورس مناسب لمين؟",
+      "requirements": "متطلبات الكورس"
+    },
+    "curriculum": {
+      "title": "المنهج",
+      "sections": "أقسام",
+      "lectures": "محاضرات",
+      "lecture": "محاضرة",
+      "lectureCount": "{count, plural, =0 {لا توجد محاضرات} =1 {محاضرة واحدة} =2 {محاضرتان} few {# محاضرات} many {# محاضرة} other {# محاضرة}}",
+      "totalDuration": "المدة الإجمالية",
+      "noCurriculum": "المنهج غير متاح حاليًا.",
+      "preview": "معاينة"
+    },
+    "instructor": {
+      "title": "مدربي الكورس ({count})",
+      "courseRating": "تقييم الكورس",
+      "students": "طالب",
+      "courses": "كورس",
+      "readMore": "اقرأ المزيد",
+      "readLess": "اقرأ أقل",
+      "noInstructor": "معلومات المدرّب غير متاحة حتى الآن"
+    },
+    "reviews": {
+      "courseRating": "تقييم الكورس",
+      "ratingLabel": "تقييم الكورس",
+      "starRating": "{count} نجوم",
+      "studentsFeedback": "آراء الطلاب",
+      "filterLabel": "فلترة التقييمات",
+      "allRatings": "كل التقييمات",
+      "noReviews": "لا توجد تقييمات.",
+      "showMore": "عرض المزيد"
+    }
+  },
+  "instructorCourses": {
+    "free": "مجاني",
+    "title": "كورساتي",
+    "searchPlaceholder": "ابحث في كورساتك...",
+    "filters": {
+      "sortBy": "ترتيب حسب:",
+      "category": "التصنيف",
+      "rating": "التقييم"
+    },
+    "sortOptions": {
+      "latest": "الأحدث",
+      "oldest": "الأقدم"
+    },
+    "categoryOptions": {
+      "all": "كل التصنيفات",
+      "development": "البرمجة",
+      "design": "التصميم",
+      "marketing": "التسويق",
+      "business": "الأعمال"
+    },
+    "ratingOptions": {
+      "all": "كل التقييمات",
+      "threeAndHalfUp": "3.5 نجمة فأعلى",
+      "threeUp": "3.0 نجمة فأعلى"
+    },
+    "students": "طالب",
+    "reviews": "تقييمات",
+    "noCourses": "لا توجد كورسات",
+    "previous": "السابق",
+    "next": "التالي",
+    "actions": {
+      "options": "خيارات",
+      "viewDetails": "عرض التفاصيل",
+      "editCourse": "تعديل الكورس",
+      "deleteCourse": "حذف الكورس"
+    }
+  },
+  "instructorCourseDetails": {
+    "header": {
+      "uploaded": "تاريخ الرفع:",
+      "lastUpdated": "آخر تحديث:",
+      "createdBy": "من تقديم:",
+      "rating": "تقييم",
+      "coursePrice": "سعر الكورس",
+      "revenue": "إجمالي الإيرادات بالدولار",
+      "withdraw": "سحب الأموال",
+      "options": "خيارات",
+      "edit": "تعديل",
+      "delete": "حذف"
+    },
+    "stats": {
+      "lectures": "المحاضرات",
+      "students": "الطلاب المسجلون",
+      "level": "مستوى الكورس",
+      "language": "لغة الكورس",
+      "files": "الملفات المرفقة",
+      "hours": "الساعات",
+      "viewed": "مشاهدات الطلاب"
+    }
+  },
+  "ShoppingCart": {
+    "home": "الرئيسية",
+    "pageTitle": "سلة التسوق",
+    "breadcrumbHome": "الرئيسية",
+    "breadcrumbCart": "سلة التسوق",
+    "cartTitle": "سلة التسوق",
+    "course": "الكورس",
+    "prices": "السعر",
+    "action": "الإجراء",
+    "courseBy": "المحاضر:",
+    "review": "تقييم",
+    "moveToWishlist": "إضافة إلى المفضلة",
+    "removeCourse": "حذف الكورس",
+    "emptyCart": "سلة التسوق فارغة",
+    "subtotal": "المجموع الفرعي",
+    "couponDiscount": "خصم الكوبون",
+    "taxes": "الضرائب",
+    "total": "الإجمالي:",
+    "proceedToCheckout": "إتمام عملية الدفع",
+    "applyCoupon": "استخدم كود الخصم",
+    "couponPlaceholder": "كود الخصم",
+    "apply": "تطبيق",
+    "navbar": {
+      "browse": "تصفح",
+      "searchPlaceholder": "عن ماذا تبحث؟",
+      "notifications": "الإشعارات",
+      "wishlist": "المفضلة",
+      "cart": "سلة التسوق",
+      "createAccount": "إنشاء حساب",
+      "signIn": "تسجيل الدخول"
+    }
   }
+  ,
+  "instructorEarning": {
+  "stats": {
+    "totalRevenue": "إجمالي الإيرادات",
+    "currentBalance": "الرصيد الحالي",
+    "totalWithdrawals": "إجمالي السحوبات",
+    "todayRevenue": "إيرادات اليوم"
+  },
+  "statistic": {
+    "title": "الإحصائيات",
+    "revenue": "الإيرادات"
+  },
+  "cards": {
+    "title": "البطاقات",
+    "expires": "تنتهي في",
+    "cardName": "اسم البطاقة",
+    "addNewCard": "إضافة بطاقة جديدة",
+    "previous": "البطاقة السابقة",
+    "next": "البطاقة التالية",
+    "options": "خيارات البطاقة",
+"copy": "نسخ رقم البطاقة"
+  },
+  "withdraw": {
+    "title": "اسحب أموالك",
+    "paymentMethod": "طريقة الدفع:",
+    "paypalNote": "ستتم إعادة توجيهك إلى موقع PayPal بعد مراجعة طلبك.",
+    "currentBalance": "الرصيد الحالي",
+    "withdrawMoney": "سحب الأموال"
+  },
+  "history": {
+    "title": "سجل السحب",
+    "date": "التاريخ",
+    "method": "الطريقة",
+    "amount": "المبلغ",
+    "status": "الحالة",
+    "cancelWithdraw": "إلغاء السحب",
+    "options": "خيارات",
+    "statuses": {
+      "pending": "قيد الانتظار",
+      "completed": "مكتمل",
+      "canceled": "ملغي"
+    }
+  },
+
+  "addCard": {
+  "title": "بطاقة دفع جديدة",
+  "name": "الاسم",
+  "namePlaceholder": "الاسم على البطاقة",
+  "cardNumber": "رقم البطاقة",
+  "cardNumberPlaceholder": "رقم البطاقة",
+  "expiry": "الشهر / السنة",
+  "cvc": "CVC",
+  "cvcPlaceholder": "رمز الأمان",
+  "cancel": "إلغاء",
+  "submit": "إضافة البطاقة"
 }
-<<<<<<< Updated upstream
-=======
 },
 "studentCourses": {
   "title": "الكورسات ({count})",
@@ -357,5 +858,101 @@
   "card": { "watchLecture": "شاهد المحاضرة", "completed": "مكتمل" }
 }
 
+},
+ "courseListing": {
+    "searchPlaceholder": "ابحث عن الدورات...",
+    "searchLabel": "البحث عن الدورات",
+    "clearSearch": "مسح",
+    "sortBy": "ترتيب حسب:",
+    "sortOptions": {
+      "trending": "الأكثر رواجًا",
+      "popular": "الأكثر شعبية",
+      "rating": "الأعلى تقييمًا",
+      "newest": "الأحدث",
+      "price_asc": "السعر: من الأقل للأعلى",
+      "price_desc": "السعر: من الأعلى للأقل"
+    },
+    "filtersButton": "الفلاتر",
+    "filtersLoading": "جارٍ تحميل فلاتر الدورات...",
+    "facetLoadError": "تعذّر تحميل فلاتر الدورات.",
+    "filters": {
+      "category": "التصنيف",
+      "categories": {
+        "development": "التطوير",
+        "business": "الأعمال",
+        "finance-accounting": "المالية والمحاسبة",
+        "it-software": "تقنية المعلومات والبرمجيات",
+        "office-productivity": "إنتاجية المكتب",
+        "personal-development": "التطوير الشخصي",
+        "design": "التصميم",
+        "marketing": "التسويق",
+        "lifestyle": "نمط الحياة",
+        "photography-video": "التصوير والفيديو",
+        "music": "الموسيقى",
+        "health-fitness": "الصحة واللياقة"
+      },
+      "subcategories": {
+        "web-development": "تطوير الويب",
+        "data-science": "علم البيانات",
+        "mobile-development": "تطوير تطبيقات الهاتف",
+        "software-testing": "اختبار البرمجيات",
+        "software-engineering": "هندسة البرمجيات",
+        "software-development-tools": "أدوات تطوير البرمجيات",
+        "no-code-development": "التطوير دون كتابة أكواد"
+      },
+      "tools": "الأدوات",
+      "toolOptions": {
+        "html-5": "HTML 5",
+        "css-3": "CSS 3",
+        "react": "React",
+        "webflow": "Webflow",
+        "node-js": "Node.js",
+        "laravel": "Laravel",
+        "sass": "Sass",
+        "wordpress": "WordPress"
+      },
+      "rating": "التقييم",
+      "ratingOptions": {
+        "5": "5 نجوم",
+        "4": "4 نجوم فأكثر",
+        "3": "3 نجوم فأكثر",
+        "2": "نجمتان فأكثر",
+        "1": "نجمة فأكثر"
+      },
+      "courseLevel": "مستوى الدورة",
+      "levels": {
+        "All": "جميع المستويات",
+        "Beginner": "مبتدئ",
+        "Intermediate": "متوسط",
+        "Expert": "متقدم"
+      },
+      "price": "السعر",
+      "minimumPrice": "أقل سعر",
+      "maximumPrice": "أعلى سعر",
+      "paid": "مدفوعة",
+      "free": "مجانية",
+      "duration": "المدة",
+      "durations": {
+        "6-12 Months": "6-12 شهرًا",
+        "3-6 Months": "3-6 أشهر",
+        "1-3 Months": "1-3 أشهر",
+        "1-4 Weeks": "1-4 أسابيع",
+        "1-7 Days": "1-7 أيام"
+      }
+    },
+    "suggestionsTitle": "اقتراحات:",
+    "suggestionsError": "تعذّر تحميل الاقتراحات.",
+    "suggestionRetry": "إعادة المحاولة",
+    "noSuggestions": "لا توجد اقتراحات.",
+    "resultsFound": "نتيجة",
+    "forSearch": "لـ \"{search}\"",
+    "loadError": "تعذّر تحميل الدورات. تحقق من اتصالك وحاول مرة أخرى.",
+    "retry": "إعادة المحاولة",
+    "emptyTitle": "لم يتم العثور على دورات",
+    "emptyDescription": "جرّب تغيير البحث أو الفلاتر.",
+    "clearFilters": "مسح جميع الفلاتر",
+    "students": "طالب",
+    "viewCourseDetails": "عرض تفاصيل الدورة {title}"
+  }
+
 }
->>>>>>> Stashed changes

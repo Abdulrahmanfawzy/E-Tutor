@@ -1,6 +1,7 @@
 
 "use client";
 
+import { useTranslations } from "next-intl";
 import {
   Pagination,
   PaginationContent,
@@ -21,9 +22,11 @@ export default function CustomPagination({
   totalPages,
   onPageChange,
 }: CustomPaginationProps) {
+  const t = useTranslations("courseListing");
+
   if (totalPages <= 1) return null;
 
-  const handlePageChange = (page: number) => {
+ const handlePageChange = (page: number) => {
     if (page < 1 || page > totalPages) return;
     onPageChange(page);
   };
@@ -36,7 +39,7 @@ export default function CustomPagination({
         <PaginationItem>
           <PaginationPrevious
             href="#"
-            aria-label="Previous page"
+            aria-label={t("previousPage")}
             onClick={(e) => {
               e.preventDefault();
               handlePageChange(currentPage - 1);
@@ -76,7 +79,7 @@ export default function CustomPagination({
         <PaginationItem>
           <PaginationNext
             href="#"
-            aria-label="Next page"
+            aria-label={t("nextPage")}
             onClick={(e) => {
               e.preventDefault();
               handlePageChange(currentPage + 1);

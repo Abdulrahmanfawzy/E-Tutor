@@ -25,6 +25,10 @@ const nextConfig: NextConfig = {
         hostname: "lms.huma-volve.com",
         pathname: "/storage/**",
       },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
     ],
   },
 };

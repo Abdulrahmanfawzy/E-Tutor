@@ -7,8 +7,8 @@ export function StatsSection() {
   ];
 
   return (
-    <section className="bg-[#1D2026] px-5 py-14 text-white">
-      <div className="mx-auto grid max-w-5xl items-center gap-8 md:grid-cols-2">
+   <section className="bg-[#1D2026] py-14 text-white">
+  <div className="mx-auto grid w-full max-w-6xl items-center gap-8 px-6 md:grid-cols-2">
         <div>
           <h2 className="max-w-md text-2xl font-bold leading-tight">
             Start learning with 67.1k students around the world.

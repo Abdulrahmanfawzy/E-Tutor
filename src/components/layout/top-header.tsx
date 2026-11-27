@@ -18,8 +18,7 @@ export default function TopHeader() {
 
   return (
     <div className="w-full bg-[#1D2026] text-white">
-      <div className="mx-auto flex min-h-11 max-w-[1400px] items-center justify-between gap-3 px-3 sm:min-h-12 sm:px-5 md:min-h-14 md:px-6 lg:px-8">
-
+<div className="website-container flex min-h-11 items-center justify-between gap-3 sm:min-h-12 md:min-h-14">
         {/* Navigation Links */}
         <nav className="flex min-w-0 flex-1 items-center gap-4 overflow-x-auto scrollbar-hide sm:gap-6 md:gap-8">
           {navigationLinks.map((item) => {

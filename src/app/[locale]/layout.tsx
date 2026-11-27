@@ -3,9 +3,7 @@ import { Geist, Geist_Mono, Inter } from "next/font/google";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
-import TopHeader from "@/components/layout/top-header";
-import Navbar from "@/components/layout/nav-bar";
-import Footer from "@/components/layout/footer";
+
 import { QueryProvider } from "@/components/providers/query-providers";
 import { routing } from "@/i18n/routing";
 
@@ -48,7 +46,10 @@ export async function generateMetadata({
     notFound();
   }
 
-  const t = await getTranslations({ locale, namespace: "metadata" });
+  const t = await getTranslations({
+    locale,
+    namespace: "metadata",
+  });
 
   return {
     title: t("siteTitle"),
@@ -73,7 +74,7 @@ export default async function LocaleLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="flex min-h-full flex-col">
         <NextIntlClientProvider>
           <QueryProvider>
 

@@ -18,7 +18,7 @@ export async function getCourseSearchSuggestions(
     }
 
     const searchParams = new URLSearchParams({ q: normalizedQuery });
-    const endpoint = `${apiBaseUrl.replace(/\/+$/, "")}/api/v1/search/suggestions`;
+    const endpoint = `${apiBaseUrl}api/v1/search/suggestions`;
     const response = await fetch(`${endpoint}?${searchParams.toString()}`, {
         method: "GET",
         headers: {

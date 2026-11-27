@@ -55,6 +55,14 @@ export interface CoursesResponse {
     };
 }
 
+export type CourseSort =
+    | "trending"
+    | "popular"
+    | "rating"
+    | "newest"
+    | "price_asc"
+    | "price_desc";
+
 export interface GetCoursesParams {
     q?: string;
     category?: string | string[];
@@ -66,13 +74,7 @@ export interface GetCoursesParams {
     price_max?: number;
     price_type?: "all" | "paid" | "free";
     duration?: string | string[];
-    sort?:
-        | "trending"
-        | "popular"
-        | "rating"
-        | "newest"
-        | "price_asc"
-        | "price_desc";
+    sort?: CourseSort;
     page?: number;
     per_page?: number;
 }

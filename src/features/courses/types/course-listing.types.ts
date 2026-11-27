@@ -1,4 +1,5 @@
 export type CourseLevel =
+    | "All"
     | "Beginner"
     | "Intermediate"
     | "Expert";

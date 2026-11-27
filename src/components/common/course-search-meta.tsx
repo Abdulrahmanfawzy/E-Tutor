@@ -2,8 +2,14 @@ import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
 import { Skeleton } from "@/components/ui/skeleton";
 
+interface PopularKeyword {
+    keyword: string;
+    courses_count: number;
+}
+
 interface CourseSearchMetaProps {
     suggestions: readonly string[];
+    popularKeywords?: readonly PopularKeyword[];
     resultCount: number;
     search: string;
     onSuggestionClick: (value: string) => void;
@@ -14,6 +20,7 @@ interface CourseSearchMetaProps {
 
 export default function CourseSearchMeta({
     suggestions,
+    popularKeywords = [],
     resultCount,
     search,
     onSuggestionClick,
@@ -30,18 +37,35 @@ export default function CourseSearchMeta({
                     {t("suggestionsTitle")}
                 </span>
 
-                {suggestions.map((item) => (
-                    <Button
-                        key={item}
-                        type="button"
-                        variant="link"
-                        size="xs"
-                        onClick={() => onSuggestionClick(item)}
-                        className="h-auto rounded-none px-0 py-0 text-xs font-normal text-[#FF6636]"
-                    >
-                        {item}
-                    </Button>
-                ))}
+                {search.trim().length === 0 &&
+                    popularKeywords.map(({ keyword, courses_count }) => (
+                        <Button
+                            key={keyword}
+                            type="button"
+                            variant="outline"
+                            size="xs"
+                            onClick={() => onSuggestionClick(keyword)}
+                            className="h-7 rounded-full border-orange-100 bg-orange-50/60 px-3 text-xs font-normal text-[#FF6636] hover:bg-orange-100"
+                        >
+                            {keyword}
+                            <span className="ml-1 text-[10px] text-gray-500">
+                                {courses_count.toLocaleString()}
+                            </span>
+                        </Button>
+                    ))}
+                {search.trim().length > 0 &&
+                    suggestions.map((item) => (
+                        <Button
+                            key={item}
+                            type="button"
+                            variant="outline"
+                            size="xs"
+                            onClick={() => onSuggestionClick(item)}
+                            className="h-7 rounded-full border-orange-100 bg-orange-50/60 px-3 text-xs font-normal text-[#FF6636] hover:bg-orange-100"
+                        >
+                            {item}
+                        </Button>
+                    ))}
                 {suggestionsLoading &&
                     Array.from({ length: 3 }, (_, index) => (
                         <Skeleton key={index} className="h-4 w-16" />

@@ -32,7 +32,7 @@ export async function getCourses(params: GetCoursesParams = {}) {
         throw new Error("The API environment variable is not configured.");
     }
 
-    const endpoint = `${apiBaseUrl.replace(/\/+$/, "")}/api/v1/courses`;
+    const endpoint = `${apiBaseUrl}api/v1/courses`;
     const response = await fetch(`${endpoint}${queryString ? `?${queryString}` : ""}`, {
         method: "GET",
         headers: {

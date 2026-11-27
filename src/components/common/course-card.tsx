@@ -30,7 +30,7 @@ export default function CourseCard({ course }: CourseCardProps) {
 
   return (
     <Link
-      href={`/course-listing/${course.slug}`}
+      href={`/course-list/${course.slug}`}
       aria-label={t("viewCourseDetails", { title: course.title })}
       className="block h-full rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FF6636]"
     >
@@ -42,10 +42,6 @@ export default function CourseCard({ course }: CourseCardProps) {
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
             className="w-full object-cover transition-transform duration-300 group-hover/card:scale-105"
-            unoptimized={
-              typeof course.image === "string" &&
-              /^https?:\/\//.test(course.image)
-            }
           />
         </div>
 

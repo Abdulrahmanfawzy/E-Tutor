@@ -1,29 +1,69 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import CourseFilterSection from "./course-filter-section";
 import CourseFilterCheckbox from "./course-filter-checkbox";
-import type { CourseListingFilters } from "../types/course-listing.types";
-import { COURSE_CATEGORIES_FILTER, COURSE_DURATION_OPTIONS, COURSE_LEVEL_OPTIONS, COURSE_RATINGS, COURSE_TOOLS } from "./course-listing.constants";
+import ReusableRangeSlider from "@/components/common/reusable-range-slider";
+import type { CourseFilterFacets } from "../types/course-filter-facets.types";
+import type {
+    CourseDuration,
+    CourseLevel,
+    CourseListingFilters,
+} from "../types/course-listing.types";
+import { DEFAULT_COURSE_FILTERS } from "./course-listing.constants";
 
 interface CourseFilterSidebarProps {
     filters: CourseListingFilters;
+    facets?: CourseFilterFacets;
+    isLoading: boolean;
+    isError: boolean;
+    onRetry: () => void;
     onFiltersChange: (filters: CourseListingFilters) => void;
 }
 
+const LEVEL_LABELS: Record<string, CourseLevel> = {
+    all: "All",
+    beginner: "Beginner",
+    intermediate: "Intermediate",
+    expert: "Expert",
+};
+
+const DURATION_LABELS: Record<string, CourseDuration> = {
+    "1-7-days": "1-7 Days",
+    "1-4-weeks": "1-4 Weeks",
+    "1-3-months": "1-3 Months",
+    "3-6-months": "3-6 Months",
+    "6-12-months": "6-12 Months",
+};
+
 export default function CourseFilterSidebar({
     filters,
+    facets,
+    isLoading,
+    isError,
+    onRetry,
     onFiltersChange,
 }: CourseFilterSidebarProps) {
     const t = useTranslations("courseListing");
+    const locale = useLocale();
 
-    const toggleArrayValue = <T,>(
-        key: keyof CourseListingFilters,
-        value: T,
-        checked: boolean
+    const toggleArrayValue = <
+        K extends
+            | "categories"
+            | "subcategories"
+            | "tools"
+            | "ratings"
+            | "levels"
+            | "priceTypes"
+            | "durations",
+    >(
+        key: K,
+        value: CourseListingFilters[K][number],
+        checked: boolean,
     ) => {
-        const current = filters[key] as T[];
-
+        const current = filters[key];
         const updated = checked
             ? [...current, value]
             : current.filter((item) => item !== value);
@@ -34,43 +74,139 @@ export default function CourseFilterSidebar({
         });
     };
 
+    const getLocalizedLabel = (
+        group: "categories" | "subcategories" | "toolOptions",
+        key: string,
+        fallback: string,
+    ) => {
+        const translationKey = `filters.${group}.${key}`;
+        return t.has(translationKey) ? t(translationKey) : fallback;
+    };
+
+    const panelClassName =
+        "w-full rounded-sm border border-gray-100 bg-white px-4 sm:px-5 lg:sticky lg:top-6 lg:max-h-[calc(100vh-3rem)] lg:overflow-y-auto";
+
+    if (isLoading) {
+        return (
+            <aside className={panelClassName} aria-busy="true">
+                <span className="sr-only">{t("filtersLoading")}</span>
+                {Array.from({ length: 5 }, (_, index) => (
+                    <div
+                        key={index}
+                        className="space-y-3 border-b border-gray-100 py-5"
+                    >
+                        <Skeleton className="h-4 w-24" />
+                        <Skeleton className="h-4 w-full" />
+                        <Skeleton className="h-4 w-3/4" />
+                    </div>
+                ))}
+            </aside>
+        );
+    }
+
+    if (isError || !facets) {
+        return (
+            <aside className={panelClassName}>
+                <div className="py-6 text-center">
+                    <p role="alert" className="text-sm text-gray-500">
+                        {t("facetLoadError")}
+                    </p>
+                    <Button
+                        type="button"
+                        variant="link"
+                        onClick={onRetry}
+                        className="mt-2 text-[#FF6636]"
+                    >
+                        {t("retry")}
+                    </Button>
+                </div>
+            </aside>
+        );
+    }
+
+    const priceMinimum = Math.min(facets.price.min, facets.price.max);
+    const priceMaximum = Math.max(facets.price.min, facets.price.max);
+    const minPrice =
+        filters.minPrice === DEFAULT_COURSE_FILTERS.minPrice
+            ? priceMinimum
+            : Math.max(
+                  priceMinimum,
+                  Math.min(filters.minPrice, priceMaximum),
+              );
+    const maxPrice =
+        filters.maxPrice === DEFAULT_COURSE_FILTERS.maxPrice
+            ? priceMaximum
+            : Math.max(
+                  priceMinimum,
+                  Math.min(filters.maxPrice, priceMaximum),
+              );
+    const priceValue: [number, number] = [
+        Math.min(minPrice, maxPrice),
+        Math.max(minPrice, maxPrice),
+    ];
+    const hasPriceRange = priceMaximum > priceMinimum;
+
     return (
-        <aside className="w-full border border-gray-100 rounded-sm bg-white px-5">
+        <aside className={panelClassName}>
             <CourseFilterSection title={t("filters.category")}>
                 <div className="space-y-3">
-                    {COURSE_CATEGORIES_FILTER.map((category) => {
-                        const isExpanded = filters.categories.includes(category.value);
+                    {facets.categories.map((category) => {
+                        const isExpanded =
+                            filters.categories.includes(category.slug) ||
+                            category.children.some((subcategory) =>
+                                filters.subcategories.includes(subcategory.slug),
+                            );
 
                         return (
-                            <div key={category.value}>
+                            <div key={category.id}>
                                 <CourseFilterCheckbox
-                                    label={t(`filters.categories.${category.value}`)}
-                                    checked={isExpanded}
+                                    label={getLocalizedLabel(
+                                        "categories",
+                                        category.slug,
+                                        category.name,
+                                    )}
+                                    count={category.courses_count}
+                                    checked={filters.categories.includes(
+                                        category.slug,
+                                    )}
                                     onChange={(checked) =>
-                                        toggleArrayValue("categories", category.value, checked)
+                                        toggleArrayValue(
+                                            "categories",
+                                            category.slug,
+                                            checked,
+                                        )
                                     }
                                 />
-
-                                {isExpanded && category.subcategories.length > 0 && (
-                                    <div className="ml-5 mt-2 border-l border-gray-100 pl-3">
-                                        {category.subcategories.map((subcategory) => (
-                                            <CourseFilterCheckbox
-                                                key={subcategory.value}
-                                                label={t(`filters.subcategories.${subcategory.value}`)}
-                                                checked={filters.subcategories.includes(
-                                                    subcategory.value
-                                                )}
-                                                onChange={(checked) =>
-                                                    toggleArrayValue(
-                                                        "subcategories",
-                                                        subcategory.value,
-                                                        checked
-                                                    )
-                                                }
-                                            />
-                                        ))}
-                                    </div>
-                                )}
+                                {isExpanded &&
+                                    category.children.length > 0 && (
+                                        <div className="ml-5 mt-2 border-l border-gray-100 pl-3">
+                                            {category.children.map(
+                                                (subcategory) => (
+                                                    <CourseFilterCheckbox
+                                                        key={subcategory.id}
+                                                        label={getLocalizedLabel(
+                                                            "subcategories",
+                                                            subcategory.slug,
+                                                            subcategory.name,
+                                                        )}
+                                                        count={
+                                                            subcategory.courses_count
+                                                        }
+                                                        checked={filters.subcategories.includes(
+                                                            subcategory.slug,
+                                                        )}
+                                                        onChange={(checked) =>
+                                                            toggleArrayValue(
+                                                                "subcategories",
+                                                                subcategory.slug,
+                                                                checked,
+                                                            )
+                                                        }
+                                                    />
+                                                ),
+                                            )}
+                                        </div>
+                                    )}
                             </div>
                         );
                     })}
@@ -78,97 +214,112 @@ export default function CourseFilterSidebar({
             </CourseFilterSection>
 
             <CourseFilterSection title={t("filters.tools")}>
-                {COURSE_TOOLS.map((tool) => (
+                {facets.tools.map((tool) => (
                     <CourseFilterCheckbox
-                        key={tool.value}
-                        label={t(`filters.toolOptions.${tool.value}`)}
-                        checked={filters.tools.includes(tool.value)}
+                        key={tool.id}
+                        label={getLocalizedLabel(
+                            "toolOptions",
+                            tool.slug,
+                            tool.name,
+                        )}
+                        count={tool.courses_count}
+                        checked={filters.tools.includes(tool.slug)}
                         onChange={(checked) =>
-                            toggleArrayValue("tools", tool.value, checked)
+                            toggleArrayValue("tools", tool.slug, checked)
                         }
                     />
                 ))}
             </CourseFilterSection>
 
             <CourseFilterSection title={t("filters.rating")}>
-                {COURSE_RATINGS.map((rating) => (
+                {facets.ratings.map(({ rating, courses_count }) => (
                     <CourseFilterCheckbox
-                        key={rating.value}
-                        label={t(`filters.ratingOptions.${rating.value}`)}
-                        count={undefined}
-                        checked={filters.ratings.includes(rating.value)}
+                        key={rating}
+                        label={
+                            t.has(`filters.ratingOptions.${rating}`)
+                                ? t(`filters.ratingOptions.${rating}`)
+                                : `${rating} Star${rating === 1 ? "" : "s"} & up`
+                        }
+                        count={courses_count}
+                        checked={filters.ratings.includes(rating)}
                         onChange={(checked) =>
-                            toggleArrayValue("ratings", rating.value, checked)
+                            toggleArrayValue("ratings", rating, checked)
                         }
                     />
                 ))}
             </CourseFilterSection>
 
             <CourseFilterSection title={t("filters.courseLevel")}>
-                {COURSE_LEVEL_OPTIONS.map((level) => (
-                    <CourseFilterCheckbox
-                        key={level}
-                        label={t(`filters.levels.${level}`)}
-                        checked={filters.levels.includes(level)}
-                        onChange={(checked) =>
-                            toggleArrayValue("levels", level, checked)
-                        }
-                    />
-                ))}
+                {facets.levels.map(({ value, courses_count }) => {
+                    const level = LEVEL_LABELS[value];
+
+                    if (!level) {
+                        return null;
+                    }
+
+                    return (
+                        <CourseFilterCheckbox
+                            key={value}
+                            label={
+                                t.has(`filters.levels.${level}`)
+                                    ? t(`filters.levels.${level}`)
+                                    : level
+                            }
+                            count={courses_count}
+                            checked={filters.levels.includes(level)}
+                            onChange={(checked) =>
+                                toggleArrayValue("levels", level, checked)
+                            }
+                        />
+                    );
+                })}
             </CourseFilterSection>
 
             <CourseFilterSection title={t("filters.price")}>
-                <div className="space-y-3">
-                    <div className="grid grid-cols-2 gap-3">
-                        <label className="space-y-1 text-xs text-gray-500">
-                            {t("filters.minimumPrice")}
-                            <input
-                                type="number"
-                                min={0}
-                                step="any"
-                                value={filters.minPrice}
-                                onChange={(event) => {
-                                    const minPrice = Number(event.currentTarget.value);
-                                    if (
-                                        Number.isFinite(minPrice) &&
-                                        minPrice <= filters.maxPrice
-                                    ) {
-                                        onFiltersChange({ ...filters, minPrice });
-                                    }
-                                }}
-                                className="h-9 w-full rounded-sm border border-gray-200 px-2 text-sm text-gray-900 outline-none focus-visible:border-[#F76C3C]"
-                            />
-                        </label>
-                        <label className="space-y-1 text-xs text-gray-500">
-                            {t("filters.maximumPrice")}
-                            <input
-                                type="number"
-                                min={filters.minPrice}
-                                step="any"
-                                value={filters.maxPrice}
-                                onChange={(event) => {
-                                    const maxPrice = Number(event.currentTarget.value);
-                                    if (
-                                        Number.isFinite(maxPrice) &&
-                                        maxPrice >= filters.minPrice
-                                    ) {
-                                        onFiltersChange({ ...filters, maxPrice });
-                                    }
-                                }}
-                                className="h-9 w-full rounded-sm border border-gray-200 px-2 text-sm text-gray-900 outline-none focus-visible:border-[#F76C3C]"
-                            />
-                        </label>
+                <div className="space-y-2">
+                    {hasPriceRange && (
+                        <ReusableRangeSlider
+                            min={priceMinimum}
+                            max={priceMaximum}
+                            step={1}
+                            value={priceValue}
+                            onChange={([nextMin, nextMax]) =>
+                                onFiltersChange({
+                                    ...filters,
+                                    minPrice: nextMin,
+                                    maxPrice: nextMax,
+                                })
+                            }
+                            minLabel={t("filters.minimumPrice")}
+                            maxLabel={t("filters.maximumPrice")}
+                            direction={locale === "ar" ? "rtl" : "ltr"}
+                        />
+                    )}
+                    <div className="flex items-center justify-between text-xs text-gray-500">
+                        <span>
+                            {t("filters.minimumPrice")}:{" "}
+                            <span className="font-medium text-gray-900">
+                                ${priceValue[0].toLocaleString()}
+                            </span>
+                        </span>
+                        <span>
+                            {t("filters.maximumPrice")}:{" "}
+                            <span className="font-medium text-gray-900">
+                                ${priceValue[1].toLocaleString()}
+                            </span>
+                        </span>
                     </div>
                     <CourseFilterCheckbox
                         label={t("filters.paid")}
+                        count={facets.price.paid_count}
                         checked={filters.priceTypes.includes("paid")}
                         onChange={(checked) =>
                             toggleArrayValue("priceTypes", "paid", checked)
                         }
                     />
-
                     <CourseFilterCheckbox
                         label={t("filters.free")}
+                        count={facets.price.free_count}
                         checked={filters.priceTypes.includes("free")}
                         onChange={(checked) =>
                             toggleArrayValue("priceTypes", "free", checked)
@@ -178,16 +329,29 @@ export default function CourseFilterSidebar({
             </CourseFilterSection>
 
             <CourseFilterSection title={t("filters.duration")}>
-                {COURSE_DURATION_OPTIONS.map((duration) => (
-                    <CourseFilterCheckbox
-                        key={duration}
-                        label={t(`filters.durations.${duration}`)}
-                        checked={filters.durations.includes(duration)}
-                        onChange={(checked) =>
-                            toggleArrayValue("durations", duration, checked)
-                        }
-                    />
-                ))}
+                {facets.durations.map(({ value, courses_count }) => {
+                    const duration = DURATION_LABELS[value];
+
+                    if (!duration) {
+                        return null;
+                    }
+
+                    return (
+                        <CourseFilterCheckbox
+                            key={value}
+                            label={
+                                t.has(`filters.durations.${duration}`)
+                                    ? t(`filters.durations.${duration}`)
+                                    : duration
+                            }
+                            count={courses_count}
+                            checked={filters.durations.includes(duration)}
+                            onChange={(checked) =>
+                                toggleArrayValue("durations", duration, checked)
+                            }
+                        />
+                    );
+                })}
             </CourseFilterSection>
         </aside>
     );

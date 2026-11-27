@@ -850,6 +850,8 @@
       "price_desc": "Price: High to Low"
     },
     "filtersButton": "Filters",
+    "filtersLoading": "Loading course filters...",
+    "facetLoadError": "Course filters couldn't be loaded.",
     "filters": {
       "category": "Category",
       "categories": {
@@ -896,6 +898,7 @@
       },
       "courseLevel": "Course Level",
       "levels": {
+        "All": "All levels",
         "Beginner": "Beginner",
         "Intermediate": "Intermediate",
         "Expert": "Expert"

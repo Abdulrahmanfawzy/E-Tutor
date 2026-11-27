@@ -1,8 +1,10 @@
-import type { CourseListingFilters } from "../types/course-listing.types";
+import type {
+    CourseLevel,
+    CourseListingFilters,
+} from "../types/course-listing.types";
+import type { CourseFilterFacets } from "../types/course-filter-facets.types";
 import {
     COURSE_CATEGORIES_FILTER,
-    COURSE_DURATION_OPTIONS,
-    COURSE_LEVEL_OPTIONS,
     COURSE_RATINGS,
     COURSE_TOOLS,
     DEFAULT_COURSE_FILTERS,
@@ -44,13 +46,50 @@ function getPriceParam(
 }
 
 export function parseCourseListingFilters(
-    searchParams: SearchParamsReader
+    searchParams: SearchParamsReader,
+    facets?: CourseFilterFacets
 ): CourseListingFilters {
-    const allowedSubcategories = COURSE_CATEGORIES_FILTER.flatMap((category) =>
-        category.subcategories.map((subcategory) => subcategory.value)
-    );
+    const categories =
+        facets?.categories.map((category) => category.slug) ??
+        COURSE_CATEGORIES_FILTER.map((category) => category.value);
+    const subcategories =
+        facets?.categories.flatMap((category) =>
+            category.children.map((subcategory) => subcategory.slug)
+        ) ??
+        COURSE_CATEGORIES_FILTER.flatMap((category) =>
+            category.subcategories.map((subcategory) => subcategory.value)
+        );
+    const tools =
+        facets?.tools.map((tool) => tool.slug) ??
+        COURSE_TOOLS.map((tool) => tool.value);
+    const ratings =
+        facets?.ratings.map(({ rating }) => rating) ??
+        COURSE_RATINGS.map(({ value }) => value);
+    const levels =
+        facets?.levels.map(({ value }) => value) ??
+        ["beginner", "intermediate", "expert"];
+    const durations =
+        facets?.durations.map(({ value }) => value) ?? [
+            "1-7-days",
+            "1-4-weeks",
+            "1-3-months",
+            "3-6-months",
+            "6-12-months",
+        ];
 
-    const allowedRatings = COURSE_RATINGS.map(({ value }) => value);
+    const levelLabels: Record<string, CourseLevel> = {
+        all: "All",
+        beginner: "Beginner",
+        intermediate: "Intermediate",
+        expert: "Expert",
+    } as const;
+    const durationLabels: Record<string, CourseListingFilters["durations"][number]> = {
+        "1-7-days": "1-7 Days",
+        "1-4-weeks": "1-4 Weeks",
+        "1-3-months": "1-3 Months",
+        "3-6-months": "3-6 Months",
+        "6-12-months": "6-12 Months",
+    };
 
     const minPrice = getPriceParam(
         searchParams,
@@ -70,17 +109,17 @@ export function parseCourseListingFilters(
         categories: getAllowedValues(
             searchParams,
             "category",
-            COURSE_CATEGORIES_FILTER.map(({ value }) => value)
+            categories
         ),
         subcategories: getAllowedValues(
             searchParams,
             "subcategory",
-            allowedSubcategories
+            subcategories
         ),
         tools: getAllowedValues(
             searchParams,
             "tools",
-            COURSE_TOOLS.map(({ value }) => value)
+            tools
         ),
         ratings: Array.from(
             new Set(
@@ -91,23 +130,17 @@ export function parseCourseListingFilters(
                     .filter(
                         (rating) =>
                             Number.isFinite(rating) &&
-                            allowedRatings.includes(rating as 1 | 2 | 3 | 4 | 5)
+                            ratings.includes(rating)
                     )
             )
         ),
         levels: getAllowedValues(
             searchParams,
             "level",
-            ["beginner", "intermediate", "expert"]
-        ).map((level) => {
-            const labels = {
-                beginner: "Beginner",
-                intermediate: "Intermediate",
-                expert: "Expert",
-            } as const;
-
-            return labels[level];
-        }),
+            levels
+        )
+            .map((level) => levelLabels[level])
+            .filter((level): level is CourseLevel => level !== undefined),
         minPrice:
             minPrice <= maxPrice
                 ? minPrice
@@ -125,23 +158,12 @@ export function parseCourseListingFilters(
         durations: getAllowedValues(
             searchParams,
             "duration",
-            [
-                "1-7-days",
-                "1-4-weeks",
-                "1-3-months",
-                "3-6-months",
-                "6-12-months",
-            ]
-        ).map((duration) => {
-            const labels = {
-                "1-7-days": "1-7 Days",
-                "1-4-weeks": "1-4 Weeks",
-                "1-3-months": "1-3 Months",
-                "3-6-months": "3-6 Months",
-                "6-12-months": "6-12 Months",
-            } as const;
-
-            return labels[duration];
-        }),
+            durations
+        )
+            .map((duration) => durationLabels[duration])
+            .filter(
+                (duration): duration is CourseListingFilters["durations"][number] =>
+                    duration !== undefined
+            ),
     };
 }

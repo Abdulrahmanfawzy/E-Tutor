@@ -859,6 +859,8 @@
       "price_desc": "السعر: من الأعلى للأقل"
     },
     "filtersButton": "الفلاتر",
+    "filtersLoading": "جارٍ تحميل فلاتر الدورات...",
+    "facetLoadError": "تعذّر تحميل فلاتر الدورات.",
     "filters": {
       "category": "التصنيف",
       "categories": {
@@ -905,6 +907,7 @@
       },
       "courseLevel": "مستوى الدورة",
       "levels": {
+        "All": "جميع المستويات",
         "Beginner": "مبتدئ",
         "Intermediate": "متوسط",
         "Expert": "متقدم"

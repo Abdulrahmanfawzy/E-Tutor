@@ -13,9 +13,11 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import useGetCourses from "../hooks/use-get-courses";
 import useCourseSearchSuggestions from "../hooks/use-course-search-suggestions";
+import useCourseFilterFacets from "../hooks/use-course-filter-facets";
 import { COURSE_SORT_OPTIONS } from "../constants/course-sort-options";
 import type { CourseListingFilters } from "../types/course-listing.types";
 import type { CourseApiItem, GetCoursesParams } from "../types/courses.types";
+import type { CourseFilterFacets } from "../types/course-filter-facets.types";
 import { DEFAULT_COURSE_FILTERS } from "./course-listing.constants";
 import CourseFilterSidebar from "./course-filter-sidebar";
 import { parseCourseListingFilters } from "../utils/course-listing.utils";
@@ -23,6 +25,7 @@ import ReusableSelect from "@/components/common/reusable-select";
 import { useTranslations } from "next-intl";
 
 const API_LEVELS = {
+    All: "all",
     Beginner: "beginner",
     Intermediate: "intermediate",
     Expert: "expert",
@@ -39,13 +42,21 @@ const API_DURATIONS = {
 const PAGE_SIZE = 20;
 const SUGGESTIONS_DEBOUNCE_MS = 1_050;
 
-function getCourseParams(searchParamsString: string): GetCoursesParams {
+function getCourseParams(
+    searchParamsString: string,
+    facets?: CourseFilterFacets,
+): GetCoursesParams {
     const searchParams = new URLSearchParams(searchParamsString);
-    const filters = parseCourseListingFilters(searchParams);
+    const filters = parseCourseListingFilters(searchParams, facets);
     const requestedSort = searchParams.get("sort");
+    const requestedSortOption = COURSE_SORT_OPTIONS.find(
+        (option) => option.value === requestedSort,
+    )?.value;
     const sort =
-        COURSE_SORT_OPTIONS.find((option) => option.value === requestedSort)
-            ?.value ?? "trending";
+        requestedSortOption &&
+            (!facets || facets.sorts.includes(requestedSortOption))
+            ? requestedSortOption
+            : "trending";
     const requestedPage = Number(searchParams.get("page") ?? 1);
     const priceTypes = filters.priceTypes;
 
@@ -63,11 +74,13 @@ function getCourseParams(searchParamsString: string): GetCoursesParams {
             ? filters.levels.map((level) => API_LEVELS[level])
             : undefined,
         price_min:
-            filters.minPrice !== DEFAULT_COURSE_FILTERS.minPrice
+            filters.minPrice !== DEFAULT_COURSE_FILTERS.minPrice &&
+                filters.minPrice !== facets?.price.min
                 ? filters.minPrice
                 : undefined,
         price_max:
-            filters.maxPrice !== DEFAULT_COURSE_FILTERS.maxPrice
+            filters.maxPrice !== DEFAULT_COURSE_FILTERS.maxPrice &&
+                filters.maxPrice !== facets?.price.max
                 ? filters.maxPrice
                 : undefined,
         price_type:
@@ -101,9 +114,8 @@ function mapCourse(course: CourseApiItem) {
 function CourseResultsSkeleton({ columns }: { columns: 3 | 4 }) {
     return (
         <div
-            className={`grid grid-cols-1 gap-4 sm:grid-cols-2 ${
-                columns === 3 ? "lg:grid-cols-3" : "lg:grid-cols-4"
-            }`}
+            className={`grid grid-cols-1 gap-4 sm:grid-cols-2 ${columns === 3 ? "lg:grid-cols-3" : "lg:grid-cols-4"
+                }`}
             aria-busy="true"
         >
             {Array.from({ length: 6 }, (_, index) => (
@@ -111,7 +123,7 @@ function CourseResultsSkeleton({ columns }: { columns: 3 | 4 }) {
                     key={index}
                     className="overflow-hidden rounded-sm border border-gray-100"
                 >
-                    <Skeleton className="aspect-16/10 w-full rounded-none" />
+                    <Skeleton className="aspect-16/10 w-full rounded-sm" />
                     <div className="space-y-4 p-4">
                         <div className="flex justify-between">
                             <Skeleton className="h-5 w-20" />
@@ -158,13 +170,19 @@ export default function CourseListingCatalog() {
     const search = new URLSearchParams(searchParamsString).get("q") ?? "";
     const [searchInput, setSearchInput] = useState(search);
     const [suggestionsSearch, setSuggestionsSearch] = useState(search.trim());
+    const filterFacetsQuery = useCourseFilterFacets();
+    const filterFacets = filterFacetsQuery.data?.data;
     const filters = useMemo(
-        () => parseCourseListingFilters(new URLSearchParams(searchParamsString)),
-        [searchParamsString],
+        () =>
+            parseCourseListingFilters(
+                new URLSearchParams(searchParamsString),
+                filterFacets,
+            ),
+        [filterFacets, searchParamsString],
     );
     const params = useMemo(
-        () => getCourseParams(searchParamsString),
-        [searchParamsString],
+        () => getCourseParams(searchParamsString, filterFacets),
+        [filterFacets, searchParamsString],
     );
     const {
         data,
@@ -199,6 +217,11 @@ export default function CourseListingCatalog() {
     const activeFilterCount = data?.success
         ? data.data.active_filters_count
         : 0;
+    const sortOptions = filterFacets
+        ? COURSE_SORT_OPTIONS.filter((option) =>
+            filterFacets.sorts.includes(option.value),
+        )
+        : COURSE_SORT_OPTIONS;
 
     const updateSearchParams = useCallback(
         (updates: Record<string, string | readonly string[] | null>) => {
@@ -209,7 +232,7 @@ export default function CourseListingCatalog() {
 
                 if (typeof value === "string" && value !== "") {
                     nextSearchParams.set(key, value);
-                } else if (value !== null && value.length > 0) {
+                } else if (Array.isArray(value) && value.length > 0) {
                     nextSearchParams.set(key, value.join(","));
                 }
             }
@@ -272,11 +295,13 @@ export default function CourseListingCatalog() {
                 : null,
             level: nextFilters.levels.map((level) => API_LEVELS[level]),
             price_min:
-                nextFilters.minPrice === DEFAULT_COURSE_FILTERS.minPrice
+                nextFilters.minPrice === DEFAULT_COURSE_FILTERS.minPrice ||
+                    nextFilters.minPrice === filterFacets?.price.min
                     ? null
                     : String(nextFilters.minPrice),
             price_max:
-                nextFilters.maxPrice === DEFAULT_COURSE_FILTERS.maxPrice
+                nextFilters.maxPrice === DEFAULT_COURSE_FILTERS.maxPrice ||
+                    nextFilters.maxPrice === filterFacets?.price.max
                     ? null
                     : String(nextFilters.maxPrice),
             price_type:
@@ -309,7 +334,12 @@ export default function CourseListingCatalog() {
 
     const handleSortChange = (sort: string) => {
         updateSearchParams({
-            sort: COURSE_SORT_OPTIONS.some((option) => option.value === sort)
+            sort: COURSE_SORT_OPTIONS.some(
+                (option) =>
+                    option.value === sort &&
+                    (!filterFacets ||
+                        filterFacets.sorts.includes(option.value)),
+            )
                 ? sort
                 : "trending",
             page: "1",
@@ -342,19 +372,20 @@ export default function CourseListingCatalog() {
                     <label className="flex items-center gap-2 text-sm text-gray-600">
                         <span className="shrink-0">{t("sortBy")}</span>
                         <ReusableSelect
-                            options={COURSE_SORT_OPTIONS.map((option) => ({
+                            options={sortOptions.map((option) => ({
                                 ...option,
                                 label: t(`sortOptions.${option.value}`),
                             }))}
                             value={params.sort}
                             onValueChange={handleSortChange}
-                            wrapperClassName="h-14!"
+                            triggerClassName="h-10!"
                         />
                     </label>
                 </div>
             </div>
             <CourseSearchMeta
                 suggestions={suggestions}
+                popularKeywords={filterFacets?.popular_keywords}
                 resultCount={totalResults}
                 search={searchInput}
                 suggestionsLoading={
@@ -377,6 +408,10 @@ export default function CourseListingCatalog() {
                     <div className="w-full shrink-0 lg:w-64">
                         <CourseFilterSidebar
                             filters={filters}
+                            facets={filterFacets}
+                            isLoading={filterFacetsQuery.isPending}
+                            isError={filterFacetsQuery.isError}
+                            onRetry={() => void filterFacetsQuery.refetch()}
                             onFiltersChange={handleFiltersChange}
                         />
                     </div>
@@ -431,4 +466,3 @@ export default function CourseListingCatalog() {
         </section>
     );
 }
-

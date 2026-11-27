@@ -60,7 +60,7 @@ export default function InstructorPage() {
         button={{
           label: "Get Started",
           props: {
-            variant: "primary",
+           variant: "primary",
           },
         }}
       />

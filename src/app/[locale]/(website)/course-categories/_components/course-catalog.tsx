@@ -5,7 +5,7 @@ import { useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import CourseCard from "../../../../../components/common/course-card";
 import { coursesData, type CourseCategory } from "./courses-data";
-import CourseCatalogToolbar from "./course-catalog-toolbar";
+import CourseCatalogToolbar from "../../../../../features/courses/components/course-catalog-toolbar";
 import { filterCourses, type CourseSortOption } from "./course-catalog.utils";
 import CustomPagination from "@/components/common/custom-pagination";
 import CourseSearchMeta from "@/components/common/course-search-meta";

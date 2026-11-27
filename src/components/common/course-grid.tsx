@@ -1,9 +1,8 @@
-import { Course } from "@/app/[locale]/(website)/course-categories/_components/courses-data";
 import CourseCard from "@/components/common/course-card";
-
+import type { CourseCardData } from "@/components/common/course-card";
 
 interface CourseGridProps {
-    courses: Course[];
+    courses: CourseCardData[];
     columns?: 3 | 4;
 }
 

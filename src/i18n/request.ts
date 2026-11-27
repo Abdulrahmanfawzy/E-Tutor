@@ -3,8 +3,8 @@ import * as rootParams from "next/root-params";
 import { getRequestConfig } from "next-intl/server";
 import { hasLocale } from "next-intl";
 
-import arMessages from "../../messages/ar.json";
-import enMessages from "../../messages/en.json";
+import arMessages from "@/messages/ar.json";
+import enMessages from "@/messages/en.json";
 import { routing } from "./routing";
 
 const messages = {

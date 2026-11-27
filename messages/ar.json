@@ -336,13 +336,10 @@
     "empty": {
       "title": "لا توجد محادثة محددة",
       "description": "اختر محادثة لبدء الدردشة."
-    }
-  }
-}
-<<<<<<< Updated upstream
-=======
-},
-"studentCourses": {
+    } 
+
+  } ,
+   "studentCourses": {
   "title": "الكورسات ({count})",
   "filters": {
     "search": "بحث",
@@ -356,6 +353,4 @@
   "teacher": { "all": "كل المدرّسين" },
   "card": { "watchLecture": "شاهد المحاضرة", "completed": "مكتمل" }
 }
-
 }
->>>>>>> Stashed changes

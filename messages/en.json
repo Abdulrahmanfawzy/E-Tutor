@@ -337,24 +337,32 @@
       "title": "No conversation selected",
       "description": "Select a conversation to start chatting."
     }
+  },
+  "studentCourses": {
+    "title": "Courses ({count})",
+    "filters": {
+      "search": "Search",
+      "searchPlaceholder": "Search in your courses...",
+      "sortBy": "Sort by",
+      "status": "Status",
+      "teacher": "Teacher"
+    },
+    "sort": {
+      "latest": "Latest",
+      "oldest": "Oldest",
+      "progress": "Progress"
+    },
+    "status": {
+      "all": "All Courses",
+      "inProgress": "In progress",
+      "completed": "Completed"
+    },
+    "teacher": {
+      "all": "All Teachers"
+    },
+    "card": {
+      "watchLecture": "Watch Lecture",
+      "completed": "Completed"
+    }
   }
 }
-<<<<<<< Updated upstream
-=======
-},
-"studentCourses": {
-  "title": "Courses ({count})",
-  "filters": {
-    "search": "Search",
-    "searchPlaceholder": "Search in your courses...",
-    "sortBy": "Sort by",
-    "status": "Status",
-    "teacher": "Teacher"
-  },
-  "sort": { "latest": "Latest", "oldest": "Oldest", "progress": "Progress" },
-  "status": { "all": "All Courses", "inProgress": "In progress", "completed": "Completed" },
-  "teacher": { "all": "All Teachers" },
-  "card": { "watchLecture": "Watch Lecture", "completed": "Completed" }
-}
-}
->>>>>>> Stashed changes

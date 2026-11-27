@@ -75,13 +75,8 @@ export default async function LocaleLayout({
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider>
           <QueryProvider>
-<<<<<<< Updated upstream
-            <LanguageSwitcher />
-            {children}
-=======
             {children}
             <Toaster />
->>>>>>> Stashed changes
           </QueryProvider>
         </NextIntlClientProvider>
       </body>

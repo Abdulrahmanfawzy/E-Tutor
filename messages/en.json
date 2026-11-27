@@ -676,6 +676,7 @@
     }
   },
   "instructorCourses": {
+    "free": "Free",
     "title": "My Courses",
     "searchPlaceholder": "Search in your courses...",
     "filters": {

@@ -11,7 +11,11 @@ import {
 import Link from "next/link";
 import { useParams } from "next/navigation";
 
-export default function CourseActionsMenu({ id }: { id: number }) {
+export default function CourseActionsMenu({
+  slug,
+}: {
+  slug: string;
+}) {
   const t = useTranslations("instructorCourses");
   const { locale } = useParams<{ locale: string }>();
   return (
@@ -25,7 +29,7 @@ export default function CourseActionsMenu({ id }: { id: number }) {
 
       <DropdownMenuContent align="end" className="min-w-40">
         <DropdownMenuItem className="focus:bg-button-primary focus:text-white">
-          <Link href={`/${locale}/instructor/courses/${id}`}>
+          <Link href={`/${locale}/instructor/courses/${slug}`}>
           {t("actions.viewDetails")}
           </Link>
         </DropdownMenuItem>

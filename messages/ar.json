@@ -684,6 +684,7 @@
     }
   },
   "instructorCourses": {
+    "free": "مجاني",
     "title": "كورساتي",
     "searchPlaceholder": "ابحث في كورساتك...",
     "filters": {

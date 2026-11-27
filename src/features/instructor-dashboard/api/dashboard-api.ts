@@ -5,7 +5,7 @@ export async function getInstructorDashboard():Promise<InstructorDashboardRespon
   const response = await fetch(`${process.env.API}api/v1/instructor/dashboard`,{
     headers: {
         Accept: "application/json",
-      Authorization: `Bearer ${process.env.INSTRUCTOR_TOKEN}`,
+      Authorization: `Bearer ${process.env.TOKEN}`,
     },
     
   })

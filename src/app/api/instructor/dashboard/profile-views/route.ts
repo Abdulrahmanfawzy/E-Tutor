@@ -1,0 +1,24 @@
+
+import { NextRequest, NextResponse } from "next/server";
+
+export async function GET(request: NextRequest) {
+  const period =
+    request.nextUrl.searchParams.get("period") || "week";
+
+  const response = await fetch(
+    `${process.env.API}api/v1/instructor/dashboard/profile-views?period=${period}`,
+    {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${process.env.TOKEN}`,
+      },
+      cache: "no-store",
+    }
+  );
+
+  const data = await response.json();
+
+  return NextResponse.json(data, {
+    status: response.status,
+  });
+}

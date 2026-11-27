@@ -40,6 +40,10 @@
       "passwordPlaceholder": "Enter your password",
       "rememberMe": "Remember me",
       "submit": "Sign In",
+      "submitting": "Signing in...",
+      "invalidCredentials": "The email or password is incorrect.",
+      "loginError": "Unable to sign in right now. Please try again.",
+      "loginSuccess": "You are now signed in.",
       "socialDivider": "SIGN IN WITH"
     },
     "register": {
@@ -60,6 +64,9 @@
       "agreeWith": "I agree with all of your",
       "terms": "Terms & Conditions",
       "submit": "Create Account",
+      "registering": "Creating account...",
+      "registerSuccess": "Your account was created. Sign in to continue.",
+      "registerError": "Unable to create your account right now. Please try again.",
       "socialDivider": "SIGN UP WITH"
     },
     "shared": {
@@ -83,6 +90,10 @@
       "termsRequired": "Please accept the terms",
       "passwordsMismatch": "Passwords do not match"
     }
+  },
+  "adminDashboard": {
+    "title": "Admin dashboard",
+    "description": "You are signed in with an administrator account."
   },
   "nav": {
     "home": "Home",

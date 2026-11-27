@@ -13,6 +13,7 @@ import { Separator } from "@/components/ui/separator";
 import { RegisterField } from "@/features/auth/components/RegisterField";
 import { RegisterPasswordField } from "@/features/auth/components/RegisterPasswordField";
 import { SocialSignUpButtons } from "@/features/auth/components/SocialSignUpButtons";
+import { useLogin } from "@/features/auth/hooks/use-login";
 import {
   createLoginSchema,
   type LoginFormValues,
@@ -21,6 +22,7 @@ import {
 export function LoginForm() {
   const t = useTranslations("auth.login");
   const validation = useTranslations("auth.validation");
+  const { login, isPending } = useLogin();
   const loginSchema = useMemo(
     () =>
       createLoginSchema({
@@ -48,7 +50,7 @@ export function LoginForm() {
   return (
     <form
       noValidate
-      onSubmit={handleSubmit((valu) => console.log(valu))}
+      onSubmit={handleSubmit(login)}
       className="w-full"
     >
       <div className="space-y-3">
@@ -126,9 +128,10 @@ export function LoginForm() {
         </div>
         <Button
           type="submit"
+          disabled={isPending}
           className="h-7 shrink-0 gap-2 leading-2.5  text-white py-5 rounded-sm px-10 text-[10px] font-semibold"
         >
-          {t("submit")}
+          {isPending ? t("submitting") : t("submit")}
           <ArrowRight
             aria-hidden="true"
             className="size-3 rtl:rotate-180"

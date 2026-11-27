@@ -266,6 +266,8 @@
   },
   "giftCourse": {
     "title": "دورة هدية",
+    "home": "الرئيسية",
+    "courses": "الدورات",
     "breadcrumbCourse": "دورة",
     "containerTitle": "أهدِ دورة تدريبية",
     "recipient": {
@@ -294,6 +296,7 @@
     }
   },
   "dashboard": {
+     "periods": { "today": "اليوم", "week": "هذا الأسبوع", "month": "هذا الشهر" },
     "sidebar": {
       "dashboard": "لوحة التحكم",
       "createCourse": "أنشئ دورة جديدة",
@@ -301,13 +304,15 @@
       "earning": "الأرباح",
       "message": "الرسائل",
       "settings": "الإعدادات",
-      "logout": "تسجيل الخروج"
+      "logout": "تسجيل الخروج",
+      "signOut": "تسجيل الخروج"
     },
     "navbar": {
       "goodMorning": "صباح الخير",
       "dashboard": "لوحة التحكم",
       "searchPlaceholder": "ابحث ....",
-      "notifications": "الإشعارات"
+      "notifications": "الإشعارات",
+      "profile": "الصورة الشخصية"
     },
     "footer": {
       "copyright": "© 2021 - إي-تيوتر. صمم بواسطة {designer}. جميع الحقوق محفوظة",
@@ -315,7 +320,14 @@
       "faqs": "الأسئلة الشائعة",
       "privacy": "سياسة الخصوصية",
       "terms": "الشروط والأحكام"
-    }
+    },
+    "cards": {
+  "recentActivity": "آخر النشاطات",
+  "revenue": "الإيرادات",
+  "profileView": "مشاهدات الملف الشخصي",
+  "courseRating": "التقييم العام للكورس",
+  "courseOverview": "نظرة عامة على الكورس"
+}
   },
   "messages": {
     "sidebar": {

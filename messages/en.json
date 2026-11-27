@@ -266,6 +266,8 @@
   },
   "giftCourse": {
     "title": "Gift Course",
+    "home": "Home",
+    "courses": "Courses",
     "breadcrumbCourse": "Course",
     "containerTitle": "Gift a Course",
     "recipient": {
@@ -277,14 +279,6 @@
       "message": "Personal message",
       "messagePlaceholder": "Write a personal message (optional)"
     },
-    "payment": {
-      "title": "Payment Method",
-      "savedCard": "Saved card",
-      "newCard": "Use a new card",
-      "expiry": "Expiry",
-      "holder": "Card holder",
-      "addNewCard": "Add a new card"
-    },
     "card": {
       "title": "Course",
       "courseBy": "Course By",
@@ -294,6 +288,7 @@
     }
   },
   "dashboard": {
+    "periods": { "today": "Today", "week": "This week", "month": "This month" },
     "sidebar": {
       "dashboard": "Dashboard",
       "createCourse": "Create New Course",
@@ -301,13 +296,15 @@
       "earning": "Earning",
       "message": "Message",
       "settings": "Settings",
-      "logout": "Logout"
+      "logout": "Logout",
+      "signOut": "Sign-out"
     },
     "navbar": {
       "goodMorning": "Good Morning",
       "dashboard": "Dashboard",
       "searchPlaceholder": "Search ....",
-      "notifications": "Notifications"
+      "notifications": "Notifications",
+      "profile": "Profile"
     },
     "footer": {
       "copyright": "© 2021 - E-Tutor. Designed by {designer}. All rights reserved",
@@ -315,7 +312,14 @@
       "faqs": "FAQs",
       "privacy": "Privacy Policy",
       "terms": "Terms & Condition"
-    }
+    },
+    "cards": {
+  "recentActivity": "Recent Activity",
+  "revenue": "Revenue",
+  "profileView": "Profile View",
+  "courseRating": "Overall Course Rating",
+  "courseOverview": "Course Overview"
+}
   },
   "messages": {
     "sidebar": {

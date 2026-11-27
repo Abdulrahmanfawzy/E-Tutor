@@ -3,14 +3,21 @@ import { Link } from "@/i18n/navigation";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Star } from "lucide-react";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import { cn } from "cn";
 import { useTranslations } from "next-intl";
-import type { Course } from "../../features/course-categories/data/courses-data";
 
-type CourseCardData = Omit<Course, "category"> & {
+
+export interface CourseCardData {
+  id: number;
+  slug: string;
+  title: string;
+  image: string | StaticImageData;
   category: string;
   categoryColor?: string;
+  price: number;
+  rating: number;
+  students: string;
 };
 
 interface CourseCardProps {
@@ -19,11 +26,11 @@ interface CourseCardProps {
 
 
 export default function CourseCard({ course }: CourseCardProps) {
-  const t = useTranslations("courseCategories");
+  const t = useTranslations("courseListing");
 
   return (
     <Link
-      href={`/course-listing/${course.slug}`}
+      href={`/course-list/${course.slug}`}
       aria-label={t("viewCourseDetails", { title: course.title })}
       className="block h-full rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FF6636]"
     >

@@ -10,14 +10,26 @@ import {
 } from "@/components/ui/select";
 import { useTranslations } from "next-intl";
 
-export default function CoursesFilters() {
+interface CoursesFiltersProps {
+  onSearchChange: (value: string) => void;
+}
+
+export default function CoursesFilters(
+{
+  onSearchChange,
+}: CoursesFiltersProps
+) {
   const t = useTranslations("instructorCourses");
 
   return (
     <div className="flex flex-wrap items-end gap-4">
       <div className="min-w-60 flex-1">
         <p className="mb-2 text-label-sm text-gray-500">&nbsp;</p>
-        <SearchInput placeholder={t("searchPlaceholder")} className="max-w-none" />
+        <SearchInput 
+        placeholder={t("searchPlaceholder")} 
+        className="max-w-none" 
+         onChange={onSearchChange}
+        />
       </div>
 
       <div className="flex flex-col gap-2">

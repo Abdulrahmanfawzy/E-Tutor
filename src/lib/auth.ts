@@ -104,6 +104,7 @@ export const authOptions: NextAuthOptions = {
         async session({ session, token }) {
             if (session.user) {
                 session.user.id = token.sub ?? "";
+                session.user.accessToken = token.accessToken ?? "";
                 session.user.roles = token.roles ?? [];
                 session.user.isInstructor = token.isInstructor ?? false;
                 session.user.isAdmin = token.isAdmin ?? false;

@@ -1,5 +1,7 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 import {
   MessageScroller,
   MessageScrollerContent,
@@ -21,18 +23,20 @@ export function ConversationMessages({
   messages,
   conversation,
 }: ConversationMessagesProps) {
+  const t = useTranslations("messages");
+
   return (
     <MessageScrollerProvider autoScroll defaultScrollPosition="end">
       <MessageScroller className="min-h-0 flex-1">
         <MessageScrollerViewport
-          aria-label="Conversation messages"
+          aria-label={t("thread.ariaLabel")}
           className="min-h-0"
         >
           <MessageScrollerContent className="flex flex-col gap-7 px-5 py-7 md:px-12 md:py-10">
             <MessageScrollerItem messageId="today-separator">
               <div className="flex justify-center">
                 <span className="rounded-md bg-orange-50 px-4 py-2 text-sm text-gray-700">
-                  Today
+                  {t("thread.today")}
                 </span>
               </div>
             </MessageScrollerItem>
@@ -47,7 +51,9 @@ export function ConversationMessages({
               <MessageScrollerItem messageId="empty-state">
                 <div className="flex min-h-50 items-center justify-center">
                   <p className="text-sm text-gray-500">
-                    Start your conversation with {conversation.name}.
+                    {t("thread.startConversation", {
+                      name: conversation.name,
+                    })}
                   </p>
                 </div>
               </MessageScrollerItem>

@@ -1,4 +1,5 @@
 import { InputHTMLAttributes, ReactNode } from "react";
+import type { ButtonHTMLAttributes } from "react";
 
 export function Card({ children, className = "" }: { children: ReactNode; className?: string }) {
   return <section className={`bg-white p-6 ${className}`}>{children}</section>;
@@ -46,11 +47,16 @@ export function TextInput({ icon, trailing, className = "", ...props }: InputPro
   );
 }
 
-export function SaveButton({ children = "Save Changes" }: { children?: ReactNode }) {
+export function SaveButton({
+  children = "Save Changes",
+  className = "",
+  ...props
+}: ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
     <button
       type="submit"
-      className="h-10 bg-[#FF6636] px-6 text-sm font-semibold text-white transition hover:bg-[#e85a2c]"
+      className={`h-10 bg-[#FF6636] px-6 text-sm font-semibold text-white transition hover:bg-[#e85a2c] disabled:cursor-not-allowed disabled:opacity-60 ${className}`}
+      {...props}
     >
       {children}
     </button>

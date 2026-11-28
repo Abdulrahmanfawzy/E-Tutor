@@ -1,5 +1,6 @@
 import { getCareers } from "./api"; 
 import type { Section } from "./types"; 
+import Link from "next/link";
 import CareerHero from "@/components/career/carear-hero";
 import WhyJoinUs from "@/components/career/join-us";
 import PerksBenefits from "@/components/career/perks-card";
@@ -23,11 +24,14 @@ export default async function CareerPage() {
 
   return (
     <main className="bg-gray-50">
-      <div className="py-6 text-center">
-        <h1 className="text-lg font-semibold text-gray-900">{page.title}</h1>
-        <p className="text-label-sm text-gray-600">
-          Home / <span className="text-gray-900">{page.title}</span>
-        </p>
+      <div className="py-10 text-center">
+        <h1 className="text-xl font-semibold text-gray-900">{page.title}</h1>
+        <p className="text-label-sm py-2 text-gray-600">
+      <Link href="/" className="hover:text-gray-900 ">
+        Home
+      </Link>{" "}
+      / <span className="text-gray-900">{page.title}</span>
+    </p>
       </div>
 
       <CareerHero data={hero} />

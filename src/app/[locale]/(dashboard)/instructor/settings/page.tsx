@@ -7,7 +7,7 @@ import ChangePassword from "../change-password";
 export default function InstructorSettingsPage() {
   return (
     <>
-      <Topbar title="Settings" />.
+      <Topbar title="Settings" />
 
       <main className="flex-1 space-y-6 p-8">
         <AccountSettings />

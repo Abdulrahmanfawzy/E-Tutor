@@ -3,11 +3,15 @@
 import { GraduationCap } from "lucide-react";
 import { useTranslations } from "next-intl";
 
+import LanguageSwitcher from "@/components/common/language-switcher";
+import { UserAccountMenu } from "@/features/auth/components/user-account-menu";
+import { useCurrentUser } from "@/features/auth/hooks/use-current-user";
 import { Link, usePathname } from "@/i18n/navigation";
 
 export default function Navbar() {
   const t = useTranslations("auth.nav");
   const pathname = usePathname();
+  const { user, status, dashboardHref, logout } = useCurrentUser();
   const isRegisterPage = pathname === "/register";
   const target = isRegisterPage ? "/login" : "/register";
 
@@ -28,18 +32,29 @@ export default function Navbar() {
           </span>
         </Link>
 
-        <div className="flex items-center gap-4 sm:gap-5">
-          <span className="hidden text-sm text-[#4E5566] sm:inline">
-            {isRegisterPage
-              ? t("alreadyHaveAccount")
-              : t("dontHaveAccount")}
-          </span>
-          <Link
-            href={target}
-            className="inline-flex h-12 items-center justify-center rounded-none bg-[#FFEEE8] px-6 text-sm font-semibold text-[#FF6636] shadow-none transition-colors hover:bg-[#FF6636] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6636]/40"
-          >
-            {isRegisterPage ? t("signIn") : t("createAccount")}
-          </Link>
+        <div className="flex items-center gap-3 sm:gap-5">
+          <LanguageSwitcher />
+          {status === "loading" ? (
+            <div className="h-10 w-28 animate-pulse bg-gray-100" aria-hidden="true" />
+          ) : user ? (
+            <UserAccountMenu
+              user={user}
+              dashboardHref={dashboardHref}
+              onLogout={logout}
+            />
+          ) : isRegisterPage ? (
+            <div className="flex items-center gap-4 sm:gap-5">
+              <span className="hidden text-sm text-[#4E5566] sm:inline">
+                {t("alreadyHaveAccount")}
+              </span>
+              <Link
+                href={target}
+                className="inline-flex h-12 items-center justify-center rounded-none bg-[#FFEEE8] px-6 text-sm font-semibold text-[#FF6636] shadow-none transition-colors hover:bg-[#FF6636] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6636]/40"
+              >
+                {t("signIn")}
+              </Link>
+            </div>
+          ) : null}
         </div>
       </nav>
     </header>

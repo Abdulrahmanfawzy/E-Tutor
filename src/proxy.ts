@@ -1,12 +1,63 @@
 import createMiddleware from "next-intl/middleware";
+import { getToken } from "next-auth/jwt";
+import { NextResponse, type NextRequest } from "next/server";
 
+import { resolveAuthDestination } from "@/features/auth/utils/auth-destination";
 import { routing } from "./i18n/routing";
 
-/**
- * Next.js 16 renamed `middleware` to `proxy`; next-intl's middleware factory
- * returns a plain request handler, so we expose it under the `proxy` export.
- */
-export const proxy = createMiddleware(routing);
+const handleLocale = createMiddleware(routing);
+
+function isPathUnder(pathname: string, prefix: string) {
+  return pathname === prefix || pathname.startsWith(`${prefix}/`);
+}
+
+function redirectTo(request: NextRequest, locale: string, pathname: string) {
+  return NextResponse.redirect(
+    new URL(`/${locale}${pathname}`, request.url),
+  );
+}
+
+export async function proxy(request: NextRequest) {
+  const pathname = request.nextUrl.pathname;
+  const matchedLocale = routing.locales.find(
+    (supportedLocale) =>
+      pathname === `/${supportedLocale}` ||
+      pathname.startsWith(`/${supportedLocale}/`),
+  );
+  const locale = matchedLocale ?? routing.defaultLocale;
+  const localizedPath = matchedLocale
+    ? pathname.slice(matchedLocale.length + 1) || "/"
+    : pathname;
+  const isAdminRoute = isPathUnder(localizedPath, "/admin");
+  const isInstructorRoute =
+    isPathUnder(localizedPath, "/instructor") ||
+    isPathUnder(localizedPath, "/instructor-message");
+  const isStudentRoute = isPathUnder(localizedPath, "/student");
+
+  if (!isAdminRoute && !isInstructorRoute && !isStudentRoute) {
+    return handleLocale(request);
+  }
+
+  const secret = process.env.NEXTAUTH_SECRET;
+  const token = secret ? await getToken({ req: request, secret }) : null;
+
+  if (!token) {
+    return redirectTo(request, locale, "/login");
+  }
+
+  const { isAdmin, isInstructor, dashboardHref: homePath } =
+    resolveAuthDestination(token);
+
+  if (isAdminRoute && !isAdmin) {
+    return redirectTo(request, locale, homePath);
+  }
+
+  if (isInstructorRoute && !isInstructor && !isAdmin) {
+    return redirectTo(request, locale, homePath);
+  }
+
+  return handleLocale(request);
+}
 
 export const config = {
   matcher: [

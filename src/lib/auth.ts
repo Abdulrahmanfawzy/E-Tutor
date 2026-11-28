@@ -1,5 +1,6 @@
 
 import login from "@/actions/login";
+import { resolveAuthDestination } from "@/features/auth/utils/auth-destination";
 import type { LoginResponse } from "@/features/auth/types/login-types";
 import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -59,12 +60,12 @@ export const authOptions: NextAuthOptions = {
 
                 const { user, token, token_type } = response.data;
                 const roles = Array.isArray(user.roles) ? user.roles : [];
-                const normalizedRoles = roles.map((role) => role.toLowerCase());
-                const isAdmin =
-                    Boolean(user.is_admin) || normalizedRoles.includes("admin");
-                const isInstructor =
-                    Boolean(user.is_instructor) ||
-                    normalizedRoles.includes("instructor");
+                const { isAdmin, isInstructor } = resolveAuthDestination({
+                    is_admin: user.is_admin,
+                    is_instructor: user.is_instructor,
+                    role: user.role,
+                    roles,
+                });
 
                 // Return authenticated user
                 return {
@@ -72,6 +73,7 @@ export const authOptions: NextAuthOptions = {
                     name: user.name,
                     email: user.email,
                     image: user.avatar_url,
+                    username: user.username,
 
                     accessToken: token,
                     tokenType: token_type,
@@ -93,6 +95,7 @@ export const authOptions: NextAuthOptions = {
             if (user) {
                 token.accessToken = user.accessToken;
                 token.tokenType = user.tokenType;
+                token.username = user.username;
                 token.roles = user.roles;
                 token.isInstructor = user.isInstructor;
                 token.isAdmin = user.isAdmin;
@@ -104,10 +107,11 @@ export const authOptions: NextAuthOptions = {
         async session({ session, token }) {
             if (session.user) {
                 session.user.id = token.sub ?? "";
+                session.user.username = token.username ?? "";
                 session.user.roles = token.roles ?? [];
                 session.user.isInstructor = token.isInstructor ?? false;
                 session.user.isAdmin = token.isAdmin ?? false;
-                session.user.emailVerified = token.emailVerified ?? false;
+                session.user.emailVerified = token.emailVerified === true;
                 session.user.status = token.status ?? "";
             }
             return session;

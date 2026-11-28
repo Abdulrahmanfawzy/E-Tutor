@@ -5,6 +5,8 @@ import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useMemo } from "react";
 import { Controller, useForm } from "react-hook-form";
+import { Link } from "@/i18n/navigation";
+import { ROUTES } from "@/lib/Routes";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
@@ -21,6 +23,7 @@ import {
 
 export function LoginForm() {
   const t = useTranslations("auth.login");
+  const navT = useTranslations("auth.nav");
   const validation = useTranslations("auth.validation");
   const { login, isPending } = useLogin();
   const loginSchema = useMemo(
@@ -94,7 +97,7 @@ export function LoginForm() {
       </div>
 
       <div className="mt-3 flex items-center justify-between gap-3">
-        <div className="min-w-0">
+        <div className="flex min-w-0 flex-wrap items-center gap-x-4 gap-y-2">
           <Controller
             name="RememberMe"
             control={control}
@@ -125,6 +128,12 @@ export function LoginForm() {
               {errors.RememberMe.message}
             </p>
           ) : null}
+          <Link
+            href={ROUTES.forgotPassword}
+            className="text-[12px] text-gray-500 underline-offset-2 hover:text-gray-900 hover:underline"
+          >
+            {t("forgotPassword")}
+          </Link>
         </div>
         <Button
           type="submit"
@@ -148,6 +157,16 @@ export function LoginForm() {
       </div>
 
       <SocialSignUpButtons action="signIn" />
+
+      <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm">
+        <span className="text-gray-500">{navT("dontHaveAccount")}</span>
+        <Link
+          href={ROUTES.register}
+          className="inline-flex h-9 items-center justify-center rounded-sm bg-[#FFEEE8] px-5 font-semibold text-[#FF6636] transition-colors hover:bg-[#FF6636] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6636]/40"
+        >
+          {navT("createAccount")}
+        </Link>
+      </div>
     </form>
   );
 }

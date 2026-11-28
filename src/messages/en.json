@@ -1,43 +1,405 @@
 {
-  "instructorCourses": {
-    "title": "My Courses",
-    "searchPlaceholder": "Search in your courses...",
-    "filters": { "sortBy": "Sort by:", "category": "Category", "rating": "Rating" },
-    "sortOptions": { "latest": "Latest", "oldest": "Oldest" },
-    "categoryOptions": {
-      "all": "All Categories",
-      "development": "Development",
-      "design": "Design",
-      "marketing": "Marketing",
-      "business": "Business"
+  "common": {
+    "appName": "E-Tutor",
+    "language": "Language",
+    "english": "English",
+    "arabic": "Arabic",
+    "switchLanguage": "Switch language",
+    "home": "Home",
+    "loading": "Loading...",
+    "homeLink": "Home"
+  },
+  "metadata": {
+    "siteTitle": "E-Tutor | Learn with experts",
+    "siteDescription": "Find the best online courses and learn with experts anytime, anywhere.",
+    "authTitle": "E-Tutor | Account",
+    "authDescription": "Sign in or create an E-Tutor account.",
+    "homeTitle": "E-Tutor | Online Learning",
+    "contactTitle": "Contact Us | E-Tutor",
+    "contactDescription": "Get in touch with the E-Tutor team and we'll get back to you soon.",
+    "instructorTitle": "Become an Instructor | E-Tutor",
+    "instructorDescription": "Share your knowledge, inspire learners, and become an instructor with E-Tutor.",
+    "courseCategoriesTitle": "Course Categories | E-Tutor",
+    "courseCategoriesDescription": "Browse thousands of online courses across our top categories.",
+    "giftCourseTitle": "Gift a Course | E-Tutor",
+    "giftCourseDescription": "Give the gift of learning to someone special."
+  },
+  "auth": {
+    "nav": {
+      "mainNavigation": "Main",
+      "dontHaveAccount": "Don't have an account?",
+      "alreadyHaveAccount": "Already have an account?",
+      "createAccount": "Create Account",
+      "signIn": "Sign In",
+      "username": "Username",
+      "admin": "Administrator",
+      "instructor": "Instructor",
+      "student": "Student",
+      "dashboard": "Dashboard",
+      "signOut": "Sign out",
+      "logoutSuccess": "You have been signed out.",
+      "adminDashboard": "Admin dashboard",
+      "adminDashboardDescription": "Manage E-Tutor from one place."
     },
-    "ratingOptions": {
-      "all": "All Ratings",
-      "threeAndHalfUp": "3.5 Star & Up",
-      "threeUp": "3.0 Star & Up"
+    "login": {
+      "title": "Sign In",
+      "email": "Email",
+      "emailPlaceholder": "Email address",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "forgotPassword": "Forgot password?",
+      "rememberMe": "Remember me",
+      "submit": "Sign In",
+      "submitting": "Signing in...",
+      "invalidCredentials": "The email or password is incorrect.",
+      "loginError": "Unable to sign in right now. Please try again.",
+      "loginSuccess": "You are now signed in.",
+      "socialDivider": "SIGN IN WITH"
     },
-    "students": "Students",
-    "reviews": "Reviews",
-    "noCourses": "No courses found",
-    "previous": "Previous",
-    "next": "Next",
-    "actions": {
-      "options": "Options",
-      "viewDetails": "View Details",
-      "editCourse": "Edit Course",
-      "deleteCourse": "Delete Course"
+    "register": {
+      "title": "Create your account",
+      "fullName": "Full Name",
+      "firstName": "First name",
+      "firstNamePlaceholder": "First name...",
+      "lastName": "Last name",
+      "lastNamePlaceholder": "Last name...",
+      "username": "Username",
+      "usernamePlaceholder": "Username...",
+      "email": "Email",
+      "emailPlaceholder": "Email address",
+      "password": "Password",
+      "passwordPlaceholder": "Create password",
+      "confirmPassword": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm password",
+      "agreeWith": "I agree with all of your",
+      "terms": "Terms & Conditions",
+      "submit": "Create Account",
+      "registering": "Creating account...",
+      "registerSuccess": "Your account was created. Sign in to continue.",
+      "registerError": "Unable to create your account right now. Please try again.",
+      "socialDivider": "SIGN UP WITH"
+    },
+    "forgotPassword": {
+      "title": "Forgot your password?",
+      "description": "Enter your email and we’ll send you a password reset link.",
+      "email": "Email",
+      "emailPlaceholder": "Email address",
+      "submit": "Send reset link",
+      "submitting": "Sending...",
+      "success": "If an account matches that email, a reset link has been sent.",
+      "error": "Unable to send a reset link right now. Please try again.",
+      "backToLogin": "Back to sign in"
+    },
+    "resetPassword": {
+      "title": "Set a new password",
+      "description": "Choose a new password for your account.",
+      "email": "Email",
+      "password": "New password",
+      "confirmPassword": "Confirm new password",
+      "submit": "Reset password",
+      "submitting": "Resetting...",
+      "success": "Your password was reset. Sign in with your new password.",
+      "error": "Unable to reset the password right now. Please try again.",
+      "missingToken": "The reset token is missing. Open the link from your email again."
+    },
+    "shared": {
+      "showPassword": "Show password",
+      "hidePassword": "Hide password"
+    },
+    "social": {
+      "signInGroup": "Sign in with a social account",
+      "signUpGroup": "Sign up with a social account",
+      "signInWith": "Sign in with {provider}",
+      "signUpWith": "Sign up with {provider}"
+    },
+    "validation": {
+      "firstNameRequired": "Enter your first name",
+      "lastNameRequired": "Enter your last name",
+      "usernameMin": "Username must be at least 3 characters",
+      "usernamePattern": "Use letters, numbers, and underscores only",
+      "invalidEmail": "Enter a valid email address",
+      "passwordMin": "Use at least 8 characters",
+      "confirmPasswordRequired": "Confirm your password",
+      "termsRequired": "Please accept the terms",
+      "passwordsMismatch": "Passwords do not match"
     }
   },
-  "courseDetails": {
+  "adminDashboard": {
+    "title": "Admin dashboard",
+    "description": "You are signed in with an administrator account."
+  },
+  "nav": {
+    "home": "Home",
+    "courses": "Courses",
+    "courseCategories": "Course Categories",
+    "instructor": "Become an Instructor",
+    "contact": "Contact",
+    "dashboard": "Dashboard",
+    "browseCourses": "Browse Courses",
+    "giftCourse": "Gift a Course"
+  },
+  "home": {
+    "hero": {
+      "titleLine1": "Learn with expert",
+      "titleLine2": "anytime anywhere",
+      "description": "Our mission is to help people to find the best course online and learn with expert anytime, anywhere.",
+      "createAccount": "Create Account",
+      "imageAlt": "Students learning together"
+    },
+    "categories": {
+      "title": "Browse top category",
+      "more": "We have more category & subcategory.",
+      "browseAll": "Browse All"
+    },
+    "bestSelling": {
+      "title": "Best selling courses"
+    },
+    "featured": {
+      "title": "Our feature courses",
+      "beginner": "Beginner",
+      "duration": "6 hour"
+    },
+    "recentlyAdded": {
+      "title": "Recently added courses",
+      "courseBy": "Course by",
+      "students": "Students",
+      "beginner": "Beginner",
+      "duration": "6 hours",
+      "off": "OFF",
+      "addToWishlist": "Add to wishlist",
+      "whatYouWillLearn": "WHAT YOU’LL LEARN",
+      "addToCart": "Add To Cart",
+      "courseDetail": "Course Detail",
+      "browseAll": "Browse All Course",
+      "learningPoint1": "Learn to use the course skills professionally.",
+      "learningPoint2": "Build practical projects from scratch.",
+      "learningPoint3": "Practice with real-world examples and exercises."
+    },
+    "instructorPromo": {
+      "title": "Become an instructor",
+      "description": "Instructors from around the world teach millions of students on E-Tutor. We provide the tools and skills to teach what you love.",
+      "startTeaching": "Start Teaching",
+      "imageAlt": "Become an instructor",
+      "stepsTitle": "Your teaching & earning steps",
+      "step1": "Apply to become instructor",
+      "step2": "Build & edit your profile",
+      "step3": "Create your new course",
+      "step4": "Start teaching & earning"
+    },
+    "instructors": {
+      "title": "Top instructor of the month",
+      "waiting": "Thousands of students waiting for an instructor.",
+      "become": "Become Instructor"
+    },
+    "trustedCompanies": {
+      "title": "6.3k trusted companies",
+      "description": "Our platform is trusted by companies and learners around the world."
+    },
     "stats": {
-      "lectures": "Lectures",
-      "comments": "Total Comments",
-      "students": "Students enrolled",
-      "level": "Course level",
-      "language": "Course Language",
-      "files": "Attach File",
-      "hours": "Hours",
-      "viewed": "Students viewed"
+      "title": "Start learning with 67.1k students around the world.",
+      "join": "Join The Family",
+      "browse": "Browse All Courses",
+      "onlineCourses": "Online courses",
+      "certifiedInstructor": "Certified Instructor",
+      "successRate": "Success Rate"
+    }
+  },
+  "contact": {
+    "badge": "Get In Touch",
+    "title": "We'd love to hear from you",
+    "description": "Have a question, feedback, or just want to say hello? Fill out the form below and our team will get back to you as soon as possible.",
+    "form": {
+      "name": "Full name",
+      "namePlaceholder": "Your full name",
+      "email": "Email address",
+      "emailPlaceholder": "you@example.com",
+      "subject": "Subject",
+      "subjectPlaceholder": "What is this about?",
+      "message": "Message",
+      "messagePlaceholder": "Tell us how we can help...",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Thanks! Your message has been sent.",
+      "errorName": "Please enter your name.",
+      "errorEmail": "Please enter a valid email address.",
+      "errorSubject": "Please enter a subject.",
+      "errorMessage": "Please enter your message."
+    },
+    "info": {
+      "title": "Contact information",
+      "description": "Reach out to us through any of the channels below. We typically reply within one business day.",
+      "emailLabel": "Email",
+      "phoneLabel": "Phone",
+      "addressLabel": "Address",
+      "address": "123 Learning Street, Cairo, Egypt",
+      "hoursLabel": "Working hours",
+      "hours": "Sunday – Thursday, 9:00 AM – 5:00 PM"
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "question1": "How do I enroll in a course?",
+      "answer1": "Create an account, browse our course catalog, and click enroll on any course you like.",
+      "question2": "Can I become an instructor?",
+      "answer2": "Absolutely! Visit the Become an Instructor page to apply and start sharing your knowledge.",
+      "question3": "Do you offer certificates?",
+      "answer3": "Yes, you receive a certificate of completion after finishing any course."
+    }
+  },
+  "instructor": {
+    "pageHeader": {
+      "title": "Become an Instructor",
+      "current": "Become an instructor"
+    },
+    "hero": {
+      "title": "Become an Instructor",
+      "description": "Turn your knowledge and experience into meaningful learning experiences. Teach what you love, inspire learners, and grow with E-Tutor.",
+      "cta": "Become an Instructor"
+    },
+    "steps": {
+      "title": "How you'll become a successful instructor",
+      "description": "Follow these steps to begin your journey and become part of our instructor community."
+    },
+    "rules": {
+      "title": "20k+ Instructor created their success story with E-Tutor"
+    },
+    "info": {
+      "title": "Instructor rules & regulations",
+      "description": "Sed auctor, nisl non elementum ornare...",
+      "bullet1": "Sed ullamcorper libero...",
+      "bullet2": "Nam leo tortor...",
+      "imageAlt": "Instructor teaching online",
+      "getStarted": "Get Started"
+    }
+  },
+  "courseCategories": {
+    "title": "Explore course categories",
+    "description": "Discover the skills you need and learn from industry experts.",
+    "catalog": {
+      "title": "All courses",
+      "searchPlaceholder": "Search courses...",
+      "filter": "Filter",
+      "sort": "Sort by",
+      "all": "All",
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "popularTools": {
+      "title": "Popular tools"
+    },
+    "popularKeywords": {
+      "title": "Popular keywords"
+    },
+    "popularInstructors": {
+      "title": "Popular instructors"
+    },
+    "bestSelling": {
+      "title": "Best selling courses"
+    }
+  },
+  "giftCourse": {
+    "title": "Gift Course",
+    "home": "Home",
+    "courses": "Courses",
+    "breadcrumbCourse": "Course",
+    "containerTitle": "Gift a Course",
+    "recipient": {
+      "title": "Recipient Information",
+      "name": "Recipient name",
+      "namePlaceholder": "Enter recipient's name",
+      "email": "Recipient email",
+      "emailPlaceholder": "Enter recipient's email",
+      "message": "Personal message",
+      "messagePlaceholder": "Write a personal message (optional)"
+    },
+    "card": {
+      "title": "Course",
+      "courseBy": "Course By",
+      "price": "Price",
+      "total": "Total",
+      "placeOrder": "Place Order"
+    }
+  },
+  "dashboard": {
+    "periods": { "today": "Today", "week": "This week", "month": "This month" },
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "createCourse": "Create New Course",
+      "myCourses": "My Courses",
+      "earning": "Earning",
+      "message": "Message",
+      "settings": "Settings",
+      "logout": "Logout",
+      "signOut": "Sign-out"
+    },
+    "navbar": {
+      "goodMorning": "Good Morning",
+      "dashboard": "Dashboard",
+      "searchPlaceholder": "Search ....",
+      "notifications": "Notifications",
+      "profile": "Profile"
+    },
+    "footer": {
+      "copyright": "© 2021 - E-Tutor. Designed by {designer}. All rights reserved",
+      "designer": "Templatecookie",
+      "faqs": "FAQs",
+      "privacy": "Privacy Policy",
+      "terms": "Terms & Condition"
+    },
+    "cards": {
+  "recentActivity": "Recent Activity",
+  "revenue": "Revenue",
+  "profileView": "Profile View",
+  "courseRating": "Overall Course Rating",
+  "courseOverview": "Course Overview"
+}
+  },
+  "messages": {
+    "sidebar": {
+      "title": "Messages",
+      "searchPlaceholder": "Search messages...",
+      "newMessage": "New message"
+    },
+    "header": {
+      "back": "Back to conversations",
+      "viewInfo": "View information",
+      "online": "Online"
+    },
+    "composer": {
+      "placeholder": "Type a message...",
+      "attach": "Attach a file",
+      "send": "Send message"
+    },
+    "empty": {
+      "title": "No conversation selected",
+      "description": "Select a conversation to start chatting."
+    }
+  },
+  "studentCourses": {
+    "title": "Courses ({count})",
+    "filters": {
+      "search": "Search",
+      "searchPlaceholder": "Search in your courses...",
+      "sortBy": "Sort by",
+      "status": "Status",
+      "teacher": "Teacher"
+    },
+    "sort": {
+      "latest": "Latest",
+      "oldest": "Oldest",
+      "progress": "Progress"
+    },
+    "status": {
+      "all": "All Courses",
+      "inProgress": "In progress",
+      "completed": "Completed"
+    },
+    "teacher": {
+      "all": "All Teachers"
+    },
+    "card": {
+      "watchLecture": "Watch Lecture",
+      "completed": "Completed"
     }
   }
 }

@@ -21,14 +21,16 @@ export async function getPosition(slug: string): Promise<Position | undefined> {
 
 
 //get the detials 
-export async function getJobDetails(slug: string): Promise<Job> {
+export async function getJobDetails(slug: string): Promise<Job | null> {
   const res = await fetch(
-    `${BASE_URL}/api/v1/careers/${slug}`,
+    `${BASE_URL}/api/v1/careers/${encodeURIComponent(slug)}`,
     {
       headers: { Accept: "application/json" },
       next: { revalidate: 60 },
     }
   );
+
+  if (res.status === 404) return null;
 
   if (!res.ok) {
     throw new Error(`Failed to load job details (${res.status})`);
@@ -36,9 +38,7 @@ export async function getJobDetails(slug: string): Promise<Job> {
 
   const json: JobApiResponse = await res.json();
 
-  if (!json.success) {
-    throw new Error(json.message ?? "Failed to load job details");
-  }
+  if (!json.success) return null;
 console.log(json.data)
   return json.data;
 }

@@ -1,4 +1,4 @@
-import type { Course, CourseCategory } from "./courses-data";
+import type { Course, CourseCategory } from "../data/courses-data";
 
 export const COURSE_SORT_OPTIONS = [
   { value: "trending", label: "Trending" },

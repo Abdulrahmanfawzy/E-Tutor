@@ -10,70 +10,33 @@ import {
   LucideIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Tiles } from "../types/dashboard";
 
-type Stat = {
+ type Stat = {
+   label: string;
+   value: number;
+   icon: LucideIcon;
+   iconClassName: string;
+    };
+
+type StatConfig = {
+  key: keyof Tiles;
   label: string;
-  value: string;
   icon: LucideIcon;
   iconClassName: string;
-};
+  isCurrency?: boolean;
+}
 
-const STATS: Stat[] = [
-  
-  {
-    label: "Enrolled Courses",
-    value: "957",
-    icon: PlayCircle,
-    iconClassName: "bg-orange-50 text-orange-400",
-  },
-  {
-    label: "Active Courses",
-    value: "19",
-    icon: MonitorPlay,
-    iconClassName: "bg-purple-50 text-purple-400",
-  },
-  {
-    label: "Course Instructors",
-    value: "241",
-    icon: Users,
-    iconClassName: "bg-orange-50 text-orange-400",
-  },
-  {
-    label: "Completed Courses",
-    value: "951",
-    icon: Trophy,
-    iconClassName: "bg-green-50 text-green-400",
-  },
-
-  
-  {
-    label: "Students",
-    value: "1,674,767",
-    icon: UserRound,
-    iconClassName: "bg-red-50 text-red-400",
-  },
-  {
-    label: "Online Courses",
-    value: "3",
-    icon: BookOpenCheck,
-    iconClassName: "bg-green-50 text-green-400",
-  },
-  {
-    label: "USD Total Earning",
-    value: "$7,461,767",
-    icon: Wallet,
-    iconClassName: "bg-gray-50 text-gray-700",
-  },
-  {
-    label: "Course Sold",
-    value: "56,489",
-    icon: ShoppingBag,
-    iconClassName: "bg-purple-50 text-purple-400",
-  },
+const STATS_CONFIG: StatConfig[] = [
+  { key: "enrolled_courses", label: "Enrolled Courses", icon: PlayCircle, iconClassName: "bg-orange-50 text-orange-400" },
+  { key: "active_courses", label: "Active Courses", icon: MonitorPlay, iconClassName: "bg-purple-50 text-purple-400" },
+  { key: "course_instructors", label: "Course Instructors", icon: Users, iconClassName: "bg-orange-50 text-orange-400" },
+  { key: "completed_courses", label: "Completed Courses", icon: Trophy, iconClassName: "bg-green-50 text-green-400" },
+  { key: "students", label: "Students", icon: UserRound, iconClassName: "bg-red-50 text-red-400" },
+  { key: "online_courses", label: "Online Courses", icon: BookOpenCheck, iconClassName: "bg-green-50 text-green-400" },
+  { key: "total_earning", label: "USD Total Earning", icon: Wallet, iconClassName: "bg-gray-50 text-gray-700", isCurrency: true },
+  { key: "course_sold", label: "Course Sold", icon: ShoppingBag, iconClassName: "bg-purple-50 text-purple-400" },
 ];
-
-
-
 
 function StatCard({ label, value, icon: Icon, iconClassName }: Stat) {
   return (
@@ -89,11 +52,15 @@ function StatCard({ label, value, icon: Icon, iconClassName }: Stat) {
   );
 }
 
-export default function StatsCards() {
+export default function StatsCards({tiles}:{tiles:Tiles}) {
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      {STATS.map((stat) => (
-        <StatCard key={stat.label} {...stat} />
+      {STATS_CONFIG.map((stat) => (
+        <StatCard  key={stat.key}
+    label={stat.label}
+    value={tiles[stat.key]}
+    icon={stat.icon}
+    iconClassName={stat.iconClassName} />
       ))}
     </div>
   );

@@ -7,8 +7,9 @@ import { SectionTitle } from "./section-title";
 
 export function InstructorsSection() {
   return (
-    <section className="mx-auto max-w-5xl bg-white px-5 py-12">
-      <SectionTitle title="Top instructor of the month" />
+   <section className="bg-white py-12">
+  <div className="mx-auto w-full max-w-6xl px-6">
+    <SectionTitle title="Top instructor of the month" />
 
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
         {instructors.map((instructor) => (
@@ -54,6 +55,7 @@ export function InstructorsSection() {
           Become Instructor →
         </span>
       </p>
+      </div>
     </section>
   );
 }

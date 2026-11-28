@@ -1,7 +1,6 @@
 import { Star } from "lucide-react";
 import type { CourseRating } from "../types/course";
 
-// import type { CourseRating as CourseRatingType } from "@/types/course";
 
 interface CourseRatingProps {
   rating: CourseRating;

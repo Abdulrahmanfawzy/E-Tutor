@@ -10,11 +10,12 @@ import { Tabs } from "@/components/common/tabs";
 interface CourseTabsContentProps {
 
   curriculum: Curriculum;
+  onPreviewClick: (videoUrl: string) => void;
 
 }
 
 export function CourseTabsContent({
-  curriculum
+  curriculum, onPreviewClick
 }: CourseTabsContentProps) {
   const t = useTranslations("courseDetails.tabs");
   const tabs = [
@@ -30,7 +31,7 @@ export function CourseTabsContent({
       id: "curriculum",
       label: t("curriculum"),
       content: (
-        <CurriculumTabContent curriculum={curriculum} />
+        <CurriculumTabContent curriculum={curriculum} onPreviewClick={onPreviewClick} />
       ),
     },
 

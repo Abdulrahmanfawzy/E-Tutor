@@ -5,6 +5,7 @@ export interface CurriculumLesson {
     fileSize?: string;
     type: "video" | "file" | "article" | "quiz";
     isPreview?: boolean;
+    previewUrl?: string | null;
 }
 
 export interface CurriculumSection {

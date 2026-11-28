@@ -13,10 +13,12 @@ import type { CurriculumLesson } from "../../../../types/curriculum";
 
 interface CurriculumLessonProps {
     lesson: CurriculumLesson;
+    onPreviewClick: (videoUrl: string) => void;
 }
 
 export function CurriculumLesson({
     lesson,
+    onPreviewClick,
 }: CurriculumLessonProps) {
     const t = useTranslations("courseDetails.curriculum");
     const locale = useLocale();
@@ -32,10 +34,35 @@ export function CurriculumLesson({
 
     const Icon = icons[lesson.type];
 
+    const isPlayablePreview =
+        lesson.isPreview &&
+        lesson.type === "video" &&
+        Boolean(lesson.previewUrl);
+
     return (
         <div
-            className="flex min-w-0 items-center justify-between gap-3 px-3 py-2.5 transition-colors hover:bg-slate-50 sm:px-4"
+            className={`flex min-w-0 items-center justify-between gap-3 px-3 py-2.5 transition-colors sm:px-4 ${isPlayablePreview ? "cursor-pointer hover:bg-orange-50" : "hover:bg-slate-50"
+                }`}
             dir={isRTL ? "rtl" : "ltr"}
+            onClick={() => {
+                if (isPlayablePreview && lesson.previewUrl) {
+                    onPreviewClick(lesson.previewUrl);
+                }
+            }}
+            role={isPlayablePreview ? "button" : undefined}
+            tabIndex={isPlayablePreview ? 0 : undefined}
+            onKeyDown={(event) => {
+                if (
+                    isPlayablePreview &&
+                    (event.key === "Enter" || event.key === " ")
+                ) {
+                    event.preventDefault();
+
+                    if (lesson.previewUrl) {
+                        onPreviewClick(lesson.previewUrl);
+                    }
+                }
+            }}
         >
             <div className="flex min-w-0 items-center gap-2.5">
                 <Icon className="size-3.5 shrink-0 text-slate-700" />

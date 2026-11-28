@@ -1,3 +1,5 @@
+'use client'
+import { useState } from "react";
 import { Course } from "../types/course";
 import { Curriculum } from "../types/curriculum";
 import { CourseHeader } from "./course-header";
@@ -11,6 +13,9 @@ interface CourseDetailsProps {
 }
 
 export function CourseDetails({ course, curriculum }: CourseDetailsProps) {
+    const [activeVideoUrl, setActiveVideoUrl] = useState(
+        course.previewVideo
+    );
     return (
         <main className="relative min-h-screen bg-white">
             <section className="bg-[#F5F7FA]">
@@ -26,10 +31,13 @@ export function CourseDetails({ course, curriculum }: CourseDetailsProps) {
                     <div className="min-w-0">
                         <CoursePreview
                             image={course.previewImage}
-                            videoUrl={course.previewVideo}
+                            videoUrl={activeVideoUrl}
                         />
                         {/* Tabs Below Video */}
-                        <CourseTabsContent curriculum={curriculum} />
+                        <CourseTabsContent
+                            curriculum={curriculum}
+                            onPreviewClick={setActiveVideoUrl}
+                        />
                     </div>
 
                     <aside className="mt-6 min-w-0 lg:absolute lg:top-14 lg:end-8 lg:mt-0 lg:z-20 lg:w-[25rem] xl:end-[calc((100%-71.25rem)/2)]">

@@ -2,7 +2,7 @@
 
 import { Play } from "lucide-react";
 import Image, { type StaticImageData } from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface CoursePreviewProps {
     image: string | StaticImageData;
@@ -14,6 +14,9 @@ export function CoursePreview({
     videoUrl,
 }: CoursePreviewProps) {
     const [isPlaying, setIsPlaying] = useState(false);
+    useEffect(() => {
+        setIsPlaying(false);
+    }, [videoUrl])
 
     return (
         <div className="relative aspect-video w-full overflow-hidden rounded-sm bg-muted">

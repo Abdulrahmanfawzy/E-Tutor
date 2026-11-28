@@ -6,8 +6,9 @@ import { CurriculumHeader } from "./curriculum-header";
 
 interface CurriculumTabContentProps {
   curriculum: Curriculum;
+  onPreviewClick: (videoUrl: string) => void;
 }
-export function CurriculumTabContent({ curriculum }: CurriculumTabContentProps) {
+export function CurriculumTabContent({ curriculum, onPreviewClick }: CurriculumTabContentProps) {
   const t = useTranslations("courseDetails.curriculum");
 
   const lectureCount = curriculum?.sections.reduce(
@@ -30,6 +31,7 @@ export function CurriculumTabContent({ curriculum }: CurriculumTabContentProps) 
             <CurriculumSection
               key={section.id}
               section={section}
+              onPreviewClick={onPreviewClick}
             />
           ))}
         </div>

@@ -10,10 +10,11 @@ import { CurriculumLesson } from "./curriculum-lesson";
 
 interface CurriculumSectionProps {
     section: CurriculumSection;
+    onPreviewClick: (videoUrl: string) => void;
 }
 
 export function CurriculumSection({
-    section,
+    section, onPreviewClick
 }: CurriculumSectionProps) {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -76,6 +77,7 @@ export function CurriculumSection({
                         <CurriculumLesson
                             key={lesson.id}
                             lesson={lesson}
+                            onPreviewClick={onPreviewClick}
                         />
                     ))}
                 </div>

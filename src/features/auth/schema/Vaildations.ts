@@ -46,3 +46,29 @@ export const createLoginSchema = (
   });
 
 export type LoginFormValues = z.infer<ReturnType<typeof createLoginSchema>>;
+
+export const createResetPasswordSchema = (
+  messages: Pick<
+    AuthValidationMessages,
+    | "invalidEmail"
+    | "passwordMin"
+    | "confirmPasswordRequired"
+    | "passwordsMismatch"
+  >,
+) =>
+  z
+    .object({
+      email: z.string().trim().email(messages.invalidEmail),
+      password: z.string().min(8, messages.passwordMin),
+      password_confirmation: z
+        .string()
+        .min(1, messages.confirmPasswordRequired),
+    })
+    .refine((values) => values.password === values.password_confirmation, {
+      path: ["password_confirmation"],
+      message: messages.passwordsMismatch,
+    });
+
+export type ResetPasswordFormValues = z.infer<
+  ReturnType<typeof createResetPasswordSchema>
+>;

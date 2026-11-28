@@ -38,6 +38,7 @@
       "emailPlaceholder": "Email address",
       "password": "Password",
       "passwordPlaceholder": "Enter your password",
+      "forgotPassword": "Forgot password?",
       "rememberMe": "Remember me",
       "submit": "Sign In",
       "submitting": "Signing in...",
@@ -68,6 +69,29 @@
       "registerSuccess": "Your account was created. Sign in to continue.",
       "registerError": "Unable to create your account right now. Please try again.",
       "socialDivider": "SIGN UP WITH"
+    },
+    "forgotPassword": {
+      "title": "Forgot your password?",
+      "description": "Enter your email and we’ll send you a password reset link.",
+      "email": "Email",
+      "emailPlaceholder": "Email address",
+      "submit": "Send reset link",
+      "submitting": "Sending...",
+      "success": "If an account matches that email, a reset link has been sent.",
+      "error": "Unable to send a reset link right now. Please try again.",
+      "backToLogin": "Back to sign in"
+    },
+    "resetPassword": {
+      "title": "Set a new password",
+      "description": "Choose a new password for your account.",
+      "email": "Email",
+      "password": "New password",
+      "confirmPassword": "Confirm new password",
+      "submit": "Reset password",
+      "submitting": "Resetting...",
+      "success": "Your password was reset. Sign in with your new password.",
+      "error": "Unable to reset the password right now. Please try again.",
+      "missingToken": "The reset token is missing. Open the link from your email again."
     },
     "shared": {
       "showPassword": "Show password",

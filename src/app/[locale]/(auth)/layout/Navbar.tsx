@@ -28,19 +28,19 @@ export default function Navbar() {
           </span>
         </Link>
 
-        <div className="flex items-center gap-4 sm:gap-5">
-          <span className="hidden text-sm text-[#4E5566] sm:inline">
-            {isRegisterPage
-              ? t("alreadyHaveAccount")
-              : t("dontHaveAccount")}
-          </span>
-          <Link
-            href={target}
-            className="inline-flex h-12 items-center justify-center rounded-none bg-[#FFEEE8] px-6 text-sm font-semibold text-[#FF6636] shadow-none transition-colors hover:bg-[#FF6636] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6636]/40"
-          >
-            {isRegisterPage ? t("signIn") : t("createAccount")}
-          </Link>
-        </div>
+        {isRegisterPage ? (
+          <div className="flex items-center gap-4 sm:gap-5">
+            <span className="hidden text-sm text-[#4E5566] sm:inline">
+              {t("alreadyHaveAccount")}
+            </span>
+            <Link
+              href={target}
+              className="inline-flex h-12 items-center justify-center rounded-none bg-[#FFEEE8] px-6 text-sm font-semibold text-[#FF6636] shadow-none transition-colors hover:bg-[#FF6636] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6636]/40"
+            >
+              {t("signIn")}
+            </Link>
+          </div>
+        ) : null}
       </nav>
     </header>
   );

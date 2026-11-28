@@ -8,7 +8,11 @@ export { MessageComposer } from "./message-composer";
 export { MessagingSkeleton } from "@/components/skeletons/messaging-skeleton";
 export { NewMessageDialog } from "./new-message-dialog";
 
-export { messageSchema } from "@/schema/message-schema";
-export { newMessageSchema } from "@/schema/message-schema";
+export { messageSchema, newMessageSchema } from "@/schema/message-schema";
 
-export type { Conversation, ChatMessage, MessageFormValues } from "@/types/messaging-types";
+export type {
+  Conversation,
+  ChatMessage,
+  MessageFormValues,
+  NewMessageFormValues,
+} from "@/types/messaging-types";

@@ -30,7 +30,16 @@
       "dontHaveAccount": "ليس لديك حساب؟",
       "alreadyHaveAccount": "لديك حساب بالفعل؟",
       "createAccount": "إنشاء حساب",
-      "signIn": "تسجيل الدخول"
+      "signIn": "تسجيل الدخول",
+      "username": "اسم المستخدم",
+      "admin": "مسؤول",
+      "instructor": "مدرب",
+      "student": "طالب",
+      "dashboard": "لوحة التحكم",
+      "signOut": "تسجيل الخروج",
+      "logoutSuccess": "تم تسجيل الخروج بنجاح.",
+      "adminDashboard": "لوحة تحكم المسؤول",
+      "adminDashboardDescription": "إدارة منصة إي-تيوتر من مكان واحد."
     },
     "login": {
       "title": "تسجيل الدخول",

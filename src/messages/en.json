@@ -30,7 +30,16 @@
       "dontHaveAccount": "Don't have an account?",
       "alreadyHaveAccount": "Already have an account?",
       "createAccount": "Create Account",
-      "signIn": "Sign In"
+      "signIn": "Sign In",
+      "username": "Username",
+      "admin": "Administrator",
+      "instructor": "Instructor",
+      "student": "Student",
+      "dashboard": "Dashboard",
+      "signOut": "Sign out",
+      "logoutSuccess": "You have been signed out.",
+      "adminDashboard": "Admin dashboard",
+      "adminDashboardDescription": "Manage E-Tutor from one place."
     },
     "login": {
       "title": "Sign In",

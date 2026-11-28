@@ -2,6 +2,7 @@ import createMiddleware from "next-intl/middleware";
 import { getToken } from "next-auth/jwt";
 import { NextResponse, type NextRequest } from "next/server";
 
+import { resolveAuthDestination } from "@/features/auth/utils/auth-destination";
 import { routing } from "./i18n/routing";
 
 const handleLocale = createMiddleware(routing);
@@ -44,16 +45,8 @@ export async function proxy(request: NextRequest) {
     return redirectTo(request, locale, "/login");
   }
 
-  const roles = token.roles ?? [];
-  const normalizedRoles = roles.map((role) => role.toLowerCase());
-  const isAdmin = token.isAdmin === true || normalizedRoles.includes("admin");
-  const isInstructor =
-    token.isInstructor === true || normalizedRoles.includes("instructor");
-  const homePath = isAdmin
-    ? "/admin/dashboard"
-    : isInstructor
-      ? "/instructor/dashboard"
-      : "/student/dashboard";
+  const { isAdmin, isInstructor, dashboardHref: homePath } =
+    resolveAuthDestination(token);
 
   if (isAdminRoute && !isAdmin) {
     return redirectTo(request, locale, homePath);

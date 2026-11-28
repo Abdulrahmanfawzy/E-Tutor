@@ -12,6 +12,7 @@ export interface AuthUser {
   email: string;
   avatar_url: string | null;
   roles: string[];
+  role?: string;
   is_instructor: boolean;
   is_admin: boolean;
   email_verified: boolean;

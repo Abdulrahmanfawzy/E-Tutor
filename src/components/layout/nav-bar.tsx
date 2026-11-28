@@ -13,9 +13,16 @@ import {
   X,
 } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
+
 import GraduationCap from "@/assets/images(1)/GraduationCap.svg";
+import { useCurrentUser } from "@/features/auth/hooks/use-current-user";
+import { UserAccountMenu } from "@/features/auth/components/user-account-menu";
+
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const t = useTranslations("auth.nav");
+  const { user, status, dashboardHref, logout } = useCurrentUser();
 
   return (
     <header className="relative border-b border-gray-100 bg-white">
@@ -83,19 +90,31 @@ export default function Navbar() {
 
         {/* Desktop Buttons */}
         <div className="hidden shrink-0 items-center gap-3 sm:flex">
-          <Link
-            href="/register"
-            className="flex h-10 items-center bg-button-primary-soft px-4 text-button-sm text-button-primary-soft-foreground transition-colors hover:bg-button-primary hover:text-white md:h-12 md:px-6"
-          >
-            Create Account
-          </Link>
+          {status === "loading" ? (
+            <div className="h-12 w-44 animate-pulse bg-gray-100" aria-hidden="true" />
+          ) : user ? (
+            <UserAccountMenu
+              user={user}
+              dashboardHref={dashboardHref}
+              onLogout={logout}
+            />
+          ) : (
+            <>
+              <Link
+                href="/register"
+                className="flex h-10 items-center bg-button-primary-soft px-4 text-button-sm text-button-primary-soft-foreground transition-colors hover:bg-button-primary hover:text-white md:h-12 md:px-6"
+              >
+                {t("createAccount")}
+              </Link>
 
-          <Link
-            href="/login"
-            className="flex h-10 items-center bg-button-primary px-4 text-button-sm text-button-primary-foreground transition-colors hover:bg-button-primary-hover md:h-12 md:px-6"
-          >
-            Sign In
-          </Link>
+              <Link
+                href="/login"
+                className="flex h-10 items-center bg-button-primary px-4 text-button-sm text-button-primary-foreground transition-colors hover:bg-button-primary-hover md:h-12 md:px-6"
+              >
+                {t("signIn")}
+              </Link>
+            </>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
@@ -128,21 +147,35 @@ export default function Navbar() {
 
           {/* Mobile Links */}
           <div className="flex flex-col gap-3">
-            <Link
-              href="/register"
-              onClick={() => setIsMenuOpen(false)}
-              className="bg-button-primary-soft py-3 text-center text-button-primary-soft-foreground"
-            >
-              Create Account
-            </Link>
+            {status === "loading" ? (
+              <div className="h-24 animate-pulse bg-gray-100" aria-hidden="true" />
+            ) : user ? (
+              <UserAccountMenu
+                user={user}
+                dashboardHref={dashboardHref}
+                onLogout={logout}
+                onNavigate={() => setIsMenuOpen(false)}
+                variant="mobile"
+              />
+            ) : (
+              <>
+                <Link
+                  href="/register"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="bg-button-primary-soft py-3 text-center text-button-primary-soft-foreground"
+                >
+                  {t("createAccount")}
+                </Link>
 
-            <Link
-              href="/login"
-              onClick={() => setIsMenuOpen(false)}
-              className="bg-button-primary py-3 text-center text-button-primary-foreground"
-            >
-              Sign In
-            </Link>
+                <Link
+                  href="/login"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="bg-button-primary py-3 text-center text-button-primary-foreground"
+                >
+                  {t("signIn")}
+                </Link>
+              </>
+            )}
           </div>
         </div>
       )}

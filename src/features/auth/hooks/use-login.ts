@@ -2,12 +2,13 @@
 
 import { useCallback, useState } from "react";
 import { useTranslations } from "next-intl";
-import { getSession, signIn } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import type { SignInResponse } from "next-auth/react";
 import { toast } from "sonner";
 
 import { useRouter } from "@/i18n/navigation";
 import type { LoginFormValues } from "@/features/auth/schema/Vaildations";
+import type { DashboardHref } from "@/features/auth/utils/auth-destination";
 
 type LoginCredentials = Pick<LoginFormValues, "email" | "password">;
 
@@ -48,26 +49,35 @@ export function useLogin() {
           return;
         }
 
-        let session: Awaited<ReturnType<typeof getSession>> = null;
+        const destinationResponse = await fetch(
+          "/api/backend/auth/destination",
+          { cache: "no-store" },
+        );
+        const destinationData = (await destinationResponse
+          .json()
+          .catch(() => null)) as {
+          dashboardHref?: unknown;
+        } | null;
+        const validDashboardHrefs: DashboardHref[] = [
+          "/admin/dashboard",
+          "/instructor/dashboard",
+          "/student/dashboard",
+        ];
+        const dashboardHref = validDashboardHrefs.find(
+          (href) => href === destinationData?.dashboardHref,
+        );
 
-        try {
-          session = await getSession();
-        } catch (error) {
+        if (!destinationResponse.ok || !dashboardHref) {
           console.error(
-            "[auth] Sign-in succeeded, but session lookup failed:",
-            error,
+            "[auth] Sign-in succeeded, but a dashboard destination could not be resolved.",
+            destinationResponse.status,
           );
+          toast.error(t("loginError"));
+          return;
         }
 
         toast.success(t("loginSuccess"));
-        router.replace(
-          session?.user.isAdmin
-            ? "/admin/dashboard"
-            : session?.user.isInstructor
-              ? "/instructor/dashboard"
-              : "/student/dashboard",
-        );
-        router.refresh();
+        router.replace(dashboardHref);
       } catch (error) {
         console.error("[auth] Unexpected sign-in flow error:", error);
         toast.error(t("loginError"));

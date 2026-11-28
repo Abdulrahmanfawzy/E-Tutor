@@ -1,3 +1,7 @@
+"use client";
+
+import { useTranslations } from "next-intl";
+
 import { ChatAvatar } from "./chat-avatar";
 
 import type { Conversation } from "@/types/messaging-types";
@@ -13,6 +17,8 @@ export function ConversationItem({
   selected,
   onClick,
 }: ConversationItemProps) {
+  const t = useTranslations("messages");
+
   return (
     <button
       type="button"
@@ -46,7 +52,7 @@ export function ConversationItem({
       {conversation.unread && (
         <span
           className="size-2 shrink-0 rounded-full bg-orange-400"
-          aria-label="Unread messages"
+          aria-label={t("sidebar.unreadMessages")}
         />
       )}
     </button>

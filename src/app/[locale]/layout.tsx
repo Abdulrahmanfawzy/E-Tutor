@@ -9,6 +9,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { routing } from "@/i18n/routing";
 
 import "../globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -77,8 +78,9 @@ export default async function LocaleLayout({
       <body className="flex min-h-full flex-col">
         <NextIntlClientProvider>
           <QueryProvider>
-            <LanguageSwitcher />
+
             {children}
+            <Toaster richColors position="top-right" />
           </QueryProvider>
         </NextIntlClientProvider>
       </body>

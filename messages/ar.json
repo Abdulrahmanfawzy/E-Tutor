@@ -239,11 +239,19 @@
     }
   },
   "courseCategories": {
-    "title": "استكشف فئات الدورات",
-    "description": "اكتشف المهارات التي تحتاجها وتعلّم من خبراء الصناعة.",
+    "title": "استكشف فئات الكورسات",
+    "description": "اكتشف المهارات التي تحتاجها وتعلم من خبراء الصناعة.",
+    "bestSellingTitle": "أفضل الكورسات مبيعًا في {category}",
+    "popularInstructorsTitle": "أشهر المدربين في {category}",
+    "courseCount": "{count} كورس",
+    "students": "طالب",
+    "previousTools": "الأدوات السابقة",
+    "nextTools": "الأدوات التالية",
+    "viewCourseDetails": "عرض تفاصيل كورس {title}",
+    "loadError": "تعذر تحميل بيانات الفئة. يُرجى المحاولة مرة أخرى.",
     "catalog": {
-      "title": "كل الدورات",
-      "searchPlaceholder": "ابحث في الدورات...",
+      "title": "جميع الكورسات",
+      "searchPlaceholder": "ابحث عن الكورسات...",
       "filter": "تصفية",
       "sort": "ترتيب حسب",
       "all": "الكل",
@@ -255,13 +263,13 @@
       "title": "الأدوات الشائعة"
     },
     "popularKeywords": {
-      "title": "الكلمات الرئيسية الشائعة"
+      "title": "الكلمات المفتاحية الشائعة"
     },
     "popularInstructors": {
-      "title": "المدربون المشهورون"
+      "title": "أشهر المدربين"
     },
     "bestSelling": {
-      "title": "الدورات الأكثر مبيعاً"
+      "title": "أفضل الكورسات مبيعًا"
     }
   },
   "giftCourse": {
@@ -296,7 +304,11 @@
     }
   },
   "dashboard": {
-     "periods": { "today": "اليوم", "week": "هذا الأسبوع", "month": "هذا الشهر" },
+    "periods": {
+      "today": "اليوم",
+      "week": "هذا الأسبوع",
+      "month": "هذا الشهر"
+    },
     "sidebar": {
       "dashboard": "لوحة التحكم",
       "createCourse": "أنشئ دورة جديدة",
@@ -322,12 +334,12 @@
       "terms": "الشروط والأحكام"
     },
     "cards": {
-  "recentActivity": "آخر النشاطات",
-  "revenue": "الإيرادات",
-  "profileView": "مشاهدات الملف الشخصي",
-  "courseRating": "التقييم العام للكورس",
-  "courseOverview": "نظرة عامة على الكورس"
-}
+      "recentActivity": "آخر النشاطات",
+      "revenue": "الإيرادات",
+      "profileView": "مشاهدات الملف الشخصي",
+      "courseRating": "التقييم العام للكورس",
+      "courseOverview": "نظرة عامة على الكورس"
+    }
   },
   "messages": {
     "sidebar": {
@@ -382,7 +394,6 @@
       "removeNamed": "إزالة {name}",
       "deleteNamed": "حذف {name}",
       "editNamed": "تعديل {name}"
-     
     },
     "metadata": {
       "advancedTitle": "إنشاء دورة | إيدوغارد",
@@ -754,110 +765,89 @@
       "viewed": "مشاهدات الطلاب"
     }
   },
-  "ShoppingCart": {
-    "home": "الرئيسية",
-    "pageTitle": "سلة التسوق",
-    "breadcrumbHome": "الرئيسية",
-    "breadcrumbCart": "سلة التسوق",
-    "cartTitle": "سلة التسوق",
-    "course": "الكورس",
-    "prices": "السعر",
-    "action": "الإجراء",
-    "courseBy": "المحاضر:",
-    "review": "تقييم",
-    "moveToWishlist": "إضافة إلى المفضلة",
-    "removeCourse": "حذف الكورس",
-    "emptyCart": "سلة التسوق فارغة",
-    "subtotal": "المجموع الفرعي",
-    "couponDiscount": "خصم الكوبون",
-    "taxes": "الضرائب",
-    "total": "الإجمالي:",
-    "proceedToCheckout": "إتمام عملية الدفع",
-    "applyCoupon": "استخدم كود الخصم",
-    "couponPlaceholder": "كود الخصم",
-    "apply": "تطبيق",
-    "navbar": {
-      "browse": "تصفح",
-      "searchPlaceholder": "عن ماذا تبحث؟",
-      "notifications": "الإشعارات",
-      "wishlist": "المفضلة",
-      "cart": "سلة التسوق",
-      "createAccount": "إنشاء حساب",
-      "signIn": "تسجيل الدخول"
-    }
-  }
-  ,
   "instructorEarning": {
-  "stats": {
-    "totalRevenue": "إجمالي الإيرادات",
-    "currentBalance": "الرصيد الحالي",
-    "totalWithdrawals": "إجمالي السحوبات",
-    "todayRevenue": "إيرادات اليوم"
-  },
-  "statistic": {
-    "title": "الإحصائيات",
-    "revenue": "الإيرادات"
-  },
-  "cards": {
-    "title": "البطاقات",
-    "expires": "تنتهي في",
-    "cardName": "اسم البطاقة",
-    "addNewCard": "إضافة بطاقة جديدة",
-    "previous": "البطاقة السابقة",
-    "next": "البطاقة التالية",
-    "options": "خيارات البطاقة",
-"copy": "نسخ رقم البطاقة"
-  },
-  "withdraw": {
-    "title": "اسحب أموالك",
-    "paymentMethod": "طريقة الدفع:",
-    "paypalNote": "ستتم إعادة توجيهك إلى موقع PayPal بعد مراجعة طلبك.",
-    "currentBalance": "الرصيد الحالي",
-    "withdrawMoney": "سحب الأموال"
-  },
-  "history": {
-    "title": "سجل السحب",
-    "date": "التاريخ",
-    "method": "الطريقة",
-    "amount": "المبلغ",
-    "status": "الحالة",
-    "cancelWithdraw": "إلغاء السحب",
-    "options": "خيارات",
-    "statuses": {
-      "pending": "قيد الانتظار",
-      "completed": "مكتمل",
-      "canceled": "ملغي"
+    "stats": {
+      "totalRevenue": "إجمالي الإيرادات",
+      "currentBalance": "الرصيد الحالي",
+      "totalWithdrawals": "إجمالي السحوبات",
+      "todayRevenue": "إيرادات اليوم"
+    },
+    "statistic": {
+      "title": "الإحصائيات",
+      "revenue": "الإيرادات"
+    },
+    "cards": {
+      "title": "البطاقات",
+      "expires": "تنتهي في",
+      "cardName": "اسم البطاقة",
+      "addNewCard": "إضافة بطاقة جديدة",
+      "previous": "البطاقة السابقة",
+      "next": "البطاقة التالية",
+      "options": "خيارات البطاقة",
+      "copy": "نسخ رقم البطاقة"
+    },
+    "withdraw": {
+      "title": "اسحب أموالك",
+      "paymentMethod": "طريقة الدفع:",
+      "paypalNote": "ستتم إعادة توجيهك إلى موقع PayPal بعد مراجعة طلبك.",
+      "currentBalance": "الرصيد الحالي",
+      "withdrawMoney": "سحب الأموال"
+    },
+    "history": {
+      "title": "سجل السحب",
+      "date": "التاريخ",
+      "method": "الطريقة",
+      "amount": "المبلغ",
+      "status": "الحالة",
+      "cancelWithdraw": "إلغاء السحب",
+      "options": "خيارات",
+      "statuses": {
+        "pending": "قيد الانتظار",
+        "completed": "مكتمل",
+        "canceled": "ملغي"
+      }
+    },
+    "addCard": {
+      "title": "بطاقة دفع جديدة",
+      "name": "الاسم",
+      "namePlaceholder": "الاسم على البطاقة",
+      "cardNumber": "رقم البطاقة",
+      "cardNumberPlaceholder": "رقم البطاقة",
+      "expiry": "الشهر / السنة",
+      "cvc": "CVC",
+      "cvcPlaceholder": "رمز الأمان",
+      "cancel": "إلغاء",
+      "submit": "إضافة البطاقة"
     }
   },
-
-  "addCard": {
-  "title": "بطاقة دفع جديدة",
-  "name": "الاسم",
-  "namePlaceholder": "الاسم على البطاقة",
-  "cardNumber": "رقم البطاقة",
-  "cardNumberPlaceholder": "رقم البطاقة",
-  "expiry": "الشهر / السنة",
-  "cvc": "CVC",
-  "cvcPlaceholder": "رمز الأمان",
-  "cancel": "إلغاء",
-  "submit": "إضافة البطاقة"
-}
-},
-"studentCourses": {
-  "title": "الكورسات ({count})",
-  "filters": {
-    "search": "بحث",
-    "searchPlaceholder": "ابحث في كورساتك...",
-    "sortBy": "ترتيب حسب",
-    "status": "الحالة",
-    "teacher": "المدرّس"
+  "studentCourses": {
+    "title": "الكورسات ({count})",
+    "filters": {
+      "search": "بحث",
+      "searchPlaceholder": "ابحث في كورساتك...",
+      "sortBy": "ترتيب حسب",
+      "status": "الحالة",
+      "teacher": "المدرّس"
+    },
+    "sort": {
+      "latest": "الأحدث",
+      "oldest": "الأقدم",
+      "progress": "التقدّم"
+    },
+    "status": {
+      "all": "كل الكورسات",
+      "inProgress": "قيد التقدّم",
+      "completed": "مكتمل"
+    },
+    "teacher": {
+      "all": "كل المدرّسين"
+    },
+    "card": {
+      "watchLecture": "شاهد المحاضرة",
+      "completed": "مكتمل"
+    }
   },
-  "sort": { "latest": "الأحدث", "oldest": "الأقدم", "progress": "التقدّم" },
-  "status": { "all": "كل الكورسات", "inProgress": "قيد التقدّم", "completed": "مكتمل" },
-  "teacher": { "all": "كل المدرّسين" },
-  "card": { "watchLecture": "شاهد المحاضرة", "completed": "مكتمل" }
-},
- "courseListing": {
+  "courseListing": {
     "searchPlaceholder": "ابحث عن الدورات...",
     "searchLabel": "البحث عن الدورات",
     "clearSearch": "مسح",
@@ -952,5 +942,4 @@
     "students": "طالب",
     "viewCourseDetails": "عرض تفاصيل الدورة {title}"
   }
-
 }

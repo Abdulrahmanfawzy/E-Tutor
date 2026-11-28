@@ -241,6 +241,14 @@
   "courseCategories": {
     "title": "Explore course categories",
     "description": "Discover the skills you need and learn from industry experts.",
+    "bestSellingTitle": "Best selling courses in {category}",
+    "popularInstructorsTitle": "Popular instructors in {category}",
+    "courseCount": "{count} courses",
+    "students": "students",
+    "previousTools": "Previous tools",
+    "nextTools": "Next tools",
+    "viewCourseDetails": "View course details for {title}",
+    "loadError": "Unable to load category data. Please try again.",
     "catalog": {
       "title": "All courses",
       "searchPlaceholder": "Search courses...",
@@ -288,7 +296,11 @@
     }
   },
   "dashboard": {
-    "periods": { "today": "Today", "week": "This week", "month": "This month" },
+    "periods": {
+      "today": "Today",
+      "week": "This week",
+      "month": "This month"
+    },
     "sidebar": {
       "dashboard": "Dashboard",
       "createCourse": "Create New Course",
@@ -314,12 +326,12 @@
       "terms": "Terms & Condition"
     },
     "cards": {
-  "recentActivity": "Recent Activity",
-  "revenue": "Revenue",
-  "profileView": "Profile View",
-  "courseRating": "Overall Course Rating",
-  "courseOverview": "Course Overview"
-}
+      "recentActivity": "Recent Activity",
+      "revenue": "Revenue",
+      "profileView": "Profile View",
+      "courseRating": "Overall Course Rating",
+      "courseOverview": "Course Overview"
+    }
   },
   "messages": {
     "sidebar": {
@@ -374,7 +386,6 @@
       "removeNamed": "Remove {name}",
       "deleteNamed": "Delete {name}",
       "editNamed": "Edit {name}"
-      
     },
     "metadata": {
       "advancedTitle": "Create Course | Eduguard",
@@ -780,74 +791,87 @@
     }
   },
   "instructorEarning": {
-  "stats": {
-    "totalRevenue": "Total Revenue",
-    "currentBalance": "Current Balance",
-    "totalWithdrawals": "Total Withdrawals",
-    "todayRevenue": "Today Revenue"
-  },
-  "statistic": {
-    "title": "Statistic",
-    "revenue": "Revenue"
-  },
-  "cards": {
-    "title": "Cards",
-    "expires": "Expires",
-    "cardName": "Card name",
-    "addNewCard": "Add new card",
-    "previous": "Previous card",
-    "next": "Next card",
-    "options": "Card options",
-    "copy": "Copy card number"
-  },
-  "withdraw": {
-    "title": "Withdraw your money",
-    "paymentMethod": "Payment method:",
-    "paypalNote": "You will be redirected to the PayPal site after reviewing your order.",
-    "currentBalance": "Current Balance",
-    "withdrawMoney": "Withdraw Money"
-  },
-  "history": {
-    "title": "Withdraw History",
-    "date": "Date",
-    "method": "Method",
-    "amount": "Amount",
-    "status": "Status",
-    "cancelWithdraw": "Cancel Withdraw",
-    "options": "Options",
-    "statuses": {
-      "pending": "Pending",
-      "completed": "Completed",
-      "canceled": "Canceled"
+    "stats": {
+      "totalRevenue": "Total Revenue",
+      "currentBalance": "Current Balance",
+      "totalWithdrawals": "Total Withdrawals",
+      "todayRevenue": "Today Revenue"
+    },
+    "statistic": {
+      "title": "Statistic",
+      "revenue": "Revenue"
+    },
+    "cards": {
+      "title": "Cards",
+      "expires": "Expires",
+      "cardName": "Card name",
+      "addNewCard": "Add new card",
+      "previous": "Previous card",
+      "next": "Next card",
+      "options": "Card options",
+      "copy": "Copy card number"
+    },
+    "withdraw": {
+      "title": "Withdraw your money",
+      "paymentMethod": "Payment method:",
+      "paypalNote": "You will be redirected to the PayPal site after reviewing your order.",
+      "currentBalance": "Current Balance",
+      "withdrawMoney": "Withdraw Money"
+    },
+    "history": {
+      "title": "Withdraw History",
+      "date": "Date",
+      "method": "Method",
+      "amount": "Amount",
+      "status": "Status",
+      "cancelWithdraw": "Cancel Withdraw",
+      "options": "Options",
+      "statuses": {
+        "pending": "Pending",
+        "completed": "Completed",
+        "canceled": "Canceled"
+      }
+    },
+    "addCard": {
+      "title": "New Payment Card",
+      "name": "Name",
+      "namePlaceholder": "Name on card",
+      "cardNumber": "Card Number",
+      "cardNumberPlaceholder": "Label",
+      "expiry": "MM / YY",
+      "cvc": "CVC",
+      "cvcPlaceholder": "Security Code",
+      "cancel": "Cancel",
+      "submit": "Add Card"
     }
   },
-  "addCard": {
-  "title": "New Payment Card",
-  "name": "Name",
-  "namePlaceholder": "Name on card",
-  "cardNumber": "Card Number",
-  "cardNumberPlaceholder": "Label",
-  "expiry": "MM / YY",
-  "cvc": "CVC",
-  "cvcPlaceholder": "Security Code",
-  "cancel": "Cancel",
-  "submit": "Add Card"
-}
-},
-"studentCourses": {
-  "title": "Courses ({count})",
-  "filters": {
-    "search": "Search",
-    "searchPlaceholder": "Search in your courses...",
-    "sortBy": "Sort by",
-    "status": "Status",
-    "teacher": "Teacher"
+  "studentCourses": {
+    "title": "Courses ({count})",
+    "filters": {
+      "search": "Search",
+      "searchPlaceholder": "Search in your courses...",
+      "sortBy": "Sort by",
+      "status": "Status",
+      "teacher": "Teacher"
+    },
+    "sort": {
+      "latest": "Latest",
+      "oldest": "Oldest",
+      "progress": "Progress"
+    },
+    "status": {
+      "all": "All Courses",
+      "inProgress": "In progress",
+      "completed": "Completed"
+    },
+    "teacher": {
+      "all": "All Teachers"
+    },
+    "card": {
+      "watchLecture": "Watch Lecture",
+      "completed": "Completed"
+    }
   },
-  "sort": { "latest": "Latest", "oldest": "Oldest", "progress": "Progress" },
-  "status": { "all": "All Courses", "inProgress": "In progress", "completed": "Completed" },
-  "teacher": { "all": "All Teachers" },
-  "card": { "watchLecture": "Watch Lecture", "completed": "Completed" }
-},
   "courseListing": {
     "searchPlaceholder": "Search courses...",
     "searchLabel": "Search courses",
